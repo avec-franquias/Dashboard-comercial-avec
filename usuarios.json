@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-15T19:55:51.650Z",
+ "atualizadoEm": "2026-09-15T19:57:28.313Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -21,7 +21,7 @@
   {
    "login": "diana.gracia",
    "nome": "Diana de Gracia",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [
     "ativacao",
