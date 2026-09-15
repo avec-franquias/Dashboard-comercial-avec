@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-15T19:57:28.313Z",
+ "atualizadoEm": "2026-09-15T19:59:05.740Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -32,6 +32,21 @@
    ],
    "senha": "pbkdf2$210000$532abfd835748b2d50537c3b29905d40$b1bc1a9f9e66d29e66ddabb1181a6313f1169745e59b5c5a38146e518e48d743",
    "criadoEm": "2026-09-15T19:54:54.408Z"
+  },
+  {
+   "login": "kater.hoss",
+   "nome": "Kater Hoss",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
+    "ativacao",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas"
+   ],
+   "senha": "pbkdf2$210000$4ea1301b845fa3f6a8b3a129c1fd5162$0392a12a76a84a188ecec26fcdab5e15b2dd97e4a41ce36346cb753d932d4e6a",
+   "criadoEm": "2026-09-15T19:59:05.312Z"
   }
  ]
 }
