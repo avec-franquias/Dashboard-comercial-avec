@@ -419,11 +419,27 @@ async function gh(g, caminho, opt = {}){
   });
   const j = await r.json().catch(() => ({}));
   if (!r.ok) {
-    const e = new Error(
-      r.status === 401 ? 'O token do GitHub é inválido ou expirou. Conecte de novo.' :
-      r.status === 403 ? 'O token não tem permissão para gravar no repositório (Contents: Read and write).' :
-      r.status === 404 ? 'not_found' : (j.message || 'Erro do GitHub ' + r.status));
-    e.status = r.status; throw e;
+    const h = n => r.headers.get(n) || '';
+    const sso = h('x-github-sso');
+    const escopos = h('x-oauth-scopes');
+    const precisa = h('x-accepted-github-permissions');
+    let texto;
+    if (r.status === 401) texto = 'O token é inválido ou expirou. Gere um novo e conecte de novo.';
+    else if (r.status === 404) texto = 'not_found';
+    else if (sso) texto = 'A organização exige autorização SSO para este token.';
+    else if (r.status === 403 && /rate limit/i.test(j.message || '')) texto = 'O GitHub limitou as tentativas por alguns minutos. Espere e tente de novo.';
+    else if (r.status === 403) texto = 'O GitHub não deixou gravar no repositório.';
+    else if (r.status === 409 && /rule/i.test(j.message || '')) texto = 'Uma regra de proteção da branch main impede gravar direto nela.';
+    else texto = 'O GitHub respondeu com erro ' + r.status + '.';
+    const det = [
+      j.message && `Resposta do GitHub: “${j.message}”`,
+      escopos !== '' && r.headers.has('x-oauth-scopes') && `Permissões do token clássico: ${escopos || '(nenhuma marcada)'}`,
+      precisa && `Permissão exigida: ${precisa}`,
+    ].filter(Boolean);
+    const e = new Error(texto);
+    e.status = r.status; e.detalhes = det; e.sso = (sso.match(/url=(\S+)/) || [])[1] || '';
+    e.classico = r.headers.has('x-oauth-scopes'); e.escopos = escopos;
+    throw e;
   }
   return j;
 }
@@ -513,6 +529,7 @@ function conectarGithub(){
         <li><b>Permissions → Repository permissions → Contents:</b> <i>Read and write</i>.</li>
         <li>Clique em <b>Generate token</b>, copie e cole abaixo.</li>
       </ol>
+      <p style="font-size:13px;margin:-6px 0 12px;color:var(--tinta-suave)">Mais simples: <a href="https://github.com/settings/tokens/new?scopes=repo&description=Portal%20do%20franqueado" target="_blank" rel="noopener" style="color:var(--roxo)">token clássico</a> com a caixa <b>repo</b> marcada (já vem marcada por este link).</p>
       <div class="campo"><label for="ghToken">Token</label><input class="inp" id="ghToken" type="password" autocomplete="off" placeholder="github_pat_…"></div>
       <div class="two-gh">
         <div class="campo"><label for="ghOwner">Conta</label><input class="inp" id="ghOwner" value="${esc(p.owner)}" autocapitalize="none" spellcheck="false"></div>
@@ -538,6 +555,8 @@ function conectarGithub(){
         try { info = await gh(g, ''); }
         catch (err) { if (err.status === 404) throw new Error(`Não encontrei ${g.owner}/${g.repo}. Confira os nomes e se o token tem acesso a esse repositório.`); throw err; }
         g.branch = info.default_branch || 'main';
+        if (info.permissions && info.permissions.push === false) throw Object.assign(new Error('A conta dona deste token não tem permissão de escrita em ' + g.owner + '/' + g.repo + '.'), { status: 403, detalhes: [] });
+        if (info.archived) throw Object.assign(new Error('O repositório está arquivado (somente leitura). Desarquive em Settings → General, no fim da página.'), { status: 403, detalhes: [] });
         const { lista, sha } = await ghLer(g);
         // publica os usuários deste navegador (ou a lista embutida) se preciso
         let base = lista ? clone(lista) : clone(PUBLICADO.usuarios);
@@ -551,7 +570,15 @@ function conectarGithub(){
         toast('GitHub conectado. A partir de agora os usuários são salvos automaticamente.');
         resolve();
       } catch (err) {
-        msg.className = 'msg erro'; msg.textContent = err.message === 'not_found' ? 'Não encontrei o repositório.' : err.message;
+        msg.className = 'msg erro';
+        let dica = '';
+        if (err.sso) dica = `Abra <a href="${esc(err.sso)}" target="_blank" rel="noopener">este link</a>, clique em <b>Authorize</b> e depois em Conectar de novo.`;
+        else if (err.status === 403 && err.classico && !/\brepo\b/.test(err.escopos)) dica = 'Este token clássico está <b>sem a caixa “repo”</b> marcada. Edite o token, marque <b>repo</b> e salve.';
+        else if (err.status === 403 && !err.classico) dica = 'No token (fine-grained), confira: <b>Resource owner</b> = a conta dona do repositório; <b>Repository access</b> = <i>Only select repositories</i> com o repositório escolhido; <b>Contents</b> = <i>Read and write</i>. Ou use um token clássico com a caixa <b>repo</b>.';
+        else if (err.status === 403) dica = 'A sua conta do GitHub precisa ter permissão de escrita nesse repositório.';
+        msg.innerHTML = esc(err.message === 'not_found' ? 'Não encontrei o repositório.' : err.message)
+          + (dica ? `<br>${dica}` : '')
+          + ((err.detalhes || []).length ? `<br><small style="color:var(--tinta-suave)">${err.detalhes.map(esc).join('<br>')}</small>` : '');
         b.disabled = false;
       }
     };
