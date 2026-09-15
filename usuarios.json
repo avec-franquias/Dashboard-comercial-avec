@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-15T23:48:11.567Z",
+ "atualizadoEm": "2026-09-15T23:48:15.312Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -36,7 +36,7 @@
   {
    "login": "kater.hoss",
    "nome": "Kater Hoss",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [
     "ativacao",
