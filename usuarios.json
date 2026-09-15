@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-15T23:48:22.242Z",
+ "atualizadoEm": "2026-09-15T23:48:25.491Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -81,7 +81,7 @@
   {
    "login": "eduardo.borges",
    "nome": "Eduardo Borges",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [
     "ativacao",
