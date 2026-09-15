@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-15T19:54:54.781Z",
+ "atualizadoEm": "2026-09-15T19:55:51.650Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -30,7 +30,7 @@
     "taxas",
     "propostas"
    ],
-   "senha": "pbkdf2$210000$78c14057e72672008af96ae9dbf0e7ae$52419c27ec533c0c1b69afc9e8f277210eb7f684debe2065a3132f86e54cc832",
+   "senha": "pbkdf2$210000$532abfd835748b2d50537c3b29905d40$b1bc1a9f9e66d29e66ddabb1181a6313f1169745e59b5c5a38146e518e48d743",
    "criadoEm": "2026-09-15T19:54:54.408Z"
   }
  ]
