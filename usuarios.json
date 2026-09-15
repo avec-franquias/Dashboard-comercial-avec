@@ -1,0 +1,22 @@
+{
+ "instalacao": "63bc96d9dc3c6c61",
+ "atualizadoEm": "2026-09-15T19:54:20.602Z",
+ "usuarios": [
+  {
+   "login": "christian.vieira",
+   "nome": "Christian Vieira",
+   "papel": "admin",
+   "ativo": true,
+   "modulos": [
+    "ativacao",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas"
+   ],
+   "senha": "pbkdf2$210000$b93f0866b14232541f7f0bef14775867$e65b788c604c5537888b6e1c5c21b3ad96349a4f7045729276e800574b62f563",
+   "recuperacao": "pbkdf2$210000$84544035d70101546ba7832ae9c7d518$bc72a2218111a2fd91d8cb1ad8e466d5513db56dd30b0573c5e40cd716ae8da7",
+   "criadoEm": "2026-09-15T19:03:52.553Z"
+  }
+ ]
+}
