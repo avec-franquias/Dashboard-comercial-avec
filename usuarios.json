@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-15T23:48:25.491Z",
+ "atualizadoEm": "2026-09-15T23:48:28.727Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -96,7 +96,7 @@
   {
    "login": "joao.alckmin",
    "nome": "João Alckmin",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [
     "ativacao",
