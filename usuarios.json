@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-15T23:48:28.727Z",
+ "atualizadoEm": "2026-09-15T23:48:32.218Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -111,7 +111,7 @@
   {
    "login": "anderson.santana",
    "nome": "Anderson Santana",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [
     "ativacao",
