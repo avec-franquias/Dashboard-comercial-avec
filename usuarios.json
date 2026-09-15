@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-15T20:09:50.208Z",
+ "atualizadoEm": "2026-09-15T20:17:27.773Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -107,6 +107,21 @@
    ],
    "senha": "pbkdf2$210000$e5c1674d964429ac9e634b0b6f55c514$e3076fc2b30473cbe9bfd4872399180fab8e1dd1c609c25229b7607cea99a01e",
    "criadoEm": "2026-09-15T20:09:49.826Z"
+  },
+  {
+   "login": "anderson.santana",
+   "nome": "Anderson Santana",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
+    "ativacao",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas"
+   ],
+   "senha": "pbkdf2$210000$dbdb0188686dff7a23eb54428c535ed4$779fce52617dd33754e00712d60347b8c8707b1a0fd3c42475a2eeb473a2e64d",
+   "criadoEm": "2026-09-15T20:17:27.368Z"
   }
  ]
 }
