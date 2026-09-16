@@ -886,18 +886,43 @@ async function arquivoComoJpg(file){
   return await new Promise(resolve=>c.toBlob(resolve,'image/jpeg',0.82));
 }
 async function prepararFotoLocal(inputId, hiddenId, previewId, statusId, pasta){
-  const file=$(inputId)?.files?.[0]; if(!file) throw new Error('Escolha uma imagem primeiro.');
+  const file=$(inputId)?.files?.[0];
+  if(!file) throw new Error('Escolha uma imagem primeiro.');
   if(!file.type.startsWith('image/')) throw new Error('Selecione um arquivo de imagem.');
+
+  const status=$(statusId), preview=$(previewId);
+  status.textContent='Preparando foto…';
+
+  let g=ghCfg();
+  if(!g){
+    await conectarGithub();
+    g=ghCfg();
+  }
+  if(!g) throw new Error('Conecte o GitHub para enviar a foto.');
+
   const blob=await arquivoComoJpg(file);
+  const base64=await blobParaBase64(blob);
   const nome=slugImg(file.name,'imagem');
   const caminho=`portal-assets/${pasta}/${nome}`;
-  UPLOADS_PENDENTES[caminho]=blob;
-  const url=URL.createObjectURL(blob);
-  $(hiddenId).value=caminho;
-  $(previewId).src=url;
-  $(statusId).textContent='✓ Foto pronta para publicação';
-  return caminho;
+
+  status.textContent='Enviando para o GitHub…';
+
+  await gh(g, `/contents/${caminho}`, {
+    method:'PUT',
+    body:{
+      message:`Portal: envia imagem ${nome}`,
+      content:base64,
+      branch:g.branch
+    }
+  });
+
+  const url=`https://raw.githubusercontent.com/${g.owner}/${g.repo}/${g.branch}/${caminho}`;
+  $(hiddenId).value=url;
+  preview.src=url + `?v=${Date.now()}`;
+  status.textContent='✓ Foto publicada no GitHub';
+  return url;
 }
+
 async function blobParaBase64(blob){
   return await new Promise((resolve,reject)=>{
     const r=new FileReader();
@@ -929,14 +954,14 @@ function abrirModalEditorHome(h){
   while(fotos.length < 6) fotos.push({titulo:'',texto:'',imagem:''});
   $('#modalRaiz').innerHTML = `<div class="modal-fundo"><form class="modal home-edit" id="formEditarHome" novalidate>
     <h2>Atualizar página inicial</h2>
-    <p class="sub">Edite tudo o que aparece na tela principal. As fotos ficam preparadas no navegador e entram no pacote de publicação. O GitHub Actions publica tudo automaticamente após você enviar o pacote ao repositório.</p>
+    <p class="sub">Edite tudo o que aparece na tela principal. As fotos são enviadas diretamente para o GitHub. Na primeira vez, o navegador pedirá a conexão; depois disso, a administradora não precisa repetir.</p>
     <div class="editor-home-grid">
       <div class="campo"><label>Título</label><input class="inp" id="ehTitulo" value="${esc(h.titulo)}"></div>
       <div class="campo"><label>Mês do destaque</label><input class="inp" id="ehMes" value="${esc(h.destaqueMes)}"></div>
       <div class="campo full"><label>Subtítulo</label><input class="inp" id="ehSub" value="${esc(h.subtitulo)}"></div>
       <div class="campo full"><label>Texto de abertura</label><textarea class="inp" id="ehIntro" rows="3">${esc(h.intro)}</textarea></div>
     </div>
-    <div class="home-bloco"><h3>Franqueados destaque</h3><p class="sub">Selecione uma foto do computador. Ela será preparada para entrar no próximo pacote de publicação.</p><div class="editor-home-grid">${cards.map((d,i)=>`<div class="editor-destaque"><h3>${i+1}º destaque</h3><div class="campo"><label>Nome</label><input class="inp" id="ehNome${i}" value="${esc(d.nome||'')}"></div><div class="campo"><label>Nível / legenda</label><input class="inp" id="ehNivel${i}" value="${esc(d.nivel||'')}"></div><div class="upload-box"><img class="upload-preview" id="ehPrev${i}" src="${esc(d.imagem||'')}" alt="Prévia"><div class="upload-row"><input type="file" id="ehFile${i}" accept="image/*"><button type="button" class="btn peq" id="ehUp${i}">Enviar foto</button></div><input type="hidden" id="ehImg${i}" value="${esc(d.imagem||'')}"><span class="upload-status" id="ehStatus${i}">${d.imagem?'Foto atual':'Nenhuma foto selecionada'}</span></div></div>`).join('')}</div></div>
+    <div class="home-bloco"><h3>Franqueados destaque</h3><p class="sub">Selecione uma foto do computador e clique em “Enviar foto”. Ela será publicada diretamente no GitHub.</p><div class="editor-home-grid">${cards.map((d,i)=>`<div class="editor-destaque"><h3>${i+1}º destaque</h3><div class="campo"><label>Nome</label><input class="inp" id="ehNome${i}" value="${esc(d.nome||'')}"></div><div class="campo"><label>Nível / legenda</label><input class="inp" id="ehNivel${i}" value="${esc(d.nivel||'')}"></div><div class="upload-box"><img class="upload-preview" id="ehPrev${i}" src="${esc(d.imagem||'')}" alt="Prévia"><div class="upload-row"><input type="file" id="ehFile${i}" accept="image/*"><button type="button" class="btn peq" id="ehUp${i}">Enviar foto</button></div><input type="hidden" id="ehImg${i}" value="${esc(d.imagem||'')}"><span class="upload-status" id="ehStatus${i}">${d.imagem?'Foto atual':'Nenhuma foto selecionada'}</span></div></div>`).join('')}</div></div>
     <div class="home-bloco"><h3>Novidade de produto</h3><div class="editor-home-grid">
       <div class="campo"><label>Título</label><input class="inp" id="ehNT" value="${esc(h.novidadeTitulo)}"></div>
       <div class="campo"><label>Período</label><input class="inp" id="ehNP" value="${esc(h.novidadePeriodo)}"></div>
@@ -954,15 +979,14 @@ function abrirModalEditorHome(h){
     </div></div>
     <div class="export-box hidden" id="areaDownloadPacote"></div>
     <div class="msg" id="msgEditarHome" role="alert"></div>
-    <div style="display:flex;gap:8px;justify-content:flex-end;position:sticky;bottom:0;background:#fff;padding-top:12px"><button type="button" class="btn linha" id="fecharEditarHome">Cancelar</button><button type="button" class="btn cheio" id="salvarEditarHome">Salvar e gerar pacote</button></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;position:sticky;bottom:0;background:#fff;padding-top:12px"><button type="button" class="btn linha" id="fecharEditarHome">Cancelar</button><button type="button" class="btn cheio" id="salvarEditarHome">Salvar e publicar</button></div>
   </form></div>`;
 
   const previewBind = (fileInputId, previewId) => { const f=$(fileInputId), p=$(previewId); f?.addEventListener('change',()=>{ const file=f.files?.[0]; if(!file) return; const u=URL.createObjectURL(file); p.src=u; }); };
   cards.forEach((_,i)=>previewBind('#ehFile'+i,'#ehPrev'+i));
   fotos.forEach((_,i)=>previewBind('#ehNF'+i,'#ehNFp'+i));
 
-  // No modelo GitHub Actions, o upload fica apenas preparado no navegador.
-  // O arquivo real é incluído quando o administrador gera o pacote ZIP.
+  // Upload direto: a administradora autoriza o GitHub uma vez neste navegador.
   cards.forEach((_,i)=>$('#ehUp'+i).onclick=async e=>{
     const b=e.currentTarget; b.disabled=true;
     try { await prepararFotoLocal('#ehFile'+i,'#ehImg'+i,'#ehPrev'+i,'#ehStatus'+i,'destaques'); }
@@ -982,8 +1006,12 @@ function abrirModalEditorHome(h){
     const btn=$('#salvarEditarHome'), msg=$('#msgEditarHome'), area=$('#areaDownloadPacote');
     btn.disabled=true;
     msg.className='msg';
-    msg.textContent='Gerando arquivo de publicação…';
+    msg.textContent='Salvando no GitHub…';
     try {
+      let g=ghCfg();
+      if(!g){ await conectarGithub(); g=ghCfg(); }
+      if(!g) throw new Error('Conecte o GitHub para publicar as alterações.');
+
       const home={
         titulo:$('#ehTitulo').value.trim(), subtitulo:$('#ehSub').value.trim(), intro:$('#ehIntro').value.trim(), destaqueMes:$('#ehMes').value.trim(),
         destaques:cards.map((_,i)=>({nome:$('#ehNome'+i).value.trim(),nivel:$('#ehNivel'+i).value.trim(),imagem:$('#ehImg'+i).value.trim()})),
@@ -992,35 +1020,28 @@ function abrirModalEditorHome(h){
         ajudaTitulo:$('#ehAT').value.trim(), ajudaTexto:$('#ehAX').value.trim(), ajudaUrl:$('#ehAU').value.trim(),
         instagram:$('#ehIG').value.trim(), facebook:$('#ehFB').value.trim(), linkedin:$('#ehLI').value.trim()
       };
-      const base = clone(HOME_CONFIG_PADRAO);
-      const anterior = JSON.parse(localStorage.getItem(CENTRAL_LOCAL) || 'null');
-      const doc = anterior && typeof anterior === 'object' ? anterior : base;
-      doc.home = home;
+
+      let doc={};
+      try { const l=await ghLerJson(g, ARQ_CENTRAL); doc=l.doc ? clone(l.doc) : {}; doc.home=home; await ghGravarJson(g, ARQ_CENTRAL, doc, l.sha, 'Portal: atualiza página inicial'); }
+      catch(err){ throw err; }
+
       localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(doc));
       window.PORTAL_PENDENTE_CENTRAL = doc;
-
-      const r=await gerarPacoteGitHub(doc);
-      const link=document.createElement('a');
-      link.href=r.url;
-      link.download=r.nome;
-      link.textContent=`Baixar ${r.nome}`;
-      link.className='btn cheio peq';
-      link.style.textDecoration='none';
-      area.innerHTML='<b>Arquivo pronto para publicar</b><span class="export-status">Envie este arquivo para a pasta <b>publicacoes</b> no GitHub. Depois o Actions fará a publicação.</span>';
-      area.appendChild(link);
-      area.classList.remove('hidden');
+      if(area) area.classList.add('hidden');
       msg.className='msg ok';
-      msg.textContent=`Pronto: ${r.nome} · ${r.n} foto(s) incluída(s).`;
-      try { link.click(); } catch {}
+      msg.textContent='✓ Página inicial publicada no GitHub.';
+      toast('Página inicial atualizada.');
+      await carregarHomeCentral();
+      setTimeout(()=>$('#modalRaiz').innerHTML='',700);
     } catch(err){
       msg.className='msg erro';
-      msg.textContent=err.message || 'Não foi possível gerar o arquivo.';
+      msg.textContent=err.message || 'Não foi possível publicar.';
     } finally {
       btn.disabled=false;
     }
   }
-
-  $('#salvarEditarHome').onclick = salvarHomeEGerar;}
+  $('#salvarEditarHome').onclick = salvarHomeEGerar;
+}
 
 function abrirEditorCentral(id='inicio'){
   if (!perfil || perfil.papel !== 'admin') return;
