@@ -851,9 +851,28 @@ async function carregarHomeCentral(){
   }
 }
 
+
+function imagemPortal(src){
+  if(!src) return '';
+  try { return new URL(src, location.href).href; } catch { return src; }
+}
+async function publicarHomeAtual(homeParcial){
+  let g=ghCfg();
+  if(!g){ await conectarGithub(); g=ghCfg(); }
+  if(!g) throw new Error('Conecte o GitHub para publicar a alteração.');
+  const l=await ghLerJson(g, ARQ_CENTRAL);
+  const doc=l.doc ? clone(l.doc) : {};
+  doc.home={...(doc.home||{}), ...homeParcial};
+  await ghGravarJson(g, ARQ_CENTRAL, doc, l.sha, 'Portal: atualiza página inicial');
+  localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(doc));
+  window.PORTAL_PENDENTE_CENTRAL=doc;
+  await carregarHomeCentral();
+  return doc;
+}
+
 function renderHomePrincipal(h){
-  const cards = (h.destaques || []).map(d => `<figure class="home-destaque"><img src="${esc(d.imagem || '')}" alt="${esc(d.nome || '')}"><figcaption class="hd-info"><b>${esc(d.nome || '')}</b><small>${esc(d.nivel || '')}</small></figcaption></figure>`).join('');
-  const novidades = (h.novidadeFotos || []).filter(x => x && x.imagem).map(d => `<figure class="novidade-card"><img src="${esc(d.imagem)}" alt="${esc(d.titulo || 'Novidade de produto')}"><figcaption class="nf-info"><b>${esc(d.titulo || '')}</b><small>${esc(d.texto || '')}</small></figcaption></figure>`).join('');
+  const cards = (h.destaques || []).map(d => `<figure class="home-destaque"><img src="${esc(imagemPortal(d.imagem || ''))}" alt="${esc(d.nome || '')}"><figcaption class="hd-info"><b>${esc(d.nome || '')}</b><small>${esc(d.nivel || '')}</small></figcaption></figure>`).join('');
+  const novidades = (h.novidadeFotos || []).filter(x => x && x.imagem).map(d => `<figure class="novidade-card"><img src="${esc(imagemPortal(d.imagem))}" alt="${esc(d.titulo || 'Novidade de produto')}"><figcaption class="nf-info"><b>${esc(d.titulo || '')}</b><small>${esc(d.texto || '')}</small></figcaption></figure>`).join('');
   const ajuda = h.ajudaUrl ? `<a href="${esc(h.ajudaUrl)}" target="_blank" rel="noopener">Central de ajuda</a>` : '';
   return `<article>
     <h1>${esc(h.titulo)}</h1>
@@ -916,11 +935,11 @@ async function prepararFotoLocal(inputId, hiddenId, previewId, statusId, pasta){
     }
   });
 
-  const url=`https://raw.githubusercontent.com/${g.owner}/${g.repo}/${g.branch}/${caminho}`;
-  $(hiddenId).value=url;
+  const url=imagemPortal(caminho);
+  $(hiddenId).value=caminho;
   preview.src=url + `?v=${Date.now()}`;
   status.textContent='✓ Foto publicada no GitHub';
-  return url;
+  return caminho;
 }
 
 async function blobParaBase64(blob){
@@ -989,9 +1008,17 @@ function abrirModalEditorHome(h){
   // Upload direto: a administradora autoriza o GitHub uma vez neste navegador.
   cards.forEach((_,i)=>$('#ehUp'+i).onclick=async e=>{
     const b=e.currentTarget; b.disabled=true;
-    try { await prepararFotoLocal('#ehFile'+i,'#ehImg'+i,'#ehPrev'+i,'#ehStatus'+i,'destaques'); }
-    catch(err) { $('#ehStatus'+i).textContent='Erro: '+(err.message||'falha ao publicar a foto'); }
-    finally { b.disabled=false; }
+    try {
+      const caminho=await prepararFotoLocal('#ehFile'+i,'#ehImg'+i,'#ehPrev'+i,'#ehStatus'+i,'destaques');
+      const atual=await window.portalLerCentral() || {};
+      const atuais=Array.isArray(atual.home?.destaques) ? atual.home.destaques.slice() : cards.map(x=>({...x}));
+      while(atuais.length<4) atuais.push({nome:'',nivel:'',imagem:''});
+      atuais[i]={...(atuais[i]||{}),nome:$('#ehNome'+i).value.trim(),nivel:$('#ehNivel'+i).value.trim(),imagem:caminho};
+      await publicarHomeAtual({destaques:atuais});
+      $('#ehStatus'+i).textContent='✓ Foto publicada e vinculada à página inicial';
+    } catch(err) {
+      $('#ehStatus'+i).textContent='Erro: '+(err.message||'falha ao publicar a foto');
+    } finally { b.disabled=false; }
   });
 
   const ehLote=$('#ehFilesLote'), ehLoteBtn=$('#ehEnviarLote'), ehLoteStatus=$('#ehLoteStatus');
@@ -1000,25 +1027,37 @@ function abrirModalEditorHome(h){
     if(!files.length){ ehLoteStatus.textContent='Escolha as fotos primeiro.'; return; }
     ehLoteBtn.disabled=true;
     try{
-      if(files.length>4) ehLoteStatus.textContent='Serão usadas apenas as 4 primeiras fotos.';
+      const atual=await window.portalLerCentral() || {};
+      const atuais=Array.isArray(atual.home?.destaques) ? atual.home.destaques.slice() : cards.map(x=>({...x}));
+      while(atuais.length<4) atuais.push({nome:'',nivel:'',imagem:''});
       let ok=0;
       for(let i=0;i<files.length;i++){
         const dt=new DataTransfer(); dt.items.add(files[i]);
         const inp=$('#ehFile'+i); if(inp) inp.files=dt.files;
-        await prepararFotoLocal('#ehFile'+i,'#ehImg'+i,'#ehPrev'+i,'#ehStatus'+i,'destaques');
+        const caminho=await prepararFotoLocal('#ehFile'+i,'#ehImg'+i,'#ehPrev'+i,'#ehStatus'+i,'destaques');
+        atuais[i]={...(atuais[i]||{}),nome:$('#ehNome'+i).value.trim(),nivel:$('#ehNivel'+i).value.trim(),imagem:caminho};
         ok++;
-        ehLoteStatus.textContent=`${ok} de ${files.length} foto(s) publicada(s)…`;
+        ehLoteStatus.textContent=`${ok} de ${files.length} foto(s) enviada(s)…`;
       }
-      ehLoteStatus.textContent=`✓ ${ok} foto(s) publicada(s) nos destaques.`;
+      await publicarHomeAtual({destaques:atuais});
+      ehLoteStatus.textContent=`✓ ${ok} foto(s) publicadas e vinculadas à página inicial.`;
     }catch(err){ ehLoteStatus.textContent='Erro: '+(err.message||'falha ao publicar as fotos'); }
     finally{ ehLoteBtn.disabled=false; }
   });
 
   fotos.forEach((_,i)=>$('#ehNFUp'+i).onclick=async e=>{
     const b=e.currentTarget; b.disabled=true;
-    try { await prepararFotoLocal('#ehNF'+i,'#ehNFu'+i,'#ehNFp'+i,'#ehNFs'+i,'novidades'); }
-    catch(err) { $('#ehNFs'+i).textContent='Erro: '+(err.message||'falha ao publicar a foto'); }
-    finally { b.disabled=false; }
+    try {
+      const caminho=await prepararFotoLocal('#ehNF'+i,'#ehNFu'+i,'#ehNFp'+i,'#ehNFs'+i,'novidades');
+      const atual=await window.portalLerCentral() || {};
+      const atuais=Array.isArray(atual.home?.novidadeFotos) ? atual.home.novidadeFotos.slice() : [];
+      while(atuais.length<=i) atuais.push({titulo:'',texto:'',imagem:''});
+      atuais[i]={...(atuais[i]||{}),titulo:$('#ehNFt'+i).value.trim(),texto:$('#ehNFx'+i).value.trim(),imagem:caminho};
+      await publicarHomeAtual({novidadeFotos:atuais});
+      $('#ehNFs'+i).textContent='✓ Foto publicada e vinculada à página inicial';
+    } catch(err) {
+      $('#ehNFs'+i).textContent='Erro: '+(err.message||'falha ao publicar a foto');
+    } finally { b.disabled=false; }
   });
 
   const ehNFLote=$('#ehNFFilesLote'), ehNFLoteBtn=$('#ehNFEnviarLote'), ehNFLoteStatus=$('#ehNFLoteStatus');
@@ -1027,15 +1066,20 @@ function abrirModalEditorHome(h){
     if(!files.length){ ehNFLoteStatus.textContent='Escolha as fotos primeiro.'; return; }
     ehNFLoteBtn.disabled=true;
     try{
+      const atual=await window.portalLerCentral() || {};
+      const atuais=Array.isArray(atual.home?.novidadeFotos) ? atual.home.novidadeFotos.slice() : [];
+      while(atuais.length<6) atuais.push({titulo:'',texto:'',imagem:''});
       let ok=0;
       for(let i=0;i<files.length;i++){
         const dt=new DataTransfer(); dt.items.add(files[i]);
         const inp=$('#ehNF'+i); if(inp) inp.files=dt.files;
-        await prepararFotoLocal('#ehNF'+i,'#ehNFu'+i,'#ehNFp'+i,'#ehNFs'+i,'novidades');
+        const caminho=await prepararFotoLocal('#ehNF'+i,'#ehNFu'+i,'#ehNFp'+i,'#ehNFs'+i,'novidades');
+        atuais[i]={...(atuais[i]||{}),titulo:$('#ehNFt'+i).value.trim(),texto:$('#ehNFx'+i).value.trim(),imagem:caminho};
         ok++;
-        ehNFLoteStatus.textContent=`${ok} de ${files.length} foto(s) publicada(s)…`;
+        ehNFLoteStatus.textContent=`${ok} de ${files.length} foto(s) enviada(s)…`;
       }
-      ehNFLoteStatus.textContent=`✓ ${ok} foto(s) publicada(s) nas novidades.`;
+      await publicarHomeAtual({novidadeFotos:atuais.filter(x=>x.titulo||x.texto||x.imagem)});
+      ehNFLoteStatus.textContent=`✓ ${ok} foto(s) publicadas e vinculadas às novidades.`;
     }catch(err){ ehNFLoteStatus.textContent='Erro: '+(err.message||'falha ao publicar as fotos'); }
     finally{ ehNFLoteBtn.disabled=false; }
   });
