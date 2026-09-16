@@ -906,10 +906,8 @@ async function blobParaBase64(blob){
     r.readAsDataURL(blob);
   });
 }
-async function gerarPacoteGitHub(){
-  const h=await window.portalLerCentral() || clone(HOME_CONFIG_PADRAO);
-  if(!h.home) h.home={};
-  if(window.PORTAL_PENDENTE_CENTRAL) Object.assign(h, clone(window.PORTAL_PENDENTE_CENTRAL));
+async function gerarPacoteGitHub(h){
+  h = h || clone(HOME_CONFIG_PADRAO);
   const files=[];
   for (const [path,blob] of Object.entries(UPLOADS_PENDENTES)) {
     const base64=await blobParaBase64(blob);
@@ -921,15 +919,7 @@ async function gerarPacoteGitHub(){
   const url=URL.createObjectURL(blob);
   const now=new Date().toISOString().replace(/[:.]/g,'-');
   const nome=`portal-publicacao-${now}.json`;
-  const a=document.createElement('a');
-  a.href=url; a.download=nome; a.textContent='Baixar arquivo de publicação';
-  a.className='btn cheio peq';
-  a.target='_blank';
-  const area=document.getElementById('areaDownloadPacote');
-  if(area){ area.innerHTML=''; area.appendChild(a); area.classList.remove('hidden'); }
-  try { a.click(); } catch {}
-  setTimeout(()=>URL.revokeObjectURL(url),60000);
-  return {nome,n:Object.keys(UPLOADS_PENDENTES).length};
+  return {nome,n:Object.keys(UPLOADS_PENDENTES).length,url};
 }
 
 function abrirModalEditorHome(h){
@@ -964,7 +954,7 @@ function abrirModalEditorHome(h){
     </div></div>
     <div class="export-box hidden" id="areaDownloadPacote"></div>
     <div class="msg" id="msgEditarHome" role="alert"></div>
-    <div style="display:flex;gap:8px;justify-content:flex-end;position:sticky;bottom:0;background:#fff;padding-top:12px"><button type="button" class="btn linha" id="fecharEditarHome">Cancelar</button><button class="btn cheio" id="salvarEditarHome">Salvar e gerar pacote</button></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;position:sticky;bottom:0;background:#fff;padding-top:12px"><button type="button" class="btn linha" id="fecharEditarHome">Cancelar</button><button type="button" class="btn cheio" id="salvarEditarHome">Salvar e gerar pacote</button></div>
   </form></div>`;
 
   const previewBind = (fileInputId, previewId) => { const f=$(fileInputId), p=$(previewId); f?.addEventListener('change',()=>{ const file=f.files?.[0]; if(!file) return; const u=URL.createObjectURL(file); p.src=u; }); };
@@ -988,34 +978,49 @@ function abrirModalEditorHome(h){
 
   $('#fecharEditarHome').onclick = () => $('#modalRaiz').innerHTML='';
 
-  $('#formEditarHome').onsubmit = async e => {
-    e.preventDefault();
-    const btn=$('#salvarEditarHome'), msg=$('#msgEditarHome'); btn.disabled=true; msg.className='msg'; msg.textContent='Salvando…';
-    const home={
-      titulo:$('#ehTitulo').value.trim(), subtitulo:$('#ehSub').value.trim(), intro:$('#ehIntro').value.trim(), destaqueMes:$('#ehMes').value.trim(),
-      destaques:cards.map((_,i)=>({nome:$('#ehNome'+i).value.trim(),nivel:$('#ehNivel'+i).value.trim(),imagem:$('#ehImg'+i).value.trim()})),
-      novidadeTitulo:$('#ehNT').value.trim(), novidadePeriodo:$('#ehNP').value.trim(), novidadeTexto:$('#ehNX').value.trim(), novidadeUrl:$('#ehNU').value.trim(),
-      novidadeFotos:fotos.map((_,i)=>({titulo:$('#ehNFt'+i).value.trim(),texto:$('#ehNFx'+i).value.trim(),imagem:$('#ehNFu'+i).value.trim()})).filter(x=>x.titulo||x.texto||x.imagem),
-      ajudaTitulo:$('#ehAT').value.trim(), ajudaTexto:$('#ehAX').value.trim(), ajudaUrl:$('#ehAU').value.trim(),
-      instagram:$('#ehIG').value.trim(), facebook:$('#ehFB').value.trim(), linkedin:$('#ehLI').value.trim()
-    };
+  async function salvarHomeEGerar(){
+    const btn=$('#salvarEditarHome'), msg=$('#msgEditarHome'), area=$('#areaDownloadPacote');
+    btn.disabled=true;
+    msg.className='msg';
+    msg.textContent='Gerando arquivo de publicação…';
     try {
-      // Nesta versão, não grava nada no GitHub nem depende de API/token.
-      // Guarda a edição apenas para montar o pacote local.
-      window.PORTAL_PENDENTE_CENTRAL = { ...((await window.portalLerCentral()) || {}), home };
-      localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(window.PORTAL_PENDENTE_CENTRAL));
-      const r = await gerarPacoteGitHub();
-      $('#msgEditarHome').className='msg ok';
-      $('#msgEditarHome').textContent=`Arquivo gerado: ${r.nome} · ${r.n} foto(s).`;
-      toast('Arquivo de publicação gerado.');
-      btn.disabled=false;
+      const home={
+        titulo:$('#ehTitulo').value.trim(), subtitulo:$('#ehSub').value.trim(), intro:$('#ehIntro').value.trim(), destaqueMes:$('#ehMes').value.trim(),
+        destaques:cards.map((_,i)=>({nome:$('#ehNome'+i).value.trim(),nivel:$('#ehNivel'+i).value.trim(),imagem:$('#ehImg'+i).value.trim()})),
+        novidadeTitulo:$('#ehNT').value.trim(), novidadePeriodo:$('#ehNP').value.trim(), novidadeTexto:$('#ehNX').value.trim(), novidadeUrl:$('#ehNU').value.trim(),
+        novidadeFotos:fotos.map((_,i)=>({titulo:$('#ehNFt'+i).value.trim(),texto:$('#ehNFx'+i).value.trim(),imagem:$('#ehNFu'+i).value.trim()})).filter(x=>x.titulo||x.texto||x.imagem),
+        ajudaTitulo:$('#ehAT').value.trim(), ajudaTexto:$('#ehAX').value.trim(), ajudaUrl:$('#ehAU').value.trim(),
+        instagram:$('#ehIG').value.trim(), facebook:$('#ehFB').value.trim(), linkedin:$('#ehLI').value.trim()
+      };
+      const base = clone(HOME_CONFIG_PADRAO);
+      const anterior = JSON.parse(localStorage.getItem(CENTRAL_LOCAL) || 'null');
+      const doc = anterior && typeof anterior === 'object' ? anterior : base;
+      doc.home = home;
+      localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(doc));
+      window.PORTAL_PENDENTE_CENTRAL = doc;
+
+      const r=await gerarPacoteGitHub(doc);
+      const link=document.createElement('a');
+      link.href=r.url;
+      link.download=r.nome;
+      link.textContent=`Baixar ${r.nome}`;
+      link.className='btn cheio peq';
+      link.style.textDecoration='none';
+      area.innerHTML='<b>Arquivo pronto para publicar</b><span class="export-status">Envie este arquivo para a pasta <b>publicacoes</b> no GitHub. Depois o Actions fará a publicação.</span>';
+      area.appendChild(link);
+      area.classList.remove('hidden');
+      msg.className='msg ok';
+      msg.textContent=`Pronto: ${r.nome} · ${r.n} foto(s) incluída(s).`;
+      try { link.click(); } catch {}
     } catch(err){
       msg.className='msg erro';
-      msg.textContent=err.message || 'Não foi possível gerar a publicação.';
+      msg.textContent=err.message || 'Não foi possível gerar o arquivo.';
+    } finally {
       btn.disabled=false;
     }
-  };
-}
+  }
+
+  $('#salvarEditarHome').onclick = salvarHomeEGerar;}
 
 function abrirEditorCentral(id='inicio'){
   if (!perfil || perfil.papel !== 'admin') return;
