@@ -910,7 +910,13 @@ async function gerarPacoteGitHub(){
   Object.entries(UPLOADS_PENDENTES).forEach(([path,blob])=>pack.file(path, blob));
   const now=new Date().toISOString().replace(/[:.]/g,'-');
   const blob=await pack.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}});
-  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`portal-publicacao-${now}.zip`; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1500);
+  const url=URL.createObjectURL(blob);
+  const nome=`portal-publicacao-${now}.zip`;
+  const a=document.createElement('a'); a.href=url; a.download=nome; a.textContent='Baixar pacote'; a.style.display='none'; document.body.appendChild(a); a.click();
+  // deixa um fallback visível caso o navegador bloqueie o download automático
+  let status=$('#msgEditarHome');
+  if(status){ status.className='msg ok'; status.innerHTML=`Pacote criado: <b>${esc(nome)}</b>. Se o download não começou, <a href="${url}" download="${nome}">clique aqui para baixar</a>.`; }
+  setTimeout(()=>{URL.revokeObjectURL(url);a.remove();},60000);
   return Object.keys(UPLOADS_PENDENTES).length;
 }
 
@@ -987,10 +993,13 @@ function abrirModalEditorHome(h){
       instagram:$('#ehIG').value.trim(), facebook:$('#ehFB').value.trim(), linkedin:$('#ehLI').value.trim()
     };
     try {
-      await window.portalAlterarCentral({}, async d => { d.home=home; }, 'Portal: prepara atualização da página inicial');
+      // Nesta versão, não grava nada no GitHub nem depende de API/token.
+      // Guarda a edição apenas para montar o pacote local.
+      window.PORTAL_PENDENTE_CENTRAL = { ...((await window.portalLerCentral()) || {}), home };
+      localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(window.PORTAL_PENDENTE_CENTRAL));
       const n = await gerarPacoteGitHub();
       $('#modalRaiz').innerHTML='';
-      toast(`Pacote gerado. ${n} foto(s) incluída(s). Envie o ZIP para publicacoes no GitHub.`);
+      toast(`Pacote gerado. ${n} foto(s) incluída(s). O download deve começar agora.`);
     } catch(err){
       msg.className='msg erro';
       msg.textContent=err.message || 'Não foi possível gerar a publicação.';
