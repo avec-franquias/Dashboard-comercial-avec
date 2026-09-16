@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-16T12:10:50.406Z",
+ "atualizadoEm": "2026-09-16T12:10:59.023Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -92,21 +92,6 @@
    ],
    "senha": "pbkdf2$210000$97e87915446a1e49b7e00c8fd3ce866b$6c1786ab51c8a42922687b2e0073681d94038e932b19e823fd6842689b56b4de",
    "criadoEm": "2026-09-15T20:09:21.618Z"
-  },
-  {
-   "login": "joao.alckmin",
-   "nome": "João Alckmin",
-   "papel": "admin",
-   "ativo": false,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas"
-   ],
-   "senha": "pbkdf2$210000$e5c1674d964429ac9e634b0b6f55c514$e3076fc2b30473cbe9bfd4872399180fab8e1dd1c609c25229b7607cea99a01e",
-   "criadoEm": "2026-09-15T20:09:49.826Z"
   },
   {
    "login": "anderson.santana",
