@@ -2,13 +2,10 @@ name: Publicar portal
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
     paths:
-      - 'publicacoes/**'
-      - 'index_github_actions.html'
-      - 'index.html'
-      - 'central.json'
-      - 'portal-assets/**'
+      - 'publicacoes/*.json'
+      - '.github/workflows/publicar-portal.yml'
   workflow_dispatch:
 
 permissions:
@@ -17,39 +14,53 @@ permissions:
 jobs:
   publicar:
     runs-on: ubuntu-latest
-
     steps:
       - name: Baixar repositório
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Aplicar pacotes de publicação
-        shell: bash
+      - name: Aplicar publicações
+        shell: python
         run: |
-          set -e
-          shopt -s nullglob
+          import base64, json, pathlib, subprocess
 
-          for pacote in publicacoes/*.zip; do
-            echo "Aplicando $pacote"
-            unzip -o "$pacote" -d .
-            rm -f "$pacote"
-          done
+          pasta = pathlib.Path('publicacoes')
+          arquivos = sorted(pasta.glob('portal-publicacao-*.json'))
+          if not arquivos:
+              print('Nenhuma publicação para processar.')
+              raise SystemExit(0)
 
-      - name: Publicar alterações geradas
-        shell: bash
-        run: |
-          set -e
+          for arquivo in arquivos:
+              print(f'Processando {arquivo}')
+              pacote = json.loads(arquivo.read_text(encoding='utf-8'))
+              central = pacote.get('central')
+              if not isinstance(central, dict):
+                  raise RuntimeError(f'{arquivo}: campo central inválido')
 
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+              pathlib.Path('central.json').write_text(
+                  json.dumps(central, ensure_ascii=False, indent=2), encoding='utf-8'
+              )
 
-          git add -A
+              for item in pacote.get('files', []):
+                  caminho = item.get('path')
+                  dados = item.get('base64')
+                  if not caminho or not dados:
+                      continue
+                  if caminho.startswith('/') or '..' in pathlib.PurePosixPath(caminho).parts:
+                      raise RuntimeError(f'Caminho de arquivo inválido: {caminho}')
+                  destino = pathlib.Path(caminho)
+                  destino.parent.mkdir(parents=True, exist_ok=True)
+                  destino.write_bytes(base64.b64decode(dados))
 
-          if git diff --cached --quiet; then
-            echo 'Nada para publicar.'
-            exit 0
-          fi
+              arquivo.unlink()
 
-          git commit -m 'Publica conteúdo do portal [skip ci]'
-          git push
+          subprocess.run(['git', 'config', 'user.name', 'github-actions[bot]'], check=True)
+          subprocess.run(['git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'], check=True)
+          subprocess.run(['git', 'add', '-A'], check=True)
+          status = subprocess.run(['git', 'diff', '--cached', '--quiet'])
+          if status.returncode == 0:
+              print('Nada mudou.')
+              raise SystemExit(0)
+          subprocess.run(['git', 'commit', '-m', 'Publica conteúdo do portal'], check=True)
+          subprocess.run(['git', 'push'], check=True)
