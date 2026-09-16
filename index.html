@@ -962,6 +962,7 @@ function abrirModalEditorHome(h){
       <div class="campo"><label>Facebook</label><input class="inp" id="ehFB" value="${esc(h.facebook)}"></div>
       <div class="campo full"><label>LinkedIn</label><input class="inp" id="ehLI" value="${esc(h.linkedin)}"></div>
     </div></div>
+    <div class="export-box hidden" id="areaDownloadPacote"></div>
     <div class="msg" id="msgEditarHome" role="alert"></div>
     <div style="display:flex;gap:8px;justify-content:flex-end;position:sticky;bottom:0;background:#fff;padding-top:12px"><button type="button" class="btn linha" id="fecharEditarHome">Cancelar</button><button class="btn cheio" id="salvarEditarHome">Salvar e gerar pacote</button></div>
   </form></div>`;
@@ -987,12 +988,6 @@ function abrirModalEditorHome(h){
 
   $('#fecharEditarHome').onclick = () => $('#modalRaiz').innerHTML='';
 
-  $('#btnExportarPortal').onclick = async () => {
-    const st=$('#statusExportarPortal'), b=$('#btnExportarPortal'); b.disabled=true;
-    try { const r=await gerarPacoteGitHub(); st.textContent=`Arquivo gerado: ${r.nome} · ${r.n} foto(s).`; toast('Arquivo de publicação gerado.'); }
-    catch(e){ st.textContent='Erro: '+(e.message || 'Não foi possível gerar o arquivo.'); }
-    finally{ b.disabled=false; }
-  };
   $('#formEditarHome').onsubmit = async e => {
     e.preventDefault();
     const btn=$('#salvarEditarHome'), msg=$('#msgEditarHome'); btn.disabled=true; msg.className='msg'; msg.textContent='Salvando…';
@@ -1009,9 +1004,11 @@ function abrirModalEditorHome(h){
       // Guarda a edição apenas para montar o pacote local.
       window.PORTAL_PENDENTE_CENTRAL = { ...((await window.portalLerCentral()) || {}), home };
       localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(window.PORTAL_PENDENTE_CENTRAL));
-      const n = await gerarPacoteGitHub();
-      $('#modalRaiz').innerHTML='';
-      toast(`Pacote gerado. ${n} foto(s) incluída(s). O download deve começar agora.`);
+      const r = await gerarPacoteGitHub();
+      $('#msgEditarHome').className='msg ok';
+      $('#msgEditarHome').textContent=`Arquivo gerado: ${r.nome} · ${r.n} foto(s).`;
+      toast('Arquivo de publicação gerado.');
+      btn.disabled=false;
     } catch(err){
       msg.className='msg erro';
       msg.textContent=err.message || 'Não foi possível gerar a publicação.';
