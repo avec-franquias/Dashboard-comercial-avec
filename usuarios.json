@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-15T23:55:00.396Z",
+ "atualizadoEm": "2026-09-16T12:10:50.406Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -97,7 +97,7 @@
    "login": "joao.alckmin",
    "nome": "João Alckmin",
    "papel": "admin",
-   "ativo": true,
+   "ativo": false,
    "modulos": [
     "ativacao",
     "arvore",
@@ -123,5 +123,6 @@
    "senha": "pbkdf2$210000$dbdb0188686dff7a23eb54428c535ed4$779fce52617dd33754e00712d60347b8c8707b1a0fd3c42475a2eeb473a2e64d",
    "criadoEm": "2026-09-15T20:17:27.368Z"
   }
- ]
+ ],
+ "manutencao": {}
 }
