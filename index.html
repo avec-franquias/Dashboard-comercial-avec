@@ -270,7 +270,6 @@ textarea.inp{resize:vertical;min-height:120px}
 .export-status{font-size:13px;color:var(--tinta-suave);margin-top:8px;line-height:1.45}
 
 </style>
-<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 </head>
 <body>
 
@@ -899,25 +898,38 @@ async function prepararFotoLocal(inputId, hiddenId, previewId, statusId, pasta){
   $(statusId).textContent='✓ Foto pronta para publicação';
   return caminho;
 }
+async function blobParaBase64(blob){
+  return await new Promise((resolve,reject)=>{
+    const r=new FileReader();
+    r.onload=()=>resolve(String(r.result).split(',')[1] || '');
+    r.onerror=()=>reject(new Error('Não foi possível preparar a imagem para publicação.'));
+    r.readAsDataURL(blob);
+  });
+}
 async function gerarPacoteGitHub(){
-  if(!window.JSZip) throw new Error('O componente de publicação não carregou. Recarregue a página.');
   const h=await window.portalLerCentral() || clone(HOME_CONFIG_PADRAO);
   if(!h.home) h.home={};
   if(window.PORTAL_PENDENTE_CENTRAL) Object.assign(h, clone(window.PORTAL_PENDENTE_CENTRAL));
-  // Normaliza caminhos antigos e novos para uso no site publicado.
-  const pack=new JSZip();
-  pack.file('central.json', JSON.stringify(h,null,2));
-  Object.entries(UPLOADS_PENDENTES).forEach(([path,blob])=>pack.file(path, blob));
-  const now=new Date().toISOString().replace(/[:.]/g,'-');
-  const blob=await pack.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}});
+  const files=[];
+  for (const [path,blob] of Object.entries(UPLOADS_PENDENTES)) {
+    const base64=await blobParaBase64(blob);
+    files.push({path, base64, mime:'image/jpeg'});
+  }
+  const pacote={version:1,createdAt:new Date().toISOString(),central:h,files};
+  const json=JSON.stringify(pacote);
+  const blob=new Blob([json],{type:'application/json;charset=utf-8'});
   const url=URL.createObjectURL(blob);
-  const nome=`portal-publicacao-${now}.zip`;
-  const a=document.createElement('a'); a.href=url; a.download=nome; a.textContent='Baixar pacote'; a.style.display='none'; document.body.appendChild(a); a.click();
-  // deixa um fallback visível caso o navegador bloqueie o download automático
-  let status=$('#msgEditarHome');
-  if(status){ status.className='msg ok'; status.innerHTML=`Pacote criado: <b>${esc(nome)}</b>. Se o download não começou, <a href="${url}" download="${nome}">clique aqui para baixar</a>.`; }
-  setTimeout(()=>{URL.revokeObjectURL(url);a.remove();},60000);
-  return Object.keys(UPLOADS_PENDENTES).length;
+  const now=new Date().toISOString().replace(/[:.]/g,'-');
+  const nome=`portal-publicacao-${now}.json`;
+  const a=document.createElement('a');
+  a.href=url; a.download=nome; a.textContent='Baixar arquivo de publicação';
+  a.className='btn cheio peq';
+  a.target='_blank';
+  const area=document.getElementById('areaDownloadPacote');
+  if(area){ area.innerHTML=''; area.appendChild(a); area.classList.remove('hidden'); }
+  try { a.click(); } catch {}
+  setTimeout(()=>URL.revokeObjectURL(url),60000);
+  return {nome,n:Object.keys(UPLOADS_PENDENTES).length};
 }
 
 function abrirModalEditorHome(h){
@@ -977,8 +989,8 @@ function abrirModalEditorHome(h){
 
   $('#btnExportarPortal').onclick = async () => {
     const st=$('#statusExportarPortal'), b=$('#btnExportarPortal'); b.disabled=true;
-    try { const n=await gerarPacoteGitHub(); st.textContent=`Pacote gerado com sucesso. ${n} foto(s) incluída(s).`; }
-    catch(e){ st.textContent=e.message || 'Não foi possível gerar o pacote.'; }
+    try { const r=await gerarPacoteGitHub(); st.textContent=`Arquivo gerado: ${r.nome} · ${r.n} foto(s).`; toast('Arquivo de publicação gerado.'); }
+    catch(e){ st.textContent='Erro: '+(e.message || 'Não foi possível gerar o arquivo.'); }
     finally{ b.disabled=false; }
   };
   $('#formEditarHome').onsubmit = async e => {
