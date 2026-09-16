@@ -871,6 +871,12 @@ function abrirEditorHome(){
 }
 
 
+const UPLOADS_PENDENTES = window.UPLOADS_PENDENTES || (window.UPLOADS_PENDENTES = {});
+const slugImg = (name, prefix='imagem') => {
+  const safe=(name||'').replace(/\.[^.]+$/,'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9_-]+/g,'-').replace(/^-+|-+$/g,'').slice(0,50) || prefix;
+  const ext='jpg';
+  return `${Date.now()}-${Math.random().toString(36).slice(2,7)}-${safe}.${ext}`;
+};
 async function arquivoComoJpg(file){
   const dataUrl=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result));r.onerror=()=>reject(new Error('Não foi possível ler a imagem.'));r.readAsDataURL(file);});
   const img=await new Promise((resolve,reject)=>{const el=new Image();el.onload=()=>resolve(el);el.onerror=()=>reject(new Error('Não foi possível preparar a imagem.'));el.src=dataUrl;});
@@ -925,6 +931,22 @@ async function blobParaBase64(blob){
     r.readAsDataURL(blob);
   });
 }
+async function gerarPacoteGitHub(h){
+  h = h || clone(HOME_CONFIG_PADRAO);
+  const files=[];
+  for (const [path,blob] of Object.entries(UPLOADS_PENDENTES)) {
+    const base64=await blobParaBase64(blob);
+    files.push({path, base64, mime:'image/jpeg'});
+  }
+  const pacote={version:1,createdAt:new Date().toISOString(),central:h,files};
+  const json=JSON.stringify(pacote);
+  const blob=new Blob([json],{type:'application/json;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const now=new Date().toISOString().replace(/[:.]/g,'-');
+  const nome=`portal-publicacao-${now}.json`;
+  return {nome,n:Object.keys(UPLOADS_PENDENTES).length,url};
+}
+
 function abrirModalEditorHome(h){
   const cards = (h.destaques || []).slice(0,4);
   while(cards.length < 4) cards.push({nome:'',nivel:'',imagem:''});
@@ -932,21 +954,21 @@ function abrirModalEditorHome(h){
   while(fotos.length < 6) fotos.push({titulo:'',texto:'',imagem:''});
   $('#modalRaiz').innerHTML = `<div class="modal-fundo"><form class="modal home-edit" id="formEditarHome" novalidate>
     <h2>Atualizar página inicial</h2>
-    <p class="sub">Edite tudo o que aparece na tela principal. As fotos são enviadas diretamente para o GitHub. Na primeira vez neste navegador, será solicitada uma conexão com o GitHub; depois disso, não será necessário repetir.</p>
+    <p class="sub">Edite tudo o que aparece na tela principal. As fotos são enviadas diretamente para o GitHub. Na primeira vez, o navegador pedirá a conexão; depois disso, a administradora não precisa repetir.</p>
     <div class="editor-home-grid">
       <div class="campo"><label>Título</label><input class="inp" id="ehTitulo" value="${esc(h.titulo)}"></div>
       <div class="campo"><label>Mês do destaque</label><input class="inp" id="ehMes" value="${esc(h.destaqueMes)}"></div>
       <div class="campo full"><label>Subtítulo</label><input class="inp" id="ehSub" value="${esc(h.subtitulo)}"></div>
       <div class="campo full"><label>Texto de abertura</label><textarea class="inp" id="ehIntro" rows="3">${esc(h.intro)}</textarea></div>
     </div>
-    <div class="home-bloco"><h3>Franqueados destaque</h3><p class="sub">Selecione uma foto do computador e clique em “Enviar foto”. A foto será publicada diretamente no GitHub.</p><div class="editor-home-grid">${cards.map((d,i)=>`<div class="editor-destaque"><h3>${i+1}º destaque</h3><div class="campo"><label>Nome</label><input class="inp" id="ehNome${i}" value="${esc(d.nome||'')}"></div><div class="campo"><label>Nível / legenda</label><input class="inp" id="ehNivel${i}" value="${esc(d.nivel||'')}"></div><div class="upload-box"><img class="upload-preview" id="ehPrev${i}" src="${esc(d.imagem||'')}" alt="Prévia"><div class="upload-row"><input type="file" id="ehFile${i}" accept="image/*"><button type="button" class="btn peq" id="ehUp${i}">Enviar foto</button></div><input type="hidden" id="ehImg${i}" value="${esc(d.imagem||'')}"><span class="upload-status" id="ehStatus${i}">${d.imagem?'Foto atual':'Nenhuma foto selecionada'}</span></div></div>`).join('')}</div></div>
+    <div class="home-bloco"><h3>Franqueados destaque</h3><p class="sub">Selecione uma foto do computador e clique em “Enviar foto”. Ela será publicada diretamente no GitHub.<div class="upload-row" style="margin:10px 0 14px;align-items:center"><input type="file" id="ehFilesLote" accept="image/*" multiple><button type="button" class="btn cheio peq" id="ehEnviarLote">Enviar 4 fotos</button><span class="upload-status" id="ehLoteStatus">Selecione até 4 fotos, na ordem dos destaques.</span></div></p><div class="editor-home-grid">${cards.map((d,i)=>`<div class="editor-destaque"><h3>${i+1}º destaque</h3><div class="campo"><label>Nome</label><input class="inp" id="ehNome${i}" value="${esc(d.nome||'')}"></div><div class="campo"><label>Nível / legenda</label><input class="inp" id="ehNivel${i}" value="${esc(d.nivel||'')}"></div><div class="upload-box"><img class="upload-preview" id="ehPrev${i}" src="${esc(d.imagem||'')}" alt="Prévia"><div class="upload-row"><input type="file" id="ehFile${i}" accept="image/*"><button type="button" class="btn peq" id="ehUp${i}">Enviar foto</button></div><input type="hidden" id="ehImg${i}" value="${esc(d.imagem||'')}"><span class="upload-status" id="ehStatus${i}">${d.imagem?'Foto atual':'Nenhuma foto selecionada'}</span></div></div>`).join('')}</div></div>
     <div class="home-bloco"><h3>Novidade de produto</h3><div class="editor-home-grid">
       <div class="campo"><label>Título</label><input class="inp" id="ehNT" value="${esc(h.novidadeTitulo)}"></div>
       <div class="campo"><label>Período</label><input class="inp" id="ehNP" value="${esc(h.novidadePeriodo)}"></div>
       <div class="campo full"><label>Texto</label><textarea class="inp" id="ehNX" rows="3">${esc(h.novidadeTexto||'')}</textarea></div>
       <div class="campo full"><label>Link do material (opcional)</label><input class="inp" id="ehNU" value="${esc(h.novidadeUrl||'')}" placeholder="Link de PDF, vídeo, apresentação etc."></div>
     </div>
-    <div class="editor-home-grid">${fotos.map((d,i)=>`<div class="editor-destaque"><h3>Novidade ${i+1}</h3><div class="campo"><label>Legenda</label><input class="inp" id="ehNFt${i}" value="${esc(d.titulo||'')}"></div><div class="campo"><label>Descrição curta</label><input class="inp" id="ehNFx${i}" value="${esc(d.texto||'')}"></div><div class="upload-box"><img class="upload-preview" id="ehNFp${i}" src="${esc(d.imagem||'')}" alt="Prévia"><div class="upload-row"><input type="file" id="ehNF${i}" accept="image/*"><button type="button" class="btn peq" id="ehNFUp${i}">Enviar foto</button></div><input type="hidden" id="ehNFu${i}" value="${esc(d.imagem||'')}"><span class="upload-status" id="ehNFs${i}">${d.imagem?'Foto atual':'Nenhuma foto selecionada'}</span></div></div>`).join('')}</div></div>
+    <div class="upload-row" style="margin:10px 0 14px;align-items:center"><input type="file" id="ehNFFilesLote" accept="image/*" multiple><button type="button" class="btn cheio peq" id="ehNFEnviarLote">Enviar fotos das novidades</button><span class="upload-status" id="ehNFLoteStatus">Selecione até 6 fotos, na ordem das novidades.</span></div><div class="editor-home-grid">${fotos.map((d,i)=>`<div class="editor-destaque"><h3>Novidade ${i+1}</h3><div class="campo"><label>Legenda</label><input class="inp" id="ehNFt${i}" value="${esc(d.titulo||'')}"></div><div class="campo"><label>Descrição curta</label><input class="inp" id="ehNFx${i}" value="${esc(d.texto||'')}"></div><div class="upload-box"><img class="upload-preview" id="ehNFp${i}" src="${esc(d.imagem||'')}" alt="Prévia"><div class="upload-row"><input type="file" id="ehNF${i}" accept="image/*"><button type="button" class="btn peq" id="ehNFUp${i}">Enviar foto</button></div><input type="hidden" id="ehNFu${i}" value="${esc(d.imagem||'')}"><span class="upload-status" id="ehNFs${i}">${d.imagem?'Foto atual':'Nenhuma foto selecionada'}</span></div></div>`).join('')}</div></div>
     <div class="home-bloco"><h3>Central de ajuda</h3><div class="editor-home-grid">
       <div class="campo"><label>Título</label><input class="inp" id="ehAT" value="${esc(h.ajudaTitulo)}"></div>
       <div class="campo"><label>URL</label><input class="inp" id="ehAU" value="${esc(h.ajudaUrl)}"></div>
@@ -955,6 +977,7 @@ function abrirModalEditorHome(h){
       <div class="campo"><label>Facebook</label><input class="inp" id="ehFB" value="${esc(h.facebook)}"></div>
       <div class="campo full"><label>LinkedIn</label><input class="inp" id="ehLI" value="${esc(h.linkedin)}"></div>
     </div></div>
+    <div class="export-box hidden" id="areaDownloadPacote"></div>
     <div class="msg" id="msgEditarHome" role="alert"></div>
     <div style="display:flex;gap:8px;justify-content:flex-end;position:sticky;bottom:0;background:#fff;padding-top:12px"><button type="button" class="btn linha" id="fecharEditarHome">Cancelar</button><button type="button" class="btn cheio" id="salvarEditarHome">Salvar e publicar</button></div>
   </form></div>`;
@@ -967,14 +990,54 @@ function abrirModalEditorHome(h){
   cards.forEach((_,i)=>$('#ehUp'+i).onclick=async e=>{
     const b=e.currentTarget; b.disabled=true;
     try { await prepararFotoLocal('#ehFile'+i,'#ehImg'+i,'#ehPrev'+i,'#ehStatus'+i,'destaques'); }
-    catch(err) { $('#ehStatus'+i).textContent='Erro: '+(err.message||'falha ao preparar a foto'); }
+    catch(err) { $('#ehStatus'+i).textContent='Erro: '+(err.message||'falha ao publicar a foto'); }
     finally { b.disabled=false; }
   });
+
+  const ehLote=$('#ehFilesLote'), ehLoteBtn=$('#ehEnviarLote'), ehLoteStatus=$('#ehLoteStatus');
+  ehLoteBtn?.addEventListener('click', async ()=>{
+    const files=Array.from(ehLote?.files||[]).slice(0,4);
+    if(!files.length){ ehLoteStatus.textContent='Escolha as fotos primeiro.'; return; }
+    ehLoteBtn.disabled=true;
+    try{
+      if(files.length>4) ehLoteStatus.textContent='Serão usadas apenas as 4 primeiras fotos.';
+      let ok=0;
+      for(let i=0;i<files.length;i++){
+        const dt=new DataTransfer(); dt.items.add(files[i]);
+        const inp=$('#ehFile'+i); if(inp) inp.files=dt.files;
+        await prepararFotoLocal('#ehFile'+i,'#ehImg'+i,'#ehPrev'+i,'#ehStatus'+i,'destaques');
+        ok++;
+        ehLoteStatus.textContent=`${ok} de ${files.length} foto(s) publicada(s)…`;
+      }
+      ehLoteStatus.textContent=`✓ ${ok} foto(s) publicada(s) nos destaques.`;
+    }catch(err){ ehLoteStatus.textContent='Erro: '+(err.message||'falha ao publicar as fotos'); }
+    finally{ ehLoteBtn.disabled=false; }
+  });
+
   fotos.forEach((_,i)=>$('#ehNFUp'+i).onclick=async e=>{
     const b=e.currentTarget; b.disabled=true;
     try { await prepararFotoLocal('#ehNF'+i,'#ehNFu'+i,'#ehNFp'+i,'#ehNFs'+i,'novidades'); }
-    catch(err) { $('#ehNFs'+i).textContent='Erro: '+(err.message||'falha ao preparar a foto'); }
+    catch(err) { $('#ehNFs'+i).textContent='Erro: '+(err.message||'falha ao publicar a foto'); }
     finally { b.disabled=false; }
+  });
+
+  const ehNFLote=$('#ehNFFilesLote'), ehNFLoteBtn=$('#ehNFEnviarLote'), ehNFLoteStatus=$('#ehNFLoteStatus');
+  ehNFLoteBtn?.addEventListener('click', async ()=>{
+    const files=Array.from(ehNFLote?.files||[]).slice(0,6);
+    if(!files.length){ ehNFLoteStatus.textContent='Escolha as fotos primeiro.'; return; }
+    ehNFLoteBtn.disabled=true;
+    try{
+      let ok=0;
+      for(let i=0;i<files.length;i++){
+        const dt=new DataTransfer(); dt.items.add(files[i]);
+        const inp=$('#ehNF'+i); if(inp) inp.files=dt.files;
+        await prepararFotoLocal('#ehNF'+i,'#ehNFu'+i,'#ehNFp'+i,'#ehNFs'+i,'novidades');
+        ok++;
+        ehNFLoteStatus.textContent=`${ok} de ${files.length} foto(s) publicada(s)…`;
+      }
+      ehNFLoteStatus.textContent=`✓ ${ok} foto(s) publicada(s) nas novidades.`;
+    }catch(err){ ehNFLoteStatus.textContent='Erro: '+(err.message||'falha ao publicar as fotos'); }
+    finally{ ehNFLoteBtn.disabled=false; }
   });
 
   $('#fecharEditarHome').onclick = () => $('#modalRaiz').innerHTML='';
