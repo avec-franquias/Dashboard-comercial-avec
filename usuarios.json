@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-16T12:14:12.664Z",
+ "atualizadoEm": "2026-09-16T12:14:16.054Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -120,6 +120,12 @@
    "ativo": true,
    "mensagem": "",
    "desde": "2026-09-16T12:14:12.664Z",
+   "por": "Christian Vieira"
+  },
+  "previsao": {
+   "ativo": true,
+   "mensagem": "",
+   "desde": "2026-09-16T12:14:16.054Z",
    "por": "Christian Vieira"
   }
  }
