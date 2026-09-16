@@ -1423,6 +1423,11 @@ window.portalAlterarCentral = async (padrao, fn, mensagem) => {
   if (!perfil || perfil.papel !== 'admin') throw new Error('Apenas administradores podem editar.');
   const d = await window.portalLerCentral() || clone(padrao);
   await fn(d);
+  const g = ghCfg();
+  if (g) {
+    const l = await ghLerJson(g, ARQ_CENTRAL);
+    await ghGravarJson(g, ARQ_CENTRAL, d, l.sha, mensagem || 'Portal: atualiza conteúdo da Central');
+  }
   localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(d));
   window.PORTAL_PENDENTE_CENTRAL = d;
   return d;
