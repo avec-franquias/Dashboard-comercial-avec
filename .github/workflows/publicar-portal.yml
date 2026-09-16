@@ -1,0 +1,55 @@
+name: Publicar portal
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'publicacoes/**'
+      - 'index_github_actions.html'
+      - 'index.html'
+      - 'central.json'
+      - 'portal-assets/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Aplicar pacotes de publicação
+        shell: bash
+        run: |
+          set -e
+          shopt -s nullglob
+
+          for pacote in publicacoes/*.zip; do
+            echo "Aplicando $pacote"
+            unzip -o "$pacote" -d .
+            rm -f "$pacote"
+          done
+
+      - name: Publicar alterações geradas
+        shell: bash
+        run: |
+          set -e
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo 'Nada para publicar.'
+            exit 0
+          fi
+
+          git commit -m 'Publica conteúdo do portal [skip ci]'
+          git push
