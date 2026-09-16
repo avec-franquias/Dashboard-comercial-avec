@@ -903,23 +903,38 @@ function abrirModalEditorHome(h){
   fotos.forEach((_,i)=>previewBind('#ehNF'+i,'#ehNFp'+i));
 
   const upload = async (inputId, hiddenId, previewId, statusId, pasta) => {
-    const file=$(inputId)?.files?.[0]; if(!file) throw new Error('Escolha uma imagem primeiro.');
+    const file=$(inputId)?.files?.[0];
+    if(!file) throw new Error('Escolha uma imagem primeiro.');
     if(!file.type.startsWith('image/')) throw new Error('Selecione um arquivo de imagem.');
-    const g=ghCfg(); if(!g){ await conectarGithub(); }
-    const cfg=ghCfg(); if(!cfg) throw new Error('Conecte o GitHub para enviar imagens.');
-    const dataUrl=await new Promise((resolve,reject)=>{ const r=new FileReader(); r.onload=()=>resolve(String(r.result)); r.onerror=()=>reject(new Error('Não foi possível ler a imagem.')); r.readAsDataURL(file); });
-    const base64=dataUrl.split(',')[1];
-    const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'') || 'jpg';
-    const safe=(file.name.replace(/\.[^.]+$/,'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9_-]+/g,'-').replace(/^-+|-+$/g,'').slice(0,50) || 'imagem');
-    const path=`portal-assets/${pasta}/${Date.now()}-${safe}.${ext}`;
-    const r=await gh(cfg, `/contents/${path}`, {method:'PUT', body:{message:`Portal: envia imagem ${safe}`, content:base64, branch:cfg.branch}});
-    const url=`https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/${cfg.branch}/${path}`;
-    $(hiddenId).value=url; $(previewId).src=url; $(statusId).textContent='Foto enviada';
-    return r;
+    const status=$(statusId);
+    const g0=ghCfg();
+    if(!g0) await conectarGithub();
+    const cfg=ghCfg();
+    if(!cfg) throw new Error('Conecte o GitHub para enviar imagens.');
+    if(status) status.textContent='Preparando imagem…';
+    const dataUrl=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result));r.onerror=()=>reject(new Error('Não foi possível ler a imagem.'));r.readAsDataURL(file);});
+    const img=await new Promise((resolve,reject)=>{const el=new Image();el.onload=()=>resolve(el);el.onerror=()=>reject(new Error('Não foi possível preparar a imagem.'));el.src=dataUrl;});
+    const max=1600, maior=Math.max(img.naturalWidth||img.width,img.naturalHeight||img.height), escala=Math.min(1,max/maior);
+    const w=Math.max(1,Math.round((img.naturalWidth||img.width)*escala)), h=Math.max(1,Math.round((img.naturalHeight||img.height)*escala));
+    const canvas=document.createElement('canvas'); canvas.width=w; canvas.height=h; canvas.getContext('2d').drawImage(img,0,0,w,h);
+    let out=canvas.toDataURL('image/jpeg',0.82), base64=out.split(',')[1];
+    if(base64.length>900000){ out=canvas.toDataURL('image/jpeg',0.68); base64=out.split(',')[1]; }
+    const safe=(file.name.replace(/\.[^.]+$/,'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9_-]+/g,'-').replace(/^-+|-+$/g,'').slice(0,50)||'imagem');
+    const path=`portal-assets/${pasta}/${Date.now()}-${safe}.jpg`;
+    if(status) status.textContent='Enviando para o GitHub…';
+    try{
+      const r=await gh(cfg,`/contents/${path}`,{method:'PUT',body:{message:`Portal: envia imagem ${safe}`,content:base64,branch:cfg.branch}});
+      const url=(r?.content?.download_url)||`https://github.com/${cfg.owner}/${cfg.repo}/raw/${cfg.branch}/${path}`;
+      $(hiddenId).value=url; $(previewId).src=url; if(status) status.textContent='✓ Foto enviada ao GitHub';
+      return r;
+    }catch(e){
+      const detalhes=(e.detalhes||[]).filter(Boolean).join(' ');
+      throw new Error((e.message||'Falha ao enviar a imagem.')+(detalhes?` ${detalhes}`:''));
+    }
   };
 
-  cards.forEach((_,i)=>$('#ehUp'+i).onclick=async()=>{ const b=$('#ehUp'+i); b.disabled=true; try{ await upload('#ehFile'+i,'#ehImg'+i,'#ehPrev'+i,'#ehStatus'+i,'destaques'); }catch(e){ $('#ehStatus'+i).textContent=e.message||'Erro no upload'; } finally{b.disabled=false;} });
-  fotos.forEach((_,i)=>$('#ehNFUp'+i).onclick=async()=>{ const b=$('#ehNFUp'+i); b.disabled=true; try{ await upload('#ehNF'+i,'#ehNFu'+i,'#ehNFp'+i,'#ehNFs'+i,'novidades'); }catch(e){ $('#ehNFs'+i).textContent=e.message||'Erro no upload'; } finally{b.disabled=false;} });
+  cards.forEach((_,i)=>$('#ehUp'+i).onclick=async e=>{ const b=e.currentTarget; b.disabled=true; try{ await upload('#ehFile'+i,'#ehImg'+i,'#ehPrev'+i,'#ehStatus'+i,'destaques'); }catch(err){ $('#ehStatus'+i).textContent='Erro: '+(err.message||'falha no upload'); } finally{b.disabled=false;} });
+  fotos.forEach((_,i)=>$('#ehNFUp'+i).onclick=async e=>{ const b=e.currentTarget; b.disabled=true; try{ await upload('#ehNF'+i,'#ehNFu'+i,'#ehNFp'+i,'#ehNFs'+i,'novidades'); }catch(err){ $('#ehNFs'+i).textContent='Erro: '+(err.message||'falha no upload'); } finally{b.disabled=false;} });
 
   $('#fecharEditarHome').onclick = () => $('#modalRaiz').innerHTML='';
   $('#formEditarHome').onsubmit = async e => {
