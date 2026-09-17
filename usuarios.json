@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-16T17:50:21.920Z",
+ "atualizadoEm": "2026-09-17T12:16:16.823Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -107,6 +107,21 @@
    ],
    "senha": "pbkdf2$210000$dbdb0188686dff7a23eb54428c535ed4$779fce52617dd33754e00712d60347b8c8707b1a0fd3c42475a2eeb473a2e64d",
    "criadoEm": "2026-09-15T20:17:27.368Z"
+  },
+  {
+   "login": "vanessa.manholer",
+   "nome": "Vanessa Manholer",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
+    "ativacao",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas"
+   ],
+   "senha": "pbkdf2$210000$3b845a9342510c1e5732e1013c4a2402$cd98fbb018523cabd53e63406f2dbece25370185ca907e5e9b23fa84dbeb4738",
+   "criadoEm": "2026-09-17T12:16:16.404Z"
   }
  ],
  "manutencao": {
