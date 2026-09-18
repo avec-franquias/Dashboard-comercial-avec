@@ -46,7 +46,13 @@ async function collectMaps(browser,{nicho,cidade,bairro,max_results=80}){
 }
 
 const cfg=JSON.parse(await fs.readFile(configPath,'utf8'));
-const queries=(cfg.queries||[]).filter(q=>q?.enabled!==false&&q?.nicho&&q?.cidade);
+const manualNicho=(process.env.LEADS_NICHO||'').trim();
+const manualCidade=(process.env.LEADS_CIDADE||'').trim();
+const manualBairro=(process.env.LEADS_BAIRRO||'').trim();
+const manualMax=Math.max(1,Math.min(Number(process.env.LEADS_MAX_RESULTS||80)||80,120));
+const queries=(manualNicho&&manualCidade)
+  ? [{enabled:true,nicho:manualNicho,cidade:manualCidade,bairro:manualBairro,max_results:manualMax}]
+  : (cfg.queries||[]).filter(q=>q?.enabled!==false&&q?.nicho&&q?.cidade);
 await fs.mkdir(path.dirname(outputPath),{recursive:true});await fs.mkdir(historyDir,{recursive:true});
 let previous={runs:[]};try{previous=JSON.parse(await fs.readFile(outputPath,'utf8'))}catch{}
 const prevMap=new Map((previous.runs||[]).map(r=>[[r.query?.nicho,r.query?.cidade,r.query?.bairro||''].join('|').toLowerCase(),r]));
@@ -61,7 +67,12 @@ try{
   await sleep(1000);
  }
 }finally{await browser.close()}
-const payload={generated_at:new Date().toISOString(),runs};
+let mergedRuns=runs;
+if(manualNicho&&manualCidade){
+  const currentKeys=new Set(runs.map(r=>[r.query?.nicho,r.query?.cidade,r.query?.bairro||''].join('|').toLowerCase()));
+  mergedRuns=[...(previous.runs||[]).filter(r=>!currentKeys.has([r.query?.nicho,r.query?.cidade,r.query?.bairro||''].join('|').toLowerCase())),...runs];
+}
+const payload={generated_at:new Date().toISOString(),runs:mergedRuns};
 await fs.writeFile(outputPath,JSON.stringify(payload,null,2));
 const stamp=new Date().toISOString().replace(/[:.]/g,'-');await fs.writeFile(path.join(historyDir,stamp+'.json'),JSON.stringify(payload,null,2));
 const files=(await fs.readdir(historyDir)).filter(x=>x.endsWith('.json')).sort().reverse();await Promise.all(files.slice(30).map(f=>fs.unlink(path.join(historyDir,f))));
