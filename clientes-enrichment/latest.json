@@ -1,4 +1,17 @@
 {
-  "updated_at": null,
-  "clientes": {}
+  "updated_at": "2026-09-18T17:36:00.966Z",
+  "clientes": {
+    "82641": {
+      "cliente_id": "82641",
+      "nome": "@DESEMBARACA",
+      "documento": "36067222000179",
+      "status": "sem_telefone",
+      "telefone": "",
+      "fonte": "Google Maps",
+      "maps_url": "https://www.google.com/maps/search/%40DESEMBARACA%2036067222000179",
+      "website": "",
+      "encontrado_em": "2026-09-18T17:35:57.836Z",
+      "nome_encontrado": ""
+    }
+  }
 }
