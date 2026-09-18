@@ -35,6 +35,11 @@ export default async function handler(req,res){
   };
 })();
 </script>`;
+    html=html
+      .replaceAll('Pesquisa enviada. A coleta está rodando no GitHub.','Pesquisa enviada. Estamos buscando os leads.')
+      .replaceAll('Pesquisa enviada. A coleta estÃ¡ rodando no GitHub.','Pesquisa enviada. Estamos buscando os leads.')
+      .replaceAll('rodando no GitHub','em processamento')
+      .replaceAll('GitHub','sistema');
     html=html.replace('</body>',patch+'\n</body>');
     res.setHeader('Content-Type','text/html; charset=utf-8');
     res.setHeader('Cache-Control','no-store, max-age=0');
