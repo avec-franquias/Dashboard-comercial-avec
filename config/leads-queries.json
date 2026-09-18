@@ -6,6 +6,13 @@
       "cidade": "Joinville, SC",
       "bairro": "América",
       "max_results": 80
+    },
+    {
+      "enabled": true,
+      "nicho": "Barbearia",
+      "cidade": "Joinville, SC",
+      "bairro": "Costa e Silva",
+      "max_results": 80
     }
   ]
 }
