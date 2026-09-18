@@ -160,6 +160,131 @@ $('#newMigrationBtn').onclick=novaMigracao;"""
 )
 mods["migrador"] = b64(mig)
 
+# --- Novo modulo Clientes: cruza Receita SaaS + Contratos localmente no navegador ---
+clientes_html = r'''<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clientes</title>
+<style>
+:root{--p:#5B4FE9;--pd:#4738d4;--bg:#f6f7fb;--card:#fff;--line:#e4e6ef;--text:#17182b;--muted:#686c83;--ok:#069669;--bad:#e43b43;--warn:#d97706}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Outfit,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:1460px;margin:auto;padding:30px 28px 60px}
+.top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:22px}.top h1{font-size:32px;margin:0 0 6px}.sub{color:var(--muted)}
+.btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 16px;font-weight:800;cursor:pointer}.btn.primary{background:var(--p);border-color:var(--p);color:#fff}.btn:hover{border-color:var(--p)}.btn:disabled{opacity:.5;cursor:not-allowed}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}.metric small,.opp small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8b90a6;font-weight:800}.metric b{display:block;font-size:24px;margin-top:7px}.metric.ok b{color:var(--ok)}.metric.bad b{color:var(--bad)}
+.section-title{display:flex;align-items:baseline;gap:8px;margin:14px 0 10px}.section-title b{font-size:17px}.section-title span{font-size:12px;color:var(--muted)}
+.opps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.opp{cursor:pointer;border-color:#cce9df}.opp b{display:block;color:var(--ok);font-size:22px;margin:8px 0 4px}.opp span{font-size:12px;color:var(--muted)}.opp.on{box-shadow:0 0 0 2px #bde7d8}
+.toolbar{display:grid;grid-template-columns:1.7fr .7fr .7fr auto;gap:10px;margin:18px 0 10px}.input,select{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;background:#fff}
+.meta{display:flex;justify-content:space-between;align-items:center;color:#9095a8;font-size:12px;margin:14px 0 7px}.table{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:auto}table{border-collapse:collapse;width:100%;min-width:900px}th,td{padding:12px 14px;border-bottom:1px solid #eff0f4;text-align:left;font-size:13px}th{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#6c7189;background:#fbfbfd;position:sticky;top:0}.name{font-weight:800}.small{font-size:11px;color:var(--muted);margin-top:4px}.status{display:inline-block;border-radius:6px;padding:4px 7px;font-size:11px;font-weight:800}.status.active{background:#e7f7f1;color:#087b59}.status.churn{background:#fdecef;color:#c52f39}.tag{display:inline-block;margin:2px 4px 2px 0;padding:4px 7px;border-radius:6px;background:#eef7f4;color:#18725c;font-size:10px;font-weight:700}.money{font-weight:800;color:var(--ok);white-space:nowrap}
+.empty{text-align:center;padding:50px 20px;color:var(--muted)}.notice{padding:12px 14px;border:1px solid #f1db94;background:#fff8df;color:#6d5600;border-radius:10px;margin:10px 0;font-size:13px}
+.modalBg{position:fixed;inset:0;background:rgba(17,20,38,.45);display:grid;place-items:center;padding:20px;z-index:10}.modal{width:min(640px,100%);background:white;border-radius:16px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,.2)}.modal h2{margin:0 0 6px}.field{margin:16px 0}.field label{display:block;font-weight:800;font-size:13px;margin-bottom:6px}.filebox{border:1px dashed #bfc3d3;border-radius:12px;padding:14px;background:#fafafd}.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.hidden{display:none!important}
+@media(max-width:1000px){.cards,.opps{grid-template-columns:1fr 1fr}.toolbar{grid-template-columns:1fr 1fr}}@media(max-width:600px){.cards,.opps,.toolbar{grid-template-columns:1fr}.wrap{padding:18px 12px}.top{flex-direction:column}}
+</style></head><body><div class="wrap">
+<div class="top"><div><h1>Clientes</h1><div class="sub">Carteira consolidada a partir dos relatórios Receita SaaS e Contratos/Componentes.</div></div><button class="btn primary" id="update">Atualizar base</button></div>
+
+<div class="cards">
+<div class="card metric"><small>Total clientes</small><b id="mTotal">0</b></div>
+<div class="card metric ok"><small>Ativos</small><b id="mAtivos">0</b></div>
+<div class="card metric bad"><small>Cancelados</small><b id="mChurn">0</b></div>
+<div class="card metric ok"><small>MRR total</small><b id="mMrr">R$0,00</b></div>
+</div>
+
+<div class="section-title"><b>💡 Oportunidades na sua carteira</b><span>clientes ativos que ainda não têm cada produto — clique para filtrar</span></div>
+<div class="opps">
+<div class="card opp" data-opp="agendamento"><small>Sem IA Agendamento</small><b id="oAg">0</b><span id="oAgVal">Potencial R$0/mês</span></div>
+<div class="card opp" data-opp="marketing"><small>Sem IA Marketing</small><b id="oMk">0</b><span id="oMkVal">Potencial R$0/mês</span></div>
+<div class="card opp" data-opp="confirmacao"><small>Sem IA Confirmação</small><b id="oCf">0</b><span id="oCfVal">Potencial R$0/mês</span></div>
+<div class="card opp" data-opp="nfce"><small>Sem NFC-e</small><b id="oNf">0</b><span id="oNfVal">Potencial R$0/mês</span></div>
+</div>
+
+<div id="notice" class="notice">Importe os dois relatórios para montar sua carteira. Os dados ficam somente neste navegador.</div>
+
+<div class="toolbar">
+<input id="search" class="input" placeholder="Buscar por nome, ID ou documento...">
+<select id="statusFilter"><option value="">Todos os clientes</option><option value="ATIVO">Ativos</option><option value="CHURN">Cancelados</option></select>
+<select id="sort"><option value="name">Nome (A–Z)</option><option value="mrr">Maior MRR</option><option value="id">ID</option></select>
+<button class="btn" id="clearOpp">Limpar filtro</button>
+</div>
+<div class="meta"><span id="count">0 clientes</span><span id="updated"></span></div>
+<div class="table"><table><thead><tr><th>Cliente</th><th>Status</th><th>Produtos</th><th>MRR</th></tr></thead><tbody id="tbody"><tr><td colspan="4" class="empty">Importe os relatórios para começar.</td></tr></tbody></table></div>
+</div>
+
+<div id="modal" class="modalBg hidden"><div class="modal">
+<h2>Atualizar base de clientes</h2><div class="sub">Selecione os dois relatórios exportados. O cruzamento é feito pelo Cliente ID.</div>
+<div class="field"><label>1. Receita SaaS</label><div class="filebox"><input id="fReceita" type="file" accept=".csv,text/csv"></div></div>
+<div class="field"><label>2. Contratos e Componentes</label><div class="filebox"><input id="fComp" type="file" accept=".csv,text/csv"></div></div>
+<div id="importMsg" class="notice hidden"></div>
+<div class="actions"><button class="btn" id="cancel">Cancelar</button><button class="btn primary" id="import">Importar e atualizar</button></div>
+</div></div>
+
+<script>
+const $=s=>document.querySelector(s);let BASE=[],oppFilter='';
+const KEY='portal-clientes-v1';
+const money=n=>Number(n||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const norm=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+function parseMoney(v){if(typeof v==='number')return v;let s=String(v??'').trim();if(!s)return 0;s=s.replace(/\./g,'').replace(',','.').replace(/[^0-9.-]/g,'');return Number(s)||0}
+function parseCSV(text){
+ const rows=[];let row=[],cell='',q=false;
+ for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];
+  if(c==='"'){if(q&&n==='"'){cell+='"';i++}else q=!q}
+  else if(c===','&&!q){row.push(cell);cell=''}
+  else if((c==='\n'||c==='\r')&&!q){if(c==='\r'&&n==='\n')i++;row.push(cell);if(row.some(x=>String(x).trim()))rows.push(row);row=[];cell=''}
+  else cell+=c;
+ }
+ if(cell||row.length){row.push(cell);rows.push(row)}
+ const h=(rows.shift()||[]).map(x=>x.replace(/^\uFEFF/,'').trim());
+ return rows.map(r=>Object.fromEntries(h.map((k,i)=>[k,r[i]??''])));
+}
+function porteFrom(text){
+ const s=norm(text);const m=s.match(/ate\s*(\d+)\s*prof/);if(m){const n=+m[1];if(n<=2)return'ate2';if(n<=5)return'ate5';if(n<=10)return'ate10';if(n<=20)return'ate20';if(n<=30)return'ate30';if(n<=40)return'ate40';if(n<=50)return'ate50'}return'ilimitado'
+}
+const PRICES={
+ agendamento:{ate2:150,ate5:240,ate10:260,ate20:420,ate30:540,ate40:780,ate50:899,ilimitado:720},
+ marketing:{ate2:100,ate5:170,ate10:320,ate20:330,ate30:420,ate40:570,ate50:660,ilimitado:1020},
+ confirmacao:{ate2:75,ate5:150,ate10:240,ate20:299,ate30:360,ate40:480,ate50:540,ilimitado:599},
+ nfce:{ate2:114.9,ate5:114.9,ate10:114.9,ate20:114.9,ate30:114.9,ate40:114.9,ate50:114.9,ilimitado:114.9}
+};
+function has(c,k){const arr=c.produtos||[];if(k==='agendamento')return arr.some(x=>/AVECIA.*AGENDAMENTO/i.test(x));if(k==='marketing')return arr.some(x=>/AVECIA.*MARKETING/i.test(x));if(k==='confirmacao')return arr.some(x=>/AVECIA.*CONFIRMA/i.test(x));if(k==='nfce')return arr.some(x=>/NFC-E/i.test(x));return false}
+function save(){localStorage.setItem(KEY,JSON.stringify({updated:new Date().toISOString(),clientes:BASE}))}
+function load(){try{const x=JSON.parse(localStorage.getItem(KEY)||'null');if(x?.clientes){BASE=x.clientes;$('#updated').textContent='Atualizado '+new Date(x.updated).toLocaleString('pt-BR')}}catch{}render()}
+function rebuild(receita,comp){
+ const cm=new Map();
+ for(const r of comp){const id=String(r['Cliente ID']||'').trim();if(!id)continue;let x=cm.get(id)||{produtos:[],contratos:[],porte:'ilimitado'};const prod=String(r['Nome Componente']||'').trim();if(prod&&!x.produtos.includes(prod))x.produtos.push(prod);const ct=String(r['Nome Contrato']||'').trim();if(ct&&!x.contratos.includes(ct))x.contratos.push(ct);if(/PLATAFORMA AVEC/i.test(ct))x.porte=porteFrom(ct);cm.set(id,x)}
+ BASE=receita.map(r=>{const id=String(r['Cliente ID']||'').trim(),c=cm.get(id)||{produtos:[],contratos:[],porte:'ilimitado'};return{id,nome:String(r['Nome']||'').trim(),documento:String(r['Documento']||'').replace(/\.0$/,''),status:String(r['Status']||'').trim().toUpperCase(),statusContrato:String(r['Status Contrato']||'').trim(),mrr:parseMoney(r['MRR (R$)']),ativacao:String(r['Ativacao Contrato']||''),expiracao:String(r['Expiracao Contrato']||''),churn:String(r['Data Churn']||''),...c}});
+ save();render();
+}
+function render(){
+ const total=BASE.length,ativos=BASE.filter(x=>x.status==='ATIVO'),churn=BASE.filter(x=>x.status==='CHURN');
+ $('#mTotal').textContent=total;$('#mAtivos').textContent=ativos.length;$('#mChurn').textContent=churn.length;$('#mMrr').textContent=money(ativos.reduce((a,x)=>a+x.mrr,0));
+ for(const [k,id,valId] of [['agendamento','oAg','oAgVal'],['marketing','oMk','oMkVal'],['confirmacao','oCf','oCfVal'],['nfce','oNf','oNfVal']]){
+   const miss=ativos.filter(x=>!has(x,k));$('#'+id).textContent=miss.length;const pot=miss.reduce((a,x)=>a+(PRICES[k][x.porte]||PRICES[k].ilimitado),0);$('#'+valId).textContent='Potencial '+money(pot)+'/mês';
+ }
+ let list=[...BASE],q=norm($('#search').value),st=$('#statusFilter').value;
+ if(q)list=list.filter(x=>norm(x.nome).includes(q)||norm(x.id).includes(q)||norm(x.documento).includes(q));
+ if(st)list=list.filter(x=>x.status===st);if(oppFilter)list=list.filter(x=>x.status==='ATIVO'&&!has(x,oppFilter));
+ const sort=$('#sort').value;if(sort==='mrr')list.sort((a,b)=>b.mrr-a.mrr);else if(sort==='id')list.sort((a,b)=>Number(a.id)-Number(b.id));else list.sort((a,b)=>a.nome.localeCompare(b.nome,'pt-BR'));
+ $('#count').textContent=list.length+' clientes';
+ $('#tbody').innerHTML=list.length?list.map(x=>'<tr><td><div class="name">'+esc(x.nome||'—')+'</div><div class="small">ID '+esc(x.id)+(x.documento?' · '+esc(x.documento):'')+(x.expiracao?' · exp '+esc(x.expiracao):'')+'</div></td><td><span class="status '+(x.status==='ATIVO'?'active':'churn')+'">'+(x.status==='ATIVO'?'Ativo':'Cancelado')+'</span></td><td>'+(x.produtos.length?x.produtos.map(p=>'<span class="tag">'+esc(shortProd(p))+'</span>').join(''):'<span class="small">sem produto</span>')+'</td><td class="money">'+money(x.mrr)+'</td></tr>').join(''):'<tr><td colspan="4" class="empty">Nenhum cliente encontrado.</td></tr>';
+ $('#notice').textContent=BASE.length?'Base carregada neste navegador. Use “Atualizar base” quando receber relatórios novos.':'Importe os dois relatórios para montar sua carteira. Os dados ficam somente neste navegador.';
+}
+function shortProd(p){return p.replace('PLATAFORMA AVEC - ASSINATURA','Plataforma AVEC').replace(/AVECIA - /,'IA ').replace(/ - ATÉ .* MENSAL/i,'').replace('MÓDULO ','')}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+$('#update').onclick=()=>$('#modal').classList.remove('hidden');$('#cancel').onclick=()=>$('#modal').classList.add('hidden');
+$('#import').onclick=async()=>{const a=$('#fReceita').files[0],b=$('#fComp').files[0],msg=$('#importMsg');msg.classList.remove('hidden');if(!a||!b){msg.textContent='Selecione os dois relatórios.';return}try{msg.textContent='Lendo e cruzando os relatórios...';const [ta,tb]=await Promise.all([a.text(),b.text()]);const ra=parseCSV(ta),cb=parseCSV(tb);if(!ra.length||!cb.length)throw new Error('Um dos arquivos está vazio.');if(!('Cliente ID' in ra[0])||!('MRR (R$)' in ra[0]))throw new Error('O primeiro arquivo não parece ser o relatório Receita SaaS.');if(!('Cliente ID' in cb[0])||!('Nome Componente' in cb[0]))throw new Error('O segundo arquivo não parece ser Contratos e Componentes.');rebuild(ra,cb);$('#modal').classList.add('hidden');$('#fReceita').value='';$('#fComp').value='';msg.classList.add('hidden')}catch(e){msg.textContent='Erro: '+e.message}};
+['search','statusFilter','sort'].forEach(id=>$('#'+id).addEventListener(id==='search'?'input':'change',render));
+document.querySelectorAll('.opp').forEach(el=>el.onclick=()=>{oppFilter=oppFilter===el.dataset.opp?'':el.dataset.opp;document.querySelectorAll('.opp').forEach(x=>x.classList.toggle('on',x.dataset.opp===oppFilter));render()});
+$('#clearOpp').onclick=()=>{oppFilter='';document.querySelectorAll('.opp').forEach(x=>x.classList.remove('on'));render()};
+load();
+</script></body></html>'''
+mods["clientes"] = b64(clientes_html)
+
+# Adiciona Clientes ao menu, antes do Migrador.
+if "id: 'clientes'" not in html:
+    alvo_clientes = "{ id: 'migrador', arquivo: 'migrador-planilhas.html', nome: 'Migrador de Planilhas', desc: 'Converta planilhas de clientes, produtos, serviços e profissionais para o formato AVEC.', cor: '#6C47FF' },"
+    novo_clientes = "{ id: 'clientes', arquivo: 'clientes.html', nome: 'Clientes', desc: 'Carteira consolidada, MRR, produtos contratados e oportunidades por cliente.', cor: '#059669' },\n    " + alvo_clientes
+    if alvo_clientes in html:
+        html = html.replace(alvo_clientes, novo_clientes, 1)
+
+# Libera Clientes para usuarios existentes.
+
 # --- Novo modulo Extrator Instagram ---
 instagram_html = r'''<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -391,8 +516,11 @@ if USERS.exists():
     lista = users if isinstance(users, list) else users.get("usuarios", [])
     for u in lista:
         mods_u = u.setdefault("modulos", [])
-        if isinstance(mods_u, list) and "instagram" not in mods_u:
-            mods_u.append("instagram")
+        if isinstance(mods_u, list):
+            if "instagram" not in mods_u:
+                mods_u.append("instagram")
+            if "clientes" not in mods_u:
+                mods_u.append("clientes")
     USERS.write_text(json.dumps(users, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 print("Portal atualizado: bairros nacionais + Extrator de Instagram")
