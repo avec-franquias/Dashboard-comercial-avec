@@ -1,6 +1,10 @@
 name: Atualizar leads
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'config/leads-queries.json'
   workflow_dispatch:
     inputs:
       nicho:
