@@ -276,15 +276,6 @@ load();
 </script></body></html>'''
 mods["clientes"] = b64(clientes_html)
 
-# Adiciona Clientes ao menu, antes do Migrador.
-if "id: 'clientes'" not in html:
-    alvo_clientes = "{ id: 'migrador', arquivo: 'migrador-planilhas.html', nome: 'Migrador de Planilhas', desc: 'Converta planilhas de clientes, produtos, serviços e profissionais para o formato AVEC.', cor: '#6C47FF' },"
-    novo_clientes = "{ id: 'clientes', arquivo: 'clientes.html', nome: 'Clientes', desc: 'Carteira consolidada, MRR, produtos contratados e oportunidades por cliente.', cor: '#059669' },\n    " + alvo_clientes
-    if alvo_clientes in html:
-        html = html.replace(alvo_clientes, novo_clientes, 1)
-
-# Libera Clientes para usuarios existentes.
-
 # --- Novo modulo Extrator Instagram ---
 instagram_html = r'''<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -446,6 +437,14 @@ if "id: 'instagram'" not in html:
     if alvo not in html:
         raise SystemExit("config do modulo extrator nao encontrada")
     html = html.replace(alvo, novo, 1)
+
+# Adiciona Clientes somente depois de atualizar o bloco embutido, para nao invalidar os indices do regex.
+if "id: 'clientes'" not in html:
+    alvo_clientes = "{ id: 'migrador', arquivo: 'migrador-planilhas.html', nome: 'Migrador de Planilhas', desc: 'Converta planilhas de clientes, produtos, serviços e profissionais para o formato AVEC.', cor: '#6C47FF' },"
+    novo_clientes = "{ id: 'clientes', arquivo: 'clientes.html', nome: 'Clientes', desc: 'Carteira consolidada, MRR, produtos contratados e oportunidades por cliente.', cor: '#059669' },\n    " + alvo_clientes
+    if alvo_clientes not in html:
+        raise SystemExit("config do modulo migrador nao encontrada")
+    html = html.replace(alvo_clientes, novo_clientes, 1)
 
 # Faz cada busca do Extrator disparar somente a consulta escolhida no GitHub Actions.
 portal_dispatch = r"""window.portalSolicitarExtracao = async ({ nicho, cidade, bairro = '', max_results = 80 }) => {
