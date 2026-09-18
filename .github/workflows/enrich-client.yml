@@ -1,0 +1,49 @@
+name: Buscar WhatsApp de cliente
+
+on:
+  workflow_dispatch:
+    inputs:
+      cliente_id:
+        description: ID do cliente
+        required: true
+        type: string
+      nome:
+        description: Nome do cliente
+        required: true
+        type: string
+      documento:
+        description: CPF/CNPJ
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cliente-whatsapp
+  cancel-in-progress: false
+
+jobs:
+  buscar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Buscar telefone publico
+        env:
+          CLIENTE_ID: ${{ inputs.cliente_id }}
+          CLIENTE_NOME: ${{ inputs.nome }}
+          CLIENTE_DOCUMENTO: ${{ inputs.documento }}
+        run: node collector/enrich-client.mjs
+      - name: Publicar resultado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add clientes-enrichment/latest.json
+          git diff --cached --quiet || git commit -m "Atualiza WhatsApp publico de cliente"
+          git push
