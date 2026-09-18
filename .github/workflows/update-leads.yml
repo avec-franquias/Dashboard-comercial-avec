@@ -1,10 +1,6 @@
 name: Atualizar leads
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'config/leads-queries.json'
   workflow_dispatch:
     inputs:
       nicho:
@@ -24,8 +20,6 @@ on:
         required: false
         default: "80"
         type: string
-  schedule:
-    - cron: "17 */6 * * *"
 
 permissions:
   contents: write
