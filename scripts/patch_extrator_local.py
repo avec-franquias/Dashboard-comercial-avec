@@ -52,7 +52,7 @@ e = base64.b64decode(mods["extrator"]).decode("utf-8")
 # Remove a excecao de Joinville e passa a usar uma unica base nacional.
 e = re.sub(
     r"const JOINVILLE_BAIRROS=\[.*?\];\n",
-    """let BAIRROS_BR=null;
+    lambda _m: """let BAIRROS_BR=null;
 function chaveGeo(s){return String(s||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').trim().toLocaleLowerCase('pt-BR').replace(/\\s+/g,' ')}
 async function carregarBaseBairros(){
   if(BAIRROS_BR) return BAIRROS_BR;
