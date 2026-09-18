@@ -1,0 +1,26 @@
+name: Aplicar isolamento local do Extrator
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/patch_extrator_local.py'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Aplicar patch
+        run: python scripts/patch_extrator_local.py
+      - name: Salvar
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Sem alteracoes."
+          else
+            git commit -m "Portal: isola dados do Extrator por navegador"
+            git push
+          fi
