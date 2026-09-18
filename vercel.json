@@ -1,7 +1,9 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/*.js": { "maxDuration": 10 }
   },
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':(exclude)extrator-data/**' ':(exclude)instagram-data/**' ':(exclude)clientes-enrichment/**'",
   "rewrites": [
     { "source": "/", "destination": "/api/portal" }
   ]
