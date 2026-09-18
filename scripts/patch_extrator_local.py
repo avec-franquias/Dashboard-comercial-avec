@@ -132,6 +132,34 @@ if n != 1 and "carregarBaseBairros" not in e:
     raise SystemExit("funcao atualizarBairros nao encontrada")
 mods["extrator"] = b64(e)
 
+# --- Migrador: fluxo simples somente para Clientes + limpar/nova migracao ---
+mig = base64.b64decode(mods["migrador"]).decode("utf-8")
+mig = re.sub(
+    r'<label class="section-label">Tipo de cadastro</label>\s*<div class="types" id="types">.*?</div>\s*\n\s*<div class="field">',
+    '<div class="notice" style="margin-top:0"><b>Importação de clientes</b><br>Envie uma planilha de clientes. Para migrar outro arquivo, finalize esta importação e clique em <b>Nova migração</b>.</div>\\n\\n    <div class="field">',
+    mig, count=1, flags=re.S
+)
+mig = mig.replace(
+    '<div class="actions"><button class="btn secondary" id="back2">Ajustar mapeamento</button><button class="btn" id="downloadBtn">Gerar planilha AVEC (.xlsx)</button><button class="btn secondary" id="reviewBtn">Baixar relatório de revisão</button></div>',
+    '<div class="actions"><button class="btn secondary" id="back2">Ajustar mapeamento</button><button class="btn" id="downloadBtn">Gerar planilha AVEC (.xlsx)</button><button class="btn secondary" id="reviewBtn">Baixar relatório de revisão</button><button class="btn secondary" id="newMigrationBtn">Limpar e fazer nova migração</button></div>'
+)
+mig = re.sub(r"\$\('#types'\)\.onclick=e=>\{.*?\};const drop=", "const drop=", mig, count=1)
+mig = mig.replace(
+    "$('#downloadBtn').onclick=downloadTemplate;$('#reviewBtn').onclick=downloadReview;",
+    """$('#downloadBtn').onclick=downloadTemplate;$('#reviewBtn').onclick=downloadReview;
+function novaMigracao(){
+  tipo='clientes';file=null;rawHeaders=[];rawRows=[];mapping={};processed=[];duplicates=0;
+  inp.value='';$('#salao').value='';$('#fileName').textContent='';$('#fileInfo').classList.remove('show');
+  $('#readBtn').disabled=true;$('#mapping').innerHTML='';$('#thead').innerHTML='';$('#tbody').innerHTML='';
+  $('#status').className='status';$('#status').textContent='';$('#status2').className='status';$('#status2').textContent='';
+  $('#mapCard').classList.add('hidden');$('#resultCard').classList.add('hidden');$('#uploadCard').classList.remove('hidden');
+  ['stTotal','stReady','stReview','stDup'].forEach(id=>$('#'+id).textContent='0');
+  $('#resultNote').textContent='';setStep(1);window.scrollTo({top:0,behavior:'smooth'});
+}
+$('#newMigrationBtn').onclick=novaMigracao;"""
+)
+mods["migrador"] = b64(mig)
+
 # --- Novo modulo Extrator Instagram ---
 instagram_html = r'''<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
