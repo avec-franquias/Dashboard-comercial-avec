@@ -65,6 +65,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          if [ ! -d instagram-data ]; then
+            echo "Nenhuma base do Instagram foi gerada."
+            exit 0
+          fi
+
           rm -rf /tmp/instagram-data
           cp -a instagram-data /tmp/instagram-data
 
