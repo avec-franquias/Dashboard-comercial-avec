@@ -34,7 +34,7 @@ permissions:
 
 concurrency:
   group: extrator-instagram
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   collect:
