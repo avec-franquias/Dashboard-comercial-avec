@@ -134,7 +134,7 @@ input,select{width:100%;border:1.5px solid var(--l);border-radius:10px;padding:1
 <div class="campo"><label>Quantidade máxima de perfis</label><input id="limite" type="number" min="1" max="500" value="100"></div>
 <div style="display:flex;align-items:end"><button class="btn primary" id="buscar" style="width:100%">Buscar perfis</button></div>
 </div>
-<div id="msg" class="notice">Interface pronta. Para executar a coleta, conecte a API do seu servidor ao endpoint <b>/api/instagram/search</b>.</div>
+<div id="msg" class="notice">As buscas são processadas pelo GitHub Actions e os resultados ficam salvos no Portal.</div>
 </section>
 <section class="card" id="andamento" style="display:none">
 <div style="display:flex;justify-content:space-between;gap:10px"><div><b>Buscando perfis no Instagram...</b><div class="muted" id="desc"></div></div><button class="btn line" id="parar">Parar busca</button></div>
@@ -148,18 +148,50 @@ input,select{width:100%;border:1.5px solid var(--l);border-radius:10px;padding:1
 </div>
 <script>
 const $=s=>document.querySelector(s);let dados=[];
-function apiBase(){try{return parent.INSTAGRAM_EXTRACTOR_API||''}catch{return ''}}
+const DATA_URL='instagram-data/latest.json';
+const norm=s=>String(s||'').trim().toLocaleLowerCase('pt-BR');
+function parentFn(n){try{return typeof parent[n]==='function'?parent[n]:null}catch{return null}}
+async function lerBase(){
+ const r=await fetch(DATA_URL+'?t='+Date.now(),{cache:'no-store'});
+ if(!r.ok) throw new Error('Base do Instagram ainda não foi publicada.');
+ return r.json();
+}
+function mesmaBusca(q,b){
+ return norm(q?.nicho)===norm(b.nicho)&&norm(q?.uf)===norm(b.uf)&&norm(q?.cidade)===norm(b.cidade)&&norm(q?.bairro)===norm(b.bairro)&&norm(q?.palavra_chave)===norm(b.palavra_chave);
+}
+function render(body,run){
+ dados=Array.isArray(run?.results)?run.results:[];
+ $('#bar').style.width='100%';
+ $('#s1').textContent=body.limite;
+ $('#s2').textContent=dados.length;
+ $('#s3').textContent=dados.length;
+ $('#s4').textContent=dados.filter(x=>x.whatsapp||x.phone||x.email||x.website).length;
+ $('#tbody').innerHTML=dados.length?dados.map(x=>'<tr><td><span class="badge">'+((run?.new_usernames||[]).some(u=>norm(u)===norm(x.username))?'Novo':'Conhecido')+'</span></td><td>@'+(x.username||'—')+'</td><td>'+esc(x.name||'—')+'</td><td>'+(x.followers??'—')+'</td><td>'+(x.type||'—')+'</td><td>'+(x.whatsapp||x.phone||x.email||x.website||'—')+'</td><td>'+esc(x.city||body.cidade)+'</td><td>'+(x.last_post||'—')+'</td><td>'+(x.profile_url?'<a target="_blank" rel="noopener" href="'+x.profile_url+'">Ver perfil</a>':'—')+'</td></tr>').join(''):'<tr><td colspan="9" class="muted">Nenhum perfil encontrado para esta busca.</td></tr>';
+}
 $('#buscar').onclick=async()=>{
- const api=apiBase(); if(!api){$('#msg').innerHTML='O módulo está instalado, mas o endereço do servidor ainda não foi configurado. Defina <b>window.INSTAGRAM_EXTRACTOR_API</b> no Portal.';return}
  const body={nicho:$('#nicho').value,uf:$('#uf').value,cidade:$('#cidade').value.trim(),bairro:$('#bairro').value.trim(),palavra_chave:$('#kw').value.trim(),limite:Number($('#limite').value)||100};
- $('#andamento').style.display='block';$('#desc').textContent=body.nicho+' em '+body.cidade+'/'+body.uf;$('#bar').style.width='12%';
+ const solicitar=parentFn('portalSolicitarInstagram');
+ if(!solicitar){$('#msg').textContent='Atualize o Portal para iniciar buscas pelo GitHub.';return}
+ $('#andamento').style.display='block';$('#desc').textContent=body.nicho+' em '+body.cidade+'/'+body.uf;$('#bar').style.width='10%';
+ $('#msg').textContent='Solicitando coleta ao GitHub...';
  try{
-  const r=await fetch(api.replace(/\/$/,'')+'/api/instagram/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-  if(!r.ok) throw new Error('HTTP '+r.status);
-  const j=await r.json(); dados=Array.isArray(j.results)?j.results:[];
-  $('#bar').style.width='100%';$('#s1').textContent=body.limite;$('#s2').textContent=dados.length;$('#s3').textContent=dados.length;$('#s4').textContent=dados.filter(x=>x.whatsapp||x.phone||x.email||x.website).length;
-  $('#tbody').innerHTML=dados.length?dados.map(x=>'<tr><td><span class="badge">'+(x.status||'Novo')+'</span></td><td>@'+(x.username||'—')+'</td><td>'+esc(x.name||'—')+'</td><td>'+(x.followers??'—')+'</td><td>'+(x.type||'—')+'</td><td>'+(x.whatsapp||x.phone||x.email||x.website||'—')+'</td><td>'+esc(x.city||body.cidade)+'</td><td>'+(x.last_post||'—')+'</td><td>'+(x.profile_url?'<a target="_blank" rel="noopener" href="'+x.profile_url+'">Ver perfil</a>':'—')+'</td></tr>').join(''):'<tr><td colspan="9" class="muted">Nenhum perfil encontrado.</td></tr>';
- }catch(e){$('#msg').textContent='Falha ao consultar o servidor: '+e.message}
+   const before=Date.now();
+   await solicitar(body);
+   $('#msg').textContent='Busca enviada. O GitHub está coletando os perfis; esta tela atualizará automaticamente.';
+   let tries=0;
+   const poll=async()=>{
+     tries++;
+     try{
+       const base=await lerBase();
+       const run=(base.runs||[]).find(r=>mesmaBusca(r.query,body));
+       const done=run&&Date.parse(run.finished_at||0)>=before-5000;
+       if(done){render(body,run);$('#msg').textContent='Busca concluída: '+dados.length+' perfil(is) encontrado(s).';return}
+     }catch{}
+     $('#bar').style.width=Math.min(90,10+tries*4)+'%';
+     if(tries<30) setTimeout(poll,10000); else $('#msg').textContent='A coleta ainda está processando no GitHub. Você pode voltar em alguns minutos; os resultados ficarão salvos.';
+   };
+   setTimeout(poll,6000);
+ }catch(e){$('#msg').textContent='Não foi possível iniciar a coleta: '+e.message}
 };
 function esc(s){return String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
 $('#csv').onclick=()=>{if(!dados.length)return;const h=['username','name','followers','type','whatsapp','phone','email','website','city','profile_url'];const txt=[h,...dados.map(x=>h.map(k=>x[k]??''))].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/csv;charset=utf-8'}));a.download='instagram-leads.csv';a.click();URL.revokeObjectURL(a.href)}
