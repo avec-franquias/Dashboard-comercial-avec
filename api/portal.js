@@ -36,6 +36,8 @@ export default async function handler(req,res){
 })();
 </script>`;
     html=html
+      .replaceAll("extrator-data/latest.json?ts='+Date.now()","api/data-leads?ts='+Date.now()")
+      .replaceAll("instagram-data/latest.json?ts='+Date.now()","api/data-instagram?ts='+Date.now()")
       .replaceAll('Pesquisa enviada. A coleta está rodando no GitHub.','Pesquisa enviada. Estamos buscando os leads.')
       .replaceAll('Pesquisa enviada. A coleta estÃ¡ rodando no GitHub.','Pesquisa enviada. Estamos buscando os leads.')
       .replaceAll('rodando no GitHub','em processamento')
