@@ -1,0 +1,83 @@
+name: Atualizar Instagram
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'config/instagram-queries.json'
+  workflow_dispatch:
+    inputs:
+      nicho:
+        description: "Nicho"
+        required: false
+        type: string
+      uf:
+        description: "UF"
+        required: false
+        type: string
+      cidade:
+        description: "Cidade"
+        required: false
+        type: string
+      bairro:
+        description: "Bairro"
+        required: false
+        type: string
+      palavra_chave:
+        description: "Palavra-chave"
+        required: false
+        type: string
+      limite:
+        description: "Máximo de perfis"
+        required: false
+        default: "100"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: extrator-instagram
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Coletar perfis
+        env:
+          INSTAGRAM_NICHO: ${{ inputs.nicho }}
+          INSTAGRAM_UF: ${{ inputs.uf }}
+          INSTAGRAM_CIDADE: ${{ inputs.cidade }}
+          INSTAGRAM_BAIRRO: ${{ inputs.bairro }}
+          INSTAGRAM_PALAVRA_CHAVE: ${{ inputs.palavra_chave }}
+          INSTAGRAM_LIMITE: ${{ inputs.limite }}
+        run: node collector/collect-instagram.mjs
+      - name: Salvar resultados
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          rm -rf /tmp/instagram-data
+          cp -a instagram-data /tmp/instagram-data
+
+          git fetch origin main
+          git reset --hard origin/main
+
+          rm -rf instagram-data
+          cp -a /tmp/instagram-data instagram-data
+
+          git add instagram-data
+          if git diff --cached --quiet; then
+            echo "Sem alterações."
+          else
+            git commit -m "Atualiza base do Instagram"
+            git push origin main
+          fi
