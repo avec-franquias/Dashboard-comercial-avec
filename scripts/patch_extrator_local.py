@@ -267,11 +267,11 @@ const PRICES={
 };
 function has(c,k){const arr=c.produtos||[];if(k==='agendamento')return arr.some(x=>/AVECIA.*AGENDAMENTO/i.test(x));if(k==='marketing')return arr.some(x=>/AVECIA.*MARKETING/i.test(x));if(k==='confirmacao')return arr.some(x=>/AVECIA.*CONFIRMA/i.test(x));if(k==='nfce')return arr.some(x=>/NFC-E/i.test(x));return false}
 function save(){localStorage.setItem(KEY,JSON.stringify({updated:new Date().toISOString(),clientes:BASE}))}
-function phoneBR(v){let n=String(v||'').replace(/\\D/g,'');if(!n)return'';if(n.startsWith('0'))n=n.replace(/^0+/,'');if(n.length===10||n.length===11)n='55'+n;return n}
-function clienteMsg(c){const nome=(c.nome||'').split(/\\s+/)[0]||'tudo bem';let op='';if(!has(c,'agendamento'))op=' sobre IA para agendamento';else if(!has(c,'confirmacao'))op=' sobre IA para confirmação de agenda';else if(!has(c,'marketing'))op=' sobre IA para marketing';else if(!has(c,'nfce'))op=' sobre NFC-e';return 'Olá, '+nome+'! Tudo bem? Aqui é da AVEC. Queria falar com você'+op+' e entender se faz sentido para o seu negócio. Posso te explicar rapidamente?'}
-function whatsCliente(c){const n=phoneBR(c.telefone);if(!n)return '<button class="btn" style="padding:6px 9px" onclick="editarFone(\\''+esc(c.id)+'\\')">Cadastrar número</button>';return '<button class="btn" style="padding:6px 9px" onclick="abrirWppCliente(\\''+esc(c.id)+'\\')">WhatsApp</button><div class="small">'+esc(c.telefone)+'</div>'}
-window.editarFone=function(id){const c=BASE.find(x=>String(x.id)===String(id));if(!c)return;const v=prompt('WhatsApp de '+(c.nome||'cliente')+' com DDD:',c.telefone||'');if(v===null)return;c.telefone=String(v).trim();save();render()}
-window.abrirWppCliente=function(id){const c=BASE.find(x=>String(x.id)===String(id));if(!c)return;const n=phoneBR(c.telefone);if(!n)return editarFone(id);c.ultimoContato=new Date().toISOString();save();window.open('https://wa.me/'+n+'?text='+encodeURIComponent(clienteMsg(c)),'_blank','noopener');render()}
+function phoneBR(v){let n=String(v||'').replace(/\D/g,'');if(!n)return'';if(n.startsWith('0'))n=n.replace(/^0+/,'');if(n.length===10||n.length===11)n='55'+n;return n}
+function clienteMsg(c){const nome=(c.nome||'').split(/\s+/)[0]||'tudo bem';let op='';if(!has(c,'agendamento'))op=' sobre IA para agendamento';else if(!has(c,'confirmacao'))op=' sobre IA para confirmação de agenda';else if(!has(c,'marketing'))op=' sobre IA para marketing';else if(!has(c,'nfce'))op=' sobre NFC-e';return 'Olá, '+nome+'! Tudo bem? Aqui é da AVEC. Queria falar com você'+op+' e entender se faz sentido para o seu negócio. Posso te explicar rapidamente?'}
+function whatsCliente(c){const n=phoneBR(c.telefone);if(!n)return '<button class="btn wpp-edit" style="padding:6px 9px" data-id="'+esc(c.id)+'">Cadastrar número</button>';return '<button class="btn wpp-open" style="padding:6px 9px" data-id="'+esc(c.id)+'">WhatsApp</button><div class="small">'+esc(c.telefone)+'</div>'}
+function editarFone(id){const c=BASE.find(x=>String(x.id)===String(id));if(!c)return;const v=prompt('WhatsApp de '+(c.nome||'cliente')+' com DDD:',c.telefone||'');if(v===null)return;c.telefone=String(v).trim();save();render()}
+function abrirWppCliente(id){const c=BASE.find(x=>String(x.id)===String(id));if(!c)return;const n=phoneBR(c.telefone);if(!n)return editarFone(id);c.ultimoContato=new Date().toISOString();save();window.open('https://wa.me/'+n+'?text='+encodeURIComponent(clienteMsg(c)),'_blank','noopener');render()}
 function load(){try{const x=JSON.parse(localStorage.getItem(KEY)||'null');if(x?.clientes){BASE=x.clientes;$('#updated').textContent='Atualizado '+new Date(x.updated).toLocaleString('pt-BR')}}catch{}render()}
 function rebuild(receita,comp){
  const antigos=new Map(BASE.map(x=>[String(x.id),x]));
@@ -301,6 +301,7 @@ $('#import').onclick=async()=>{const a=$('#fReceita').files[0],b=$('#fComp').fil
 ['search','statusFilter','sort'].forEach(id=>$('#'+id).addEventListener(id==='search'?'input':'change',render));
 document.querySelectorAll('.opp').forEach(el=>el.onclick=()=>{oppFilter=oppFilter===el.dataset.opp?'':el.dataset.opp;document.querySelectorAll('.opp').forEach(x=>x.classList.toggle('on',x.dataset.opp===oppFilter));render()});
 $('#clearOpp').onclick=()=>{oppFilter='';document.querySelectorAll('.opp').forEach(x=>x.classList.remove('on'));render()};
+$('#tbody').addEventListener('click',e=>{const b=e.target.closest('.wpp-edit,.wpp-open');if(!b)return;if(b.classList.contains('wpp-edit'))editarFone(b.dataset.id);else abrirWppCliente(b.dataset.id)});
 load();
 </script></body></html>'''
 mods["clientes"] = b64(clientes_html)
