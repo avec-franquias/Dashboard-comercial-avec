@@ -269,9 +269,11 @@ function has(c,k){const arr=c.produtos||[];if(k==='agendamento')return arr.some(
 function save(){localStorage.setItem(KEY,JSON.stringify({updated:new Date().toISOString(),clientes:BASE}))}
 function phoneBR(v){let n=String(v||'').replace(/\D/g,'');if(!n)return'';if(n.startsWith('0'))n=n.replace(/^0+/,'');if(n.length===10||n.length===11)n='55'+n;return n}
 function clienteMsg(c){const nome=(c.nome||'').split(/\s+/)[0]||'tudo bem';let op='';if(!has(c,'agendamento'))op=' sobre IA para agendamento';else if(!has(c,'confirmacao'))op=' sobre IA para confirmação de agenda';else if(!has(c,'marketing'))op=' sobre IA para marketing';else if(!has(c,'nfce'))op=' sobre NFC-e';return 'Olá, '+nome+'! Tudo bem? Aqui é da AVEC. Queria falar com você'+op+' e entender se faz sentido para o seu negócio. Posso te explicar rapidamente?'}
-function whatsCliente(c){const n=phoneBR(c.telefone);if(!n)return '<button class="btn wpp-edit" style="padding:6px 9px" data-id="'+esc(c.id)+'">Cadastrar número</button>';return '<button class="btn wpp-open" style="padding:6px 9px" data-id="'+esc(c.id)+'">WhatsApp</button><div class="small">'+esc(c.telefone)+'</div>'}
+function whatsCliente(c){const n=phoneBR(c.telefone);if(!n)return '<button class="btn wpp-find" style="padding:6px 9px" data-id="'+esc(c.id)+'">Buscar WhatsApp</button><button class="btn wpp-edit" style="padding:6px 9px;margin-left:5px" data-id="'+esc(c.id)+'">Cadastrar</button>';return '<button class="btn wpp-open" style="padding:6px 9px" data-id="'+esc(c.id)+'">WhatsApp</button><div class="small">'+esc(c.telefone)+(c.telefoneFonte?' · '+esc(c.telefoneFonte):'')+'</div>'}
 function editarFone(id){const c=BASE.find(x=>String(x.id)===String(id));if(!c)return;const v=prompt('WhatsApp de '+(c.nome||'cliente')+' com DDD:',c.telefone||'');if(v===null)return;c.telefone=String(v).trim();save();render()}
 function abrirWppCliente(id){const c=BASE.find(x=>String(x.id)===String(id));if(!c)return;const n=phoneBR(c.telefone);if(!n)return editarFone(id);c.ultimoContato=new Date().toISOString();save();window.open('https://wa.me/'+n+'?text='+encodeURIComponent(clienteMsg(c)),'_blank','noopener');render()}
+async function buscarWppCliente(id){const c=BASE.find(x=>String(x.id)===String(id));if(!c)return;try{if(!parent.portalBuscarWhatsAppCliente)throw new Error('Busca ainda não disponível no Portal.');await parent.portalBuscarWhatsAppCliente({cliente_id:c.id,nome:c.nome,documento:c.documento});alert('Busca iniciada. Aguarde cerca de 1 minuto e clique em OK para verificar.');await atualizarWppEncontrados();}catch(e){alert('Não foi possível iniciar a busca: '+e.message)}}
+async function atualizarWppEncontrados(){try{const r=await fetch('clientes-enrichment/latest.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)return;const d=await r.json();let mudou=false;for(const c of BASE){const x=d.clientes?.[String(c.id)];if(x?.telefone&&!c.telefone){c.telefone=x.telefone;c.telefoneFonte=x.fonte||'Google Maps';c.telefoneUrl=x.maps_url||'';mudou=true}}if(mudou){save();render()}}catch{}}
 function load(){try{const x=JSON.parse(localStorage.getItem(KEY)||'null');if(x?.clientes){BASE=x.clientes;$('#updated').textContent='Atualizado '+new Date(x.updated).toLocaleString('pt-BR')}}catch{}render()}
 function rebuild(receita,comp){
  const antigos=new Map(BASE.map(x=>[String(x.id),x]));
@@ -301,8 +303,8 @@ $('#import').onclick=async()=>{const a=$('#fReceita').files[0],b=$('#fComp').fil
 ['search','statusFilter','sort'].forEach(id=>$('#'+id).addEventListener(id==='search'?'input':'change',render));
 document.querySelectorAll('.opp').forEach(el=>el.onclick=()=>{oppFilter=oppFilter===el.dataset.opp?'':el.dataset.opp;document.querySelectorAll('.opp').forEach(x=>x.classList.toggle('on',x.dataset.opp===oppFilter));render()});
 $('#clearOpp').onclick=()=>{oppFilter='';document.querySelectorAll('.opp').forEach(x=>x.classList.remove('on'));render()};
-$('#tbody').addEventListener('click',e=>{const b=e.target.closest('.wpp-edit,.wpp-open');if(!b)return;if(b.classList.contains('wpp-edit'))editarFone(b.dataset.id);else abrirWppCliente(b.dataset.id)});
-load();
+$('#tbody').addEventListener('click',e=>{const b=e.target.closest('.wpp-edit,.wpp-open,.wpp-find');if(!b)return;if(b.classList.contains('wpp-edit'))editarFone(b.dataset.id);else if(b.classList.contains('wpp-find'))buscarWppCliente(b.dataset.id);else abrirWppCliente(b.dataset.id)});
+load();atualizarWppEncontrados();
 </script></body></html>'''
 mods["clientes"] = b64(clientes_html)
 
@@ -475,6 +477,23 @@ if "id: 'clientes'" not in html:
     if alvo_clientes not in html:
         raise SystemExit("config do modulo migrador nao encontrada")
     html = html.replace(alvo_clientes, novo_clientes, 1)
+
+# Permite ao modulo Clientes disparar enriquecimento publico individual.
+portal_cliente_wpp = r"""window.portalBuscarWhatsAppCliente = async ({ cliente_id, nome, documento = '' }) => {
+  let g = ghCfg();
+  if (!g) { await conectarGithub(); g = ghCfg(); }
+  if (!g) throw new Error('Conecte o GitHub para iniciar a busca.');
+  await gh(g, '/actions/workflows/enrich-client.yml/dispatches', {
+    method: 'POST',
+    body: { ref: g.branch, inputs: { cliente_id: String(cliente_id||''), nome: String(nome||''), documento: String(documento||'') } }
+  });
+  return { ok: true };
+};"""
+if "window.portalBuscarWhatsAppCliente" not in html:
+    pos = html.rfind("</script>")
+    if pos < 0:
+        raise SystemExit("script principal nao encontrado para WhatsApp de clientes")
+    html = html[:pos] + "\n" + portal_cliente_wpp + "\n" + html[pos:]
 
 # Faz cada busca do Extrator disparar somente a consulta escolhida no GitHub Actions.
 portal_dispatch = r"""window.portalSolicitarExtracao = async ({ nicho, cidade, bairro = '', max_results = 80 }) => {
