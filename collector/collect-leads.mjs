@@ -14,17 +14,33 @@ async function collectMaps(browser,{nicho,cidade,bairro,max_results=80}){
  try{
   const q=[nicho,bairro,cidade].filter(Boolean).join(' ');
   await page.goto('https://www.google.com/maps/search/'+encodeURIComponent(q),{waitUntil:'domcontentloaded',timeout:60000});
-  await sleep(2500);
-  for(const label of ['Aceitar tudo','Accept all']){const b=page.getByRole('button',{name:label});if(await b.count())try{await b.first().click({timeout:2500});await sleep(800)}catch{}}
+  await sleep(1200);
+  for(const label of ['Aceitar tudo','Accept all']){const b=page.getByRole('button',{name:label});if(await b.count())try{await b.first().click({timeout:1800});await sleep(300)}catch{}}
   const feed=page.locator('div[role="feed"]');
-  if(await feed.count()){let prev=0,stable=0;for(let i=0;i<40&&stable<5;i++){const n=await page.locator('a[href*="/maps/place/"]').count();stable=n===prev?stable+1:0;prev=n;await feed.evaluate(el=>el.scrollTo(0,el.scrollHeight));await sleep(850)}}
+  const wanted=Math.max(1,Math.min(Number(max_results)||80,120));
+  if(await feed.count()){
+    let prev=0,stable=0;
+    for(let i=0;i<20&&stable<3;i++){
+      const n=await page.locator('a[href*="/maps/place/"]').count();
+      if(n>=wanted) break;
+      stable=n===prev?stable+1:0;prev=n;
+      await feed.evaluate(el=>el.scrollTo(0,el.scrollHeight));
+      await sleep(450);
+    }
+  }
   const hrefs=await page.locator('a[href*="/maps/place/"]').evaluateAll(as=>[...new Set(as.map(a=>a.href).filter(Boolean))]);
-  const urls=hrefs.slice(0,Math.max(1,Math.min(Number(max_results)||80,120))),out=[];
-  for(const url of urls){
-   const p=await context.newPage();p.setDefaultTimeout(9000);
-   try{
-    await p.goto(url,{waitUntil:'domcontentloaded',timeout:30000});await sleep(650);
-    const data=await p.evaluate(()=>{
+  const urls=hrefs.slice(0,wanted),out=[];
+  let next=0;
+  const workers=Array.from({length:Math.min(6,urls.length)},async()=>{
+    while(true){
+      const idx=next++;
+      if(idx>=urls.length) return;
+      const url=urls[idx];
+      const p=await context.newPage();p.setDefaultTimeout(7000);
+      try{
+        await p.goto(url,{waitUntil:'domcontentloaded',timeout:20000});
+        await sleep(250);
+        const data=await p.evaluate(()=>{
       const text=s=>document.querySelector(s)?.textContent?.trim()||'';
       const btn=prefix=>[...document.querySelectorAll('button')].find(x=>(x.getAttribute('data-item-id')||'').startsWith(prefix));
       const phone=btn('phone:tel:')?.getAttribute('data-item-id')?.replace('phone:tel:','')||'';
@@ -36,10 +52,12 @@ async function collectMaps(browser,{nicho,cidade,bairro,max_results=80}){
       const reviews=(document.querySelector('div.F7nice span[aria-label*="avalia"]')?.getAttribute('aria-label')||'').match(/[\d.]+/)?.[0]||'';
       return {name:text('h1'),phone,website,address,category,rating,reviews};
     });
-    const here=p.url(),place_id=(here.match(/!1s([^!]+)/)?.[1]||url);
-    if(data.name)out.push({...data,place_id,maps_url:here});
-   }catch(e){console.warn('Falha em local:',e.message)}finally{await p.close()}
-  }
+        const here=p.url(),place_id=(here.match(/!1s([^!]+)/)?.[1]||url);
+        if(data.name)out.push({...data,place_id,maps_url:here});
+      }catch(e){console.warn('Falha em local:',e.message)}finally{await p.close()}
+    }
+  });
+  await Promise.all(workers);
   const dedup=new Map();for(const x of out){const k=x.place_id||x.name+'|'+x.address;if(!dedup.has(k))dedup.set(k,x)}
   return [...dedup.values()];
  }finally{await context.close()}
