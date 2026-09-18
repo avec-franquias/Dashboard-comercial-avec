@@ -7,7 +7,7 @@
         "cidade": "Florianópolis",
         "bairro": "",
         "palavra_chave": "",
-        "limite": 20
+        "limite": 100
       },
       "results": [
         {
@@ -26,10 +26,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "finebelezaebemestar",
-          "profile_url": "https://www.instagram.com/finebelezaebemestar/",
-          "name": "FINE | SALÃO DE BELEZA | DIA DA NOIVA | FLORIANÓPOLIS ...",
-          "bio": "FINE | SALÃO DE BELEZA | DIA DA NOIVA | FLORIANÓPOLIS ... - Instagram",
+          "username": "bacabeleireiros",
+          "profile_url": "https://www.instagram.com/bacabeleireiros/",
+          "name": "Ba Cabeleireiros | Salão de Beleza em Florianópolis ...",
+          "bio": "Ba Cabeleireiros | Salão de Beleza em Florianópolis ... - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -86,10 +86,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "bacabeleireiros",
-          "profile_url": "https://www.instagram.com/bacabeleireiros/",
-          "name": "Ba Cabeleireiros | Salão de Beleza em Florianópolis ...",
-          "bio": "Ba Cabeleireiros | Salão de Beleza em Florianópolis ... - Instagram",
+          "username": "espacohairaddress",
+          "profile_url": "https://www.instagram.com/espacohairaddress/",
+          "name": "SALÃO DE BELEZA",
+          "bio": "SALÃO DE BELEZA (@espacohairaddress) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -101,25 +101,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "fabricialobohair",
-          "profile_url": "https://www.instagram.com/fabricialobohair/",
-          "name": "FL ⋄ SALÃO DE BELEZA EM FLORIANÓPOLIS",
-          "bio": "FL ⋄ SALÃO DE BELEZA EM FLORIANÓPOLIS (@fabricialobohair) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Florianópolis",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "marciagomescabeleireiros",
-          "profile_url": "https://www.instagram.com/marciagomescabeleireiros/",
-          "name": "MÁRCIA GOMES CABELEIREIROS | Salão de Beleza | Florianópolis ...",
-          "bio": "MÁRCIA GOMES CABELEIREIROS | Salão de Beleza | Florianópolis ...",
+          "username": "joybeautyfloripa",
+          "profile_url": "https://www.instagram.com/joybeautyfloripa/",
+          "name": "Joy Beauty | Salão de Beleza",
+          "bio": "Joy Beauty | Salão de Beleza (@joybeautyfloripa) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -146,10 +131,25 @@
           "source": "duckduckgo"
         },
         {
-          "username": "joybeautyfloripa",
-          "profile_url": "https://www.instagram.com/joybeautyfloripa/",
-          "name": "Joy Beauty | Salão de Beleza",
-          "bio": "Joy Beauty | Salão de Beleza (@joybeautyfloripa) - Instagram",
+          "username": "finebelezaebemestar",
+          "profile_url": "https://www.instagram.com/finebelezaebemestar/",
+          "name": "FINE | SALÃO DE BELEZA | DIA DA NOIVA | FLORIANÓPOLIS ...",
+          "bio": "FINE | SALÃO DE BELEZA | DIA DA NOIVA | FLORIANÓPOLIS ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Florianópolis",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "fabricialobohair",
+          "profile_url": "https://www.instagram.com/fabricialobohair/",
+          "name": "FL ⋄ SALÃO DE BELEZA EM FLORIANÓPOLIS",
+          "bio": "FL ⋄ SALÃO DE BELEZA EM FLORIANÓPOLIS (@fabricialobohair) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -162,20 +162,11 @@
         }
       ],
       "total": 10,
-      "new_count": 10,
+      "new_count": 1,
       "new_usernames": [
-        "floweersalao",
-        "finebelezaebemestar",
-        "meusalaofloripa",
-        "salaocabelosecia",
-        "youngbeleza",
-        "bacabeleireiros",
-        "fabricialobohair",
-        "marciagomescabeleireiros",
-        "vivabelezaebemestar",
-        "joybeautyfloripa"
+        "espacohairaddress"
       ],
-      "finished_at": "2026-09-18T12:35:54.152Z"
+      "finished_at": "2026-09-18T21:53:12.807Z"
     },
     {
       "query": {
@@ -1406,6 +1397,21 @@
           "source": "duckduckgo"
         },
         {
+          "username": "salaobelezacris",
+          "profile_url": "https://www.instagram.com/salaobelezacris/",
+          "name": "Salão beleza cris",
+          "bio": "Salão beleza cris (@salaobelezacris) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Criciúma",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
           "username": "bloomsalao",
           "profile_url": "https://www.instagram.com/bloomsalao/",
           "name": "Salão de beleza, SPA e Barbearia",
@@ -1421,10 +1427,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "dbeautyclubb",
-          "profile_url": "https://www.instagram.com/dbeautyclubb/",
-          "name": "D Beauty Club | Salão de Beleza",
-          "bio": "D Beauty Club | Salão de Beleza (@dbeautyclubb) - Instagram",
+          "username": "salaodobosquepf",
+          "profile_url": "https://www.instagram.com/salaodobosquepf/",
+          "name": "SALÃO DO BOSQUE | HAIR SPA",
+          "bio": "SALÃO DO BOSQUE | HAIR SPA (@salaodobosquepf) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -1436,10 +1442,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "taniasalaoestetica",
-          "profile_url": "https://www.instagram.com/taniasalaoestetica/",
-          "name": "Tânia Salão e Estética",
-          "bio": "Tânia Salão e Estética (@taniasalaoestetica) - Instagram",
+          "username": "salao_do_vava",
+          "profile_url": "https://www.instagram.com/salao_do_vava/",
+          "name": "Salão do Vavá",
+          "bio": "Salão do Vavá (@salao_do_vava) • Instagram photos and videos",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -1451,10 +1457,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "camarim.dabeleza",
-          "profile_url": "https://www.instagram.com/camarim.dabeleza/",
-          "name": "Salão de Beleza",
-          "bio": "Salão de Beleza (@camarim.dabeleza) - Instagram",
+          "username": "crissuabelezacompleta",
+          "profile_url": "https://www.instagram.com/crissuabelezacompleta/",
+          "name": "Salão de Beleza/Estética",
+          "bio": "Salão de Beleza/Estética (@crissuabelezacompleta) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -1466,10 +1472,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "josi_salaodebeleza",
-          "profile_url": "https://www.instagram.com/josi_salaodebeleza/",
-          "name": "Josi Salão de Beleza",
-          "bio": "Josi Salão de Beleza (@josi_salaodebeleza) - Instagram",
+          "username": "daianefarias_studio",
+          "profile_url": "https://www.instagram.com/daianefarias_studio/",
+          "name": "Salão de BELEZA Criciúma || Curso/Escola Cabeleireiro (@daianefarias ...",
+          "bio": "Salão de BELEZA Criciúma || Curso/Escola Cabeleireiro (@daianefarias ...",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -1481,15 +1487,21 @@
           "source": "duckduckgo"
         }
       ],
-      "total": 9,
-      "new_count": 4,
+      "total": 10,
+      "new_count": 10,
       "new_usernames": [
-        "dbeautyclubb",
-        "taniasalaoestetica",
-        "camarim.dabeleza",
-        "josi_salaodebeleza"
+        "salaobellafashion",
+        "xavantesalao",
+        "umasalaodebeleza",
+        "cabeloseformas",
+        "salaobelezacris",
+        "bloomsalao",
+        "salaodobosquepf",
+        "salao_do_vava",
+        "crissuabelezacompleta",
+        "daianefarias_studio"
       ],
-      "finished_at": "2026-09-18T21:52:58.485Z"
+      "finished_at": "2026-09-18T21:37:56.983Z"
     }
   ]
 }
