@@ -2049,6 +2049,119 @@
         "salaomusabeauty"
       ],
       "finished_at": "2026-09-18T22:36:24.084Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SC",
+        "cidade": "Curitibanos",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 15
+      },
+      "results": [
+        {
+          "username": "salao.elianecuritibanos",
+          "profile_url": "https://www.instagram.com/salao.elianecuritibanos/",
+          "name": "Eliane Vieira João Mauricio | beleza, estética capilar (@salao ...",
+          "bio": "Eliane Vieira João Mauricio | beleza, estética capilar (@salao ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Curitibanos",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "beautycompany.af",
+          "profile_url": "https://www.instagram.com/beautycompany.af/",
+          "name": "Adriana França | Salão de Beleza | Curitibanos SC ...",
+          "bio": "Adriana França | Salão de Beleza | Curitibanos SC ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Curitibanos",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaodazil",
+          "profile_url": "https://www.instagram.com/salaodazil/",
+          "name": "Zil Mechas & Loiros",
+          "bio": "Zil Mechas & Loiros (@salaodazil) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Curitibanos",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salao_la_donna",
+          "profile_url": "https://www.instagram.com/salao_la_donna/",
+          "name": "Salão La Donna",
+          "bio": "Salão La Donna (@salao_la_donna) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Curitibanos",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "ellascuritibanos",
+          "profile_url": "https://www.instagram.com/ellascuritibanos/",
+          "name": "ELLAS| Beleza e Estética",
+          "bio": "ELLAS| Beleza e Estética (@ellascuritibanos) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Curitibanos",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "emilynaildesigner5",
+          "profile_url": "https://www.instagram.com/emilynaildesigner5/",
+          "name": "Espaço de beleza",
+          "bio": "Espaço de beleza (@emilynaildesigner5) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Curitibanos",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 6,
+      "new_count": 6,
+      "new_usernames": [
+        "salao.elianecuritibanos",
+        "beautycompany.af",
+        "salaodazil",
+        "salao_la_donna",
+        "ellascuritibanos",
+        "emilynaildesigner5"
+      ],
+      "finished_at": "2026-09-18T22:38:08.113Z"
     }
   ]
 }
