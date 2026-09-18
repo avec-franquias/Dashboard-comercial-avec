@@ -2,6 +2,24 @@ name: Atualizar leads
 
 on:
   workflow_dispatch:
+    inputs:
+      nicho:
+        description: "Nicho (ex.: Salão de beleza)"
+        required: false
+        type: string
+      cidade:
+        description: "Cidade (ex.: Curitiba, PR)"
+        required: false
+        type: string
+      bairro:
+        description: "Bairro (opcional)"
+        required: false
+        type: string
+      max_results:
+        description: "Máximo de resultados"
+        required: false
+        default: "80"
+        type: string
   schedule:
     - cron: "17 */6 * * *"
 
@@ -28,6 +46,11 @@ jobs:
       - name: Instalar Chromium
         run: npx playwright install --with-deps chromium
       - name: Coletar leads
+        env:
+          LEADS_NICHO: ${{ inputs.nicho }}
+          LEADS_CIDADE: ${{ inputs.cidade }}
+          LEADS_BAIRRO: ${{ inputs.bairro }}
+          LEADS_MAX_RESULTS: ${{ inputs.max_results }}
         run: node collector/collect-leads.mjs
       - name: Salvar base atualizada
         run: |
