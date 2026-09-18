@@ -1,10 +1,6 @@
 name: Atualizar Instagram
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'config/instagram-queries.json'
   workflow_dispatch:
     inputs:
       nicho:
