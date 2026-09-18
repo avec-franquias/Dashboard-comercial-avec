@@ -67,7 +67,30 @@ async function carregarBaseBairros(){
 if "let BAIRROS_BR=null;" not in e:
     e = re.sub(r"const JOINVILLE_BAIRROS=\[.*?\];\n", lambda _m: geo_js, e, count=1, flags=re.S)
 
-novo_bairros = """async function atualizarBairros(){
+novo_bairros = """async function bairrosOSM(nome,uf){
+  const cacheKey='portal-bairros-osm:'+uf+':'+chaveGeo(nome);
+  try{
+    const cached=JSON.parse(localStorage.getItem(cacheKey)||'null');
+    if(cached&&Array.isArray(cached.bairros)&&Date.now()-Number(cached.ts||0)<30*86400000) return cached.bairros;
+  }catch{}
+  try{
+    const q=new URLSearchParams({city:nome,state:uf,country:'Brazil',format:'jsonv2',limit:'1',addressdetails:'1'});
+    const nr=await fetch('https://nominatim.openstreetmap.org/search?'+q.toString(),{headers:{'Accept-Language':'pt-BR'}});
+    if(!nr.ok) return [];
+    const nj=await nr.json(); const p=nj&&nj[0]; if(!p) return [];
+    const id=Number(p.osm_id); if(!id) return [];
+    const areaId=p.osm_type==='relation'?3600000000+id:p.osm_type==='way'?2400000000+id:null;
+    if(!areaId) return [];
+    const over='[out:json][timeout:20];area('+areaId+')->.a;(nwr["place"~"^(suburb|neighbourhood|quarter)$"](area.a);nwr["boundary"="administrative"]["admin_level"~"^(9|10|11)$"](area.a););out tags;';
+    const or=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:'data='+encodeURIComponent(over)});
+    if(!or.ok) return [];
+    const oj=await or.json();
+    const bairros=[...new Set((oj.elements||[]).map(x=>x.tags?.name).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+    if(bairros.length) localStorage.setItem(cacheKey,JSON.stringify({ts:Date.now(),bairros}));
+    return bairros;
+  }catch(err){console.warn('Bairros OSM:',err);return []}
+}
+async function atualizarBairros(){
   const cidade=$('#cidade').value;
   $('#bairro').disabled=true;
   opts('#bairro',['Carregando bairros...'],'Carregando bairros...');
@@ -83,6 +106,7 @@ novo_bairros = """async function atualizarBairros(){
       const base=await carregarBaseBairros();
       bairros=base?.[uf]?.[chaveGeo(nome)]||[];
     }catch(err){ console.warn(err); }
+    if(!bairros.length) bairros=await bairrosOSM(nome,uf);
     bairros=[...new Set([...bairros,...conhecidos])].filter(Boolean).sort((a,b)=>a.localeCompare(b,'pt-BR'));
     opts('#bairro',['Todos os bairros',...bairros],'Todos os bairros');
   } finally { $('#bairro').disabled=false; }
@@ -208,6 +232,37 @@ if "id: 'instagram'" not in html:
     if alvo not in html:
         raise SystemExit("config do modulo extrator nao encontrada")
     html = html.replace(alvo, novo, 1)
+
+# Faz cada busca do Extrator disparar somente a consulta escolhida no GitHub Actions.
+portal_dispatch = r"""window.portalSolicitarExtracao = async ({ nicho, cidade, bairro = '', max_results = 80 }) => {
+  nicho = String(nicho || '').trim(); cidade = String(cidade || '').trim(); bairro = String(bairro || '').trim();
+  if (!nicho || !cidade) throw new Error('Escolha o nicho e a cidade.');
+  let g = ghCfg();
+  if (!g) { await conectarGithub(); g = ghCfg(); }
+  if (!g) throw new Error('Conecte o GitHub para iniciar uma nova coleta.');
+  await gh(g, '/actions/workflows/update-leads.yml/dispatches', {
+    method: 'POST',
+    body: {
+      ref: g.branch,
+      inputs: {
+        nicho,
+        cidade,
+        bairro,
+        max_results: String(Math.max(1, Math.min(Number(max_results) || 80, 120)))
+      }
+    }
+  });
+  return { ok: true, direto: true };
+};"""
+html, qtd = re.subn(
+    r"window\.portalSolicitarExtracao = async \(\{ nicho, cidade, bairro = '', max_results = 80 \}\) => \{.*?\n\};",
+    lambda _m: portal_dispatch,
+    html,
+    count=1,
+    flags=re.S
+)
+if qtd != 1:
+    print("Aviso: funcao portalSolicitarExtracao nao foi substituida")
 
 INDEX.write_text(html, encoding="utf-8")
 
