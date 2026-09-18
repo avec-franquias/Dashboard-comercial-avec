@@ -1454,37 +1454,25 @@ window.portalEnviarArquivoCentral = async (file, pasta='arquivos') => {
 };
 
 
+const PORTAL_API = String(window.PORTAL_API || localStorage.getItem('portal-api-url') || '').replace(/\/$/,'');
+async function portalApi(path,payload){
+  const url=(PORTAL_API||'')+'/api/'+path;
+  const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+  let d={};try{d=await r.json()}catch{}
+  if(!r.ok) throw new Error(d.error||('Falha na integração ('+r.status+')'));
+  return d;
+}
+
 window.portalSolicitarExtracao = async ({ nicho, cidade, bairro = '', max_results = 80 }) => {
-  nicho = String(nicho || '').trim(); cidade = String(cidade || '').trim(); bairro = String(bairro || '').trim();
-  if (!nicho || !cidade) throw new Error('Escolha o nicho e a cidade.');
-  if (!perfil || perfil.papel !== 'admin') {
-    throw new Error('A geração automática de novos leads está sendo migrada para uma integração sem GitHub. As bases já publicadas continuam disponíveis.');
-  }
-  let g = ghCfg();
-  if (!g) { await conectarGithub(); g = ghCfg(); }
-  if (!g) throw new Error('Conecte o GitHub para iniciar uma nova coleta.');
-  await gh(g, '/actions/workflows/update-leads.yml/dispatches', {
-    method: 'POST',
-    body: { ref: g.branch, inputs: { nicho, cidade, bairro, max_results: String(Math.max(1, Math.min(Number(max_results) || 80, 120))) } }
-  });
-  return { ok: true, direto: true };
+  nicho=String(nicho||'').trim();cidade=String(cidade||'').trim();bairro=String(bairro||'').trim();
+  if(!nicho||!cidade) throw new Error('Escolha o nicho e a cidade.');
+  return portalApi('leads',{nicho,cidade,bairro,max_results:String(Math.max(1,Math.min(Number(max_results)||80,120)))});
 };
 
 window.portalSolicitarInstagram = async ({ nicho = '', uf = '', cidade = '', bairro = '', palavra_chave = '', limite = 100 }) => {
-  nicho = String(nicho || '').trim(); uf = String(uf || '').trim().toUpperCase(); cidade = String(cidade || '').trim();
-  bairro = String(bairro || '').trim(); palavra_chave = String(palavra_chave || '').trim();
-  if (!nicho && !cidade && !palavra_chave) throw new Error('Informe nicho, cidade ou palavra-chave.');
-  if (!perfil || perfil.papel !== 'admin') {
-    throw new Error('A busca automática do Instagram está sendo migrada para uma integração sem GitHub. As bases já publicadas continuam disponíveis.');
-  }
-  let g = ghCfg();
-  if (!g) { await conectarGithub(); g = ghCfg(); }
-  if (!g) throw new Error('Conecte o GitHub para iniciar uma nova coleta.');
-  await gh(g, '/actions/workflows/update-instagram.yml/dispatches', {
-    method: 'POST',
-    body: { ref: g.branch, inputs: { nicho, uf, cidade, bairro, palavra_chave, limite: String(Math.max(1, Math.min(Number(limite) || 100, 200))) } }
-  });
-  return { ok: true, direto: true };
+  nicho=String(nicho||'').trim();uf=String(uf||'').trim().toUpperCase();cidade=String(cidade||'').trim();bairro=String(bairro||'').trim();palavra_chave=String(palavra_chave||'').trim();
+  if(!nicho&&!cidade&&!palavra_chave) throw new Error('Informe nicho, cidade ou palavra-chave.');
+  return portalApi('instagram',{nicho,uf,cidade,bairro,palavra_chave,limite:String(Math.max(1,Math.min(Number(limite)||100,200)))});
 };
 
 // ================= módulos dentro do portal =================
@@ -1607,17 +1595,14 @@ async function portalCarregaTelefonesSalesforce(){
 window.portalBuscarWhatsAppCliente = async ({ cliente_id, nome, documento = '' }) => {
   const sf=await portalCarregaTelefonesSalesforce();
   const tel=sf[String(cliente_id||'').trim()];
-  if(tel) return { ok:true, telefone:String(tel), fonte:'Salesforce' };
-  const maps='https://www.google.com/maps/search/'+encodeURIComponent([nome,documento].filter(Boolean).join(' '));
-  if (!perfil || perfil.papel !== 'admin') return { ok:true, telefone:'', fonte:'Google Maps', maps_url:maps };
-  let g = ghCfg();
-  if (!g) { await conectarGithub(); g = ghCfg(); }
-  if (!g) return { ok:true, telefone:'', fonte:'Google Maps', maps_url:maps };
-  await gh(g, '/actions/workflows/enrich-client.yml/dispatches', {
-    method: 'POST',
-    body: { ref: g.branch, inputs: { cliente_id: String(cliente_id||''), nome: String(nome||''), documento: String(documento||'') } }
-  });
-  return { ok: true, fonte:'Google Maps', maps_url:maps };
+  if(tel) return {ok:true,telefone:String(tel),fonte:'Salesforce'};
+  try{
+    await portalApi('whatsapp',{cliente_id:String(cliente_id||''),nome:String(nome||''),documento:String(documento||'')});
+    return {ok:true,fonte:'Google Maps'};
+  }catch(e){
+    const maps='https://www.google.com/maps/search/'+encodeURIComponent([nome,documento].filter(Boolean).join(' '));
+    return {ok:true,telefone:'',fonte:'Google Maps',maps_url:maps};
+  }
 };
 </script>
 </body>
