@@ -138,7 +138,7 @@ input,select{width:100%;border:1.5px solid var(--l);border-radius:10px;padding:1
 </style></head><body>
 <div class="wrap">
 <div class="top"><div><h1>Extrator de Instagram</h1><div class="sub">Encontre novos negócios e organize oportunidades a partir de perfis públicos.</div></div><button class="btn line" id="ajuda">Como funciona?</button></div>
-<div class="tabs"><button class="tab on" data-view="buscar">Buscar</button><button class="tab" data-view="leads">Meus leads</button><button class="tab" data-view="campanhas">Campanhas</button></div>
+<div class="tabs"><button class="tab on" data-view="buscar">Buscar</button><button class="tab" data-view="leads">Meus leads</button></div>
 <section class="card">
 <b>Objetivo da busca</b>
 <div class="objetivos">
@@ -262,7 +262,7 @@ $('#parar').onclick=()=>{parado=true};
 $('#ajuda').onclick=()=>alert('Escolha nicho e região, clique em Buscar perfis e aguarde a coleta pelo GitHub Actions. Os resultados ficam salvos e podem ser exportados em CSV.');
 $('#uf').onchange=carregarCidadesIG;$('#cidade').onchange=carregarBairrosIG;
 document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('on'));b.classList.add('on');filtro=b.dataset.filter;aplicarFiltro()});
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');if(b.dataset.view==='leads')carregarResultadoAtual();if(b.dataset.view==='campanhas')$('#msg').textContent='Campanhas será alimentado pelos leads salvos. A busca e exportação já estão disponíveis.'});
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');if(b.dataset.view==='leads')carregarResultadoAtual(); });
 (async()=>{fill($('#uf'),ESTADOS.map(([u,n])=>[u,u+' — '+n]),'SC');await carregarCidadesIG();await carregarResultadoAtual()})();
 $('#csv').onclick=()=>{if(!dados.length)return;const h=['username','name','followers','type','whatsapp','phone','email','website','city','profile_url'];const txt=[h,...dados.map(x=>h.map(k=>x[k]??''))].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/csv;charset=utf-8'}));a.download='instagram-leads.csv';a.click();URL.revokeObjectURL(a.href)}
 </script></body></html>'''
