@@ -1,8 +1,46 @@
 import fs from 'node:fs/promises';
 
+function patchModulos(html){
+  const re=/<script type="application\/json" id="modulosEmbutidos">([\s\S]*?)<\/script>/;
+  const m=html.match(re);
+  if(!m) return html;
+  try{
+    const mods=JSON.parse(m[1]);
+    for(const id of ['extrator','instagram','clientes']){
+      if(!mods[id]) continue;
+      let src=Buffer.from(mods[id],'base64').toString('utf8');
+      if(id==='extrator'){
+        src=src
+          .replaceAll("extrator-data/latest.json?ts='+Date.now()","/api/data-leads?ts='+Date.now()")
+          .replaceAll("extrator-data/latest.json?ts="+Date.now(),"/api/data-leads?ts="+Date.now())
+          .replaceAll('Pesquisa enviada. A coleta está rodando no GitHub.','Pesquisa enviada. Estamos buscando os leads.')
+          .replaceAll('Pesquisa enviada. A coleta estÃ¡ rodando no GitHub.','Pesquisa enviada. Estamos buscando os leads.')
+          .replaceAll('rodando no GitHub','em processamento')
+          .replaceAll('GitHub','sistema');
+      }
+      if(id==='instagram'){
+        src=src
+          .replaceAll("instagram-data/latest.json?ts='+Date.now()","/api/data-instagram?ts='+Date.now()")
+          .replaceAll("instagram-data/latest.json?t='+Date.now()","/api/data-instagram?t='+Date.now()")
+          .replaceAll('GitHub','sistema');
+      }
+      if(id==='clientes'){
+        src=src
+          .replaceAll("clientes-enrichment/latest.json?t='+Date.now()","/api/data-clientes?t='+Date.now()")
+          .replaceAll('GitHub','sistema');
+      }
+      mods[id]=Buffer.from(src,'utf8').toString('base64');
+    }
+    return html.replace(m[1],JSON.stringify(mods));
+  }catch{
+    return html;
+  }
+}
+
 export default async function handler(req,res){
   try{
     let html=await fs.readFile(process.cwd()+'/index.html','utf8');
+    html=patchModulos(html);
     const patch=`
 <script>
 (function(){
@@ -36,8 +74,6 @@ export default async function handler(req,res){
 })();
 </script>`;
     html=html
-      .replaceAll("extrator-data/latest.json?ts='+Date.now()","api/data-leads?ts='+Date.now()")
-      .replaceAll("instagram-data/latest.json?ts='+Date.now()","api/data-instagram?ts='+Date.now()")
       .replaceAll('Pesquisa enviada. A coleta está rodando no GitHub.','Pesquisa enviada. Estamos buscando os leads.')
       .replaceAll('Pesquisa enviada. A coleta estÃ¡ rodando no GitHub.','Pesquisa enviada. Estamos buscando os leads.')
       .replaceAll('rodando no GitHub','em processamento')
