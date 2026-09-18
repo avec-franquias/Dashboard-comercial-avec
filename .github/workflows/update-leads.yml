@@ -26,7 +26,7 @@ permissions:
 
 concurrency:
   group: extrator-leads
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   collect:
@@ -41,8 +41,13 @@ jobs:
           node-version: 24
       - name: Instalar dependências
         run: npm install --no-audit --no-fund
+      - name: Cachear Chromium
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}-1.55.0
       - name: Instalar Chromium
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install chromium
       - name: Coletar leads
         env:
           LEADS_NICHO: ${{ inputs.nicho }}
