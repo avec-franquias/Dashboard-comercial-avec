@@ -138,7 +138,7 @@ input,select{width:100%;border:1.5px solid var(--l);border-radius:10px;padding:1
 </style></head><body>
 <div class="wrap">
 <div class="top"><div><h1>Extrator de Instagram</h1><div class="sub">Encontre novos negócios e organize oportunidades a partir de perfis públicos.</div></div><button class="btn line" id="ajuda">Como funciona?</button></div>
-<div class="tabs"><button class="tab on">Buscar</button><button class="tab">Meus leads</button><button class="tab">Campanhas</button></div>
+<div class="tabs"><button class="tab on" data-view="buscar">Buscar</button><button class="tab" data-view="leads">Meus leads</button><button class="tab" data-view="campanhas">Campanhas</button></div>
 <section class="card">
 <b>Objetivo da busca</b>
 <div class="objetivos">
@@ -149,9 +149,9 @@ input,select{width:100%;border:1.5px solid var(--l);border-radius:10px;padding:1
 </div>
 <div class="grid">
 <div class="campo"><label>Nicho</label><select id="nicho"><option>Salão de beleza</option><option>Barbearia</option><option>Clínica de estética</option><option>Pet shop</option><option>Academia</option></select></div>
-<div class="campo"><label>Estado</label><select id="uf"><option>SC</option><option>SP</option><option>PR</option><option>RS</option><option>MG</option><option>RJ</option></select></div>
-<div class="campo"><label>Cidade</label><input id="cidade" value="Florianópolis"></div>
-<div class="campo"><label>Bairro (opcional)</label><input id="bairro" placeholder="Todos os bairros"></div>
+<div class="campo"><label>Estado</label><select id="uf"></select></div>
+<div class="campo"><label>Cidade</label><select id="cidade"></select></div>
+<div class="campo"><label>Bairro (opcional)</label><select id="bairro"><option value="">Todos os bairros</option></select></div>
 </div>
 <div class="grid2">
 <div class="campo"><label>Palavra-chave (opcional)</label><input id="kw" placeholder="Ex.: cabelo, estética, maquiagem..."></div>
@@ -166,7 +166,7 @@ input,select{width:100%;border:1.5px solid var(--l);border-radius:10px;padding:1
 <div class="stats"><div class="stat"><b id="s1">0</b><small>Perfis buscados</small></div><div class="stat"><b id="s2">0</b><small>Perfis encontrados</small></div><div class="stat"><b id="s3">0</b><small>Perfis analisados</small></div><div class="stat"><b id="s4">0</b><small>Com contato</small></div></div>
 </section>
 <section class="card">
-<div class="tools"><span class="pill on">Resultados</span><span class="pill">Com contato</span><span class="pill">Novos</span><span class="pill">Conhecidos</span><span style="flex:1"></span><button class="btn line" id="csv">Exportar CSV</button></div>
+<div class="tools"><button class="pill on" data-filter="todos">Resultados</button><button class="pill" data-filter="contato">Com contato</button><button class="pill" data-filter="novos">Novos</button><button class="pill" data-filter="conhecidos">Conhecidos</button><span style="flex:1"></span><button class="btn line" id="csv">Exportar CSV</button></div>
 <div class="table"><table><thead><tr><th>Status</th><th>Perfil</th><th>Nome</th><th>Seguidores</th><th>Tipo</th><th>Contato</th><th>Cidade</th><th>Última publicação</th><th>Ação</th></tr></thead><tbody id="tbody"><tr><td colspan="9" class="muted">Nenhuma busca executada ainda.</td></tr></tbody></table></div>
 </section>
 </div>
@@ -175,6 +175,45 @@ const $=s=>document.querySelector(s);let dados=[];
 const DATA_URL='instagram-data/latest.json';
 const norm=s=>String(s||'').trim().toLocaleLowerCase('pt-BR');
 function parentFn(n){try{return typeof parent[n]==='function'?parent[n]:null}catch{return null}}
+const ESTADOS=[['AC','Acre'],['AL','Alagoas'],['AP','Amapá'],['AM','Amazonas'],['BA','Bahia'],['CE','Ceará'],['DF','Distrito Federal'],['ES','Espírito Santo'],['GO','Goiás'],['MA','Maranhão'],['MT','Mato Grosso'],['MS','Mato Grosso do Sul'],['MG','Minas Gerais'],['PA','Pará'],['PB','Paraíba'],['PR','Paraná'],['PE','Pernambuco'],['PI','Piauí'],['RJ','Rio de Janeiro'],['RN','Rio Grande do Norte'],['RS','Rio Grande do Sul'],['RO','Rondônia'],['RR','Roraima'],['SC','Santa Catarina'],['SP','São Paulo'],['SE','Sergipe'],['TO','Tocantins']];
+let MUNICIPIOS=[],BAIRROS=null,parado=false,ultimoRun=null,filtro='todos';
+const geoKey=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLocaleLowerCase('pt-BR').replace(/\s+/g,' ');
+function fill(el,vals,sel=''){el.innerHTML=vals.map(v=>{const value=Array.isArray(v)?v[0]:v,label=Array.isArray(v)?v[1]:v;return '<option value="'+esc(value)+'" '+(norm(value)===norm(sel)?'selected':'')+'>'+esc(label)+'</option>'}).join('')}
+async function carregarCidadesIG(){
+ const uf=$('#uf').value; let cidades=[];
+ try{
+   if(!MUNICIPIOS.length){const r=await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/municipios?orderBy=nome',{cache:'force-cache'});if(r.ok)MUNICIPIOS=await r.json()}
+   cidades=MUNICIPIOS.map(x=>{const sigla=x['regiao-imediata']?.['regiao-intermediaria']?.UF?.sigla||x.microrregiao?.mesorregiao?.UF?.sigla||'';return sigla===uf?x.nome:''}).filter(Boolean)
+ }catch{}
+ if(!cidades.length&&uf==='SC')cidades=['Florianópolis','Joinville'];
+ fill($('#cidade'),cidades,cidades.includes('Florianópolis')?'Florianópolis':cidades[0]); await carregarBairrosIG();
+}
+async function carregarBairrosIG(){
+ const uf=$('#uf').value,cidade=$('#cidade').value; let bairros=[];
+ $('#bairro').disabled=true;fill($('#bairro'),[['','Carregando bairros...']],'');
+ try{
+   if(!BAIRROS){const r=await fetch('geo/bairros-br.json?ts=20260918',{cache:'force-cache'});if(r.ok)BAIRROS=await r.json()}
+   bairros=BAIRROS?.[uf]?.[geoKey(cidade)]||[];
+ }catch{}
+ fill($('#bairro'),[['','Todos os bairros'],...bairros.map(x=>[x,x])],'');$('#bairro').disabled=false;
+}
+function bodyAtual(){return {nicho:$('#nicho').value,uf:$('#uf').value,cidade:$('#cidade').value,bairro:$('#bairro').value,palavra_chave:$('#kw').value.trim(),limite:Number($('#limite').value)||100}}
+function aplicarFiltro(){
+ if(!ultimoRun)return;
+ const all=Array.isArray(ultimoRun.results)?ultimoRun.results:[],newSet=new Set(ultimoRun.new_usernames||[]);
+ let view=all;
+ if(filtro==='contato')view=all.filter(x=>x.whatsapp||x.phone||x.email||x.website);
+ if(filtro==='novos')view=all.filter(x=>newSet.has(x.username));
+ if(filtro==='conhecidos')view=all.filter(x=>!newSet.has(x.username));
+ const original=ultimoRun.results;ultimoRun.results=view;render(bodyAtual(),ultimoRun);ultimoRun.results=original;
+}
+async function carregarResultadoAtual(){
+ try{
+   const base=await lerBase(),body=bodyAtual();
+   const run=(base.runs||[]).find(r=>mesmaBusca(r.query,body));
+   if(run){ultimoRun=run;render(body,run);$('#andamento').style.display='block';$('#msg').textContent='Última busca concluída: '+(run.total??run.results?.length??0)+' perfil(is).'}
+ }catch{}
+}
 async function lerBase(){
  const r=await fetch(DATA_URL+'?t='+Date.now(),{cache:'no-store'});
  if(!r.ok) throw new Error('Base do Instagram ainda não foi publicada.');
@@ -184,7 +223,7 @@ function mesmaBusca(q,b){
  return norm(q?.nicho)===norm(b.nicho)&&norm(q?.uf)===norm(b.uf)&&norm(q?.cidade)===norm(b.cidade)&&norm(q?.bairro)===norm(b.bairro)&&norm(q?.palavra_chave)===norm(b.palavra_chave);
 }
 function render(body,run){
- dados=Array.isArray(run?.results)?run.results:[];
+ ultimoRun=run; dados=Array.isArray(run?.results)?run.results:[];
  $('#bar').style.width='100%';
  $('#s1').textContent=body.limite;
  $('#s2').textContent=dados.length;
@@ -193,7 +232,7 @@ function render(body,run){
  $('#tbody').innerHTML=dados.length?dados.map(x=>'<tr><td><span class="badge">'+((run?.new_usernames||[]).some(u=>norm(u)===norm(x.username))?'Novo':'Conhecido')+'</span></td><td>@'+(x.username||'—')+'</td><td>'+esc(x.name||'—')+'</td><td>'+(x.followers??'—')+'</td><td>'+(x.type||'—')+'</td><td>'+(x.whatsapp||x.phone||x.email||x.website||'—')+'</td><td>'+esc(x.city||body.cidade)+'</td><td>'+(x.last_post||'—')+'</td><td>'+(x.profile_url?'<a target="_blank" rel="noopener" href="'+x.profile_url+'">Ver perfil</a>':'—')+'</td></tr>').join(''):'<tr><td colspan="9" class="muted">Nenhum perfil encontrado para esta busca.</td></tr>';
 }
 $('#buscar').onclick=async()=>{
- const body={nicho:$('#nicho').value,uf:$('#uf').value,cidade:$('#cidade').value.trim(),bairro:$('#bairro').value.trim(),palavra_chave:$('#kw').value.trim(),limite:Number($('#limite').value)||100};
+ const body=bodyAtual(); parado=false; const botao=$('#buscar');botao.disabled=true;botao.textContent='Enviando...';
  const solicitar=parentFn('portalSolicitarInstagram');
  if(!solicitar){$('#msg').textContent='Atualize o Portal para iniciar buscas pelo GitHub.';return}
  $('#andamento').style.display='block';$('#desc').textContent=body.nicho+' em '+body.cidade+'/'+body.uf;$('#bar').style.width='10%';
@@ -201,23 +240,30 @@ $('#buscar').onclick=async()=>{
  try{
    const before=Date.now();
    await solicitar(body);
-   $('#msg').textContent='Busca enviada. O GitHub está coletando os perfis; esta tela atualizará automaticamente.';
+   botao.textContent='Coletando...';$('#msg').textContent='Busca enviada. Aguardando o GitHub iniciar a coleta...';
    let tries=0;
    const poll=async()=>{
+     if(parado){botao.disabled=false;botao.textContent='Buscar perfis';$('#msg').textContent='Acompanhamento interrompido. A coleta no GitHub pode continuar em segundo plano.';return}
      tries++;
      try{
        const base=await lerBase();
        const run=(base.runs||[]).find(r=>mesmaBusca(r.query,body));
        const done=run&&Date.parse(run.finished_at||0)>=before-5000;
-       if(done){render(body,run);$('#msg').textContent='Busca concluída: '+dados.length+' perfil(is) encontrado(s).';return}
+       if(done){ultimoRun=run;render(body,run);$('#msg').textContent='Busca concluída: '+dados.length+' perfil(is) encontrado(s).';botao.disabled=false;botao.textContent='Buscar perfis';return}
      }catch{}
      $('#bar').style.width=Math.min(90,10+tries*4)+'%';
-     if(tries<30) setTimeout(poll,10000); else $('#msg').textContent='A coleta ainda está processando no GitHub. Você pode voltar em alguns minutos; os resultados ficarão salvos.';
+     if(tries<60) setTimeout(poll,10000); else {$('#msg').textContent='A coleta demorou mais que o esperado. Os resultados aparecerão em Meus leads quando o GitHub concluir.';botao.disabled=false;botao.textContent='Buscar perfis';}
    };
    setTimeout(poll,6000);
- }catch(e){$('#msg').textContent='Não foi possível iniciar a coleta: '+e.message}
+ }catch(e){$('#msg').textContent='Não foi possível iniciar a coleta: '+e.message;botao.disabled=false;botao.textContent='Buscar perfis'}
 };
 function esc(s){return String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+$('#parar').onclick=()=>{parado=true};
+$('#ajuda').onclick=()=>alert('Escolha nicho e região, clique em Buscar perfis e aguarde a coleta pelo GitHub Actions. Os resultados ficam salvos e podem ser exportados em CSV.');
+$('#uf').onchange=carregarCidadesIG;$('#cidade').onchange=carregarBairrosIG;
+document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('on'));b.classList.add('on');filtro=b.dataset.filter;aplicarFiltro()});
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');if(b.dataset.view==='leads')carregarResultadoAtual();if(b.dataset.view==='campanhas')$('#msg').textContent='Campanhas será alimentado pelos leads salvos. A busca e exportação já estão disponíveis.'});
+(async()=>{fill($('#uf'),ESTADOS.map(([u,n])=>[u,u+' — '+n]),'SC');await carregarCidadesIG();await carregarResultadoAtual()})();
 $('#csv').onclick=()=>{if(!dados.length)return;const h=['username','name','followers','type','whatsapp','phone','email','website','city','profile_url'];const txt=[h,...dados.map(x=>h.map(k=>x[k]??''))].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/csv;charset=utf-8'}));a.download='instagram-leads.csv';a.click();URL.revokeObjectURL(a.href)}
 </script></body></html>'''
 mods["instagram"] = b64(instagram_html)
@@ -263,6 +309,36 @@ html, qtd = re.subn(
 )
 if qtd != 1:
     print("Aviso: funcao portalSolicitarExtracao nao foi substituida")
+
+# Dispara a coleta de Instagram diretamente pelo workflow, sem servidor externo.
+portal_instagram_dispatch = r"""window.portalSolicitarInstagram = async ({ nicho = '', uf = '', cidade = '', bairro = '', palavra_chave = '', limite = 100 }) => {
+  nicho = String(nicho || '').trim(); uf = String(uf || '').trim().toUpperCase(); cidade = String(cidade || '').trim();
+  bairro = String(bairro || '').trim(); palavra_chave = String(palavra_chave || '').trim();
+  if (!nicho && !cidade && !palavra_chave) throw new Error('Informe nicho, cidade ou palavra-chave.');
+  let g = ghCfg();
+  if (!g) { await conectarGithub(); g = ghCfg(); }
+  if (!g) throw new Error('Conecte o GitHub para iniciar uma nova coleta.');
+  await gh(g, '/actions/workflows/update-instagram.yml/dispatches', {
+    method: 'POST',
+    body: {
+      ref: g.branch,
+      inputs: {
+        nicho, uf, cidade, bairro, palavra_chave,
+        limite: String(Math.max(1, Math.min(Number(limite) || 100, 200)))
+      }
+    }
+  });
+  return { ok: true, direto: true };
+};"""
+if "window.portalSolicitarInstagram" not in html:
+    marker = "// ================= módulos dentro do portal ================="
+    if marker in html:
+        html = html.replace(marker, portal_instagram_dispatch + "\n\n" + marker, 1)
+    else:
+        pos = html.rfind("</script>")
+        if pos < 0:
+            raise SystemExit("script principal nao encontrado para Instagram")
+        html = html[:pos] + "\n" + portal_instagram_dispatch + "\n" + html[pos:]
 
 INDEX.write_text(html, encoding="utf-8")
 
