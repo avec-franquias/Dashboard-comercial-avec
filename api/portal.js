@@ -11,8 +11,7 @@ function patchModulos(html){
       let src=Buffer.from(mods[id],'base64').toString('utf8');
       if(id==='extrator'){
         src=src
-          .replaceAll("extrator-data/latest.json?ts='+Date.now()","/api/data-leads?ts='+Date.now()")
-          .replaceAll("extrator-data/latest.json?ts="+Date.now(),"/api/data-leads?ts="+Date.now())
+          .replaceAll('extrator-data/latest.json','/api/data-leads')
           .replaceAll('Pesquisa enviada. A coleta está rodando no GitHub.','Pesquisa enviada. Estamos buscando os leads.')
           .replaceAll('Pesquisa enviada. A coleta estÃ¡ rodando no GitHub.','Pesquisa enviada. Estamos buscando os leads.')
           .replaceAll('rodando no GitHub','em processamento')
@@ -20,13 +19,13 @@ function patchModulos(html){
       }
       if(id==='instagram'){
         src=src
-          .replaceAll("instagram-data/latest.json?ts='+Date.now()","/api/data-instagram?ts='+Date.now()")
-          .replaceAll("instagram-data/latest.json?t='+Date.now()","/api/data-instagram?t='+Date.now()")
+          .replaceAll("const DATA_URL='instagram-data/latest.json';","const DATA_URL='/api/data-instagram';")
+          .replaceAll('instagram-data/latest.json','/api/data-instagram')
           .replaceAll('GitHub','sistema');
       }
       if(id==='clientes'){
         src=src
-          .replaceAll("clientes-enrichment/latest.json?t='+Date.now()","/api/data-clientes?t='+Date.now()")
+          .replaceAll('clientes-enrichment/latest.json','/api/data-clientes')
           .replaceAll('GitHub','sistema');
       }
       mods[id]=Buffer.from(src,'utf8').toString('base64');
