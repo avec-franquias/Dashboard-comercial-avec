@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-18T17:38:20.474Z",
+  "updated_at": "2026-09-18T17:49:02.017Z",
   "clientes": {
     "82641": {
       "cliente_id": "82641",
@@ -24,6 +24,18 @@
       "website": "",
       "encontrado_em": "2026-09-18T17:38:17.271Z",
       "nome_encontrado": "Aldeia Studio Hair"
+    },
+    "105208": {
+      "cliente_id": "105208",
+      "nome": "66.329.957 BRUNO DA SILVA MENEZES",
+      "documento": "66329957000194",
+      "status": "sem_telefone",
+      "telefone": "",
+      "fonte": "Google Maps",
+      "maps_url": "https://www.google.com/maps/search/66.329.957%20BRUNO%20DA%20SILVA%20MENEZES%2066329957000194",
+      "website": "",
+      "encontrado_em": "2026-09-18T17:48:58.877Z",
+      "nome_encontrado": ""
     }
   }
 }
