@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-18T17:36:00.966Z",
+  "updated_at": "2026-09-18T17:38:20.474Z",
   "clientes": {
     "82641": {
       "cliente_id": "82641",
@@ -12,6 +12,18 @@
       "website": "",
       "encontrado_em": "2026-09-18T17:35:57.836Z",
       "nome_encontrado": ""
+    },
+    "96511": {
+      "cliente_id": "96511",
+      "nome": "ALDEIA STUDIO HAIR",
+      "documento": "20631823000122",
+      "status": "encontrado",
+      "telefone": "+5562982372431",
+      "fonte": "Google Maps",
+      "maps_url": "https://www.google.com/maps/search/ALDEIA%20STUDIO%20HAIR%2020631823000122",
+      "website": "",
+      "encontrado_em": "2026-09-18T17:38:17.271Z",
+      "nome_encontrado": "Aldeia Studio Hair"
     }
   }
 }
