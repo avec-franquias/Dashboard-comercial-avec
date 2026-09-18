@@ -106,7 +106,8 @@ async function atualizarBairros(){
   opts('#bairro',['Carregando bairros...'],'Carregando bairros...');
   try{
     const partes=String(cidade||'').split(',');
-    const uf=($('#estado').value||partes.pop()||'').trim().toUpperCase();
+    const ufCidade=partes.length>1?String(partes.pop()||'').trim().toUpperCase():'';
+    const uf=String($('#estado').value||ufCidade||'').trim().toUpperCase();
     const nome=partes.join(',').trim()||String(cidade||'').replace(/,\s*[A-Z]{2}$/,'').trim();
     const conhecidos=(DATA.runs||[])
       .filter(r=>norm(r.query?.cidade)===norm(cidade))
