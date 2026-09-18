@@ -21,7 +21,7 @@ permissions:
 
 concurrency:
   group: cliente-whatsapp
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   buscar:
@@ -33,7 +33,11 @@ jobs:
         with:
           node-version: 20
       - run: npm install --no-audit --no-fund
-      - run: npx playwright install --with-deps chromium
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}-1.55.0
+      - run: npx playwright install chromium
       - name: Buscar telefone publico
         env:
           CLIENTE_ID: ${{ inputs.cliente_id }}
