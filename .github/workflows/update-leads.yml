@@ -60,10 +60,22 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Preserva o resultado coletado antes de sincronizar com o main,
+          # evitando falha de push quando outro commit entra durante a coleta.
+          rm -rf /tmp/extrator-data
+          cp -a extrator-data /tmp/extrator-data
+
+          git fetch origin main
+          git reset --hard origin/main
+
+          rm -rf extrator-data
+          cp -a /tmp/extrator-data extrator-data
+
           git add extrator-data
           if git diff --cached --quiet; then
             echo "Sem alterações."
           else
             git commit -m "Atualiza base de leads"
-            git push
+            git push origin main
           fi
