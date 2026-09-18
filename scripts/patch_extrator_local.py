@@ -130,6 +130,27 @@ async function build(){"""
 e, n = re.subn(r"async function atualizarBairros\(\)\{.*?\n\}\nasync function build\(\)\{", lambda _m: novo_bairros, e, count=1, flags=re.S)
 if n != 1 and "carregarBaseBairros" not in e:
     raise SystemExit("funcao atualizarBairros nao encontrada")
+# WhatsApp individual no Extrator: abre conversa para revisao/envio manual e registra status local.
+if "<th>WhatsApp</th>" not in e:
+    e = e.replace("<th>Site</th><th>Avaliação</th>", "<th>Site</th><th>Avaliação</th><th>WhatsApp</th>")
+    e = e.replace('colspan="7"', 'colspan="8"')
+    old_show = """<td>'+(x.website?'<a href="'+esc(x.website)+'" target="_blank" rel="noopener">Abrir</a>':'—')+'</td><td>'+esc(x.rating||'—')+'</td></tr>'"""
+    new_show = """<td>'+(x.website?'<a href="'+esc(x.website)+'" target="_blank" rel="noopener">Abrir</a>':'—')+'</td><td>'+esc(x.rating||'—')+'</td><td>'+whatsLead(x)+'</td></tr>'"""
+    if old_show not in e:
+        raise SystemExit("linha da tabela do Extrator nao encontrada para WhatsApp")
+    e = e.replace(old_show, new_show, 1)
+    marker = "function show(){"
+    helper = r"""const WPP_LEADS_KEY='portal-wpp-leads-v1';
+function wppState(){try{return JSON.parse(localStorage.getItem(WPP_LEADS_KEY)||'{}')}catch{return {}}}
+function phoneBR(v){let n=String(v||'').replace(/\D/g,'');if(!n)return'';if(n.startsWith('0'))n=n.replace(/^0+/,'');if(n.length===10||n.length===11)n='55'+n;return n}
+function leadMsg(x){const nome=String(x.name||'').trim()||'seu negócio',cidade=String($('#cidade').value||'').replace(/,\s*[A-Z]{2}$/,'');return 'Olá! Tudo bem? Vi '+nome+(cidade?' em '+cidade:'')+' e trabalho com soluções da AVEC para gestão, agenda e crescimento de negócios de beleza e bem-estar. Posso te explicar rapidamente como funciona?'}
+function whatsLead(x){const n=phoneBR(x.phone);if(!n)return'<span class="muted">Sem telefone</span>';const st=wppState()[x.place_id]?.status||'Novo';return '<button class="btn linha" style="padding:6px 9px" onclick="abrirWppLead(\''+esc(String(x.place_id||''))+'\')">WhatsApp</button><div class="muted" style="margin-top:4px">'+esc(st)+'</div>'}
+window.abrirWppLead=function(id){const x=(current?.leads||[]).find(v=>String(v.place_id)===String(id));if(!x)return;const n=phoneBR(x.phone);if(!n)return;const st=wppState();st[id]={status:'Contatado',at:new Date().toISOString()};localStorage.setItem(WPP_LEADS_KEY,JSON.stringify(st));window.open('https://wa.me/'+n+'?text='+encodeURIComponent(leadMsg(x)),'_blank','noopener');show()}
+"""
+    if marker not in e:
+        raise SystemExit("funcao show do Extrator nao encontrada")
+    e = e.replace(marker, helper + marker, 1)
+
 mods["extrator"] = b64(e)
 
 # --- Migrador: fluxo simples somente para Clientes + limpar/nova migracao ---
@@ -204,7 +225,7 @@ clientes_html = r'''<!doctype html>
 <button class="btn" id="clearOpp">Limpar filtro</button>
 </div>
 <div class="meta"><span id="count">0 clientes</span><span id="updated"></span></div>
-<div class="table"><table><thead><tr><th>Cliente</th><th>Status</th><th>Produtos</th><th>MRR</th></tr></thead><tbody id="tbody"><tr><td colspan="4" class="empty">Importe os relatórios para começar.</td></tr></tbody></table></div>
+<div class="table"><table><thead><tr><th>Cliente</th><th>Status</th><th>Produtos</th><th>MRR</th><th>WhatsApp</th></tr></thead><tbody id="tbody"><tr><td colspan="5" class="empty">Importe os relatórios para começar.</td></tr></tbody></table></div>
 </div>
 
 <div id="modal" class="modalBg hidden"><div class="modal">
@@ -244,6 +265,11 @@ const PRICES={
 };
 function has(c,k){const arr=c.produtos||[];if(k==='agendamento')return arr.some(x=>/AVECIA.*AGENDAMENTO/i.test(x));if(k==='marketing')return arr.some(x=>/AVECIA.*MARKETING/i.test(x));if(k==='confirmacao')return arr.some(x=>/AVECIA.*CONFIRMA/i.test(x));if(k==='nfce')return arr.some(x=>/NFC-E/i.test(x));return false}
 function save(){localStorage.setItem(KEY,JSON.stringify({updated:new Date().toISOString(),clientes:BASE}))}
+function phoneBR(v){let n=String(v||'').replace(/\\D/g,'');if(!n)return'';if(n.startsWith('0'))n=n.replace(/^0+/,'');if(n.length===10||n.length===11)n='55'+n;return n}
+function clienteMsg(c){const nome=(c.nome||'').split(/\\s+/)[0]||'tudo bem';let op='';if(!has(c,'agendamento'))op=' sobre IA para agendamento';else if(!has(c,'confirmacao'))op=' sobre IA para confirmação de agenda';else if(!has(c,'marketing'))op=' sobre IA para marketing';else if(!has(c,'nfce'))op=' sobre NFC-e';return 'Olá, '+nome+'! Tudo bem? Aqui é da AVEC. Queria falar com você'+op+' e entender se faz sentido para o seu negócio. Posso te explicar rapidamente?'}
+function whatsCliente(c){const n=phoneBR(c.telefone);if(!n)return '<button class="btn" style="padding:6px 9px" onclick="editarFone(\\''+esc(c.id)+'\\')">Cadastrar número</button>';return '<button class="btn" style="padding:6px 9px" onclick="abrirWppCliente(\\''+esc(c.id)+'\\')">WhatsApp</button><div class="small">'+esc(c.telefone)+'</div>'}
+window.editarFone=function(id){const c=BASE.find(x=>String(x.id)===String(id));if(!c)return;const v=prompt('WhatsApp de '+(c.nome||'cliente')+' com DDD:',c.telefone||'');if(v===null)return;c.telefone=String(v).trim();save();render()}
+window.abrirWppCliente=function(id){const c=BASE.find(x=>String(x.id)===String(id));if(!c)return;const n=phoneBR(c.telefone);if(!n)return editarFone(id);c.ultimoContato=new Date().toISOString();save();window.open('https://wa.me/'+n+'?text='+encodeURIComponent(clienteMsg(c)),'_blank','noopener');render()}
 function load(){try{const x=JSON.parse(localStorage.getItem(KEY)||'null');if(x?.clientes){BASE=x.clientes;$('#updated').textContent='Atualizado '+new Date(x.updated).toLocaleString('pt-BR')}}catch{}render()}
 function rebuild(receita,comp){
  const cm=new Map();
@@ -262,7 +288,7 @@ function render(){
  if(st)list=list.filter(x=>x.status===st);if(oppFilter)list=list.filter(x=>x.status==='ATIVO'&&!has(x,oppFilter));
  const sort=$('#sort').value;if(sort==='mrr')list.sort((a,b)=>b.mrr-a.mrr);else if(sort==='id')list.sort((a,b)=>Number(a.id)-Number(b.id));else list.sort((a,b)=>a.nome.localeCompare(b.nome,'pt-BR'));
  $('#count').textContent=list.length+' clientes';
- $('#tbody').innerHTML=list.length?list.map(x=>'<tr><td><div class="name">'+esc(x.nome||'—')+'</div><div class="small">ID '+esc(x.id)+(x.documento?' · '+esc(x.documento):'')+(x.expiracao?' · exp '+esc(x.expiracao):'')+'</div></td><td><span class="status '+(x.status==='ATIVO'?'active':'churn')+'">'+(x.status==='ATIVO'?'Ativo':'Cancelado')+'</span></td><td>'+(x.produtos.length?x.produtos.map(p=>'<span class="tag">'+esc(shortProd(p))+'</span>').join(''):'<span class="small">sem produto</span>')+'</td><td class="money">'+money(x.mrr)+'</td></tr>').join(''):'<tr><td colspan="4" class="empty">Nenhum cliente encontrado.</td></tr>';
+ $('#tbody').innerHTML=list.length?list.map(x=>'<tr><td><div class="name">'+esc(x.nome||'—')+'</div><div class="small">ID '+esc(x.id)+(x.documento?' · '+esc(x.documento):'')+(x.expiracao?' · exp '+esc(x.expiracao):'')+'</div></td><td><span class="status '+(x.status==='ATIVO'?'active':'churn')+'">'+(x.status==='ATIVO'?'Ativo':'Cancelado')+'</span></td><td>'+(x.produtos.length?x.produtos.map(p=>'<span class="tag">'+esc(shortProd(p))+'</span>').join(''):'<span class="small">sem produto</span>')+'</td><td class="money">'+money(x.mrr)+'</td><td>'+whatsCliente(x)+'</td></tr>').join(''):'<tr><td colspan="5" class="empty">Nenhum cliente encontrado.</td></tr>';
  $('#notice').textContent=BASE.length?'Base carregada neste navegador. Use “Atualizar base” quando receber relatórios novos.':'Importe os dois relatórios para montar sua carteira. Os dados ficam somente neste navegador.';
 }
 function shortProd(p){return p.replace('PLATAFORMA AVEC - ASSINATURA','Plataforma AVEC').replace(/AVECIA - /,'IA ').replace(/ - ATÉ .* MENSAL/i,'').replace('MÓDULO ','')}
