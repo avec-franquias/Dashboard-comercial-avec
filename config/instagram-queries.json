@@ -1,3 +1,14 @@
 {
-  "queries": []
+  "queries": [
+    {
+      "enabled": true,
+      "nicho": "Salão de beleza",
+      "uf": "SC",
+      "cidade": "Florianópolis",
+      "bairro": "",
+      "palavra_chave": "",
+      "limite": 20,
+      "request_id": 1789734941089
+    }
+  ]
 }
