@@ -199,7 +199,7 @@ clientes_html = r'''<!doctype html>
 .modalBg{position:fixed;inset:0;background:rgba(17,20,38,.45);display:grid;place-items:center;padding:20px;z-index:10}.modal{width:min(640px,100%);background:white;border-radius:16px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,.2)}.modal h2{margin:0 0 6px}.field{margin:16px 0}.field label{display:block;font-weight:800;font-size:13px;margin-bottom:6px}.filebox{border:1px dashed #bfc3d3;border-radius:12px;padding:14px;background:#fafafd}.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.hidden{display:none!important}
 @media(max-width:1000px){.cards,.opps{grid-template-columns:1fr 1fr}.toolbar{grid-template-columns:1fr 1fr}}@media(max-width:600px){.cards,.opps,.toolbar{grid-template-columns:1fr}.wrap{padding:18px 12px}.top{flex-direction:column}}
 </style></head><body><div class="wrap">
-<div class="top"><div><h1>Clientes</h1><div class="sub">Carteira consolidada a partir dos relatórios Receita SaaS e Contratos/Componentes.</div></div><button class="btn primary" id="update">Atualizar base</button></div>
+<div class="top"><div><h1>Clientes</h1><div class="sub">Carteira consolidada a partir dos relatórios Receita SaaS e Contratos/Componentes.</div></div><button class="btn primary" id="update" type="button" onclick="document.getElementById('modal').classList.remove('hidden')">Atualizar base</button></div>
 
 <div class="cards">
 <div class="card metric"><small>Total clientes</small><b id="mTotal">0</b></div>
@@ -233,7 +233,7 @@ clientes_html = r'''<!doctype html>
 <div class="field"><label>1. Receita SaaS</label><div class="filebox"><input id="fReceita" type="file" accept=".csv,text/csv"></div></div>
 <div class="field"><label>2. Contratos e Componentes</label><div class="filebox"><input id="fComp" type="file" accept=".csv,text/csv"></div></div>
 <div id="importMsg" class="notice hidden"></div>
-<div class="actions"><button class="btn" id="cancel">Cancelar</button><button class="btn primary" id="import">Importar e atualizar</button></div>
+<div class="actions"><button class="btn" id="cancel" type="button" onclick="document.getElementById('modal').classList.add('hidden')">Cancelar</button><button class="btn primary" id="import" type="button">Importar e atualizar</button></div>
 </div></div>
 
 <script>
