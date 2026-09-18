@@ -1,6 +1,18 @@
 {
-  "updated_at": "2026-09-18T17:49:02.017Z",
+  "updated_at": "2026-09-18T20:39:02.923Z",
   "clientes": {
+    "74339": {
+      "cliente_id": "74339",
+      "nome": "2 YOU HAIR SALON",
+      "documento": "42036659000148",
+      "status": "encontrado",
+      "telefone": "+15094870214",
+      "fonte": "Google Maps",
+      "maps_url": "https://www.google.com/maps/search/2%20YOU%20HAIR%20SALON%2042036659000148",
+      "website": "",
+      "encontrado_em": "2026-09-18T20:38:59.809Z",
+      "nome_encontrado": "Hair 2"
+    },
     "82641": {
       "cliente_id": "82641",
       "nome": "@DESEMBARACA",
