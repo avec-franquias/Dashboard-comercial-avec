@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-18T18:12:51.670Z",
+ "atualizadoEm": "2026-09-18T18:13:28.061Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -156,6 +156,24 @@
    ],
    "senha": "pbkdf2$210000$85649b6ad11b93aa70cafb55eea553aa$32ae1c2b5f95c9fcafc16380894de5f168adc44eece363d29ef8c3c453030eb2",
    "criadoEm": "2026-09-18T18:12:51.257Z"
+  },
+  {
+   "login": "claiton.camargo",
+   "nome": "Claiton Carmargo",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
+    "clientes",
+    "extrator",
+    "instagram",
+    "ativacao",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas"
+   ],
+   "senha": "pbkdf2$210000$097c7de40820e8d89829998a00cd99ef$f25a48fe5f981bd1b977a6324534ccd69c51e3097848cfeef60f2138e0a50e2d",
+   "criadoEm": "2026-09-18T18:13:27.665Z"
   }
  ],
  "manutencao": {}
