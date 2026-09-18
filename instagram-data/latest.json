@@ -176,6 +176,135 @@
         "joybeautyfloripa"
       ],
       "finished_at": "2026-09-18T12:35:54.152Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SC",
+        "cidade": "Joinville",
+        "bairro": "América",
+        "palavra_chave": "cabelo",
+        "limite": 20
+      },
+      "results": [
+        {
+          "username": "daylimasalaodebeleza",
+          "profile_url": "https://www.instagram.com/daylimasalaodebeleza/",
+          "name": "Salão de Beleza em Joinville-SC | América | Costa e Silva ...",
+          "bio": "Salão de Beleza em Joinville-SC | América | Costa e Silva ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espacosupercacheada",
+          "profile_url": "https://www.instagram.com/espacosupercacheada/",
+          "name": "Espaço Super Cacheada",
+          "bio": "Espaço Super Cacheada (@espacosupercacheada) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "mariaflor.joinville",
+          "profile_url": "https://www.instagram.com/mariaflor.joinville/",
+          "name": "Salão Maria Flor Giassi America",
+          "bio": "Salão Maria Flor Giassi America (@mariaflor.joinville) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "giassiamerica",
+          "profile_url": "https://www.instagram.com/giassiamerica/",
+          "name": "Giassi América",
+          "bio": "Giassi América (@giassiamerica) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "blumaclinica",
+          "profile_url": "https://www.instagram.com/blumaclinica/",
+          "name": "Bluma Estética Avançada",
+          "bio": "Bluma Estética Avançada (@blumaclinica) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiojardins_beauty",
+          "profile_url": "https://www.instagram.com/studiojardins_beauty/",
+          "name": "Studio Jardins - Salão de beleza Joinville (@studiojardins_beauty ...",
+          "bio": "Studio Jardins - Salão de beleza Joinville (@studiojardins_beauty ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "karin.hair",
+          "profile_url": "https://www.instagram.com/karin.hair/",
+          "name": "SALÃO DE BELEZA - JOINVILLE",
+          "bio": "SALÃO DE BELEZA - JOINVILLE (@karin.hair) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 7,
+      "new_count": 7,
+      "new_usernames": [
+        "daylimasalaodebeleza",
+        "espacosupercacheada",
+        "mariaflor.joinville",
+        "giassiamerica",
+        "blumaclinica",
+        "studiojardins_beauty",
+        "karin.hair"
+      ],
+      "finished_at": "2026-09-18T12:51:40.980Z"
     }
   ]
 }
