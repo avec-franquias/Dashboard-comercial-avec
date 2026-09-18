@@ -1,128 +1,136 @@
 {
- "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-17T20:33:58.289Z",
- "usuarios": [
-  {
-   "login": "christian.vieira",
-   "nome": "Christian Vieira",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas"
-   ],
-   "senha": "pbkdf2$210000$b93f0866b14232541f7f0bef14775867$e65b788c604c5537888b6e1c5c21b3ad96349a4f7045729276e800574b62f563",
-   "recuperacao": "pbkdf2$210000$84544035d70101546ba7832ae9c7d518$bc72a2218111a2fd91d8cb1ad8e466d5513db56dd30b0573c5e40cd716ae8da7",
-   "criadoEm": "2026-09-15T19:03:52.553Z"
-  },
-  {
-   "login": "diana.gracia",
-   "nome": "Diana de Gracia",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas"
-   ],
-   "senha": "pbkdf2$210000$532abfd835748b2d50537c3b29905d40$b1bc1a9f9e66d29e66ddabb1181a6313f1169745e59b5c5a38146e518e48d743",
-   "criadoEm": "2026-09-15T19:54:54.408Z"
-  },
-  {
-   "login": "kater.hoss",
-   "nome": "Kater Hoss",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas"
-   ],
-   "senha": "pbkdf2$210000$4ea1301b845fa3f6a8b3a129c1fd5162$0392a12a76a84a188ecec26fcdab5e15b2dd97e4a41ce36346cb753d932d4e6a",
-   "criadoEm": "2026-09-15T19:59:05.312Z"
-  },
-  {
-   "login": "tiago.barros",
-   "nome": "Tiago Barros",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas"
-   ],
-   "senha": "pbkdf2$210000$aaddc47f36429e7bc36839c264ff4380$31194f4562c99e3c8f878b96b53101db2333d9d65b7fc3fc11421b515ad4d13a",
-   "criadoEm": "2026-09-15T20:08:27.080Z"
-  },
-  {
-   "login": "luiz.gustavo",
-   "nome": "luiz.gustavo",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas"
-   ],
-   "senha": "pbkdf2$210000$dc02cea35f8ea2e542a98f797113ef7c$6d892812b29de5eb3643d73e7b8697702679f7452b9d239dbeec6b333cd0783d",
-   "criadoEm": "2026-09-15T20:08:57.105Z"
-  },
-  {
-   "login": "eduardo.borges",
-   "nome": "Eduardo Borges",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas"
-   ],
-   "senha": "pbkdf2$210000$97e87915446a1e49b7e00c8fd3ce866b$6c1786ab51c8a42922687b2e0073681d94038e932b19e823fd6842689b56b4de",
-   "criadoEm": "2026-09-15T20:09:21.618Z"
-  },
-  {
-   "login": "anderson.santana",
-   "nome": "Anderson Santana",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas"
-   ],
-   "senha": "pbkdf2$210000$dbdb0188686dff7a23eb54428c535ed4$779fce52617dd33754e00712d60347b8c8707b1a0fd3c42475a2eeb473a2e64d",
-   "criadoEm": "2026-09-15T20:17:27.368Z"
-  },
-  {
-   "login": "vanessa.manholer",
-   "nome": "Vanessa Manholer",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas"
-   ],
-   "senha": "pbkdf2$210000$3b845a9342510c1e5732e1013c4a2402$cd98fbb018523cabd53e63406f2dbece25370185ca907e5e9b23fa84dbeb4738",
-   "criadoEm": "2026-09-17T12:16:16.404Z"
-  }
- ],
- "manutencao": {}
+  "instalacao": "63bc96d9dc3c6c61",
+  "atualizadoEm": "2026-09-17T20:33:58.289Z",
+  "usuarios": [
+    {
+      "login": "christian.vieira",
+      "nome": "Christian Vieira",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram"
+      ],
+      "senha": "pbkdf2$210000$b93f0866b14232541f7f0bef14775867$e65b788c604c5537888b6e1c5c21b3ad96349a4f7045729276e800574b62f563",
+      "recuperacao": "pbkdf2$210000$84544035d70101546ba7832ae9c7d518$bc72a2218111a2fd91d8cb1ad8e466d5513db56dd30b0573c5e40cd716ae8da7",
+      "criadoEm": "2026-09-15T19:03:52.553Z"
+    },
+    {
+      "login": "diana.gracia",
+      "nome": "Diana de Gracia",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram"
+      ],
+      "senha": "pbkdf2$210000$532abfd835748b2d50537c3b29905d40$b1bc1a9f9e66d29e66ddabb1181a6313f1169745e59b5c5a38146e518e48d743",
+      "criadoEm": "2026-09-15T19:54:54.408Z"
+    },
+    {
+      "login": "kater.hoss",
+      "nome": "Kater Hoss",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram"
+      ],
+      "senha": "pbkdf2$210000$4ea1301b845fa3f6a8b3a129c1fd5162$0392a12a76a84a188ecec26fcdab5e15b2dd97e4a41ce36346cb753d932d4e6a",
+      "criadoEm": "2026-09-15T19:59:05.312Z"
+    },
+    {
+      "login": "tiago.barros",
+      "nome": "Tiago Barros",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram"
+      ],
+      "senha": "pbkdf2$210000$aaddc47f36429e7bc36839c264ff4380$31194f4562c99e3c8f878b96b53101db2333d9d65b7fc3fc11421b515ad4d13a",
+      "criadoEm": "2026-09-15T20:08:27.080Z"
+    },
+    {
+      "login": "luiz.gustavo",
+      "nome": "luiz.gustavo",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram"
+      ],
+      "senha": "pbkdf2$210000$dc02cea35f8ea2e542a98f797113ef7c$6d892812b29de5eb3643d73e7b8697702679f7452b9d239dbeec6b333cd0783d",
+      "criadoEm": "2026-09-15T20:08:57.105Z"
+    },
+    {
+      "login": "eduardo.borges",
+      "nome": "Eduardo Borges",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram"
+      ],
+      "senha": "pbkdf2$210000$97e87915446a1e49b7e00c8fd3ce866b$6c1786ab51c8a42922687b2e0073681d94038e932b19e823fd6842689b56b4de",
+      "criadoEm": "2026-09-15T20:09:21.618Z"
+    },
+    {
+      "login": "anderson.santana",
+      "nome": "Anderson Santana",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram"
+      ],
+      "senha": "pbkdf2$210000$dbdb0188686dff7a23eb54428c535ed4$779fce52617dd33754e00712d60347b8c8707b1a0fd3c42475a2eeb473a2e64d",
+      "criadoEm": "2026-09-15T20:17:27.368Z"
+    },
+    {
+      "login": "vanessa.manholer",
+      "nome": "Vanessa Manholer",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram"
+      ],
+      "senha": "pbkdf2$210000$3b845a9342510c1e5732e1013c4a2402$cd98fbb018523cabd53e63406f2dbece25370185ca907e5e9b23fa84dbeb4738",
+      "criadoEm": "2026-09-17T12:16:16.404Z"
+    }
+  ],
+  "manutencao": {}
 }
