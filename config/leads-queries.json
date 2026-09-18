@@ -1,0 +1,11 @@
+{
+  "queries": [
+    {
+      "enabled": true,
+      "nicho": "Salão de beleza",
+      "cidade": "Joinville, SC",
+      "bairro": "América",
+      "max_results": 80
+    }
+  ]
+}
