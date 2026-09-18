@@ -243,10 +243,12 @@ const money=n=>Number(n||0).toLocaleString('pt-BR',{style:'currency',currency:'B
 const norm=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
 function parseMoney(v){if(typeof v==='number')return v;let s=String(v??'').trim();if(!s)return 0;s=s.replace(/\./g,'').replace(',','.').replace(/[^0-9.-]/g,'');return Number(s)||0}
 function parseCSV(text){
+ text=String(text||'').replace(/^\uFEFF/,'');
+ const first=(text.split(/\r?\n/).find(x=>x.trim())||'');const delim=(first.split(';').length>first.split(',').length)?';':',';
  const rows=[];let row=[],cell='',q=false;
  for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];
   if(c==='"'){if(q&&n==='"'){cell+='"';i++}else q=!q}
-  else if(c===','&&!q){row.push(cell);cell=''}
+  else if(c===delim&&!q){row.push(cell);cell=''}
   else if((c==='\n'||c==='\r')&&!q){if(c==='\r'&&n==='\n')i++;row.push(cell);if(row.some(x=>String(x).trim()))rows.push(row);row=[];cell=''}
   else cell+=c;
  }
@@ -272,9 +274,10 @@ window.editarFone=function(id){const c=BASE.find(x=>String(x.id)===String(id));i
 window.abrirWppCliente=function(id){const c=BASE.find(x=>String(x.id)===String(id));if(!c)return;const n=phoneBR(c.telefone);if(!n)return editarFone(id);c.ultimoContato=new Date().toISOString();save();window.open('https://wa.me/'+n+'?text='+encodeURIComponent(clienteMsg(c)),'_blank','noopener');render()}
 function load(){try{const x=JSON.parse(localStorage.getItem(KEY)||'null');if(x?.clientes){BASE=x.clientes;$('#updated').textContent='Atualizado '+new Date(x.updated).toLocaleString('pt-BR')}}catch{}render()}
 function rebuild(receita,comp){
+ const antigos=new Map(BASE.map(x=>[String(x.id),x]));
  const cm=new Map();
  for(const r of comp){const id=String(r['Cliente ID']||'').trim();if(!id)continue;let x=cm.get(id)||{produtos:[],contratos:[],porte:'ilimitado'};const prod=String(r['Nome Componente']||'').trim();if(prod&&!x.produtos.includes(prod))x.produtos.push(prod);const ct=String(r['Nome Contrato']||'').trim();if(ct&&!x.contratos.includes(ct))x.contratos.push(ct);if(/PLATAFORMA AVEC/i.test(ct))x.porte=porteFrom(ct);cm.set(id,x)}
- BASE=receita.map(r=>{const id=String(r['Cliente ID']||'').trim(),c=cm.get(id)||{produtos:[],contratos:[],porte:'ilimitado'};return{id,nome:String(r['Nome']||'').trim(),documento:String(r['Documento']||'').replace(/\.0$/,''),status:String(r['Status']||'').trim().toUpperCase(),statusContrato:String(r['Status Contrato']||'').trim(),mrr:parseMoney(r['MRR (R$)']),ativacao:String(r['Ativacao Contrato']||''),expiracao:String(r['Expiracao Contrato']||''),churn:String(r['Data Churn']||''),...c}});
+ BASE=receita.map(r=>{const id=String(r['Cliente ID']||'').trim(),c=cm.get(id)||{produtos:[],contratos:[],porte:'ilimitado'},old=antigos.get(id)||{};return{id,nome:String(r['Nome']||'').trim(),documento:String(r['Documento']||'').replace(/\.0$/,''),status:String(r['Status']||'').trim().toUpperCase(),statusContrato:String(r['Status Contrato']||'').trim(),mrr:parseMoney(r['MRR (R$)']),ativacao:String(r['Ativacao Contrato']||''),expiracao:String(r['Expiracao Contrato']||''),churn:String(r['Data Churn']||''),telefone:old.telefone||'',ultimoContato:old.ultimoContato||'',...c}});
  save();render();
 }
 function render(){
@@ -293,7 +296,7 @@ function render(){
 }
 function shortProd(p){return p.replace('PLATAFORMA AVEC - ASSINATURA','Plataforma AVEC').replace(/AVECIA - /,'IA ').replace(/ - ATÉ .* MENSAL/i,'').replace('MÓDULO ','')}
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-$('#update').onclick=()=>$('#modal').classList.remove('hidden');$('#cancel').onclick=()=>$('#modal').classList.add('hidden');
+$('#update').addEventListener('click',()=>{$('#importMsg').classList.add('hidden');$('#modal').classList.remove('hidden')});$('#cancel').addEventListener('click',()=>$('#modal').classList.add('hidden'));
 $('#import').onclick=async()=>{const a=$('#fReceita').files[0],b=$('#fComp').files[0],msg=$('#importMsg');msg.classList.remove('hidden');if(!a||!b){msg.textContent='Selecione os dois relatórios.';return}try{msg.textContent='Lendo e cruzando os relatórios...';const [ta,tb]=await Promise.all([a.text(),b.text()]);const ra=parseCSV(ta),cb=parseCSV(tb);if(!ra.length||!cb.length)throw new Error('Um dos arquivos está vazio.');if(!('Cliente ID' in ra[0])||!('MRR (R$)' in ra[0]))throw new Error('O primeiro arquivo não parece ser o relatório Receita SaaS.');if(!('Cliente ID' in cb[0])||!('Nome Componente' in cb[0]))throw new Error('O segundo arquivo não parece ser Contratos e Componentes.');rebuild(ra,cb);$('#modal').classList.add('hidden');$('#fReceita').value='';$('#fComp').value='';msg.classList.add('hidden')}catch(e){msg.textContent='Erro: '+e.message}};
 ['search','statusFilter','sort'].forEach(id=>$('#'+id).addEventListener(id==='search'?'input':'change',render));
 document.querySelectorAll('.opp').forEach(el=>el.onclick=()=>{oppFilter=oppFilter===el.dataset.opp?'':el.dataset.opp;document.querySelectorAll('.opp').forEach(x=>x.classList.toggle('on',x.dataset.opp===oppFilter));render()});
