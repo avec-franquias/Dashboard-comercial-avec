@@ -21,10 +21,6 @@ function patchModulos(html){
         src=src
           .replaceAll("const DATA_URL='instagram-data/latest.json';","const DATA_URL='/api/data-instagram';")
           .replaceAll('instagram-data/latest.json','/api/data-instagram')
-          .replace("const before=Date.now();\n   await solicitar(body);","const baseAntes=await lerBase().catch(()=>({runs:[]}));\n   const runAntes=(baseAntes.runs||[]).find(r=>mesmaBusca(r.query,body));\n   const finishedAntes=String(runAntes?.finished_at||'');\n   await solicitar(body);")
-          .replace("const done=run&&Date.parse(run.finished_at||0)>=before-5000;","const done=run&&String(run.finished_at||'')!==finishedAntes;")
-          .replace("if(tries<60) setTimeout(poll,10000);","if(tries<90) setTimeout(poll,3000);")
-          .replace("setTimeout(poll,6000);","setTimeout(poll,2500);")
           .replaceAll('GitHub','sistema');
       }
       if(id==='clientes'){
