@@ -14,6 +14,14 @@ function patchModulos(html){
           .replaceAll('extrator-data/latest.json','/api/data-leads')
           .replace(
             "const base=await carregarBaseBairros();\n      locais=base?.[uf]?.[chaveGeo(nome)]||[];",
+            "const br=await fetch('/api/bairros?uf='+encodeURIComponent(uf)+'&cidade='+encodeURIComponent(nome));const bj=br.ok?await br.json():{bairros:[]};locais=bj.bairros||[];"
+          )
+          .replace(
+            "try{\n      osm=await bairrosOSM(nome,uf);\n    }catch(err){ console.warn('Base complementar de bairros:',err); }",
+            "if(!locais.length){try{osm=await bairrosOSM(nome,uf);}catch(err){console.warn('Base complementar de bairros:',err);}}"
+          )
+          .replace(
+            "const base=await carregarBaseBairros();\n      locais=base?.[uf]?.[chaveGeo(nome)]||[];",
             "const br=await fetch('/api/bairros?uf='+encodeURIComponent(uf)+'&cidade='+encodeURIComponent(nome),{cache:'force-cache'}); const bj=br.ok?await br.json():{bairros:[]}; locais=bj.bairros||[];"
           )
           .replace(
