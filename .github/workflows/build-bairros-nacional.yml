@@ -1,0 +1,35 @@
+name: Gerar base nacional de bairros
+
+on:
+  push:
+    paths:
+      - '.github/triggers/bairros-nacional.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bairros-nacional
+  cancel-in-progress: true
+
+jobs:
+  gerar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar leitor de shapefile
+        run: pip install pyshp
+      - name: Gerar base nacional
+        run: python collector/build-bairros-nacional.py
+      - name: Salvar base
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add geo/bairros-br.json geo/bairros-br.csv geo/bairros-br-resumo.json
+          git diff --cached --quiet || git commit -m "Gera base nacional de bairros"
+          git push
