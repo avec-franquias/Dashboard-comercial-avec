@@ -24,10 +24,10 @@ def key(s):
     return " ".join(s.casefold().strip().split())
 
 def get_json(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "PortalFranqueadoAVEC/1.0"})
+    req = urllib.request.Request(url, headers={"User-Agent": "PortalFranqueadoAVEC/1.0", "Accept-Encoding": "identity"})
     with urllib.request.urlopen(req, timeout=90) as r:
         raw = r.read()
-        if raw[:2] == b"\\x1f\\x8b":
+        if raw[:2] == bytes([0x1f, 0x8b]):
             import gzip
             raw = gzip.decompress(raw)
         return json.loads(raw.decode("utf-8"))
