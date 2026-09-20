@@ -26,7 +26,11 @@ def key(s):
 def get_json(url):
     req = urllib.request.Request(url, headers={"User-Agent": "PortalFranqueadoAVEC/1.0"})
     with urllib.request.urlopen(req, timeout=90) as r:
-        return json.load(r)
+        raw = r.read()
+        if raw[:2] == b"\\x1f\\x8b":
+            import gzip
+            raw = gzip.decompress(raw)
+        return json.loads(raw.decode("utf-8"))
 
 def download(url, dest):
     req = urllib.request.Request(url, headers={"User-Agent": "PortalFranqueadoAVEC/1.0"})
