@@ -1,0 +1,40 @@
+name: Atualizar bairros
+
+on:
+  workflow_dispatch:
+    inputs:
+      cidades:
+        description: "Cidades no formato Cidade,UF;Cidade,UF"
+        required: false
+        type: string
+  push:
+    paths:
+      - '.github/triggers/bairros.txt'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atualizar-bairros
+  cancel-in-progress: true
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Atualizar bairros
+        env:
+          BAIRROS_CIDADES: ${{ inputs.cidades }}
+        run: node collector/update-bairros.mjs
+      - name: Salvar base
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add geo/bairros-br.json
+          git diff --cached --quiet || git commit -m "Atualiza base de bairros"
+          git push
