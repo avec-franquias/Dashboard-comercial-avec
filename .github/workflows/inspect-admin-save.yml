@@ -1,38 +1,101 @@
-name: Inspecionar gravacao admin
+name: Aplicar admin via Vercel
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/inspect-admin-save.yml'
 permissions:
-  contents: read
+  contents: write
 jobs:
-  inspect:
+  fix:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Extrair funcoes administrativas
+      - name: Aplicar correcao
         shell: python
         run: |
           from pathlib import Path
-          import re
+          import sys
+          p=Path("index.html")
+          s=p.read_text(encoding="utf-8")
+          marker="ADMIN_VERCEL_NATIVE_V2"
+          if marker in s:
+              print("ja aplicado")
+              sys.exit(0)
+
+          start=s.find("async function alterarPortal(fn, fnManut, mensagem){")
+          end=s.find("// usuários deste navegador entram na lista do site", start)
+          if start<0 or end<0:
+              print("bloco nao localizado")
+              sys.exit(2)
+
+          novo="""async function alterarPortal(fn, fnManut, mensagem){
+  /* ADMIN_VERCEL_NATIVE_V2 */
+  const base = clone(usuarios());
+  const m = clone(MANUT || {});
+  if (fn) await fn(base);
+  if (fnManut) await fnManut(m);
+
+  const token = localStorage.getItem('portal-admin-token') || '';
+  if (!token) throw new Error('Sua sessao administrativa precisa ser renovada. Saia e entre novamente no Portal.');
+
+  const r = await fetch('/api/admin-state', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    },
+    body: JSON.stringify({
+      instalacao: INSTALACAO,
+      usuarios: base,
+      manutencao: m,
+      mensagem: mensagem || 'Portal: atualizacao administrativa'
+    })
+  });
+
+  let d = {};
+  try { d = await r.json(); } catch {}
+  if (!r.ok) throw new Error(d.error || 'Nao foi possivel salvar a alteracao pelo Portal.');
+
+  LISTA = Array.isArray(d.usuarios) ? d.usuarios : base;
+  MANUT = d.manutencao || m;
+  TEM_ARQUIVO = true;
+  rasc = null;
+  try { localStorage.removeItem(RASC); } catch {}
+  if (typeof avisoPublicar === 'function') avisoPublicar();
+  return LISTA;
+}
+"""
+          s=s[:start]+novo+s[end:]
+
+          s=s.replace("const on = !!(NO_SITE && perfil && perfil.papel === 'admin' && !ghCfg() && (rasc || !TEM_ARQUIVO));","const on = false;")
+          s=s.replace("GitHub não conectado neste navegador.","Alterações salvas automaticamente pelo Portal.")
+          s=s.replace("GitHub nao conectado neste navegador.","Alteracoes salvas automaticamente pelo Portal.")
+
+          p.write_text(s,encoding="utf-8")
+          print("correcao aplicada")
+
+      - name: Validar
+        shell: python
+        run: |
+          from pathlib import Path
           s=Path("index.html").read_text(encoding="utf-8")
-          pats=[
-            r"Conectar ao GitHub",
-            r"btnConectar",
-            r"statusGithub2",
-            r"listaManut",
-            r"salvar",
-            r"manutencao",
-            r"usuarios\.json",
-            r"GITHUB",
-            r"github"
-          ]
-          seen=[]
-          for pat in pats:
-            for m in re.finditer(pat,s,re.I):
-              if any(abs(m.start()-x)<1800 for x in seen): continue
-              seen.append(m.start())
-              a=max(0,m.start()-2600); b=min(len(s),m.end()+5200)
-              print("\n===== "+pat+" @ "+str(m.start())+" =====\n")
-              print(s[a:b])
+          a=s.find("async function alterarPortal(fn, fnManut, mensagem){")
+          b=s.find("// usuários deste navegador entram na lista do site",a)
+          bloco=s[a:b]
+          assert "ADMIN_VERCEL_NATIVE_V2" in bloco
+          assert "/api/admin-state" in bloco
+          assert "conectarGithub()" not in bloco
+          print("ok")
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "sem alteracoes"
+          else
+            git commit -m "Portal: usa Vercel para manutencao e usuarios"
+            git push origin main
+          fi
