@@ -1605,45 +1605,6 @@ window.portalBuscarWhatsAppCliente = async ({ cliente_id, nome, documento = '' }
 };
 </script>
 
-<!-- portal-remove-monitoramento-cobertura -->
-<script>
-(function () {
-  function normalizeText(v) {
-    return (v || '').replace(/\s+/g, ' ').trim().toLowerCase();
-  }
-  function hideCoverageMonitor() {
-    const target = 'monitoramento de cobertura';
-    const all = Array.from(document.querySelectorAll('body *'));
-    for (const el of all) {
-      const own = normalizeText(el.textContent);
-      if (!own.includes(target)) continue;
-
-      const childrenContain = Array.from(el.children || []).some(
-        child => normalizeText(child.textContent).includes(target)
-      );
-      if (childrenContain) continue;
-
-      let box = el.closest(
-        '[data-section*="cobertura" i], [id*="cobertura" i], [class*="cobertura" i], ' +
-        '[data-section*="coverage" i], [id*="coverage" i], [class*="coverage" i], ' +
-        '.card, .panel, .box, section, article'
-      );
-      if (!box) box = el.parentElement || el;
-      box.style.setProperty('display', 'none', 'important');
-    }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', hideCoverageMonitor);
-  } else {
-    hideCoverageMonitor();
-  }
-
-  const observer = new MutationObserver(hideCoverageMonitor);
-  observer.observe(document.documentElement, { childList: true, subtree: true });
-})();
-</script>
-
 </body>
 </html>
 
