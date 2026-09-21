@@ -103,6 +103,41 @@ function patchModulos(html){
           .replaceAll('GitHub','sistema');
       }
       if(id==='extrator'){
+        const hideCoverageInsideModule=`
+<script>
+(function(){
+  function hideCoverage(){
+    const nodes=[...document.querySelectorAll('div,section,aside,article')];
+    for(const el of nodes){
+      const t=(el.innerText||'').trim();
+      if(!t || t.length>1200) continue;
+      const isCoverage=/monitoramento/i.test(t) &&
+        (/regi(?:ões|oes)/i.test(t) || /cobertura registrada/i.test(t) || /github actions/i.test(t) || /sistema/i.test(t));
+      if(!isCoverage) continue;
+      const nested=[...el.children].some(c=>{
+        const ct=(c.innerText||'').trim();
+        return ct && ct.length<1200 &&
+          /monitoramento/i.test(ct) &&
+          (/regi(?:ões|oes)/i.test(ct) || /cobertura registrada/i.test(ct) || /github actions/i.test(ct) || /sistema/i.test(ct));
+      });
+      if(!nested){
+        el.style.setProperty('display','none','important');
+        el.setAttribute('data-coverage-hidden','true');
+      }
+    }
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',hideCoverage,{once:true});
+  }else{
+    hideCoverage();
+  }
+  setTimeout(hideCoverage,250);
+  setTimeout(hideCoverage,1000);
+})();
+</script>`;
+        if(!src.includes('data-coverage-hidden')){
+          src=src.replace('</body>',hideCoverageInsideModule+'\\n</body>');
+        }
         if(!src.includes('id="fonte"')){
           src=src.replace(
             /(<div class="filtros">\s*)/,
