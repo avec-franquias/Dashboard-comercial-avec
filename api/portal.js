@@ -82,6 +82,9 @@ export default async function handler(req,res){
   try{
     let html=await fs.readFile(process.cwd()+'/index.html','utf8');
     html=patchModulos(html);
+    html=html
+      .replaceAll("nome: 'Extrator de Instagram'","nome: 'Extrator de Leads'")
+      .replaceAll("desc: 'Encontre perfis comerciais públicos por nicho e região e organize novos leads.'","desc: 'Busque negócios no Instagram, Google Maps ou nas duas fontes, com contatos quando disponíveis.'");
     const patch=`
 <script>
 (function(){
