@@ -104,38 +104,38 @@ function patchModulos(html){
       }
       if(id==='extrator'){
         const hideCoverageInsideModule=`
+<style>
+/* Vercel: remove painel lateral de monitoramento/cobertura e libera largura do extrator */
+body:has([data-coverage-panel]) [data-coverage-panel]{display:none!important}
+</style>
 <script>
 (function(){
-  function hideCoverage(){
-    const nodes=[...document.querySelectorAll('div,section,aside,article')];
-    for(const el of nodes){
-      const t=(el.innerText||'').trim();
-      if(!t || t.length>1200) continue;
-      const isCoverage=/monitoramento/i.test(t) &&
-        (/regi(?:ões|oes)/i.test(t) || /cobertura registrada/i.test(t) || /github actions/i.test(t) || /sistema/i.test(t));
-      if(!isCoverage) continue;
-      const nested=[...el.children].some(c=>{
-        const ct=(c.innerText||'').trim();
-        return ct && ct.length<1200 &&
-          /monitoramento/i.test(ct) &&
-          (/regi(?:ões|oes)/i.test(ct) || /cobertura registrada/i.test(ct) || /github actions/i.test(ct) || /sistema/i.test(ct));
-      });
-      if(!nested){
-        el.style.setProperty('display','none','important');
-        el.setAttribute('data-coverage-hidden','true');
-      }
+  function removeCoverage(){
+    const all=[...document.querySelectorAll('div,section,aside,article')];
+    const candidates=all.filter(el=>{
+      const t=(el.innerText||'').replace(/\\s+/g,' ').trim();
+      return t.length>0 && t.length<4000 &&
+        /MONITORAMENTO/i.test(t) && /Cobertura/i.test(t) &&
+        (/Regi(?:ões|oes) que o (?:GitHub Actions|sistema) j[aá] varreu/i.test(t) || /Nenhuma cobertura registrada/i.test(t));
+    });
+    if(!candidates.length) return;
+    candidates.sort((a,b)=>(a.innerText||'').length-(b.innerText||'').length);
+    const panel=candidates[0];
+    panel.setAttribute('data-coverage-panel','1');
+    panel.style.setProperty('display','none','important');
+    const parent=panel.parentElement;
+    if(parent){
+      parent.style.setProperty('grid-template-columns','minmax(0,1fr)','important');
+      parent.style.setProperty('display','block','important');
+      [...parent.children].forEach(ch=>{if(ch!==panel){ch.style.setProperty('width','100%','important');ch.style.setProperty('max-width','none','important')}});
     }
   }
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',hideCoverage,{once:true});
-  }else{
-    hideCoverage();
-  }
-  setTimeout(hideCoverage,250);
-  setTimeout(hideCoverage,1000);
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',removeCoverage,{once:true}); else removeCoverage();
+  new MutationObserver(removeCoverage).observe(document.documentElement,{childList:true,subtree:true});
+  setTimeout(removeCoverage,100); setTimeout(removeCoverage,500); setTimeout(removeCoverage,1500);
 })();
 </script>`;
-        if(!src.includes('data-coverage-hidden')){
+        if(!src.includes('data-coverage-panel')){
           src=src.replace('</body>',hideCoverageInsideModule+'\\n</body>');
         }
         if(!src.includes('id="fonte"')){
