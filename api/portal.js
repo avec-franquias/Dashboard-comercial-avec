@@ -13,6 +13,38 @@ function patchModulos(html){
         src=src
           .replaceAll('extrator-data/latest.json','/api/data-leads')
           .replace(
+            '<div class="campo"><label>Nicho</label><select id="nicho"></select></div>',
+            '<div class="campo"><label>Fonte</label><select id="fonte"><option value="ambos" selected>Google + Instagram</option><option value="google">Google Maps</option><option value="instagram">Instagram</option></select></div><div class="campo"><label>Nicho</label><select id="nicho"></select></div>'
+          )
+          .replace(
+            "function bairroReal(){return $('#bairro').value==='Todos os bairros'?'':$('#bairro').value}",
+            "function bairroReal(){return $('#bairro').value==='Todos os bairros'?'':$('#bairro').value}\nfunction fonteAtual(){return $('#fonte')?.value||'ambos'}\nfunction cidadeSemUF(){return String($('#cidade').value||'').replace(/,\\s*[A-Z]{2}$/,'').trim()}\nfunction ufAtual(){return String($('#estado').value||String($('#cidade').value||'').split(',').pop()||'').trim().toUpperCase()}\nfunction mapInstagramLead(x){const contato=x.whatsapp||x.phone||'';return {place_id:'ig:'+String(x.username||x.name||Math.random()),name:x.name||('@'+(x.username||'Instagram')),category:'Instagram',phone:contato,address:[x.city||cidadeSemUF(),ufAtual()].filter(Boolean).join(', '),website:x.website||'',rating:'',maps_url:x.profile_url||'',profile_url:x.profile_url||'',instagram:x.username||'',source:'Instagram',whatsapp:contato}}"
+          )
+          .replace(
+            "function whatsLead(x){const n=phoneBR(x.phone);if(!n)return'<span class=\"muted\">Sem telefone</span>';",
+            "function whatsLead(x){const n=phoneBR(x.whatsapp||x.phone);if(!n)return'<span class=\"muted\">Sem telefone</span>';"
+          )
+          .replace(
+            "'<tr><td><span class=\"pill '+(st==='Novo'?'novo':'')+'\">'+st+'</span></td><td><b>'+esc(x.name)+'</b><div class=\"muted\"><a href=\"'+esc(x.maps_url)+'\" target=\"_blank\" rel=\"noopener\">Google Maps</a></div></td><td>'+esc(x.category||'—')+'</td>",
+            "'<tr><td><span class=\"pill '+(st==='Novo'?'novo':'')+'\">'+st+'</span></td><td><b>'+esc(x.name)+'</b><div class=\"muted\">'+(x.maps_url?'<a href=\"'+esc(x.maps_url)+'\" target=\"_blank\" rel=\"noopener\">'+esc(x.source||'Google Maps')+'</a>':esc(x.source||'Google Maps'))+'</div></td><td>'+esc(x.category||'—')+'</td>"
+          )
+          .replace(
+            "async function buscarAgora(){\n const nicho=$('#nicho').value,cidade=$('#cidade').value,bairro=bairroReal();\n const existente=findRun();\n if(existente){show();return}",
+            "async function buscarAgora(){\n const nicho=$('#nicho').value,cidade=$('#cidade').value,bairro=bairroReal(),fonte=fonteAtual();\n const existente=fonte==='google'?findRun():null;\n if(existente){show();return}"
+          )
+          .replace(
+            "if(!parent.portalSolicitarExtracao) throw new Error('Atualize o Portal para habilitar novas coletas.');\n   const inicio=Date.now();\n   await parent.portalSolicitarExtracao({nicho,cidade,bairro,max_results:80});\n   btn.textContent='Coletando...'; $('#atualizado').textContent='Pesquisa enviada. A coleta está rodando no GitHub.';",
+            "const ig=parent.portalSolicitarInstagram,gm=parent.portalSolicitarExtracao;if((fonte==='google'||fonte==='ambos')&&!gm)throw new Error('Atualize o Portal para habilitar Google Maps.');if((fonte==='instagram'||fonte==='ambos')&&!ig)throw new Error('Atualize o Portal para habilitar Instagram.');\n   const inicio=Date.now();\n   const tarefas=[];if(fonte==='google'||fonte==='ambos')tarefas.push(gm({nicho,cidade,bairro,max_results:80}));if(fonte==='instagram'||fonte==='ambos')tarefas.push(ig({nicho,uf:ufAtual(),cidade:cidadeSemUF(),bairro,palavra_chave:'',limite:100}));await Promise.all(tarefas);\n   btn.textContent='Coletando...'; $('#atualizado').textContent='Buscando em '+(fonte==='ambos'?'Google Maps + Instagram':fonte==='google'?'Google Maps':'Instagram')+'...';"
+          )
+          .replace(
+            "for(let i=0;i<80;i++){\n     await new Promise(r=>setTimeout(r,15000));\n     try{const rr=await fetch('/api/data-leads?ts='+Date.now(),{cache:'no-store'});if(rr.ok){DATA=await rr.json();renderCoverage();const achou=findRun();if(achou&&new Date(achou.finished_at||0).getTime()>=inicio-60000){show();return}}}catch{}\n   }",
+            "for(let i=0;i<100;i++){\n     await new Promise(r=>setTimeout(r,3000));\n     try{let mapRun=null,igRun=null;if(fonte==='google'||fonte==='ambos'){const qs=new URLSearchParams({nicho,cidade,bairro});const rr=await fetch('/api/query-leads?'+qs+'&ts='+Date.now(),{cache:'no-store'});if(rr.ok){const j=await rr.json();if(j.run&&new Date(j.run.finished_at||0).getTime()>=inicio-60000)mapRun=j.run}}if(fonte==='instagram'||fonte==='ambos'){const iq=new URLSearchParams({nicho,uf:ufAtual(),cidade:cidadeSemUF(),bairro,palavra_chave:''});const ir=await fetch('/api/query-instagram?'+iq+'&ts='+Date.now(),{cache:'no-store'});if(ir.ok){const j=await ir.json();if(j.run&&new Date(j.run.finished_at||0).getTime()>=inicio-60000)igRun=j.run}}const pronto=(fonte==='google'&&mapRun)||(fonte==='instagram'&&igRun)||(fonte==='ambos'&&mapRun&&igRun);if(pronto){let leads=[];if(mapRun)leads.push(...(mapRun.leads||[]).map(x=>({...x,source:'Google Maps'})));if(igRun)leads.push(...(igRun.results||[]).map(mapInstagramLead));const seen=new Set();leads=leads.filter(x=>{const k=norm(x.name)+'|'+phoneBR(x.whatsapp||x.phone||'')+'|'+norm(x.address||'');if(seen.has(k))return false;seen.add(k);return true});current={query:{nicho,cidade,bairro},leads,total:leads.length,new_count:(mapRun?.new_count||0)+(igRun?.new_count||0),new_ids:[...(mapRun?.new_ids||[]),...(igRun?.new_usernames||[]).map(x=>'ig:'+x)],finished_at:new Date().toISOString()};const oldFind=findRun;$('#total').textContent=leads.length+' leads';$('#novos').textContent=current.new_count+' novos';$('#atualizado').textContent='Atualizado '+new Date().toLocaleString('pt-BR');$('#csv').disabled=!leads.length;const newIds=new Set(current.new_ids||[]);$('#tbody').innerHTML=leads.length?leads.map(x=>{const st=newIds.has(x.place_id)?'Novo':'Conhecido';return '<tr><td><span class=\"pill '+(st==='Novo'?'novo':'')+'\">'+st+'</span></td><td><b>'+esc(x.name)+'</b><div class=\"muted\">'+(x.maps_url?'<a href=\"'+esc(x.maps_url)+'\" target=\"_blank\" rel=\"noopener\">'+esc(x.source||'Google Maps')+'</a>':esc(x.source||'Google Maps'))+'</div></td><td>'+esc(x.category||'—')+'</td><td>'+esc(x.whatsapp||x.phone||'—')+'</td><td>'+esc(x.address||'—')+'</td><td>'+(x.website?'<a href=\"'+esc(x.website)+'\" target=\"_blank\" rel=\"noopener\">Abrir</a>':'—')+'</td><td>'+esc(x.rating||'—')+'</td><td>'+whatsLead(x)+'</td></tr>'}).join(''):'<tr><td colspan=\"8\" class=\"empty\">Nenhum lead encontrado nesta pesquisa.</td></tr>';return}}catch(e){console.warn('Acompanhamento da busca:',e)}}"
+          )
+          .replace(
+            "function exportCsv(){const leads=current?.leads||[];",
+            "function exportCsv(){const leads=current?.leads||[];"
+          )
+          .replace(
             "const base=await carregarBaseBairros();\n      locais=base?.[uf]?.[chaveGeo(nome)]||[];",
             "const br=await fetch('/api/bairros?uf='+encodeURIComponent(uf)+'&cidade='+encodeURIComponent(nome),{cache:'force-cache'});const bj=br.ok?await br.json():{bairros:[]};locais=bj.bairros||[];"
           )
