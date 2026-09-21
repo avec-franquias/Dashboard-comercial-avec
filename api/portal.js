@@ -184,6 +184,7 @@ export default async function handler(req,res){
       let d={};try{d=await r.json()}catch{}
       if(!r.ok) throw new Error(d.error||'Usuário ou senha incorretos.');
       const u=d.usuario;
+      if(d.token) localStorage.setItem('portal-admin-token',d.token);
       const s=document.getElementById('senha'); if(s) s.value='';
       if(typeof aviso==='function') aviso('');
       if(typeof entrarNoPortal!=='function') throw new Error('Portal não carregou corretamente. Atualize a página.');
@@ -223,7 +224,7 @@ export default async function handler(req,res){
  setTimeout(removerMonitoramento,300);setTimeout(removerMonitoramento,1200);
 })();
 </script>`;
-    html=html.replace('</body>',patch+'\n'+coveragePatch+'\n</body>');
+    html=html.replace('</body>',patch+'\n'+coveragePatch+'\n'+adminPatch+'\n</body>');
     res.setHeader('Content-Type','text/html; charset=utf-8');
     res.setHeader('Cache-Control','no-store, max-age=0');
     return res.status(200).send(html);
