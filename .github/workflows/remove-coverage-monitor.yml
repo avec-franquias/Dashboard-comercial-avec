@@ -1,0 +1,86 @@
+name: Remover monitoramento de cobertura
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/remove-coverage-monitor.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  remove:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ocultar Monitoramento de Cobertura
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path("index.html")
+          s = p.read_text(encoding="utf-8")
+          marker = "portal-remove-monitoramento-cobertura"
+          if marker in s:
+              print("Ajuste ja aplicado.")
+              raise SystemExit(0)
+
+          script = r'''
+          <!-- portal-remove-monitoramento-cobertura -->
+          <script>
+          (function () {
+            function normalizeText(v) {
+              return (v || '').replace(/\s+/g, ' ').trim().toLowerCase();
+            }
+            function hideCoverageMonitor() {
+              const target = 'monitoramento de cobertura';
+              const all = Array.from(document.querySelectorAll('body *'));
+              for (const el of all) {
+                const own = normalizeText(el.textContent);
+                if (!own.includes(target)) continue;
+
+                const childrenContain = Array.from(el.children || []).some(
+                  child => normalizeText(child.textContent).includes(target)
+                );
+                if (childrenContain) continue;
+
+                let box = el.closest(
+                  '[data-section*="cobertura" i], [id*="cobertura" i], [class*="cobertura" i], ' +
+                  '[data-section*="coverage" i], [id*="coverage" i], [class*="coverage" i], ' +
+                  '.card, .panel, .box, section, article'
+                );
+                if (!box) box = el.parentElement || el;
+                box.style.setProperty('display', 'none', 'important');
+              }
+            }
+
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', hideCoverageMonitor);
+            } else {
+              hideCoverageMonitor();
+            }
+
+            const observer = new MutationObserver(hideCoverageMonitor);
+            observer.observe(document.documentElement, { childList: true, subtree: true });
+          })();
+          </script>
+          '''
+          if "</body>" in s:
+              s = s.replace("</body>", script + "\n</body>", 1)
+          else:
+              s += "\n" + script + "\n"
+          p.write_text(s, encoding="utf-8")
+          print("Monitoramento de Cobertura ocultado no portal.")
+
+      - name: Commit
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "Sem alteracoes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Portal: remove monitoramento de cobertura"
+          git push
