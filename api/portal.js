@@ -226,39 +226,24 @@ export default async function handler(req,res){
 </script>`;
     html=html.replace('</body>',patch+'\n'+coveragePatch+'\n'+adminPatch+'\n'+`
 <script>
-/* ADMIN_VERCEL_DIRECT_V2 */
+/* ADMIN_VERCEL_DIRECT_V3 */
 (function(){
-  const KEY='portal-admin-token';
-  async function saveState(users,maint,msg){
-    const token=localStorage.getItem(KEY)||'';
-    if(!token) throw new Error('Sessão administrativa antiga. Saia e entre novamente.');
-    const r=await fetch('/api/admin-state',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({instalacao:(typeof INSTALACAO!=='undefined'?INSTALACAO:'portal-franqueado'),usuarios:users,manutencao:maint,mensagem:msg})});
-    let d={};try{d=await r.json()}catch{}
-    if(!r.ok) throw new Error(d.error||'Falha ao salvar pelo Portal.');
-    return d;
-  }
   function install(){
-    if(typeof alterarPortal!=='function'||typeof usuarios!=='function'||typeof clone!=='function') return false;
-    alterarPortal=async function(fn,fnManut,mensagem){
-      const base=clone(usuarios()), m=clone(typeof MANUT!=='undefined'?MANUT:{});
-      if(fn) await fn(base);
-      if(fnManut) await fnManut(m);
-      const d=await saveState(base,m,mensagem);
-      LISTA=d.usuarios||base; MANUT=d.manutencao||m; TEM_ARQUIVO=true; rasc=null;
-      try{localStorage.removeItem(RASC)}catch{}
-      return LISTA;
-    };
-    conectarGithub=function(){return Promise.reject(new Error('A conexão com GitHub não é necessária. As alterações são salvas pelo Portal.'))};
+    if(typeof conectarGithub==='function'){
+      conectarGithub=function(){return Promise.reject(new Error('As alterações administrativas são salvas diretamente pelo Portal.'))};
+    }
     if(typeof avisoPublicar==='function'){
       avisoPublicar=function(){
-        const a=document.getElementById('avisoPublicar');if(a)a.classList.add('hidden');
-        for(const id of ['statusGithub','statusGithub2']){const e=document.getElementById(id);if(e)e.textContent='Alterações salvas automaticamente pelo Portal.'}
+        const a=document.getElementById('avisoPublicar'); if(a)a.classList.add('hidden');
+        for(const id of ['statusGithub','statusGithub2']){
+          const e=document.getElementById(id); if(e)e.textContent='Alterações salvas automaticamente pelo Portal.';
+        }
       };
       avisoPublicar();
     }
-    return true;
   }
-  let n=0; const t=setInterval(()=>{n++;if(install()||n>40)clearInterval(t)},100);
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',install,{once:true}); else install();
+  setTimeout(install,300);
 })();
 </script>`+'\n</body>');
     res.setHeader('Content-Type','text/html; charset=utf-8');
