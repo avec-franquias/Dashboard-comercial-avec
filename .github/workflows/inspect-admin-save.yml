@@ -1,0 +1,38 @@
+name: Inspecionar gravacao admin
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inspect-admin-save.yml'
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extrair funcoes administrativas
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+          s=Path("index.html").read_text(encoding="utf-8")
+          pats=[
+            r"Conectar ao GitHub",
+            r"btnConectar",
+            r"statusGithub2",
+            r"listaManut",
+            r"salvar",
+            r"manutencao",
+            r"usuarios\.json",
+            r"GITHUB",
+            r"github"
+          ]
+          seen=[]
+          for pat in pats:
+            for m in re.finditer(pat,s,re.I):
+              if any(abs(m.start()-x)<1800 for x in seen): continue
+              seen.append(m.start())
+              a=max(0,m.start()-2600); b=min(len(s),m.end()+5200)
+              print("\n===== "+pat+" @ "+str(m.start())+" =====\n")
+              print(s[a:b])
