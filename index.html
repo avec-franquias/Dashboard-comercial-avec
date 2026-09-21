@@ -1605,6 +1605,32 @@ window.portalBuscarWhatsAppCliente = async ({ cliente_id, nome, documento = '' }
 };
 </script>
 
+<!-- portal-hide-coverage-safe -->
+<script>
+(function(){
+  function hideCoverage(){
+    var nodes=document.querySelectorAll('div,section,aside,article');
+    for(var i=0;i<nodes.length;i++){
+      var el=nodes[i],t=(el.innerText||'').trim();
+      if(t.length>1200) continue;
+      if(!/Monitoramento/i.test(t)) continue;
+      if(!(/GitHub Actions/i.test(t)||/Regi(?:ões|oes)/i.test(t))) continue;
+      var nested=false;
+      for(var j=0;j<el.children.length;j++){
+        var ct=(el.children[j].innerText||'').trim();
+        if(ct.length<1200 && /Monitoramento/i.test(ct) && (/GitHub Actions/i.test(ct)||/Regi(?:ões|oes)/i.test(ct))){nested=true;break;}
+      }
+      if(!nested){
+        el.style.setProperty('display','none','important');
+        el.setAttribute('data-portal-hidden','coverage');
+      }
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',hideCoverage,{once:true});else hideCoverage();
+  setTimeout(hideCoverage,800);setTimeout(hideCoverage,2500);
+})();
+</script>
+
 </body>
 </html>
 
