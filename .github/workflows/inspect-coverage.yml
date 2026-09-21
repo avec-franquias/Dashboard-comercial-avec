@@ -1,0 +1,38 @@
+name: Inspecionar monitoramento de cobertura
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inspect-coverage.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Localizar bloco de cobertura
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+          s = Path("index.html").read_text(encoding="utf-8")
+          patterns = [
+              r"Regiões que o GitHub Actions já varreu\.",
+              r"GitHub Actions já varreu",
+              r"MONITORAMENTO",
+              r"Cobertura",
+          ]
+          found = False
+          for pat in patterns:
+              for m in re.finditer(pat, s, re.I):
+                  found = True
+                  a = max(0, m.start() - 1800)
+                  b = min(len(s), m.end() + 2600)
+                  print("\n===== MATCH =====\n")
+                  print(s[a:b])
+          if not found:
+              print("NENHUMA_OCORRENCIA_ENCONTRADA")
