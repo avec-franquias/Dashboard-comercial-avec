@@ -1,0 +1,27 @@
+name: Diagnosticar manutencao Vercel
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/diagnose-maintenance.yml'
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mostrar fluxo de manutencao
+        shell: python
+        run: |
+          from pathlib import Path
+          s=Path("index.html").read_text(encoding="utf-8")
+          terms=["Colocar em manutenção","alterarManutencao(","listaManut","emManut(","MANUT["]
+          for term in terms:
+              pos=0
+              while True:
+                  i=s.find(term,pos)
+                  if i<0: break
+                  print("\n===== "+term+" =====\n")
+                  print(s[max(0,i-2200):min(len(s),i+5200)])
+                  pos=i+len(term)
