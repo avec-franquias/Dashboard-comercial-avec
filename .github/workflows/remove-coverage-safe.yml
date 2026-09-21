@@ -1,92 +1,66 @@
-name: Remover monitoramento com seguranca
-
+name: Remover cobertura seguro
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/remove-coverage-safe.yml'
-
 permissions:
   contents: write
-
 jobs:
   remove:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Remover somente o card de monitoramento
+      - name: Aplicar ajuste pontual
         shell: python
         run: |
           from pathlib import Path
-          import re, sys
           p=Path("index.html")
           s=p.read_text(encoding="utf-8")
-          # O texto do card pode estar codificado/fragmentado no bundle. Localiza por termos visiveis
-          # e identifica apenas o ancestral que contem os indicadores 0/0 e a descricao de regioes.
-          needles=[
-            "Regiões que o GitHub Actions já varreu",
-            "Regi\u00f5es que o GitHub Actions j\u00e1 varreu",
-            "GitHub Actions já varreu",
-            "GitHub Actions j\u00e1 varreu",
-            "Monitoramento",
-            "MONITORAMENTO"
-          ]
-          hits=[n for n in needles if n.lower() in s.lower()]
-          if not hits:
-            # Procura sequencias sem acento/escapadas e imprime contexto para falhar sem alterar portal.
-            compact=s.lower().replace("\\u00f5","o").replace("\\u00e3","a").replace("\\u00e7","c").replace("\\u00e1","a")
-            if "github actions" not in compact or "varreu" not in compact:
-              print("Bloco nao localizado com seguranca; nenhuma alteracao feita.")
-              sys.exit(2)
-          # Em vez de varrer o DOM inteiro, injeta CSS/JS pontual que roda apenas no Extrator
-          # e esconde o card cujo proprio conteudo contem simultaneamente os textos exclusivos.
           marker="portal-hide-coverage-safe"
           if marker in s:
-            print("Ajuste ja presente.")
-            sys.exit(0)
-          block=r"""
-<!-- portal-hide-coverage-safe -->
-<script>
-(function(){
-  function hideCoverage(){
-    var pageText=(document.body&&document.body.innerText)||'';
-    if(!/Extrator de Leads/i.test(pageText)) return;
-    var nodes=document.querySelectorAll('div,section,aside,article');
-    for(var i=0;i<nodes.length;i++){
-      var el=nodes[i], t=(el.innerText||'').trim();
-      if(t.length>1200) continue;
-      var coverage=/Monitoramento/i.test(t) && (/GitHub Actions/i.test(t)||/Regi(?:ões|oes)/i.test(t));
-      if(!coverage) continue;
-      var children=el.children||[];
-      var childAlso=false;
-      for(var j=0;j<children.length;j++){
-        var ct=(children[j].innerText||'').trim();
-        if(ct.length<1200 && /Monitoramento/i.test(ct) && (/GitHub Actions/i.test(ct)||/Regi(?:ões|oes)/i.test(ct))){childAlso=true;break;}
-      }
-      if(!childAlso){
-        el.style.setProperty('display','none','important');
-        el.setAttribute('data-portal-hidden','coverage');
-      }
-    }
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',hideCoverage,{once:true});
-  else hideCoverage();
-  setTimeout(hideCoverage,800);
-  setTimeout(hideCoverage,2500);
-})();
-</script>
-"""
-          s=s.replace("</body>",block+"\n</body>",1)
-          p.write_text(s,encoding="utf-8")
-          print("Ajuste pontual aplicado.")
-      - name: Validar HTML
-        run: |
-          grep -q "portal-hide-coverage-safe" index.html
-          grep -q "</body>" index.html
+              print("Ajuste ja presente")
+          else:
+              block = """<!-- portal-hide-coverage-safe -->
+          <script>
+          (function(){
+            function hideCoverage(){
+              var nodes=document.querySelectorAll('div,section,aside,article');
+              for(var i=0;i<nodes.length;i++){
+                var el=nodes[i],t=(el.innerText||'').trim();
+                if(t.length>1200) continue;
+                if(!/Monitoramento/i.test(t)) continue;
+                if(!(/GitHub Actions/i.test(t)||/Regi(?:ões|oes)/i.test(t))) continue;
+                var nested=false;
+                for(var j=0;j<el.children.length;j++){
+                  var ct=(el.children[j].innerText||'').trim();
+                  if(ct.length<1200 && /Monitoramento/i.test(ct) && (/GitHub Actions/i.test(ct)||/Regi(?:ões|oes)/i.test(ct))){nested=true;break;}
+                }
+                if(!nested){
+                  el.style.setProperty('display','none','important');
+                  el.setAttribute('data-portal-hidden','coverage');
+                }
+              }
+            }
+            if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',hideCoverage,{once:true});else hideCoverage();
+            setTimeout(hideCoverage,800);setTimeout(hideCoverage,2500);
+          })();
+          </script>
+          """
+              if "</body>" not in s:
+                  raise SystemExit("HTML sem fechamento body; abortado sem alteracao")
+              p.write_text(s.replace("</body>",block+"\n</body>",1),encoding="utf-8")
+              print("Ajuste aplicado")
+      - name: Validar
+        run: grep -q "portal-hide-coverage-safe" index.html
       - name: Publicar
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Portal: oculta monitoramento de cobertura com seguranca"
-          git push origin main
+          if git diff --cached --quiet; then
+            echo "Sem alteracoes"
+          else
+            git commit -m "Portal: oculta monitoramento de cobertura com seguranca"
+            git push origin main
+          fi
