@@ -1,6 +1,9 @@
 name: Aplicar admin Vercel
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inspect-admin-save.yml'
 permissions:
   contents: write
 jobs:
@@ -10,9 +13,18 @@ jobs:
       - uses: actions/checkout@v4
       - name: Aplicar
         run: python .github/scripts/fix_admin.py
+      - name: Validar
+        run: |
+          grep -q "ADMIN_VERCEL_NATIVE_V3" index.html
+          grep -q "/api/admin-state" index.html
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet || (git commit -m "Portal: usa Vercel para manutencao e usuarios" && git push origin main)
+          if git diff --cached --quiet; then
+            echo "sem alteracoes"
+          else
+            git commit -m "Portal: usa Vercel para manutencao e usuarios"
+            git push origin main
+          fi
