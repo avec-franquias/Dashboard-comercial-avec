@@ -1,4 +1,4 @@
-name: Remover monitoramento de cobertura
+name: Corrigir tela branca do portal
 
 on:
   push:
@@ -11,69 +11,36 @@ permissions:
   contents: write
 
 jobs:
-  remove:
+  fix:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Ocultar Monitoramento de Cobertura
+
+      - name: Remover script que causou tela branca
         shell: python
         run: |
           from pathlib import Path
+          import re
+
           p = Path("index.html")
           s = p.read_text(encoding="utf-8")
-          marker = "portal-remove-monitoramento-cobertura"
-          if marker in s:
-              print("Ajuste ja aplicado.")
+
+          pattern = re.compile(
+              r'\n?<!-- portal-remove-monitoramento-cobertura -->\s*'
+              r'<script>\s*\(function \(\) \{.*?\}\)\(\);\s*</script>\s*',
+              re.S
+          )
+
+          novo, qtd = pattern.subn("\n", s, count=1)
+
+          if qtd == 0:
+              print("Bloco de regressao nao encontrado; nada a remover.")
               raise SystemExit(0)
 
-          script = r'''
-          <!-- portal-remove-monitoramento-cobertura -->
-          <script>
-          (function () {
-            function normalizeText(v) {
-              return (v || '').replace(/\s+/g, ' ').trim().toLowerCase();
-            }
-            function hideCoverageMonitor() {
-              const target = 'monitoramento de cobertura';
-              const all = Array.from(document.querySelectorAll('body *'));
-              for (const el of all) {
-                const own = normalizeText(el.textContent);
-                if (!own.includes(target)) continue;
+          p.write_text(novo, encoding="utf-8")
+          print("Bloco removido com sucesso.")
 
-                const childrenContain = Array.from(el.children || []).some(
-                  child => normalizeText(child.textContent).includes(target)
-                );
-                if (childrenContain) continue;
-
-                let box = el.closest(
-                  '[data-section*="cobertura" i], [id*="cobertura" i], [class*="cobertura" i], ' +
-                  '[data-section*="coverage" i], [id*="coverage" i], [class*="coverage" i], ' +
-                  '.card, .panel, .box, section, article'
-                );
-                if (!box) box = el.parentElement || el;
-                box.style.setProperty('display', 'none', 'important');
-              }
-            }
-
-            if (document.readyState === 'loading') {
-              document.addEventListener('DOMContentLoaded', hideCoverageMonitor);
-            } else {
-              hideCoverageMonitor();
-            }
-
-            const observer = new MutationObserver(hideCoverageMonitor);
-            observer.observe(document.documentElement, { childList: true, subtree: true });
-          })();
-          </script>
-          '''
-          if "</body>" in s:
-              s = s.replace("</body>", script + "\n</body>", 1)
-          else:
-              s += "\n" + script + "\n"
-          p.write_text(s, encoding="utf-8")
-          print("Monitoramento de Cobertura ocultado no portal.")
-
-      - name: Commit
+      - name: Commit da correcao
         run: |
           if git diff --quiet -- index.html; then
             echo "Sem alteracoes."
@@ -82,5 +49,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Portal: remove monitoramento de cobertura"
+          git commit -m "Portal: corrige tela branca apos ajuste de cobertura"
           git push
