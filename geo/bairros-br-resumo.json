@@ -1,0 +1,10 @@
+{
+  "fonte_principal": "IBGE Censo 2022 - Arquivo geoespacial de Bairros",
+  "complemento": "base já coletada pelo Portal",
+  "ufs": 27,
+  "municipios": 5571,
+  "municipios_com_bairros": 912,
+  "municipios_sem_bairros_formais_na_base": 4659,
+  "bairros": 18908,
+  "linhas_csv": 23567
+}
