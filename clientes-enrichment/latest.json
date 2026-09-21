@@ -1,6 +1,18 @@
 {
-  "updated_at": "2026-09-18T20:39:02.923Z",
+  "updated_at": "2026-09-21T14:33:36.756Z",
   "clientes": {
+    "25276": {
+      "cliente_id": "25276",
+      "nome": "1908 SALON",
+      "documento": "16615269000112",
+      "status": "encontrado",
+      "telefone": "+13023104293",
+      "fonte": "Google Maps",
+      "maps_url": "https://www.google.com/maps/place/Sola+Salons/data=!4m7!3m6!1s0x89c765295e16795d:0xb0e47e2023391a7!8m2!3d39.1585485!4d-75.5085601!16s%2Fg%2F11vdsfd5f2!19sChIJXXkWXillx4kRp5EzAuJHDgs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkxNi4wIJJjKgBIAVAD&rclk=1",
+      "website": "https://www.solasalonstudios.com/locations/dover?utm_source=gmb&utm_medium=organic",
+      "encontrado_em": "2026-09-21T14:33:31.849Z",
+      "nome_encontrado": "Sola Salons"
+    },
     "74339": {
       "cliente_id": "74339",
       "nome": "2 YOU HAIR SALON",
