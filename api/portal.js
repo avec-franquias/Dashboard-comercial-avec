@@ -102,6 +102,18 @@ function patchModulos(html){
           .replaceAll('clientes-enrichment/latest.json','/api/data-clientes')
           .replaceAll('GitHub','sistema');
       }
+      if(id==='extrator'){
+        if(!src.includes('id="fonte"')){
+          src=src.replace(
+            /(<div class="filtros">\s*)/,
+            '$1<div class="campo"><label>Fonte</label><select id="fonte"><option value="ambos" selected>Google + Instagram</option><option value="google">Google Maps</option><option value="instagram">Instagram</option></select></div>'
+          );
+        }
+        src=src.replace(
+          '<h1>Extrator de Leads</h1>',
+          '<h1>Extrator de Leads <span style="font-size:12px;vertical-align:middle;background:#ECEAFE;color:#3F35B8;border-radius:999px;padding:4px 8px;font-weight:700">v2</span></h1>'
+        );
+      }
       mods[id]=Buffer.from(src,'utf8').toString('base64');
     }
     return html.replace(m[1],JSON.stringify(mods));
