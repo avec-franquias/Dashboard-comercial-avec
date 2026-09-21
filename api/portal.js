@@ -41,6 +41,28 @@ function patchModulos(html){
         src=src
           .replaceAll("const DATA_URL='instagram-data/latest.json';","const DATA_URL='/api/data-instagram';")
           .replaceAll('instagram-data/latest.json','/api/data-instagram')
+          .replace('<h1>Extrator de Instagram</h1><div class="sub">Encontre novos negócios e organize oportunidades a partir de perfis públicos.</div>',
+                   '<h1>Extrator de Leads</h1><div class="sub">Encontre negócios no Instagram, Google Maps ou nas duas fontes.</div>')
+          .replace('<div class="grid">\n<div class="campo"><label>Nicho</label>',
+                   '<div class="grid">\n<div class="campo"><label>Fonte</label><select id="fonte"><option value="instagram">Instagram</option><option value="google">Google Maps</option><option value="ambos" selected>Google + Instagram</option></select></div>\n<div class="campo"><label>Nicho</label>')
+          .replace('function bodyAtual(){return {nicho:',
+                   "function fonteAtual(){return $('#fonte')?.value||'ambos'}\nfunction phoneBR(v){let n=String(v||'').replace(/\\D/g,'');if(n.startsWith('0'))n=n.replace(/^0+/,'');if(n.length===10||n.length===11)n='55'+n;return n}\nfunction mapLead(x,cidade){const n=phoneBR(x.phone);return {username:'',name:x.name||'',followers:null,type:x.category||'Google Maps',whatsapp:n,phone:x.phone||'',email:'',website:x.website||'',city:cidade||'',last_post:'',profile_url:x.maps_url||'',source:'Google Maps',address:x.address||'',rating:x.rating||''}}\nfunction bodyAtual(){return {nicho:")
+          .replace("const solicitar=parentFn('portalSolicitarInstagram');",
+                   "const fonte=fonteAtual(); const solicitarIG=parentFn('portalSolicitarInstagram'),solicitarMaps=parentFn('portalSolicitarExtracao'); const solicitar=fonte==='google'?solicitarMaps:solicitarIG;")
+          .replace("if(!solicitar){$('#msg').textContent='Atualize o Portal para iniciar buscas pelo sistema.';return}",
+                   "if(!solicitar||(fonte==='ambos'&&(!solicitarIG||!solicitarMaps))){$('#msg').textContent='Atualize o Portal para iniciar as buscas.';botao.disabled=false;return}")
+          .replace("await solicitar(body);",
+                   "if(fonte==='instagram') await solicitarIG(body); else if(fonte==='google') await solicitarMaps({nicho:body.nicho,cidade:body.cidade+', '+body.uf,bairro:body.bairro,max_results:body.limite}); else await Promise.all([solicitarIG(body),solicitarMaps({nicho:body.nicho,cidade:body.cidade+', '+body.uf,bairro:body.bairro,max_results:body.limite})]);")
+          .replace("botao.textContent='Coletando...';$('#msg').textContent='Busca enviada. Aguardando o sistema iniciar a coleta...';",
+                   "botao.textContent='Coletando...';$('#msg').textContent='Busca enviada. Procurando leads em '+(fonte==='ambos'?'Google Maps e Instagram':fonte==='google'?'Google Maps':'Instagram')+'...';")
+          .replace("const base=await lerBase();\n       const run=(base.runs||[]).find(r=>mesmaBusca(r.query,body));\n       const done=run&&Date.parse(run.finished_at||0)>=before-5000;\n       if(done){ultimoRun=run;render(body,run);$('#msg').textContent='Busca concluída: '+dados.length+' perfil(is) encontrado(s).';botao.disabled=false;botao.textContent='Buscar perfis';return}",
+                   "let igRun=null,mapRun=null; if(fonte!=='google'){const base=await lerBase();igRun=(base.runs||[]).find(r=>mesmaBusca(r.query,body));if(!(igRun&&Date.parse(igRun.finished_at||0)>=before-5000))igRun=null} if(fonte!=='instagram'){const qs=new URLSearchParams({nicho:body.nicho,cidade:body.cidade+', '+body.uf,bairro:body.bairro});const mr=await fetch('/api/query-leads?'+qs.toString()+'&t='+Date.now(),{cache:'no-store'});if(mr.ok){const mj=await mr.json();if(mj.run&&Date.parse(mj.run.finished_at||0)>=before-5000)mapRun=mj.run}} const done=(fonte==='instagram'&&igRun)||(fonte==='google'&&mapRun)||(fonte==='ambos'&&igRun&&mapRun); if(done){let results=[];if(igRun)results.push(...(igRun.results||[]).map(x=>({...x,source:'Instagram'})));if(mapRun)results.push(...(mapRun.leads||[]).map(x=>mapLead(x,body.cidade)));const seen=new Set();results=results.filter(x=>{const k=norm(x.name||x.username)+'|'+norm(x.phone||x.whatsapp||x.address||'');if(seen.has(k))return false;seen.add(k);return true});const run={results,total:results.length,new_usernames:igRun?.new_usernames||[],finished_at:new Date().toISOString()};ultimoRun=run;render(body,run);$('#msg').textContent='Busca concluída: '+dados.length+' lead(s) encontrado(s).';botao.disabled=false;botao.textContent='Buscar leads';return}")
+          .replaceAll('Buscar perfis','Buscar leads')
+          .replaceAll('Buscando perfis no Instagram...','Buscando leads...')
+          .replaceAll('Perfis encontrados','Leads encontrados')
+          .replaceAll('Perfis analisados','Leads analisados')
+          .replaceAll('Quantidade máxima de perfis','Quantidade máxima de leads')
+          .replaceAll('Nenhum perfil encontrado para esta busca.','Nenhum lead encontrado para esta busca.')
           .replaceAll('GitHub','sistema');
       }
       if(id==='clientes'){
