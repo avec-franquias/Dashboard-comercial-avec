@@ -2724,6 +2724,103 @@
         "espacoluxy"
       ],
       "finished_at": "2026-09-21T17:07:04.872Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SC",
+        "cidade": "Abelardo Luz",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "hera_salao",
+          "profile_url": "https://www.instagram.com/hera_salao/",
+          "name": "Hera Salão de Beleza",
+          "bio": "Hera Salão de Beleza (@hera_salao) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abelardo Luz",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salao.da.sil",
+          "profile_url": "https://www.instagram.com/salao.da.sil/",
+          "name": "Salão da Sil",
+          "bio": "Salão da Sil (@salao.da.sil) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abelardo Luz",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "berlato_joalheriaeotica",
+          "profile_url": "https://www.instagram.com/berlato_joalheriaeotica/",
+          "name": "Berlato Joalheria e Ótica",
+          "bio": "Berlato Joalheria e Ótica (@berlato_joalheriaeotica) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abelardo Luz",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "nossaloja_abelardoluz",
+          "profile_url": "https://www.instagram.com/nossaloja_abelardoluz/",
+          "name": "Nossa Loja",
+          "bio": "Nossa Loja (@nossaloja_abelardoluz) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abelardo Luz",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espaco_tainara_alana",
+          "profile_url": "https://www.instagram.com/espaco_tainara_alana/",
+          "name": "Espaço Tainara Alana",
+          "bio": "Espaço Tainara Alana (@espaco_tainara_alana) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abelardo Luz",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 5,
+      "new_count": 5,
+      "new_usernames": [
+        "hera_salao",
+        "salao.da.sil",
+        "berlato_joalheriaeotica",
+        "nossaloja_abelardoluz",
+        "espaco_tainara_alana"
+      ],
+      "finished_at": "2026-09-21T17:23:20.037Z"
     }
   ]
 }
