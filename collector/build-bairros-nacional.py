@@ -76,7 +76,7 @@ with tempfile.TemporaryDirectory() as td:
     shp_files = list(Path(td).glob("*.shp"))
     if not shp_files:
         raise RuntimeError("Shapefile de bairros do IBGE não encontrado")
-    r = shapefile.Reader(str(shp_files[0]), encoding="latin1")
+    r = shapefile.Reader(str(shp_files[0]), encoding="utf-8")
     fields = [f[0] for f in r.fields[1:]]
     upper = {name.upper(): name for name in fields}
     def pick(*names):
@@ -84,12 +84,28 @@ with tempfile.TemporaryDirectory() as td:
             if n in upper:
                 return upper[n]
         raise RuntimeError("Campo ausente. Disponíveis: " + ", ".join(fields))
-    f_uf = pick("SIGLA_UF", "UF")
+    f_uf = pick("SIGLA_UF", "UF", "CD_UF", "NM_UF")
     f_city = pick("NM_MUN", "NM_MUNICIP", "NOME_MUN")
     f_bairro = pick("NM_BAIRRO", "NOME_BAIRR")
     idx = {name: i for i, name in enumerate(fields)}
     for rec in r.iterRecords():
-        uf = str(rec[idx[f_uf]] or "").strip().upper()
+        uf_raw = str(rec[idx[f_uf]] or "").strip()
+        uf_map = {
+            "12":"AC","27":"AL","16":"AP","13":"AM","29":"BA","23":"CE","53":"DF","32":"ES","52":"GO",
+            "21":"MA","51":"MT","50":"MS","31":"MG","15":"PA","25":"PB","41":"PR","26":"PE","22":"PI",
+            "33":"RJ","24":"RN","43":"RS","11":"RO","14":"RR","42":"SC","35":"SP","28":"SE","17":"TO"
+        }
+        uf = uf_map.get(uf_raw, uf_raw.upper())
+        if len(uf) > 2:
+            nome_map = {
+                "ACRE":"AC","ALAGOAS":"AL","AMAPÁ":"AP","AMAPA":"AP","AMAZONAS":"AM","BAHIA":"BA","CEARÁ":"CE","CEARA":"CE",
+                "DISTRITO FEDERAL":"DF","ESPÍRITO SANTO":"ES","ESPIRITO SANTO":"ES","GOIÁS":"GO","GOIAS":"GO","MARANHÃO":"MA","MARANHAO":"MA",
+                "MATO GROSSO":"MT","MATO GROSSO DO SUL":"MS","MINAS GERAIS":"MG","PARÁ":"PA","PARA":"PA","PARAÍBA":"PB","PARAIBA":"PB",
+                "PARANÁ":"PR","PARANA":"PR","PERNAMBUCO":"PE","PIAUÍ":"PI","PIAUI":"PI","RIO DE JANEIRO":"RJ","RIO GRANDE DO NORTE":"RN",
+                "RIO GRANDE DO SUL":"RS","RONDÔNIA":"RO","RONDONIA":"RO","RORAIMA":"RR","SANTA CATARINA":"SC","SÃO PAULO":"SP","SAO PAULO":"SP",
+                "SERGIPE":"SE","TOCANTINS":"TO"
+            }
+            uf = nome_map.get(uf, uf)
         cidade = str(rec[idx[f_city]] or "").strip()
         bairro = str(rec[idx[f_bairro]] or "").strip()
         k = key(cidade)
