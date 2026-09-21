@@ -2628,21 +2628,6 @@
           "source": "duckduckgo"
         },
         {
-          "username": "zenithsalonofc",
-          "profile_url": "https://www.instagram.com/zenithsalonofc/",
-          "name": "ZENITH SALON BEAUTY CENTER | ITAPEMA (@zenithsalonofc ...",
-          "bio": "ZENITH SALON BEAUTY CENTER | ITAPEMA (@zenithsalonofc ... - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Itapema",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
           "username": "elaitapema",
           "profile_url": "https://www.instagram.com/elaitapema/",
           "name": "Salão de Beleza Itapema",
@@ -2673,10 +2658,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "yirehhair",
-          "profile_url": "https://www.instagram.com/yirehhair/",
-          "name": "Yireh Hair & Care - Salão de Beleza",
-          "bio": "Yireh Hair & Care - Salão de Beleza (@yirehhair) - Instagram",
+          "username": "ciadabelezaitapema",
+          "profile_url": "https://www.instagram.com/ciadabelezaitapema/",
+          "name": "Salão de Beleza e Estética Itapema",
+          "bio": "Salão de Beleza e Estética Itapema (@ciadabelezaitapema) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -2703,10 +2688,25 @@
           "source": "duckduckgo"
         },
         {
-          "username": "ciadabelezaitapema",
-          "profile_url": "https://www.instagram.com/ciadabelezaitapema/",
-          "name": "Salão de Beleza e Estética Itapema",
-          "bio": "Salão de Beleza e Estética Itapema (@ciadabelezaitapema) - Instagram",
+          "username": "zenithsalonofc",
+          "profile_url": "https://www.instagram.com/zenithsalonofc/",
+          "name": "ZENITH SALON BEAUTY CENTER | ITAPEMA (@zenithsalonofc ...",
+          "bio": "ZENITH SALON BEAUTY CENTER | ITAPEMA (@zenithsalonofc ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Itapema",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espacoluxy",
+          "profile_url": "https://www.instagram.com/espacoluxy/",
+          "name": "Salão de Beleza e Esmalteria - Luxy Itapema",
+          "bio": "Salão de Beleza e Esmalteria - Luxy Itapema (@espacoluxy) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -2719,20 +2719,11 @@
         }
       ],
       "total": 10,
-      "new_count": 10,
+      "new_count": 1,
       "new_usernames": [
-        "lotusbeautyitapema",
-        "divinabeleza.itapema",
-        "usalaodebeleza",
-        "lc.salaodebeleza_",
-        "zenithsalonofc",
-        "elaitapema",
-        "popular",
-        "yirehhair",
-        "salaoglamourlounge",
-        "ciadabelezaitapema"
+        "espacoluxy"
       ],
-      "finished_at": "2026-09-21T17:01:11.534Z"
+      "finished_at": "2026-09-21T17:07:04.872Z"
     }
   ]
 }
