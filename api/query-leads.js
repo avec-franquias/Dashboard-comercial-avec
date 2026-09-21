@@ -2,14 +2,13 @@ import {fail} from './_github.js';
 const norm=s=>String(s||'').trim().toLocaleLowerCase('pt-BR');
 export default async function handler(req,res){
   try{
-    const token=process.env.GITHUB_TOKEN;
     const repo=process.env.GITHUB_REPOSITORY||'avec-franquias/Dashboard-comercial-avec';
+    const branch=process.env.GITHUB_BRANCH||'main';
     const nicho=String(req.query?.nicho||'').trim();
     const cidade=String(req.query?.cidade||'').trim();
     const bairro=String(req.query?.bairro||'').trim();
-    const r=await fetch('https://api.github.com/repos/'+repo+'/contents/extrator-data/latest.json?ref=main',{
-      headers:{Authorization:'Bearer '+token,Accept:'application/vnd.github.raw+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'avec-portal-api'},
-      cache:'no-store'
+    const r=await fetch('https://raw.githubusercontent.com/'+repo+'/'+branch+'/extrator-data/latest.json',{
+      headers:{'User-Agent':'avec-portal-api'},cache:'no-store'
     });
     if(!r.ok) throw new Error('Base de leads indisponivel ('+r.status+')');
     const data=await r.json();
