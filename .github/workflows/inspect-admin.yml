@@ -1,0 +1,29 @@
+name: Inspecionar administracao portal
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inspect-admin.yml'
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Localizar manutencao usuarios e GitHub
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+          s=Path("index.html").read_text(encoding="utf-8")
+          pats=[r"manuten",r"GitHub",r"conect",r"usu.rio",r"m.dulo"]
+          seen=set()
+          for pat in pats:
+            for m in re.finditer(pat,s,re.I):
+              key=max(0,m.start()-1400)
+              if any(abs(key-x)<1000 for x in seen): continue
+              seen.add(key)
+              a=max(0,m.start()-1400);b=min(len(s),m.end()+2400)
+              print("\n===== MATCH "+pat+" =====\n")
+              print(s[a:b])
