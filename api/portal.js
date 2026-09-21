@@ -166,7 +166,29 @@ export default async function handler(req,res){
       .replaceAll('Pesquisa enviada. A coleta estÃ¡ rodando no GitHub.','Pesquisa enviada. Estamos buscando os leads.')
       .replaceAll('rodando no GitHub','em processamento')
       .replaceAll('GitHub','sistema');
-    html=html.replace('</body>',patch+'\n</body>');
+    const coveragePatch=`
+<script>
+(function(){
+ function removerMonitoramento(){
+  const els=[...document.querySelectorAll('div,section,aside,article')];
+  const matches=els.filter(el=>{
+   const t=(el.innerText||'').trim();
+   if(t.length>1400) return false;
+   return /monitoramento/i.test(t) && (/github actions/i.test(t)||/regi(?:ões|oes)/i.test(t)||/cobertura registrada/i.test(t));
+  });
+  for(const el of matches){
+   const child=[...el.children].some(c=>{
+    const t=(c.innerText||'').trim();
+    return t.length<1400 && /monitoramento/i.test(t) && (/github actions/i.test(t)||/regi(?:ões|oes)/i.test(t)||/cobertura registrada/i.test(t));
+   });
+   if(!child) el.style.setProperty('display','none','important');
+  }
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',removerMonitoramento,{once:true});else removerMonitoramento();
+ setTimeout(removerMonitoramento,300);setTimeout(removerMonitoramento,1200);
+})();
+</script>`;
+    html=html.replace('</body>',patch+'\n'+coveragePatch+'\n</body>');
     res.setHeader('Content-Type','text/html; charset=utf-8');
     res.setHeader('Cache-Control','no-store, max-age=0');
     return res.status(200).send(html);
