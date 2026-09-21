@@ -1,9 +1,6 @@
-name: Aplicar admin via Vercel
+name: Aplicar admin Vercel
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/inspect-admin-save.yml'
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
@@ -11,91 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Aplicar correcao
-        shell: python
-        run: |
-          from pathlib import Path
-          import sys
-          p=Path("index.html")
-          s=p.read_text(encoding="utf-8")
-          marker="ADMIN_VERCEL_NATIVE_V2"
-          if marker in s:
-              print("ja aplicado")
-              sys.exit(0)
-
-          start=s.find("async function alterarPortal(fn, fnManut, mensagem){")
-          end=s.find("// usuários deste navegador entram na lista do site", start)
-          if start<0 or end<0:
-              print("bloco nao localizado")
-              sys.exit(2)
-
-          novo="""async function alterarPortal(fn, fnManut, mensagem){
-  /* ADMIN_VERCEL_NATIVE_V2 */
-  const base = clone(usuarios());
-  const m = clone(MANUT || {});
-  if (fn) await fn(base);
-  if (fnManut) await fnManut(m);
-
-  const token = localStorage.getItem('portal-admin-token') || '';
-  if (!token) throw new Error('Sua sessao administrativa precisa ser renovada. Saia e entre novamente no Portal.');
-
-  const r = await fetch('/api/admin-state', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
-    },
-    body: JSON.stringify({
-      instalacao: INSTALACAO,
-      usuarios: base,
-      manutencao: m,
-      mensagem: mensagem || 'Portal: atualizacao administrativa'
-    })
-  });
-
-  let d = {};
-  try { d = await r.json(); } catch {}
-  if (!r.ok) throw new Error(d.error || 'Nao foi possivel salvar a alteracao pelo Portal.');
-
-  LISTA = Array.isArray(d.usuarios) ? d.usuarios : base;
-  MANUT = d.manutencao || m;
-  TEM_ARQUIVO = true;
-  rasc = null;
-  try { localStorage.removeItem(RASC); } catch {}
-  if (typeof avisoPublicar === 'function') avisoPublicar();
-  return LISTA;
-}
-"""
-          s=s[:start]+novo+s[end:]
-
-          s=s.replace("const on = !!(NO_SITE && perfil && perfil.papel === 'admin' && !ghCfg() && (rasc || !TEM_ARQUIVO));","const on = false;")
-          s=s.replace("GitHub não conectado neste navegador.","Alterações salvas automaticamente pelo Portal.")
-          s=s.replace("GitHub nao conectado neste navegador.","Alteracoes salvas automaticamente pelo Portal.")
-
-          p.write_text(s,encoding="utf-8")
-          print("correcao aplicada")
-
-      - name: Validar
-        shell: python
-        run: |
-          from pathlib import Path
-          s=Path("index.html").read_text(encoding="utf-8")
-          a=s.find("async function alterarPortal(fn, fnManut, mensagem){")
-          b=s.find("// usuários deste navegador entram na lista do site",a)
-          bloco=s[a:b]
-          assert "ADMIN_VERCEL_NATIVE_V2" in bloco
-          assert "/api/admin-state" in bloco
-          assert "conectarGithub()" not in bloco
-          print("ok")
-
+      - name: Aplicar
+        run: python .github/scripts/fix_admin.py
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          if git diff --cached --quiet; then
-            echo "sem alteracoes"
-          else
-            git commit -m "Portal: usa Vercel para manutencao e usuarios"
-            git push origin main
-          fi
+          git diff --cached --quiet || (git commit -m "Portal: usa Vercel para manutencao e usuarios" && git push origin main)
