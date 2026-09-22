@@ -1,0 +1,24 @@
+name: Inspecionar login Portal
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/inspect-login.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: python
+        run: |
+          from pathlib import Path
+          s=Path("index.html").read_text(encoding="utf-8")
+          for term in ["formLogin","onsubmit","entrarNoPortal","btnEntrar"]:
+            print("\n===",term,"===")
+            pos=0
+            for n in range(6):
+              i=s.find(term,pos)
+              if i<0: break
+              print(s[max(0,i-900):min(len(s),i+2200)])
+              pos=i+len(term)
