@@ -1,0 +1,36 @@
+name: Aplicar modulos automaticos v2
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/auto-modulos-v2.yml']
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: python
+        run: |
+          from pathlib import Path
+          p=Path("index.html")
+          s=p.read_text(encoding="utf-8")
+          old="const podeUsar = m => perfil && (perfil.papel === 'admin' || SEMPRE_LIBERADOS.includes(m.id) || (perfil.modulos || []).includes(m.id));"
+          new="const podeUsar = m => !!perfil; // todos os modulos atuais e futuros sao liberados por padrao"
+          if old not in s:
+              raise SystemExit("podeUsar nao encontrado")
+          s=s.replace(old,new)
+          old2="const chkModulos = (sel, nome) => MODULOS.filter(m => !SEMPRE_LIBERADOS.includes(m.id)).map(m =>"
+          new2="const chkModulos = (sel, nome) => MODULOS.filter(m => false).map(m =>"
+          if old2 in s:
+              s=s.replace(old2,new2)
+          p.write_text(s,encoding="utf-8")
+      - name: Validar
+        run: grep -q "const podeUsar = m => !!perfil" index.html
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Portal: libera automaticamente todos os modulos" || exit 0
+          git push origin main
