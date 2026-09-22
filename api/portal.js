@@ -205,6 +205,7 @@ export default async function handler(req,res){
   setTimeout(instalarLoginApi,250);
   setTimeout(instalarLoginApi,1000);
   setTimeout(instalarLoginApi,2500);
+  setInterval(instalarLoginApi,2000);
 })();
 </script>`;
     html=html
