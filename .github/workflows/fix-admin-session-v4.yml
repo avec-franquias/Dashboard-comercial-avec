@@ -1,0 +1,40 @@
+name: Corrigir sessao admin definitiva
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/fix-admin-session-v4.yml']
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: python
+        run: |
+          from pathlib import Path
+          p=Path("index.html")
+          s=p.read_text(encoding="utf-8")
+          old="const token=localStorage.getItem('portal-admin-token')||'';\n  if(!token) throw new Error('Sessao administrativa antiga. Saia e entre novamente no Portal.');"
+          new="""let token=localStorage.getItem('portal-admin-token')||'';
+          if(!token){
+            const login=perfil?.login||'';
+            const senhaSessao=sessionStorage.getItem('portal-admin-password')||'';
+            if(login && senhaSessao){
+              const lr=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({login,senha:senhaSessao})});
+              const ld=await lr.json().catch(()=>({}));
+              if(lr.ok && ld.token){ token=ld.token; localStorage.setItem('portal-admin-token',token); }
+            }
+          }
+          if(!token) throw new Error('Sessao administrativa indisponivel. Entre novamente no Portal.');"""
+          if old not in s:
+            raise SystemExit("bloco token nao encontrado")
+          s=s.replace(old,new)
+          p.write_text(s,encoding="utf-8")
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Portal: corrige sessao administrativa definitivamente"
+          git push origin main
