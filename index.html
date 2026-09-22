@@ -630,8 +630,17 @@ async function alterarPortal(fn, fnManut, mensagem){
   const base=clone(usuarios()), m=clone(MANUT||{});
   if(fn) await fn(base);
   if(fnManut) await fnManut(m);
-  const token=localStorage.getItem('portal-admin-token')||'';
-  if(!token) throw new Error('Sessao administrativa antiga. Saia e entre novamente no Portal.');
+  let token=localStorage.getItem('portal-admin-token')||'';
+if(!token){
+  const login=perfil?.login||'';
+  const senhaSessao=sessionStorage.getItem('portal-admin-password')||'';
+  if(login && senhaSessao){
+    const lr=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({login,senha:senhaSessao})});
+    const ld=await lr.json().catch(()=>({}));
+    if(lr.ok && ld.token){ token=ld.token; localStorage.setItem('portal-admin-token',token); }
+  }
+}
+if(!token) throw new Error('Sessao administrativa indisponivel. Entre novamente no Portal.');
   const r=await fetch('/api/admin-state',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({instalacao:INSTALACAO,usuarios:base,manutencao:m,mensagem:mensagem||'Portal: atualizacao administrativa'})});
   let d={}; try{d=await r.json()}catch{}
   if(!r.ok) throw new Error(d.error||'Nao foi possivel salvar pelo Portal.');
