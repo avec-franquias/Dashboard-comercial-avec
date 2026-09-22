@@ -167,8 +167,9 @@ export default async function handler(req,res){
     const patch=`
 <script>
 (function(){
+  function instalarLoginApi(){
   const f=document.getElementById('formLogin');
-  if(!f) return;
+  if(!f) return false;
   f.onsubmit=async function(e){
     e.preventDefault();
     const login=String(document.getElementById('usuario')?.value||'').trim().toLowerCase();
@@ -195,6 +196,12 @@ export default async function handler(req,res){
       if(btn){btn.disabled=false;btn.textContent='Entrar'}
     }
   };
+  return true;
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',instalarLoginApi,{once:true});
+  else instalarLoginApi();
+  setTimeout(instalarLoginApi,0);
+  setTimeout(instalarLoginApi,250);
 })();
 </script>`;
     html=html
