@@ -1154,14 +1154,16 @@ $('#formLogin').onsubmit = async e => {
   if (!senha) { msg.textContent = 'Informe sua senha.'; return $('#senha').focus(); }
   const b = $('#btnEntrar'); b.disabled = true; b.textContent = 'Entrando…';
   try {
-    const u = usuarios().find(x => x.login === login);
-    const ok = u && await confere(senha, u.senha);
-    if (!ok) { msg.textContent = 'Usuário ou senha incorretos.'; return; }
-    if (!u.ativo) { msg.textContent = 'Seu acesso está desativado. Fale com a franqueadora.'; return; }
-    $('#senha').value = ''; aviso('');
+    const r=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({login,senha})});
+    let d={}; try{d=await r.json()}catch{}
+    if(!r.ok) throw new Error(d.error||'Usuário ou senha incorretos.');
+    const u=d.usuario;
+    if(d.token) localStorage.setItem('portal-admin-token',d.token); else localStorage.removeItem('portal-admin-token');
+    if(u && u.papel==='admin') sessionStorage.setItem('portal-admin-password',senha);
+    $('#senha').value='';
     entrarNoPortal(u);
-  } catch (err) { msg.textContent = err.message; }
-  finally { b.disabled = false; b.textContent = 'Entrar'; }
+  } catch(err) { msg.textContent=err.message||'Não foi possível entrar.'; }
+  finally { b.disabled=false; b.textContent='Entrar'; }
 };
 $('#lnkEsqueci').onclick = () => $('#txtEsqueci').classList.toggle('hidden');
 $('#lnkCodigo').onclick = () => { $('#rcLogin').value = $('#usuario').value; $('#msgRecuperar').textContent = ''; formEntrada('formRecuperar'); };
