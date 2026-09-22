@@ -778,7 +778,7 @@ function entrarNoPortal(u){
   rota();
 }
 const SEMPRE_LIBERADOS = ['central','migrador'];   // disponíveis para todos os usuários
-const podeUsar = m => perfil && (perfil.papel === 'admin' || SEMPRE_LIBERADOS.includes(m.id) || (perfil.modulos || []).includes(m.id));
+const podeUsar = m => !!perfil; // todos os modulos atuais e futuros sao liberados por padrao
 
 function desenhaModulos(){
   const lista = MODULOS.filter(podeUsar);
@@ -1299,7 +1299,7 @@ function desenhaManutencao(){
     };
   });
 }
-const chkModulos = (sel, nome) => MODULOS.filter(m => !SEMPRE_LIBERADOS.includes(m.id)).map(m => `<label class="chk"><input type="checkbox" name="${nome}" value="${m.id}" ${sel.includes(m.id)?'checked':''}>${esc(m.nome)}</label>`).join('');
+const chkModulos = (sel, nome) => MODULOS.filter(m => false).map(m => `<label class="chk"><input type="checkbox" name="${nome}" value="${m.id}" ${sel.includes(m.id)?'checked':''}>${esc(m.nome)}</label>`).join('');
 $('#nModulos').innerHTML = chkModulos(MODULOS.map(m=>m.id), 'nmod');
 
 $('#formNovo').onsubmit = async e => {
