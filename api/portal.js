@@ -185,7 +185,7 @@ export default async function handler(req,res){
       let d={};try{d=await r.json()}catch{}
       if(!r.ok) throw new Error(d.error||'Usuário ou senha incorretos.');
       const u=d.usuario;
-      if(d.token) localStorage.setItem('portal-admin-token',d.token);
+      if(d.token) localStorage.setItem('portal-admin-token',d.token);\n      if(u?.papel==='admin') sessionStorage.setItem('portal-admin-password',senha);
       const s=document.getElementById('senha'); if(s) s.value='';
       if(typeof aviso==='function') aviso('');
       if(typeof entrarNoPortal!=='function') throw new Error('Portal não carregou corretamente. Atualize a página.');
