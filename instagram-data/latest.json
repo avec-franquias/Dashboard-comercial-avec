@@ -3030,6 +3030,151 @@
         "salaodebelezaurbana"
       ],
       "finished_at": "2026-09-22T12:49:35.954Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SC",
+        "cidade": "Jaraguá do Sul",
+        "bairro": "Centro",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "dnaclinichair",
+          "profile_url": "https://www.instagram.com/dnaclinichair/",
+          "name": "Salão de Beleza Especialistas TRUSS",
+          "bio": "Salão de Beleza Especialistas TRUSS (@dnaclinichair) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Jaraguá do Sul",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "illumine",
+          "profile_url": "https://www.instagram.com/illumine/",
+          "name": "Illumine | Salão de beleza",
+          "bio": "Illumine | Salão de beleza (@illumine) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Jaraguá do Sul",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "dnaclinichair_oficial",
+          "profile_url": "https://www.instagram.com/dnaclinichair_oficial/",
+          "name": "DNA • Salão de Beleza Especialistas TRUSS ...",
+          "bio": "DNA • Salão de Beleza Especialistas TRUSS ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Jaraguá do Sul",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "madalenastudiohair",
+          "profile_url": "https://www.instagram.com/madalenastudiohair/",
+          "name": "Salão de beleza - Jaraguá",
+          "bio": "Salão de beleza - Jaraguá (@madalenastudiohair) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Jaraguá do Sul",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "infinityestetichair",
+          "profile_url": "https://www.instagram.com/infinityestetichair/",
+          "name": "INFINITY Salão e Estética | JARAGUÁ DO SUL (@infinityestetichair ...",
+          "bio": "INFINITY Salão e Estética | JARAGUÁ DO SUL (@infinityestetichair ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Jaraguá do Sul",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "osalaodanany",
+          "profile_url": "https://www.instagram.com/osalaodanany/",
+          "name": "Salão de beleza Jaraguá do Sul",
+          "bio": "Salão de beleza Jaraguá do Sul (@osalaodanany) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Jaraguá do Sul",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "beautystudioo374",
+          "profile_url": "https://www.instagram.com/beautystudioo374/",
+          "name": "𝐵𝑒𝑎𝑢𝑡𝑦 𝑆𝑡𝑢𝑑𝑖𝑜 | 𝐽𝑎𝑟𝑎𝑔𝑢𝑎 𝑑𝑜 𝑆𝑢𝑙",
+          "bio": "𝐵𝑒𝑎𝑢𝑡𝑦 𝑆𝑡𝑢𝑑𝑖𝑜 | 𝐽𝑎𝑟𝑎𝑔𝑢𝑎 𝑑𝑜 𝑆𝑢𝑙 (@beautystudioo374) • Instagram photos ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Jaraguá do Sul",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "thaisalamjaragua",
+          "profile_url": "https://www.instagram.com/thaisalamjaragua/",
+          "name": "Thais Alam Concept Jaraguá | Salão de Beleza em Jaraguá do Sul ...",
+          "bio": "Thais Alam Concept Jaraguá | Salão de Beleza em Jaraguá do Sul ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Jaraguá do Sul",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 8,
+      "new_count": 8,
+      "new_usernames": [
+        "dnaclinichair",
+        "illumine",
+        "dnaclinichair_oficial",
+        "madalenastudiohair",
+        "infinityestetichair",
+        "osalaodanany",
+        "beautystudioo374",
+        "thaisalamjaragua"
+      ],
+      "finished_at": "2026-09-22T12:59:45.749Z"
     }
   ]
 }
