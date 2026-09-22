@@ -1,0 +1,29 @@
+name: Diagnosticar video Central
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/inspect-video-central.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: python
+        run: |
+          from pathlib import Path
+          s=Path("index.html").read_text(encoding="utf-8")
+          terms=["video","vídeo","salvar","find(","conteudo","central","YouTube","Drive"]
+          seen=[]
+          for term in terms:
+            pos=0
+            while True:
+              i=s.lower().find(term.lower(),pos)
+              if i<0: break
+              if any(abs(i-x)<1800 for x in seen):
+                pos=i+len(term); continue
+              seen.append(i)
+              print("\n===== "+term+" @ "+str(i)+" =====\n")
+              print(s[max(0,i-2200):min(len(s),i+5200)])
+              pos=i+len(term)
