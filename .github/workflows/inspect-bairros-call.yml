@@ -1,0 +1,25 @@
+name: Inspecionar chamada bairros
+'on':
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/inspect-bairros-call.yml
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: python
+        run: |
+          from pathlib import Path
+          s=Path("index.html").read_text(encoding="utf-8")
+          for term in ["/api/bairros","bairro.innerHTML","id=\"bairro\"","fetchBairros","carregaBairros","cidade.addEventListener","estado.addEventListener"]:
+            print("\n==",term,"==")
+            pos=0
+            for _ in range(20):
+              i=s.find(term,pos)
+              if i<0: break
+              print(s[max(0,i-1800):min(len(s),i+4800)])
+              pos=i+len(term)
