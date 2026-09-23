@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T17:42:53.415Z",
+ "atualizadoEm": "2026-09-23T17:44:07.986Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -297,6 +297,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$1c0aa64dfae165ca2adf6f2f773173de$01d5154bb437c82b83be6eb133a18deed10eeb11b5413e49804d424fad6510da",
    "criadoEm": "2026-09-23T17:42:54.925Z"
+  },
+  {
+   "login": "harutyun.ghazaryan",
+   "nome": "Avec São Paulo - Harutyun",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$12d0ddbe54fe7ad67c6b54fc3bdf4240$a141127b46fd97640443ff0199f6a0839fab1d1791eb62ae64267ca4260c1827",
+   "criadoEm": "2026-09-23T17:44:09.305Z"
   }
  ],
  "manutencao": {
