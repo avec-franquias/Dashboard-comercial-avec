@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T17:46:39.576Z",
+ "atualizadoEm": "2026-09-23T17:47:11.482Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -326,13 +326,13 @@
    "criadoEm": "2026-09-23T17:45:39.563Z"
   },
   {
-   "login": "gilson.vieira",
-   "nome": "Avec Mato Grosso do Sul",
+   "login": "leonardo.fernandes",
+   "nome": "Avec Belo Horizonte",
    "papel": "franqueado",
    "ativo": true,
    "modulos": [],
-   "senha": "pbkdf2$210000$86234471920620046ba1f345964cac39$b45430cb0c1fd688ea07562db4446ca83c7036ee56bbfbcb89c8a5c61eea0d73",
-   "criadoEm": "2026-09-23T17:46:40.890Z"
+   "senha": "pbkdf2$210000$ed19776bcb90ead2087507d08040ab5a$a087fc161ea96b74c40e7353ee8abcf9bbaa5e9a1f288facabc1cabcd8286ca3",
+   "criadoEm": "2026-09-23T17:47:12.710Z"
   }
  ],
  "manutencao": {
