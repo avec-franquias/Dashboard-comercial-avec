@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T18:32:25.034Z",
+ "atualizadoEm": "2026-09-23T18:33:06.057Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -342,6 +342,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$6860a7fe2b44788cb5ff45a6f2fb403b$93194e82e703767b2af09f079a95a7e9e3d65d6f1470bcb245e41b6a514d44ee",
    "criadoEm": "2026-09-23T18:32:26.222Z"
+  },
+  {
+   "login": "robert.cordeiro",
+   "nome": "Avec Maceio",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$2bef98fe1467c9b2d7ef817a04555fc6$39ffe2d703691363c460b3782c567bc7d2f9a50cda9442f79a8974f4b75d9ebf",
+   "criadoEm": "2026-09-23T18:33:07.428Z"
   }
  ],
  "manutencao": {
