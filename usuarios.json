@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T16:36:11.120Z",
+ "atualizadoEm": "2026-09-23T16:37:54.903Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -189,6 +189,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$a10341f50cc56ff8bc84378ca3d6ca19$23f9daa62b806ad6af61ffa820f5a895077f5fddc31522081cb59386134299ef",
    "criadoEm": "2026-09-23T16:36:11.866Z"
+  },
+  {
+   "login": "henrique.rodrigues",
+   "nome": "Henrique Rodrigues - SP",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$4fa4584a7f63016f6a48e521bf1b3002$7b573f99fa49ee7555ab8bce2ace72ee06a221c4f83e339844e8fc571d7972ff",
+   "criadoEm": "2026-09-23T16:37:56.100Z"
   }
  ],
  "manutencao": {
