@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Ajustar modulo taxas
-        shell: python
         run: |
+          python - <<'PY'
           from pathlib import Path
           import re,json,base64
           p=Path("index.html")
@@ -93,9 +93,10 @@ jobs:
           novo=json.dumps(mods,separators=(',',':'),ensure_ascii=False)
           p.write_text(s[:m.start(2)]+novo+s[m.end(2):],encoding="utf-8")
 
+          PY
       - name: Validar estrutura
-        shell: python
         run: |
+          python - <<'PY'
           from pathlib import Path
           import re,json,base64
           s=Path("index.html").read_text(encoding="utf-8")
@@ -107,6 +108,7 @@ jobs:
           assert "POS S920 - Wow" not in raw
           assert "POS D195 - Wow" not in raw
           print("validacao OK")
+          PY
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
