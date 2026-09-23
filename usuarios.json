@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T17:28:47.600Z",
+ "atualizadoEm": "2026-09-23T17:30:19.540Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -261,6 +261,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$7e0958ee85f22ba414f679ed654295f4$026b5296616780ea2c1ec125b556a688fcca99f391fbd3d69234f343557568bb",
    "criadoEm": "2026-09-23T17:28:48.557Z"
+  },
+  {
+   "login": "vinicius.garrido",
+   "nome": "Avec Paraiba",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$caf808fdedb4b8f85206a66c6ca78037$ce600973a60198aacb2f2243424c7c4e47b0dd803618eaa35ff74aa05031e492",
+   "criadoEm": "2026-09-23T17:30:20.800Z"
   }
  ],
  "manutencao": {
