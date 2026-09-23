@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T19:03:36.606Z",
+ "atualizadoEm": "2026-09-23T19:04:08.981Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -459,6 +459,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$b5c8344b7bc4a733153017380bfbbc75$555f377f41bb451b25bca95345af57414cf7f5b340bba69f6d6755a5151a7ed0",
    "criadoEm": "2026-09-23T19:03:37.961Z"
+  },
+  {
+   "login": "ramon.silva",
+   "nome": "Avec Distrito Federal",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$f8dec4f5ed0385fcf25a43e1be7c5de7$2482690cf2da99f7d67b14454ea2e15c090be533d8a8f816ebaadf8cabaab385",
+   "criadoEm": "2026-09-23T19:04:10.321Z"
   }
  ],
  "manutencao": {
