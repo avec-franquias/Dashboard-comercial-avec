@@ -1,17 +1,15 @@
 name: Importar base estatica nacional de bairros
 'on':
-  push:
-    branches:
-      - main
-    paths:
-      - '.github/workflows/import-bairros-estaticos.yml'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/triggers/bairros-estatico-v2.txt']
 
 permissions:
   contents: write
 
 concurrency:
-  group: bairros-base-estatica
+  group: bairros-base-estatica-v2
   cancel-in-progress: true
 
 jobs:
@@ -20,104 +18,85 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 5
+        with: {fetch-depth: 5}
       - name: Baixar dataset pronto
-        run: |
-          git clone --depth 1 https://github.com/chandez/Estados-Cidades-IBGE.git /tmp/ibge
-          find /tmp/ibge -maxdepth 3 -type f | head -80
-      - name: Localizar e converter bairros
+        run: git clone --depth 1 https://github.com/chandez/Estados-Cidades-IBGE.git /tmp/ibge
+      - name: Converter base relacional
         shell: python
         run: |
           from pathlib import Path
           import csv,json,re,unicodedata
-          root=Path('/tmp/ibge')
-          files=list(root.rglob('*'))
-          cand=[p for p in files if p.is_file() and 'bairro' in p.name.lower()]
-          print('candidatos', [str(x) for x in cand[:30]])
-          if not cand:
-              raise SystemExit('dataset de bairros nao localizado')
-          def key(s):
-              s=unicodedata.normalize('NFD',str(s or ''))
+          root=Path('/tmp/ibge/csv')
+          def rows(name):
+              p=root/name
+              txt=p.read_text(encoding='utf-8-sig')
+              try: d=csv.Sniffer().sniff(txt[:8192],delimiters=',;')
+              except: d=csv.excel
+              return list(csv.DictReader(txt.splitlines(),dialect=d))
+          def v(o,*ks):
+              z={str(k).strip().lower():x for k,x in o.items()}
+              for k in ks:
+                  if k.lower() in z and z[k.lower()] not in (None,''): return str(z[k.lower()]).strip()
+          def norm(s):
+              s=unicodedata.normalize('NFD',str(s))
               s=''.join(c for c in s if unicodedata.category(c)!='Mn')
               return re.sub(r'\s+',' ',s.strip().lower())
-          # Descobre arquivos JSON/CSV de bairros e estruturas auxiliares.
-          bairros=[]
-          for p in cand:
-              try:
-                  if p.suffix.lower()=='.json':
-                      d=json.loads(p.read_text(encoding='utf-8-sig'))
-                      if isinstance(d,list): bairros.extend(d)
-                  elif p.suffix.lower()=='.csv':
-                      txt=p.read_text(encoding='utf-8-sig')
-                      dialect=csv.Sniffer().sniff(txt[:4096],delimiters=',;')
-                      bairros.extend(list(csv.DictReader(txt.splitlines(),dialect=dialect)))
-              except Exception as e: print('ignora',p,e)
-          if not bairros: raise SystemExit('sem registros de bairros')
-          # Carrega todos os JSON auxiliares para mapear ids de municipio/estado.
-          objs=[]
-          for p in files:
-              if p.is_file() and p.suffix.lower()=='.json' and 'bairro' not in p.name.lower():
-                  try:
-                      d=json.loads(p.read_text(encoding='utf-8-sig'))
-                      if isinstance(d,list): objs.extend(d)
-                  except: pass
-          # Mapas tolerantes a diferentes nomes de colunas.
-          def val(o,*ks):
-              lo={str(k).lower():v for k,v in o.items()}
-              for k in ks:
-                  if k.lower() in lo and lo[k.lower()] not in (None,''): return lo[k.lower()]
-          estados={}
-          municipios={}
-          for o in objs:
-              if not isinstance(o,dict): continue
-              sig=val(o,'sigla','uf')
-              eid=val(o,'id','estado_id','uf_id','codigo_uf')
-              nome=val(o,'nome','name')
-              if sig and len(str(sig))==2 and eid is not None: estados[str(eid)]=str(sig).upper()
-          for o in objs:
-              if not isinstance(o,dict): continue
-              mid=val(o,'id','municipio_id','cidade_id','codigo_municipio','codigo_ibge')
-              nome=val(o,'nome','name','municipio','cidade')
-              eid=val(o,'estado','estado_id','uf_id','codigo_uf')
-              uf=val(o,'uf','sigla')
-              if mid is not None and nome:
-                  municipios[str(mid)]=(str(uf).upper() if uf and len(str(uf))==2 else estados.get(str(eid)),str(nome))
-          out={}
-          usados=0
-          for o in bairros:
-              if not isinstance(o,dict): continue
-              nome=val(o,'nome','name','bairro')
-              mid=val(o,'municipio','municipio_id','cidade_id','id_municipio','codigo_municipio')
-              cidade=val(o,'cidade','municipio_nome','nome_municipio')
-              uf=val(o,'uf','sigla')
-              if (not cidade or not uf) and mid is not None and str(mid) in municipios:
-                  muf,mc=municipios[str(mid)]
-                  cidade=cidade or mc; uf=uf or muf
-              if not nome or not cidade or not uf or len(str(uf))!=2: continue
-              uf=str(uf).upper()
-              out.setdefault(uf,{}).setdefault(key(cidade),[]).append(str(nome).strip())
-              usados+=1
-          if usados<1000: raise SystemExit(f'mapeamento insuficiente: {usados}')
-          # Une com base existente para nao perder bairros adicionais ja conhecidos.
+          estados=rows('estados.csv'); cidades=rows('municipios.csv'); bairros=rows('bairros.csv')
+          print('linhas:',len(estados),len(cidades),len(bairros))
+          emap={}
+          for x in estados:
+              eid=v(x,'id','id_estado','codigo_uf','uf_id')
+              uf=v(x,'uf','sigla')
+              if eid and uf: emap[eid]=uf.upper()
+          cmap={}
+          for x in cidades:
+              cid=v(x,'id','id_municipio','municipio_id','codigo_ibge')
+              nome=v(x,'nome','municipio','cidade')
+              eid=v(x,'estado','estado_id','id_estado','uf_id','codigo_uf')
+              uf=v(x,'uf','sigla') or emap.get(eid)
+              if cid and nome and uf: cmap[cid]=(uf.upper(),nome)
+          out={}; usados=0
+          for x in bairros:
+              nome=v(x,'nome','bairro')
+              cid=v(x,'municipio','municipio_id','id_municipio','cidade_id')
+              if nome and cid in cmap:
+                  uf,cidade=cmap[cid]
+                  out.setdefault(uf,{}).setdefault(norm(cidade),[]).append(nome)
+                  usados+=1
+          if usados<1000:
+              print('headers estados',list(estados[0]) if estados else [])
+              print('headers cidades',list(cidades[0]) if cidades else [])
+              print('headers bairros',list(bairros[0]) if bairros else [])
+              print('amostra cidade',cidades[:2]); print('amostra bairro',bairros[:2])
+              raise SystemExit(f'mapeamento insuficiente: {usados}')
           dest=Path('geo/bairros-br.json')
           atual=json.loads(dest.read_text(encoding='utf-8'))
-          for uf,cidades in out.items():
+          for uf,cs in out.items():
               atual.setdefault(uf,{})
-              for cid,arr in cidades.items():
-                  merged=sorted(set((atual[uf].get(cid) or [])+arr),key=lambda x:x.casefold())
-                  atual[uf][cid]=merged
+              for c,arr in cs.items():
+                  atual[uf][c]=sorted(set((atual[uf].get(c) or [])+arr),key=str.casefold)
           dest.write_text(json.dumps(atual,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
-          total=sum(len(v) for cs in atual.values() for v in cs.values() if isinstance(v,list))
-          cidades=sum(1 for cs in atual.values() for v in cs.values() if isinstance(v,list) and v)
-          Path('geo/bairros-nacional-progresso.json').write_text(json.dumps({'fonte':'Estados-Cidades-IBGE + base existente','cidadesComBairros':cidades,'bairros':total},ensure_ascii=False,indent=2),encoding='utf-8')
-          print('registros importados',usados,'cidades com bairros',cidades,'bairros',total)
-      - name: Publicar base pronta
+          cidades_ok=sum(bool(a) for cs in atual.values() for a in cs.values() if isinstance(a,list))
+          total=sum(len(a) for cs in atual.values() for a in cs.values() if isinstance(a,list))
+          Path('geo/bairros-nacional-progresso.json').write_text(json.dumps({'fonte':'Estados-Cidades-IBGE + base existente','cidadesComBairros':cidades_ok,'bairros':total},ensure_ascii=False,indent=2),encoding='utf-8')
+          print('OK importados',usados,'cidades',cidades_ok,'bairros',total)
+      - name: Validar cidades criticas
+        shell: python
+        run: |
+          import json,unicodedata,re
+          d=json.load(open('geo/bairros-br.json'))
+          def n(s):
+              s=unicodedata.normalize('NFD',s); return re.sub(r'\s+',' ',''.join(c for c in s if unicodedata.category(c)!='Mn').lower().strip())
+          for uf,c in [('PR','Curitiba'),('SC','Florianopolis'),('GO','Goiania')]:
+              a=d.get(uf,{}).get(n(c),[])
+              print(uf,c,len(a))
+              if not a: raise SystemExit(f'Sem bairros: {c}/{uf}')
+      - name: Publicar
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add geo/bairros-br.json geo/bairros-nacional-progresso.json
-          git commit -m "Bairros: importa base estatica nacional pronta" || exit 0
+          git commit -m "Bairros: publica base nacional estatica validada" || exit 0
           git fetch origin main
           git rebase origin/main
           git push origin HEAD:main
