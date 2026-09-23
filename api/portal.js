@@ -85,7 +85,7 @@ function patchModulos(html){
     bairro.disabled=true;
     bairro.innerHTML='<option>Carregando bairros...</option>';
     try{
-      const r=await fetch('/api/bairros?uf='+encodeURIComponent(uf)+'&cidade='+encodeURIComponent(nome)+'&ts='+Date.now(),{cache:'no-store'});
+      const ctrl=new AbortController();const timer=setTimeout(()=>ctrl.abort(),8000);const r=await fetch('/api/bairros?uf='+encodeURIComponent(uf)+'&cidade='+encodeURIComponent(nome)+'&ts='+Date.now(),{cache:'no-store',signal:ctrl.signal});clearTimeout(timer);
       const j=await r.json();
       const arr=Array.isArray(j.bairros)?j.bairros:[];
       bairro.innerHTML='';
