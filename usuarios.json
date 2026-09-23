@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T18:40:39.222Z",
+ "atualizadoEm": "2026-09-23T18:49:25.171Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -360,6 +360,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$36b2ebef64c0f5f4b880b55948444cc7$0241ffc20005afd789b47110ee3422bf9eda1113e44935b761bb5462cab366eb",
    "criadoEm": "2026-09-23T18:40:39.988Z"
+  },
+  {
+   "login": "emerson.brandao",
+   "nome": "Avec São Paulo - Emerson",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$297a959480eab3f3ac9411b2c9c9d031$7d9609f14200697d9c356d47d8babaf67510c3b3aec604340c9f8955f6c70a7a",
+   "criadoEm": "2026-09-23T18:49:26.226Z"
   }
  ],
  "manutencao": {
