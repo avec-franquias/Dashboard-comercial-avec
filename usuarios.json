@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T18:51:56.133Z",
+ "atualizadoEm": "2026-09-23T18:55:19.029Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -396,6 +396,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$3c28178601079ba55176616e08f07cbe$0f11fabcd6c27d8f9b75bc2aaf056b2b303d6333fed729465a8fe1efa9eddcbe",
    "criadoEm": "2026-09-23T18:51:57.564Z"
+  },
+  {
+   "login": "gilson.augustinhaki",
+   "nome": "Avec Curitiba",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$155c8093aeb739ddbcca015e707119ed$9b71200c95c73669c5232beabd58f37430f4323798dec1800bf968d0755165e6",
+   "criadoEm": "2026-09-23T18:55:20.610Z"
   }
  ],
  "manutencao": {
