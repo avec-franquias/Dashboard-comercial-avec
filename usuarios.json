@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T17:19:55.439Z",
+ "atualizadoEm": "2026-09-23T17:20:59.659Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -234,6 +234,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$fc7d8ba4576cf6dcff1519bdbb310d19$7212572f4afb792c1cc945fe44fc0de9080f7b52295e130147546803e1119689",
    "criadoEm": "2026-09-23T17:19:56.657Z"
+  },
+  {
+   "login": "rejane.silva",
+   "nome": "Avec Espírito Santo",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$59fc4532e1ac1e5968701698c4a5daf0$0e289cd190b6390850f0c9a8370c9d0ee51e9c7f1595f8c60827c1b8ee0ce606",
+   "criadoEm": "2026-09-23T17:21:01.032Z"
   }
  ],
  "manutencao": {
