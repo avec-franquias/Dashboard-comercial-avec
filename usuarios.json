@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T14:25:42.890Z",
+ "atualizadoEm": "2026-09-23T14:26:01.704Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -170,6 +170,16 @@
    "modulos": [],
    "senha": "pbkdf2$210000$539b6f087cbf55bf31d23b834a024d9f$a7327e385983d767ee6f79e17c53bcd6d179af8c1a794fa765783f7804648189",
    "criadoEm": "2026-09-23T14:16:58.374Z"
+  },
+  {
+   "login": "kater.hoss",
+   "nome": "kater Hoss",
+   "papel": "admin",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$fa1f755046cd2dfe8a73db168f48695c$006f78fc03a0adf8253bfe037ee47551b887567852977c32f03f3605e52cb990",
+   "recuperacao": "pbkdf2$210000$33daf7c2c3a3ec6ed88f7cb57857ce2e$7a8ba4cb90592685b7aa8bbcff58ce446da761040fa6213259ac6d83c3cfdaeb",
+   "criadoEm": "2026-09-23T14:26:00.954Z"
   }
  ],
  "manutencao": {
