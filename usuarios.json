@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T19:01:14.209Z",
+ "atualizadoEm": "2026-09-23T19:02:59.520Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -441,6 +441,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$f91f3b9e289a888b19e4e4ddbbb77447$503b9ebfa3b5d8b66fb91fd63e9d5b13005c85f08be5b41f8593d88771b88ef3",
    "criadoEm": "2026-09-23T19:01:15.427Z"
+  },
+  {
+   "login": "rafael.vila",
+   "nome": "Avec Londrina",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$36ac3a51a073b13e5b902c01cfdb5e62$ca186534a3fa575e4ff089a224d6fa8a6f2db1fa1692acdc680898addcc033d1",
+   "criadoEm": "2026-09-23T19:03:00.863Z"
   }
  ],
  "manutencao": {
