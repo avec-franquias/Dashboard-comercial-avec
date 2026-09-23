@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T19:04:08.981Z",
+ "atualizadoEm": "2026-09-23T20:42:12.278Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -468,6 +468,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$f8dec4f5ed0385fcf25a43e1be7c5de7$2482690cf2da99f7d67b14454ea2e15c090be533d8a8f816ebaadf8cabaab385",
    "criadoEm": "2026-09-23T19:04:10.321Z"
+  },
+  {
+   "login": "ricardo.noblat",
+   "nome": "Avec Recife",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$4ddbefb6674eeeeb8e6664b01267489c$c47d762e3f56db4ae591ad610b86bf0dc33bcd3496baaea3607b803a54724d1a",
+   "criadoEm": "2026-09-23T20:42:13.819Z"
   }
  ],
  "manutencao": {
