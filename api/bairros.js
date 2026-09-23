@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 let CACHE=null;
 const DINAMICO=new Map();
 const chave=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLocaleLowerCase('pt-BR').replace(/\s+/g,' ');
+const ESTADO_NOME={AC:'Acre',AL:'Alagoas',AP:'Amapá',AM:'Amazonas',BA:'Bahia',CE:'Ceará',DF:'Distrito Federal',ES:'Espírito Santo',GO:'Goiás',MA:'Maranhão',MT:'Mato Grosso',MS:'Mato Grosso do Sul',MG:'Minas Gerais',PA:'Pará',PB:'Paraíba',PR:'Paraná',PE:'Pernambuco',PI:'Piauí',RJ:'Rio de Janeiro',RN:'Rio Grande do Norte',RS:'Rio Grande do Sul',RO:'Rondônia',RR:'Roraima',SC:'Santa Catarina',SP:'São Paulo',SE:'Sergipe',TO:'Tocantins'};
 const cidadeLimpa=(cidade,uf)=>String(cidade||'')
   .replace(new RegExp('\\s*[,\\-–—]\\s*'+String(uf||'').trim()+'\\s*$','i'),'')
   .trim();
@@ -27,7 +28,7 @@ async function buscarOSM(nome,uf){
 
   const q=new URLSearchParams({
     city:nome,
-    state:uf,
+    state:ESTADO_NOME[uf]||uf,
     country:'Brazil',
     format:'jsonv2',
     limit:'5',
