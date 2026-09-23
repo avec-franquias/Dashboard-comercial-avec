@@ -1,0 +1,29 @@
+name: Mapear alteracoes portal
+'on':
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/mapear-alteracoes.yml
+permissions:
+  contents: read
+jobs:
+  map:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: python
+        run: |
+          from pathlib import Path
+          import re,json,base64
+          s=Path("index.html").read_text(encoding="utf-8")
+          m=re.search(r'<script type="application/json" id="modulosEmbutidos">([\s\S]*?)</script>',s)
+          mods=json.loads(m.group(1))
+          for mid in ["taxas","propostas"]:
+            raw=base64.b64decode(mods[mid]).decode("utf-8","ignore")
+            print("===== "+mid+" FUNCOES =====")
+            for x in re.finditer(r'(?:async\s+)?function\s+[A-Za-z_$][\w$]*\s*\([^)]*\)',raw):
+              print(x.group(0))
+            print("===== "+mid+" LINHAS =====")
+            for n,line in enumerate(raw.splitlines(),1):
+              if any(t in line.lower() for t in ["mensal","anual","12x","btnpdf","negociacoes","minvenda","minaluguel","posquad","proposta"]):
+                print(f"{n}: {line[:1000]}")
