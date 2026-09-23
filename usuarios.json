@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T20:44:10.204Z",
+ "atualizadoEm": "2026-09-23T20:44:44.348Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -495,6 +495,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$d70d7c291e167582fd2b37ddbcb1ef94$0bebba0c71b47cc3f7c32901e1b0256bbd64b65b1a92d0fc6545ea0e4918f704",
    "criadoEm": "2026-09-23T20:44:11.687Z"
+  },
+  {
+   "login": "ronald.stracanholi",
+   "nome": "Avec São Paulo - Ronald",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$fd373f6ec6eac6d597eaaee2bb5f2c44$5a12e6135df11e7e7e59afe0eff0ddc4bc56ca2ad53346cad9c5504a8c56f56d",
+   "criadoEm": "2026-09-23T20:44:45.745Z"
   }
  ],
  "manutencao": {
