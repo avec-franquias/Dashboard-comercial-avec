@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T14:22:23.919Z",
+ "atualizadoEm": "2026-09-23T14:25:42.890Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -37,23 +37,6 @@
    ],
    "senha": "pbkdf2$210000$532abfd835748b2d50537c3b29905d40$b1bc1a9f9e66d29e66ddabb1181a6313f1169745e59b5c5a38146e518e48d743",
    "criadoEm": "2026-09-15T19:54:54.408Z"
-  },
-  {
-   "login": "kater.hoss",
-   "nome": "Kater Hoss",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas",
-    "instagram",
-    "clientes"
-   ],
-   "senha": "pbkdf2$210000$6423f035b9239d79b9cca0461169869c$f0e7fdde62119b7f6d32bc4ba7cd2cd0a31bdd7a4bf69c0c16fb8c295f31e5da",
-   "criadoEm": "2026-09-15T19:59:05.312Z"
   },
   {
    "login": "tiago.barros",
