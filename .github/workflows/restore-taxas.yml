@@ -29,7 +29,7 @@ jobs:
           novo=json.dumps(cm,separators=(",",":"),ensure_ascii=False)
           Path("index.html").write_text(cur[:mc.start(2)]+novo+cur[mc.end(2):],encoding="utf-8")
           raw=base64.b64decode(cm["taxas"]).decode("utf-8")
-          for termo in ["Informações do estabelecimento","POS S920 - Avec","POS D195 - Avec"]:
+          for termo in ["Informações do Estabelecimento","POS S920 - Avec","POS D195 - Avec","id=\"squad\"","id=\"mcc\""]:
               if termo not in raw: raise SystemExit("validacao falhou: "+termo)
           print("Modulo taxas restaurado")
       - name: Commit
