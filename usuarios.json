@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T17:45:38.099Z",
+ "atualizadoEm": "2026-09-23T17:46:39.576Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -324,6 +324,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$59ebbbdfb4da20191d1b4f09f7c607a5$1dab2bcf5a9fd3b45fdd1a76153a371a9270b7c06407c987b5c52402a7d0d1fc",
    "criadoEm": "2026-09-23T17:45:39.563Z"
+  },
+  {
+   "login": "gilson.vieira",
+   "nome": "Avec Mato Grosso do Sul",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$86234471920620046ba1f345964cac39$b45430cb0c1fd688ea07562db4446ca83c7036ee56bbfbcb89c8a5c61eea0d73",
+   "criadoEm": "2026-09-23T17:46:40.890Z"
   }
  ],
  "manutencao": {
