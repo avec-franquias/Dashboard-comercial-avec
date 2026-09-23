@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T17:14:15.690Z",
+ "atualizadoEm": "2026-09-23T17:15:05.387Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -189,6 +189,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$e2a822d1a81577a7a2f6c22aebeb83ca$2ee2629c5ae2357ac182c4df28189204ee21c32ddb5437a1deeb65cafda499cf",
    "criadoEm": "2026-09-23T17:14:16.865Z"
+  },
+  {
+   "login": "henrique.lopes",
+   "nome": "Avec Rio de Janeiro",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$eb313fd0555f8b7be2b890e90a7bbf0d$0a04ba7f933423a36ff0c2a31b2ef5df2e1fe8578747c5938d190ee2371edbee",
+   "criadoEm": "2026-09-23T17:15:06.600Z"
   }
  ],
  "manutencao": {
