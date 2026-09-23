@@ -1,0 +1,26 @@
+name: Inspecionar calculadora propostas
+'on':
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/inspect-propostas.yml
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: python
+        run: |
+          from pathlib import Path
+          import re,json,base64
+          s=Path("index.html").read_text(encoding="utf-8")
+          m=re.search(r'<script type="application/json" id="modulosEmbutidos">([\s\S]*?)</script>',s)
+          if not m: raise SystemExit("modulos embutidos nao encontrados")
+          mods=json.loads(m.group(1))
+          raw=base64.b64decode(mods["propostas"]).decode("utf-8","ignore")
+          for term in ["mensal","anual","12x","plano","proposta","econom","checkbox","flag"]:
+              i=raw.lower().find(term.lower())
+              print("\n--",term,i,"--\n")
+              if i>=0: print(raw[max(0,i-2500):i+7500])
