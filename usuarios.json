@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-22T22:05:35.000Z",
+ "atualizadoEm": "2026-09-23T14:06:09.026Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -186,6 +186,16 @@
    "senha": "pbkdf2$210000$d2a94ea42d283d4840b9c516a10f87a9$cefd082a5f39b774f2565eaf7e34c22145bd8a2a7e19a1c89402e76f077a83bc",
    "recuperacao": "pbkdf2$210000$6620ed58d478e543b577b576b80cf3c9$b7192f3cde1f4257f65b97b6613a3ab6e6aa450fa6aa22c6604a66641b8167be",
    "criadoEm": "2026-09-22T22:04:28.405Z"
+  },
+  {
+   "login": "rafael.duarte",
+   "nome": "Rafael Duarte",
+   "papel": "admin",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$d0da45dd3169dbb2fb0ed150e4f236e8$75f8eb7a7d7e0189c4cc6c55c81741868733fd03c3d9386f997ad096ab42fd58",
+   "recuperacao": "pbkdf2$210000$2f6a798503dcaa05b9fcfa0025cbcd9e$2d828eb7b13464b100406334a77a8a280a1c222296faa5fde6d8bd7ac680b05c",
+   "criadoEm": "2026-09-23T14:06:08.644Z"
   }
  ],
  "manutencao": {
