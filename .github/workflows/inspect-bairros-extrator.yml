@@ -1,0 +1,26 @@
+name: Diagnosticar bairros extrator
+'on':
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/inspect-bairros-extrator.yml
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: python
+        run: |
+          from pathlib import Path
+          import json
+          base=json.loads(Path("geo/bairros-br.json").read_text(encoding="utf-8"))
+          arr=base.get("GO",{}).get("goiania",[])
+          print("GOIANIA_COUNT",len(arr))
+          print("GOIANIA_SAMPLE",arr[:30])
+          s=Path("index.html").read_text(encoding="utf-8")
+          for term in ["/api/bairros","bairros-br","carregarBairros","loadBairros","bairro"]:
+            i=s.find(term)
+            if i>=0:
+              print("\n==",term,"==\n",s[max(0,i-1800):i+4200])
