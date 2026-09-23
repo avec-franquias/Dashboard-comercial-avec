@@ -1,0 +1,116 @@
+name: Aplicar ajustes Simulador Taxas
+'on':
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-taxas-fast.yml
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ajustar modulo taxas
+        shell: python
+        run: |
+          from pathlib import Path
+          import re,json,base64
+          p=Path("index.html")
+          s=p.read_text(encoding="utf-8")
+          m=re.search(r'(<script type="application/json" id="modulosEmbutidos">)([\s\S]*?)(</script>)',s)
+          if not m: raise SystemExit("modulos embutidos nao encontrados")
+          mods=json.loads(m.group(2))
+          raw=base64.b64decode(mods["taxas"]).decode("utf-8")
+
+          # 1) Base comercial: somente Franquias e Grandes Contas, sem Wow.
+          dm=re.search(r'const DB\s*=\s*(\{[\s\S]*?\});',raw)
+          if not dm: raise SystemExit("DB do simulador nao encontrado")
+          db=json.loads(dm.group(1))
+          db["squads"]=["Franquias","Grandes Contas"]
+          db["mccSquad"]=[x for x in db.get("mccSquad",[]) if x.get("squad") in db["squads"]]
+          pos=[]
+          for x in db.get("posSquad",[]):
+              if x.get("squad") not in db["squads"]: continue
+              if "wow" in str(x.get("modelo","")).lower(): continue
+              x=dict(x)
+              x["negociacoes"]="Venda,Aluguel,Comodato,Custo Zero"
+              x["minComodato"]=0
+              x["minCustoZero"]=0
+              pos.append(x)
+          db["posSquad"]=pos
+          raw=raw[:dm.start(1)]+json.dumps(db,ensure_ascii=False,separators=(',',':'))+raw[dm.end(1):]
+
+          # 2) Ampliar qualquer select de negociacao gerado a partir de negociacoes.
+          raw=raw.replace(".split(',').map(n=>'<option>'+n+'</option>').join('')",
+                          ".split(',').map(n=>'<option>'+n+'</option>').join('')")
+          # Regras de minimo para os novos tipos: valor zero.
+          raw=raw.replace("neg==='Venda'?p.minVenda:p.minAluguel",
+                          "neg==='Venda'?p.minVenda:neg==='Aluguel'?p.minAluguel:0")
+          raw=raw.replace("negociacao==='Venda'?p.minVenda:p.minAluguel",
+                          "negociacao==='Venda'?p.minVenda:negociacao==='Aluguel'?p.minAluguel:0")
+          raw=raw.replace("tipo==='Venda'?p.minVenda:p.minAluguel",
+                          "tipo==='Venda'?p.minVenda:tipo==='Aluguel'?p.minAluguel:0")
+
+          # 3) Logo AVEC na proposta PDF/impressao.
+          logo_svg='''<svg xmlns="http://www.w3.org/2000/svg" width="130" height="42" viewBox="0 0 130 42"><rect width="130" height="42" rx="8" fill="#5B2EFF"/><text x="65" y="28" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" fill="white">AVEC</text></svg>'''
+          logo_uri='data:image/svg+xml;base64,'+base64.b64encode(logo_svg.encode()).decode()
+
+          # injeta logo em qualquer documento gerado para impressao
+          inject=f"""
+<script>
+(function(){{
+  const AVEC_LOGO='{logo_uri}';
+  function aplicarLogo(doc){{
+    try{{
+      if(!doc||doc.getElementById('avec-logo-pdf')) return;
+      const img=doc.createElement('img');
+      img.id='avec-logo-pdf'; img.src=AVEC_LOGO; img.alt='AVEC';
+      img.style.cssText='height:42px;max-width:130px;object-fit:contain;margin:0 0 18px 0;display:block';
+      const alvo=doc.body?.firstElementChild||doc.body;
+      if(alvo) alvo.insertBefore(img,alvo.firstChild||null);
+    }}catch(e){{}}
+  }}
+  const oldOpen=window.open;
+  window.open=function(){{
+    const w=oldOpen.apply(window,arguments);
+    if(w) setTimeout(()=>aplicarLogo(w.document),120);
+    return w;
+  }};
+}})();
+</script>"""
+          raw=raw.replace("</body>",inject+"</body>")
+
+          # 4) Validacoes.
+          if "Wow" in json.dumps(db.get("posSquad",[]),ensure_ascii=False): raise SystemExit("Ainda existem terminais Wow")
+          if db.get("squads")!=["Franquias","Grandes Contas"]: raise SystemExit("Squads incorretos")
+          if not all("Comodato" in x.get("negociacoes","") and "Custo Zero" in x.get("negociacoes","") for x in db["posSquad"]):
+              raise SystemExit("Novas negociacoes nao aplicadas")
+          if "avec-logo-pdf" not in raw: raise SystemExit("Logo PDF nao aplicada")
+
+          mods["taxas"]=base64.b64encode(raw.encode()).decode()
+          novo=json.dumps(mods,separators=(',',':'),ensure_ascii=False)
+          p.write_text(s[:m.start(2)]+novo+s[m.end(2):],encoding="utf-8")
+
+      - name: Validar estrutura
+        shell: python
+        run: |
+          from pathlib import Path
+          import re,json,base64
+          s=Path("index.html").read_text(encoding="utf-8")
+          m=re.search(r'<script type="application/json" id="modulosEmbutidos">([\s\S]*?)</script>',s)
+          mods=json.loads(m.group(1))
+          raw=base64.b64decode(mods["taxas"]).decode("utf-8")
+          assert "Comodato" in raw and "Custo Zero" in raw
+          assert "avec-logo-pdf" in raw
+          assert "POS S920 - Wow" not in raw
+          assert "POS D195 - Wow" not in raw
+          print("validacao OK")
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Portal: ajusta Simulador de Taxas comercial e PDF"
+          git push origin main
