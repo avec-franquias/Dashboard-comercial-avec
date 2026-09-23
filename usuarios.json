@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T17:44:07.986Z",
+ "atualizadoEm": "2026-09-23T17:44:46.572Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -306,6 +306,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$12d0ddbe54fe7ad67c6b54fc3bdf4240$a141127b46fd97640443ff0199f6a0839fab1d1791eb62ae64267ca4260c1827",
    "criadoEm": "2026-09-23T17:44:09.305Z"
+  },
+  {
+   "login": "thiago.neves",
+   "nome": "Avec Osasco",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$55a1db6594f0cdb37b2ecee0b0188f20$c244f706c160e247a579bee8cacfa96b8d84dfbb2b000ef47df12a8feca1b2e6",
+   "criadoEm": "2026-09-23T17:44:47.966Z"
   }
  ],
  "manutencao": {
