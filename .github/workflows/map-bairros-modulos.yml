@@ -1,0 +1,37 @@
+name: Mapear bairros dos extratores
+'on':
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/map-bairros-modulos.yml
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: python
+        run: |
+          from pathlib import Path
+          import re,json,base64
+          s=Path("index.html").read_text(encoding="utf-8")
+          m=re.search(r'<script type="application/json" id="modulosEmbutidos">([\s\S]*?)</script>',s)
+          if not m: raise SystemExit("modulos embutidos nao encontrados")
+          mods=json.loads(m.group(1))
+          for mid in ["instagram","extrator"]:
+              raw=base64.b64decode(mods[mid]).decode("utf-8","ignore")
+              print("\n===== MODULO",mid,"=====\n")
+              terms=["bairrosOSM","carregarBaseBairros","bairro","cidade","estado","opts(","fetch("]
+              shown=[]
+              for term in terms:
+                  pos=0
+                  while True:
+                      i=raw.find(term,pos)
+                      if i<0: break
+                      if any(abs(i-x)<1800 for x in shown):
+                          pos=i+len(term); continue
+                      shown.append(i)
+                      print("\n---",term,"@",i,"---\n")
+                      print(raw[max(0,i-2200):min(len(raw),i+5200)])
+                      pos=i+len(term)
