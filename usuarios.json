@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T17:30:19.540Z",
+ "atualizadoEm": "2026-09-23T17:31:00.010Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -270,6 +270,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$caf808fdedb4b8f85206a66c6ca78037$ce600973a60198aacb2f2243424c7c4e47b0dd803618eaa35ff74aa05031e492",
    "criadoEm": "2026-09-23T17:30:20.800Z"
+  },
+  {
+   "login": "emanuel.elton",
+   "nome": "Avec Petrolina",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$12b168aa2440ca51dfa10a9ca6ef4f43$e647990d48724711a5412ce7c9e4476a57103e7a0dc56aa26ce385b949ebf4f3",
+   "criadoEm": "2026-09-23T17:31:01.380Z"
   }
  ],
  "manutencao": {
