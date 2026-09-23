@@ -25,7 +25,7 @@ function confere(senha,guardado){
 function criarToken(u){
   const secret=process.env.GITHUB_TOKEN||process.env.PORTAL_SESSION_SECRET;
   if(!secret) throw new Error('Chave administrativa indisponivel no servidor');
-  const payload=Buffer.from(JSON.stringify({login:u.login,papel:u.papel,exp:Date.now()+12*60*60*1000})).toString('base64url');
+  const payload=Buffer.from(JSON.stringify({login:u.login,papel:u.papel,exp:Date.now()+30*24*60*60*1000})).toString('base64url');
   const sig=crypto.createHmac('sha256',secret).update(payload).digest('base64url');
   return payload+'.'+sig;
 }
