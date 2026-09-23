@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T17:11:32.980Z",
+ "atualizadoEm": "2026-09-23T17:12:39.453Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -180,6 +180,15 @@
    "senha": "pbkdf2$210000$fa1f755046cd2dfe8a73db168f48695c$006f78fc03a0adf8253bfe037ee47551b887567852977c32f03f3605e52cb990",
    "recuperacao": "pbkdf2$210000$33daf7c2c3a3ec6ed88f7cb57857ce2e$7a8ba4cb90592685b7aa8bbcff58ce446da761040fa6213259ac6d83c3cfdaeb",
    "criadoEm": "2026-09-23T14:26:00.954Z"
+  },
+  {
+   "login": "henrique.rodrigues",
+   "nome": "Avec São Paulo Zona Sul",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$ab082667b500d726ef53673424d34f01$b436eec5e98b63680fdef3ffd56cd9c8b80d5c45449572f5d46c94a3a71b30dd",
+   "criadoEm": "2026-09-23T17:12:40.800Z"
   }
  ],
  "manutencao": {
