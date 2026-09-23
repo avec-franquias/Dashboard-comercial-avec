@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T19:02:59.520Z",
+ "atualizadoEm": "2026-09-23T19:03:36.606Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -450,6 +450,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$36ac3a51a073b13e5b902c01cfdb5e62$ca186534a3fa575e4ff089a224d6fa8a6f2db1fa1692acdc680898addcc033d1",
    "criadoEm": "2026-09-23T19:03:00.863Z"
+  },
+  {
+   "login": "rafael.martins",
+   "nome": "Avec Maringá",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$b5c8344b7bc4a733153017380bfbbc75$555f377f41bb451b25bca95345af57414cf7f5b340bba69f6d6755a5151a7ed0",
+   "criadoEm": "2026-09-23T19:03:37.961Z"
   }
  ],
  "manutencao": {
