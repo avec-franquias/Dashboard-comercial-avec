@@ -1,0 +1,41 @@
+name: Restaurar Simulador Taxas
+'on':
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/restore-taxas.yml
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 20
+      - name: Restaurar somente modulo taxas
+        shell: python
+        run: |
+          from pathlib import Path
+          import subprocess,re,json,base64
+          cur=Path("index.html").read_text(encoding="utf-8")
+          old=subprocess.check_output(["git","show","7f9e6c4ce7283c2eb46b8f596e4e65413d1b6b4d:index.html"],text=True)
+          pat=r'(<script type="application/json" id="modulosEmbutidos">)([\s\S]*?)(</script>)'
+          mc=re.search(pat,cur); mo=re.search(pat,old)
+          if not mc or not mo: raise SystemExit("modulos nao encontrados")
+          cm=json.loads(mc.group(2)); om=json.loads(mo.group(2))
+          cm["taxas"]=om["taxas"]
+          novo=json.dumps(cm,separators=(",",":"),ensure_ascii=False)
+          Path("index.html").write_text(cur[:mc.start(2)]+novo+cur[mc.end(2):],encoding="utf-8")
+          raw=base64.b64decode(cm["taxas"]).decode("utf-8")
+          for termo in ["Informações do estabelecimento","POS S920 - Avec","POS D195 - Avec"]:
+              if termo not in raw: raise SystemExit("validacao falhou: "+termo)
+          print("Modulo taxas restaurado")
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Portal: restaura Simulador de Taxas funcional"
+          git push origin main
