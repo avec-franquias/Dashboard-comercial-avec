@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T20:46:21.741Z",
+ "atualizadoEm": "2026-09-23T20:46:57.554Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -513,6 +513,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$b9c64a73e6e64924a1b9a40b3a29652f$5393c2a5ec060519543dd73876eda6ec7d1e019532207ca279785d798e376a7a",
    "criadoEm": "2026-09-23T20:46:23.310Z"
+  },
+  {
+   "login": "zania.kuelle",
+   "nome": "Avec Porto Alegre",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$5e5d6b06bde1e3632864c498caecd96d$a7e1a5b25d3f57eaad0bec822005a2fe94063106c679335f60f816ca0b22922a",
+   "criadoEm": "2026-09-23T20:46:58.993Z"
   }
  ],
  "manutencao": {
