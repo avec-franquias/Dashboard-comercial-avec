@@ -38,5 +38,5 @@ jobs:
             echo "sem novos bairros neste lote"
           else
             git commit -m "Bairros: completa lote da base nacional"
-            git push origin main
+            git pull --rebase origin main\n          git push origin main
           fi
