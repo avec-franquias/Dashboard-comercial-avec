@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T20:42:12.278Z",
+ "atualizadoEm": "2026-09-23T20:43:37.120Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -477,6 +477,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$4ddbefb6674eeeeb8e6664b01267489c$c47d762e3f56db4ae591ad610b86bf0dc33bcd3496baaea3607b803a54724d1a",
    "criadoEm": "2026-09-23T20:42:13.819Z"
+  },
+  {
+   "login": "rodrigo.goncalves",
+   "nome": "Avec Grande Florianópolis",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$200509708f2971805b6b7bdf87b04f81$563b38e6f16935cac5099bc3199517d608780d77db987e7dd74c0bc07e16748b",
+   "criadoEm": "2026-09-23T20:43:38.668Z"
   }
  ],
  "manutencao": {
