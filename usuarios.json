@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T17:40:53.181Z",
+ "atualizadoEm": "2026-09-23T17:42:53.415Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -288,6 +288,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$60f85646ab667d6c319bde1fdca27c99$0dee47168d90cca6970566d4aa4dccef53b5c09346a98cd15aaba2d72baaf455",
    "criadoEm": "2026-09-23T17:40:54.713Z"
+  },
+  {
+   "login": "leandro.silva",
+   "nome": "Avec São José do Rio Preto",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$1c0aa64dfae165ca2adf6f2f773173de$01d5154bb437c82b83be6eb133a18deed10eeb11b5413e49804d424fad6510da",
+   "criadoEm": "2026-09-23T17:42:54.925Z"
   }
  ],
  "manutencao": {
