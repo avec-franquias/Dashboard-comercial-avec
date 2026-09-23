@@ -69,46 +69,6 @@ function patchModulos(html){
           .replaceAll('rodando no GitHub','em processamento')
           .replaceAll('GitHub','sistema');
       }
-      if(id==='extrator'){
-        const bairroFix = `
-<script>
-(function(){
-  async function carregarBairrosPortal(){
-    const cidade=document.getElementById('cidade');
-    const estado=document.getElementById('estado');
-    const bairro=document.getElementById('bairro');
-    if(!cidade||!estado||!bairro) return;
-    const uf=String(estado.value||String(cidade.value||'').split(',').pop()||'').trim().toUpperCase();
-    const nome=String(cidade.value||'').replace(/,\\s*[A-Z]{2}\\s*$/,'').trim();
-    if(!uf||!nome){bairro.innerHTML='<option>Todos os bairros</option>';return;}
-    const valor=bairro.value;
-    bairro.disabled=true;
-    bairro.innerHTML='<option>Carregando bairros...</option>';
-    try{
-      const ctrl=new AbortController();const timer=setTimeout(()=>ctrl.abort(),8000);const r=await fetch('/api/bairros?uf='+encodeURIComponent(uf)+'&cidade='+encodeURIComponent(nome)+'&ts='+Date.now(),{cache:'no-store',signal:ctrl.signal});clearTimeout(timer);
-      const j=await r.json();
-      const arr=Array.isArray(j.bairros)?j.bairros:[];
-      bairro.innerHTML='';
-      const todos=document.createElement('option');todos.value='Todos os bairros';todos.textContent='Todos os bairros';bairro.appendChild(todos);
-      for(const n of arr){const o=document.createElement('option');o.value=n;o.textContent=n;bairro.appendChild(o);}
-      if([...bairro.options].some(o=>o.value===valor)) bairro.value=valor; else bairro.value='Todos os bairros';
-    }catch(e){
-      bairro.innerHTML='<option>Todos os bairros</option>';
-      console.warn('Falha ao carregar bairros',e);
-    }finally{bairro.disabled=false;}
-  }
-  function instalar(){
-    const cidade=document.getElementById('cidade'),estado=document.getElementById('estado');
-    if(!cidade||!estado)return;
-    cidade.addEventListener('change',()=>setTimeout(carregarBairrosPortal,0));
-    estado.addEventListener('change',()=>setTimeout(carregarBairrosPortal,150));
-    setTimeout(carregarBairrosPortal,100);
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',instalar,{once:true});else instalar();
-})();
-<\/script>`;
-        src=src.replace('</body>',bairroFix+'</body>');
-      }
       if(id==='instagram'){
         src=src
           .replaceAll("const DATA_URL='instagram-data/latest.json';","const DATA_URL='/api/data-instagram';")
