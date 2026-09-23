@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T17:18:29.923Z",
+ "atualizadoEm": "2026-09-23T17:19:55.439Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -225,6 +225,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$a3a642fb7b34073ad8ee3ed771a30143$4243edb48c72b09c81fa51771cf8796c54cdf0317a766bda532bb0ca04386600",
    "criadoEm": "2026-09-23T17:18:31.255Z"
+  },
+  {
+   "login": "anderson.cordeiro",
+   "nome": "Avec Cascavel",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$fc7d8ba4576cf6dcff1519bdbb310d19$7212572f4afb792c1cc945fe44fc0de9080f7b52295e130147546803e1119689",
+   "criadoEm": "2026-09-23T17:19:56.657Z"
   }
  ],
  "manutencao": {
