@@ -1,0 +1,30 @@
+name: Inspecionar simulador taxas
+'on':
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/inspect-taxas.yml
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: python
+        run: |
+          from pathlib import Path
+          import re,json,base64
+          s=Path("index.html").read_text(encoding="utf-8")
+          m=re.search(r'<script type="application/json" id="modulosEmbutidos">([\s\S]*?)</script>',s)
+          if not m: raise SystemExit("modulos embutidos nao encontrados")
+          mods=json.loads(m.group(1))
+          print("MODULOS",mods.keys())
+          for mid in ["taxas","simulador","simuladora"]:
+            if mid not in mods: continue
+            raw=base64.b64decode(mods[mid]).decode("utf-8","ignore")
+            print("\n===== MODULO",mid,"=====\n")
+            for term in ["Mesa","Franqu","Grandes","WOW","terminal","aluguel","venda","PDF","pdf","logo","imprimir"]:
+              i=raw.lower().find(term.lower())
+              print("\n--",term,i,"--\n")
+              if i>=0: print(raw[max(0,i-2500):i+6000])
