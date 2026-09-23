@@ -27,7 +27,7 @@ jobs:
           node-version: 24
       - name: Completar lote nacional
         env:
-          BAIRROS_BATCH: '60'
+          BAIRROS_BATCH: '30'
         run: node collector/update-bairros-nacional.mjs
       - name: Salvar progresso
         run: |
