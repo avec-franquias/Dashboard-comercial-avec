@@ -1,0 +1,87 @@
+name: Completar bairros por estados
+'on':
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/triggers/bairros-estados.txt'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bairros-estados
+  cancel-in-progress: true
+
+jobs:
+  coletar:
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        uf: [AC,AL,AP,AM,BA,CE,DF,ES,GO,MA,MT,MS,MG,PA,PB,PR,PE,PI,RJ,RN,RS,RO,RR,SC,SP,SE,TO]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Coletar bairros do estado
+        env:
+          BAIRROS_UF: ${{ matrix.uf }}
+          BAIRROS_CONCURRENCY: '10'
+        run: node collector/update-bairros-uf.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bairros-${{ matrix.uf }}
+          path: tmp-bairros/${{ matrix.uf }}.json
+          retention-days: 1
+
+  consolidar:
+    needs: coletar
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 5
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: bairros-*
+          path: tmp-bairros
+          merge-multiple: true
+      - name: Consolidar base nacional
+        shell: python
+        run: |
+          from pathlib import Path
+          import json
+          p=Path('geo/bairros-br.json')
+          base=json.loads(p.read_text(encoding='utf-8'))
+          arquivos=list(Path('tmp-bairros').glob('*.json'))
+          total=0
+          for arq in arquivos:
+              d=json.loads(arq.read_text(encoding='utf-8'))
+              uf=d['uf']
+              base.setdefault(uf,{})
+              for cidade,bairros in d['cidades'].items():
+                  if isinstance(bairros,list) and bairros:
+                      base[uf][cidade]=bairros
+              total += sum(1 for v in base[uf].values() if isinstance(v,list) and v)
+          p.write_text(json.dumps(base,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
+          Path('geo/bairros-nacional-progresso.json').write_text(json.dumps({'estadosProcessados':len(arquivos),'cidadesComBairros':total},ensure_ascii=False,indent=2),encoding='utf-8')
+          print('estados processados',len(arquivos),'cidades com bairros',total)
+      - name: Publicar uma unica vez
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add geo/bairros-br.json geo/bairros-nacional-progresso.json
+          if git diff --cached --quiet; then
+            echo "sem alteracoes"
+            exit 0
+          fi
+          git commit -m "Bairros: consolida base nacional por estados"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
