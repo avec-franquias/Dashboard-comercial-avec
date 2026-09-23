@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T18:50:54.622Z",
+ "atualizadoEm": "2026-09-23T18:51:56.133Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -387,6 +387,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$694bdd11a4a0f6944efd17eed4adb6a0$744ad6c0373ec63c99bfc815dc955c77da1f2f18f573b9286c0b0b3c8bae5628",
    "criadoEm": "2026-09-23T18:50:56.057Z"
+  },
+  {
+   "login": "carlos.eduardo",
+   "nome": "Avec Itu",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$3c28178601079ba55176616e08f07cbe$0f11fabcd6c27d8f9b75bc2aaf056b2b303d6333fed729465a8fe1efa9eddcbe",
+   "criadoEm": "2026-09-23T18:51:57.564Z"
   }
  ],
  "manutencao": {
