@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T17:21:53.406Z",
+ "atualizadoEm": "2026-09-23T17:28:47.600Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -252,6 +252,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$6efc6154e75e770a4149cdee09f67e1d$7ce8328f3f54d32e5e4b1cabc94bd515f4711a9295dfecaeadf8cf8843ff9413",
    "criadoEm": "2026-09-23T17:21:54.775Z"
+  },
+  {
+   "login": "kleber.souza",
+   "nome": "Avec Ipatinga",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$7e0958ee85f22ba414f679ed654295f4$026b5296616780ea2c1ec125b556a688fcca99f391fbd3d69234f343557568bb",
+   "criadoEm": "2026-09-23T17:28:48.557Z"
   }
  ],
  "manutencao": {
