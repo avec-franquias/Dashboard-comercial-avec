@@ -87,6 +87,11 @@ export default async function handler(req,res){
       bairros=await buscarOSM(nome,uf);
       fonte=bairros.length?'osm':'sem_dados';
     }
+    // Fallback conhecido para Goiânia: garante UX mesmo se Overpass estiver indisponível.
+    if(!bairros.length && uf==='GO' && cidade==='goiania'){
+      bairros=['Aeroviário','Alto da Glória','Bueno','Campinas','Centro','Coimbra','Crimeia Leste','Crimeia Oeste','Fama','Goiá','Jardim América','Jardim Goiás','Jardim Novo Mundo','Leste Universitário','Marista','Negrão de Lima','Nova Suíça','Pedro Ludovico','Setor Oeste','Setor Sul','Vila Nova'];
+      fonte='fallback';
+    }
 
     res.setHeader('Cache-Control',fonte==='base'
       ?'public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000'
