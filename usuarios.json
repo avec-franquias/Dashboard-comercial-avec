@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T20:45:50.394Z",
+ "atualizadoEm": "2026-09-23T20:46:21.741Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -504,6 +504,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$5d71ae395107f626466c1a3870b7be54$00e34b1142f7270fc6e68d51436b83b7cb133d2744f1011671b7b219ea27e60e",
    "criadoEm": "2026-09-23T20:45:51.845Z"
+  },
+  {
+   "login": "vanessa.chagas",
+   "nome": "Avec Barueri",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$b9c64a73e6e64924a1b9a40b3a29652f$5393c2a5ec060519543dd73876eda6ec7d1e019532207ca279785d798e376a7a",
+   "criadoEm": "2026-09-23T20:46:23.310Z"
   }
  ],
  "manutencao": {
