@@ -1,33 +1,34 @@
 name: Completar base nacional de bairros
 'on':
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - '.github/triggers/bairros-completar.txt'
-  workflow_dispatch:
-  schedule:
-    - cron: '17 * * * *'
 
 permissions:
   contents: write
 
 concurrency:
   group: bairros-nacional-complementar
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   completar:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 5
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - name: Completar lote nacional
+      - name: Completar lote nacional em paralelo
         env:
-          BAIRROS_BATCH: '30'
+          BAIRROS_BATCH: '160'
+          BAIRROS_CONCURRENCY: '8'
         run: node collector/update-bairros-nacional.mjs
       - name: Salvar progresso
         run: |
@@ -36,7 +37,9 @@ jobs:
           git add geo/bairros-br.json geo/bairros-nacional-progresso.json
           if git diff --cached --quiet; then
             echo "sem novos bairros neste lote"
-          else
-            git commit -m "Bairros: completa lote da base nacional"
-            git pull --rebase origin main\n          git push origin main
+            exit 0
           fi
+          git commit -m "Bairros: completa lote nacional em paralelo"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
