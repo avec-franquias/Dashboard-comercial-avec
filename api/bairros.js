@@ -83,14 +83,21 @@ export default async function handler(req,res){
     let bairros=Array.isArray(b?.[uf]?.[cidade])?b[uf][cidade]:[];
     let fonte='base';
 
-    if(!bairros.length){
-      bairros=await buscarOSM(nome,uf);
-      fonte=bairros.length?'osm':'sem_dados';
-    }
-    // Fallback conhecido para Goiânia: garante UX mesmo se Overpass estiver indisponível.
+    // Responde imediatamente para cidades com fallback conhecido.
     if(!bairros.length && uf==='GO' && cidade==='goiania'){
       bairros=['Aeroviário','Alto da Glória','Bueno','Campinas','Centro','Coimbra','Crimeia Leste','Crimeia Oeste','Fama','Goiá','Jardim América','Jardim Goiás','Jardim Novo Mundo','Leste Universitário','Marista','Negrão de Lima','Nova Suíça','Pedro Ludovico','Setor Oeste','Setor Sul','Vila Nova'];
       fonte='fallback';
+    }
+
+    // Só consulta a fonte externa se a base local e os fallbacks não tiverem dados.
+    if(!bairros.length){
+      try{
+        bairros=await buscarOSM(nome,uf);
+        fonte=bairros.length?'osm':'sem_dados';
+      }catch{
+        bairros=[];
+        fonte='sem_dados';
+      }
     }
 
     res.setHeader('Cache-Control',fonte==='base'
