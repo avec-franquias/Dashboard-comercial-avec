@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T18:49:25.171Z",
+ "atualizadoEm": "2026-09-23T18:50:14.664Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -369,6 +369,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$297a959480eab3f3ac9411b2c9c9d031$7d9609f14200697d9c356d47d8babaf67510c3b3aec604340c9f8955f6c70a7a",
    "criadoEm": "2026-09-23T18:49:26.226Z"
+  },
+  {
+   "login": "fabio.santos",
+   "nome": "Avec São Paulo ABC",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$c1bd9fb700248f93042fa5f7134f321f$705e0dd153e8707717293bbfcfe0aa96d2d7c48ec4dcf3ba93e073a3c8a8f98c",
+   "criadoEm": "2026-09-23T18:50:16.080Z"
   }
  ],
  "manutencao": {
