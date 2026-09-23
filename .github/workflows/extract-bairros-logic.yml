@@ -1,0 +1,25 @@
+name: Extrair logica bairros extrator
+'on':
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/extract-bairros-logic.yml
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: python
+        run: |
+          from pathlib import Path
+          import re,json,base64
+          s=Path("index.html").read_text(encoding="utf-8")
+          m=re.search(r'<script type="application/json" id="modulosEmbutidos">([\s\S]*?)</script>',s)
+          mods=json.loads(m.group(1))
+          raw=base64.b64decode(mods["extrator"]).decode("utf-8","ignore")
+          for term in ["async function carregarBaseBairros","async function atualizarBairros","async function bairrosOSM"]:
+              i=raw.find(term)
+              print("\n====",term,"====\n")
+              print(raw[i:i+6500])
