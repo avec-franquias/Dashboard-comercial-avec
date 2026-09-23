@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T18:33:06.057Z",
+ "atualizadoEm": "2026-09-23T18:40:39.222Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -351,6 +351,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$2bef98fe1467c9b2d7ef817a04555fc6$39ffe2d703691363c460b3782c567bc7d2f9a50cda9442f79a8974f4b75d9ebf",
    "criadoEm": "2026-09-23T18:33:07.428Z"
+  },
+  {
+   "login": "eduardo.afonso",
+   "nome": "Avec Sorocaba",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$36b2ebef64c0f5f4b880b55948444cc7$0241ffc20005afd789b47110ee3422bf9eda1113e44935b761bb5462cab366eb",
+   "criadoEm": "2026-09-23T18:40:39.988Z"
   }
  ],
  "manutencao": {
