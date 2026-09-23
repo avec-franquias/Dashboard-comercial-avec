@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-23T18:57:29.970Z",
+ "atualizadoEm": "2026-09-23T18:58:34.158Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -414,6 +414,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$6d2e364b359edaf03f2115c85222899c$e1072a1987c3025f21d30c9b06d27c7c436a7524dc0fc78b628a76e2d8af7323",
    "criadoEm": "2026-09-23T18:57:31.583Z"
+  },
+  {
+   "login": "leandro.alux",
+   "nome": "Avec São José dos Campos",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$a169215397dab6173056f37bdca2f0c8$b8e569e67ef2d70535da4a38aea1a7b13122ae8523de10b69c9c29aa76ba971d",
+   "criadoEm": "2026-09-23T18:58:35.614Z"
   }
  ],
  "manutencao": {
