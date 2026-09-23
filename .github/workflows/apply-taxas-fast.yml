@@ -5,6 +5,7 @@ name: Aplicar ajustes Simulador Taxas
       - main
     paths:
       - .github/workflows/apply-taxas-fast.yml
+      - .github/triggers/apply-taxas-fast.txt
 permissions:
   contents: write
 jobs:
