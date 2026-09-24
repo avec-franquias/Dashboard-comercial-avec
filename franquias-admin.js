@@ -8,9 +8,23 @@
     return d;
   }
   function esc2(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+  function isAdmin(){
+    const papel=(document.getElementById('papelTopo')?.textContent||'').trim().toLowerCase();
+    return papel==='administrador';
+  }
+  function bloquearNaoAdmin(){
+    if(isAdmin()) return false;
+    const tab=document.querySelector('[data-aba="franquias"]');
+    const sec=document.getElementById('abaFranquias');
+    if(tab) tab.style.setProperty('display','none','important');
+    if(sec) sec.classList.add('hidden');
+    if(location.hash==='#franquias') history.replaceState(null,'',location.pathname+location.search);
+    return true;
+  }
   function addUi(){
     const abas=document.getElementById('abas');
     if(!abas)return;
+    if(bloquearNaoAdmin())return;
     const existente=document.querySelector('[data-aba="franquias"]');
     if(existente&&document.getElementById('abaFranquias')){
       const sec=document.getElementById('abaFranquias');
@@ -47,4 +61,6 @@
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addUi,{once:true});else addUi();
   setTimeout(addUi,500);
+  setTimeout(bloquearNaoAdmin,700);
+  setInterval(bloquearNaoAdmin,1500);
 })();
