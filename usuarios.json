@@ -1,610 +1,638 @@
 {
- "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-24T13:46:22.085Z",
- "usuarios": [
-  {
-   "login": "christian.vieira",
-   "nome": "Christian Vieira",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas",
-    "instagram",
-    "clientes"
-   ],
-   "senha": "pbkdf2$210000$b93f0866b14232541f7f0bef14775867$e65b788c604c5537888b6e1c5c21b3ad96349a4f7045729276e800574b62f563",
-   "recuperacao": "pbkdf2$210000$84544035d70101546ba7832ae9c7d518$bc72a2218111a2fd91d8cb1ad8e466d5513db56dd30b0573c5e40cd716ae8da7",
-   "criadoEm": "2026-09-15T19:03:52.553Z"
+  "instalacao": "63bc96d9dc3c6c61",
+  "atualizadoEm": "2026-09-24T15:23:27.966Z",
+  "usuarios": [
+    {
+      "login": "christian.vieira",
+      "nome": "Christian Vieira",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes"
+      ],
+      "senha": "pbkdf2$210000$b93f0866b14232541f7f0bef14775867$e65b788c604c5537888b6e1c5c21b3ad96349a4f7045729276e800574b62f563",
+      "recuperacao": "pbkdf2$210000$84544035d70101546ba7832ae9c7d518$bc72a2218111a2fd91d8cb1ad8e466d5513db56dd30b0573c5e40cd716ae8da7",
+      "criadoEm": "2026-09-15T19:03:52.553Z"
+    },
+    {
+      "login": "diana.gracia",
+      "nome": "Diana de Gracia",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes",
+        "extrator",
+        "central",
+        "reunioes"
+      ],
+      "senha": "pbkdf2$210000$532abfd835748b2d50537c3b29905d40$b1bc1a9f9e66d29e66ddabb1181a6313f1169745e59b5c5a38146e518e48d743",
+      "criadoEm": "2026-09-15T19:54:54.408Z",
+      "franquiaId": "avec-interno",
+      "perfil": "franqueado"
+    },
+    {
+      "login": "tiago.barros",
+      "nome": "Tiago Barros",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes"
+      ],
+      "senha": "pbkdf2$210000$aaddc47f36429e7bc36839c264ff4380$31194f4562c99e3c8f878b96b53101db2333d9d65b7fc3fc11421b515ad4d13a",
+      "criadoEm": "2026-09-15T20:08:27.080Z"
+    },
+    {
+      "login": "luiz.gustavo",
+      "nome": "luiz.gustavo",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes"
+      ],
+      "senha": "pbkdf2$210000$dc02cea35f8ea2e542a98f797113ef7c$6d892812b29de5eb3643d73e7b8697702679f7452b9d239dbeec6b333cd0783d",
+      "criadoEm": "2026-09-15T20:08:57.105Z"
+    },
+    {
+      "login": "eduardo.borges",
+      "nome": "Eduardo Borges",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes"
+      ],
+      "senha": "pbkdf2$210000$97e87915446a1e49b7e00c8fd3ce866b$6c1786ab51c8a42922687b2e0073681d94038e932b19e823fd6842689b56b4de",
+      "criadoEm": "2026-09-15T20:09:21.618Z"
+    },
+    {
+      "login": "anderson.santana",
+      "nome": "Anderson Santana",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes"
+      ],
+      "senha": "pbkdf2$210000$dbdb0188686dff7a23eb54428c535ed4$779fce52617dd33754e00712d60347b8c8707b1a0fd3c42475a2eeb473a2e64d",
+      "criadoEm": "2026-09-15T20:17:27.368Z"
+    },
+    {
+      "login": "simone.camargo",
+      "nome": "Simone Camargo",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes",
+        "extrator",
+        "central",
+        "reunioes"
+      ],
+      "senha": "pbkdf2$210000$85649b6ad11b93aa70cafb55eea553aa$32ae1c2b5f95c9fcafc16380894de5f168adc44eece363d29ef8c3c453030eb2",
+      "criadoEm": "2026-09-18T18:12:51.257Z",
+      "franquiaId": "avec-sul",
+      "perfil": "franqueado"
+    },
+    {
+      "login": "claiton.camargo",
+      "nome": "Claiton Carmargo",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes",
+        "extrator",
+        "central",
+        "reunioes"
+      ],
+      "senha": "pbkdf2$210000$097c7de40820e8d89829998a00cd99ef$f25a48fe5f981bd1b977a6324534ccd69c51e3097848cfeef60f2138e0a50e2d",
+      "criadoEm": "2026-09-18T18:13:27.665Z",
+      "franquiaId": "avec-sul",
+      "perfil": "franqueado"
+    },
+    {
+      "login": "larissa.santos",
+      "nome": "Larissa Santos",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$d2a94ea42d283d4840b9c516a10f87a9$cefd082a5f39b774f2565eaf7e34c22145bd8a2a7e19a1c89402e76f077a83bc",
+      "recuperacao": "pbkdf2$210000$6620ed58d478e543b577b576b80cf3c9$b7192f3cde1f4257f65b97b6613a3ab6e6aa450fa6aa22c6604a66641b8167be",
+      "criadoEm": "2026-09-22T22:04:28.405Z"
+    },
+    {
+      "login": "rafael.duarte",
+      "nome": "Rafael Duarte",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$d0da45dd3169dbb2fb0ed150e4f236e8$75f8eb7a7d7e0189c4cc6c55c81741868733fd03c3d9386f997ad096ab42fd58",
+      "recuperacao": "pbkdf2$210000$2f6a798503dcaa05b9fcfa0025cbcd9e$2d828eb7b13464b100406334a77a8a280a1c222296faa5fde6d8bd7ac680b05c",
+      "criadoEm": "2026-09-23T14:06:08.644Z"
+    },
+    {
+      "login": "harana.lima",
+      "nome": "Avec Goias",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$539b6f087cbf55bf31d23b834a024d9f$a7327e385983d767ee6f79e17c53bcd6d179af8c1a794fa765783f7804648189",
+      "criadoEm": "2026-09-23T14:16:58.374Z"
+    },
+    {
+      "login": "kater.hoss",
+      "nome": "kater Hoss",
+      "papel": "admin",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$fa1f755046cd2dfe8a73db168f48695c$006f78fc03a0adf8253bfe037ee47551b887567852977c32f03f3605e52cb990",
+      "recuperacao": "pbkdf2$210000$33daf7c2c3a3ec6ed88f7cb57857ce2e$7a8ba4cb90592685b7aa8bbcff58ce446da761040fa6213259ac6d83c3cfdaeb",
+      "criadoEm": "2026-09-23T14:26:00.954Z"
+    },
+    {
+      "login": "katia.oliveira",
+      "nome": "Avec São Paulo - Katia",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$e2a822d1a81577a7a2f6c22aebeb83ca$2ee2629c5ae2357ac182c4df28189204ee21c32ddb5437a1deeb65cafda499cf",
+      "criadoEm": "2026-09-23T17:14:16.865Z"
+    },
+    {
+      "login": "henrique.lopes",
+      "nome": "Avec Rio de Janeiro",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$eb313fd0555f8b7be2b890e90a7bbf0d$0a04ba7f933423a36ff0c2a31b2ef5df2e1fe8578747c5938d190ee2371edbee",
+      "criadoEm": "2026-09-23T17:15:06.600Z"
+    },
+    {
+      "login": "gunther.augusto",
+      "nome": "Avec Aracaju",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$9ad9bd9a12bd3d1cb714d219396eb60b$e2b432c3edc38b09ed13443f05f3fa3c54884fe8d0c9c9838d06304dbb82725b",
+      "criadoEm": "2026-09-23T17:16:20.470Z"
+    },
+    {
+      "login": "felipe.lopes",
+      "nome": "Avec Guarapuava",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$7448916bcf7d1daba1e5d07e3d545f40$d8abaa8b06154387638757953560bbec50a1b5f7a9260e46978a78f751687445",
+      "criadoEm": "2026-09-23T17:17:55.033Z"
+    },
+    {
+      "login": "mauricio.fudo",
+      "nome": "Avec Bauru",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$a3a642fb7b34073ad8ee3ed771a30143$4243edb48c72b09c81fa51771cf8796c54cdf0317a766bda532bb0ca04386600",
+      "criadoEm": "2026-09-23T17:18:31.255Z"
+    },
+    {
+      "login": "anderson.cordeiro",
+      "nome": "Avec Cascavel",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$fc7d8ba4576cf6dcff1519bdbb310d19$7212572f4afb792c1cc945fe44fc0de9080f7b52295e130147546803e1119689",
+      "criadoEm": "2026-09-23T17:19:56.657Z"
+    },
+    {
+      "login": "rejane.silva",
+      "nome": "Avec Espírito Santo",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$59fc4532e1ac1e5968701698c4a5daf0$0e289cd190b6390850f0c9a8370c9d0ee51e9c7f1595f8c60827c1b8ee0ce606",
+      "criadoEm": "2026-09-23T17:21:01.032Z"
+    },
+    {
+      "login": "rafael.bomfim",
+      "nome": "Avec Feira de Santana",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$6efc6154e75e770a4149cdee09f67e1d$7ce8328f3f54d32e5e4b1cabc94bd515f4711a9295dfecaeadf8cf8843ff9413",
+      "criadoEm": "2026-09-23T17:21:54.775Z"
+    },
+    {
+      "login": "kleber.souza",
+      "nome": "Avec Ipatinga",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$7e0958ee85f22ba414f679ed654295f4$026b5296616780ea2c1ec125b556a688fcca99f391fbd3d69234f343557568bb",
+      "criadoEm": "2026-09-23T17:28:48.557Z"
+    },
+    {
+      "login": "vinicius.garrido",
+      "nome": "Avec Paraiba",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$caf808fdedb4b8f85206a66c6ca78037$ce600973a60198aacb2f2243424c7c4e47b0dd803618eaa35ff74aa05031e492",
+      "criadoEm": "2026-09-23T17:30:20.800Z"
+    },
+    {
+      "login": "emanuel.elton",
+      "nome": "Avec Petrolina",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$12b168aa2440ca51dfa10a9ca6ef4f43$e647990d48724711a5412ce7c9e4476a57103e7a0dc56aa26ce385b949ebf4f3",
+      "criadoEm": "2026-09-23T17:31:01.380Z"
+    },
+    {
+      "login": "emanuel.guimaraes",
+      "nome": "Avec Rio Grande do Norte",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$60f85646ab667d6c319bde1fdca27c99$0dee47168d90cca6970566d4aa4dccef53b5c09346a98cd15aaba2d72baaf455",
+      "criadoEm": "2026-09-23T17:40:54.713Z"
+    },
+    {
+      "login": "leandro.silva",
+      "nome": "Avec São José do Rio Preto",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$1c0aa64dfae165ca2adf6f2f773173de$01d5154bb437c82b83be6eb133a18deed10eeb11b5413e49804d424fad6510da",
+      "criadoEm": "2026-09-23T17:42:54.925Z"
+    },
+    {
+      "login": "harutyun.ghazaryan",
+      "nome": "Avec São Paulo - Harutyun",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$12d0ddbe54fe7ad67c6b54fc3bdf4240$a141127b46fd97640443ff0199f6a0839fab1d1791eb62ae64267ca4260c1827",
+      "criadoEm": "2026-09-23T17:44:09.305Z"
+    },
+    {
+      "login": "thiago.neves",
+      "nome": "Avec Osasco",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$55a1db6594f0cdb37b2ecee0b0188f20$c244f706c160e247a579bee8cacfa96b8d84dfbb2b000ef47df12a8feca1b2e6",
+      "criadoEm": "2026-09-23T17:44:47.966Z"
+    },
+    {
+      "login": "rafael.cardoso",
+      "nome": "Avec Vitória da Conquista",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$59ebbbdfb4da20191d1b4f09f7c607a5$1dab2bcf5a9fd3b45fdd1a76153a371a9270b7c06407c987b5c52402a7d0d1fc",
+      "criadoEm": "2026-09-23T17:45:39.563Z"
+    },
+    {
+      "login": "leonardo.fernandes",
+      "nome": "Avec Belo Horizonte",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$ed19776bcb90ead2087507d08040ab5a$a087fc161ea96b74c40e7353ee8abcf9bbaa5e9a1f288facabc1cabcd8286ca3",
+      "criadoEm": "2026-09-23T17:47:12.710Z"
+    },
+    {
+      "login": "robert.sena",
+      "nome": "Avec Fortaleza",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$6860a7fe2b44788cb5ff45a6f2fb403b$93194e82e703767b2af09f079a95a7e9e3d65d6f1470bcb245e41b6a514d44ee",
+      "criadoEm": "2026-09-23T18:32:26.222Z"
+    },
+    {
+      "login": "robert.cordeiro",
+      "nome": "Avec Maceio",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$2bef98fe1467c9b2d7ef817a04555fc6$39ffe2d703691363c460b3782c567bc7d2f9a50cda9442f79a8974f4b75d9ebf",
+      "criadoEm": "2026-09-23T18:33:07.428Z"
+    },
+    {
+      "login": "eduardo.afonso",
+      "nome": "Avec Sorocaba",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$36b2ebef64c0f5f4b880b55948444cc7$0241ffc20005afd789b47110ee3422bf9eda1113e44935b761bb5462cab366eb",
+      "criadoEm": "2026-09-23T18:40:39.988Z"
+    },
+    {
+      "login": "emerson.brandao",
+      "nome": "Avec São Paulo - Emerson",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$297a959480eab3f3ac9411b2c9c9d031$7d9609f14200697d9c356d47d8babaf67510c3b3aec604340c9f8955f6c70a7a",
+      "criadoEm": "2026-09-23T18:49:26.226Z"
+    },
+    {
+      "login": "fabio.santos",
+      "nome": "Avec São Paulo ABC",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$c1bd9fb700248f93042fa5f7134f321f$705e0dd153e8707717293bbfcfe0aa96d2d7c48ec4dcf3ba93e073a3c8a8f98c",
+      "criadoEm": "2026-09-23T18:50:16.080Z"
+    },
+    {
+      "login": "wagner.junior",
+      "nome": "Avec Baixada Santista",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$694bdd11a4a0f6944efd17eed4adb6a0$744ad6c0373ec63c99bfc815dc955c77da1f2f18f573b9286c0b0b3c8bae5628",
+      "criadoEm": "2026-09-23T18:50:56.057Z"
+    },
+    {
+      "login": "carlos.eduardo",
+      "nome": "Avec Itu",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$3c28178601079ba55176616e08f07cbe$0f11fabcd6c27d8f9b75bc2aaf056b2b303d6333fed729465a8fe1efa9eddcbe",
+      "criadoEm": "2026-09-23T18:51:57.564Z"
+    },
+    {
+      "login": "gilson.augustinhaki",
+      "nome": "Avec Curitiba",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$155c8093aeb739ddbcca015e707119ed$9b71200c95c73669c5232beabd58f37430f4323798dec1800bf968d0755165e6",
+      "criadoEm": "2026-09-23T18:55:20.610Z"
+    },
+    {
+      "login": "gunther.taveiras",
+      "nome": "Avec Salvador",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$6d2e364b359edaf03f2115c85222899c$e1072a1987c3025f21d30c9b06d27c7c436a7524dc0fc78b628a76e2d8af7323",
+      "criadoEm": "2026-09-23T18:57:31.583Z"
+    },
+    {
+      "login": "leonardo.delachave",
+      "nome": "Avec São Paulo - Leonardo",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$43b58ae6b94726f293fcd3af9bf49ab5$1cbd6844d013d98fa677589b576cf70e3b90b7c8e1bc884a95d6745b8ea3f34c",
+      "criadoEm": "2026-09-23T18:59:41.748Z"
+    },
+    {
+      "login": "thiago.fernandes",
+      "nome": "Avec Mato Grosso",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$9faaa375aa965bb11fa0a0f7222a2f9b$5292b2876b855fe3c5a2de9ca483d0cb988ba7563e4c1aae3bba52f1902aaaaf",
+      "criadoEm": "2026-09-23T19:00:23.604Z"
+    },
+    {
+      "login": "carlos.afonso",
+      "nome": "Avec Presidente Prudente",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$f91f3b9e289a888b19e4e4ddbbb77447$503b9ebfa3b5d8b66fb91fd63e9d5b13005c85f08be5b41f8593d88771b88ef3",
+      "criadoEm": "2026-09-23T19:01:15.427Z"
+    },
+    {
+      "login": "rafael.vila",
+      "nome": "Avec Londrina",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$36ac3a51a073b13e5b902c01cfdb5e62$ca186534a3fa575e4ff089a224d6fa8a6f2db1fa1692acdc680898addcc033d1",
+      "criadoEm": "2026-09-23T19:03:00.863Z"
+    },
+    {
+      "login": "rafael.martins",
+      "nome": "Avec Maringá",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$b5c8344b7bc4a733153017380bfbbc75$555f377f41bb451b25bca95345af57414cf7f5b340bba69f6d6755a5151a7ed0",
+      "criadoEm": "2026-09-23T19:03:37.961Z"
+    },
+    {
+      "login": "ramon.silva",
+      "nome": "Avec Distrito Federal",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$f8dec4f5ed0385fcf25a43e1be7c5de7$2482690cf2da99f7d67b14454ea2e15c090be533d8a8f816ebaadf8cabaab385",
+      "criadoEm": "2026-09-23T19:04:10.321Z"
+    },
+    {
+      "login": "ricardo.noblat",
+      "nome": "Avec Recife",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$4ddbefb6674eeeeb8e6664b01267489c$c47d762e3f56db4ae591ad610b86bf0dc33bcd3496baaea3607b803a54724d1a",
+      "criadoEm": "2026-09-23T20:42:13.819Z"
+    },
+    {
+      "login": "rodrigo.goncalves",
+      "nome": "Avec Grande Florianópolis",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$200509708f2971805b6b7bdf87b04f81$563b38e6f16935cac5099bc3199517d608780d77db987e7dd74c0bc07e16748b",
+      "criadoEm": "2026-09-23T20:43:38.668Z"
+    },
+    {
+      "login": "rodrigo.leao",
+      "nome": "Avec Novo Hamburgo",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$d70d7c291e167582fd2b37ddbcb1ef94$0bebba0c71b47cc3f7c32901e1b0256bbd64b65b1a92d0fc6545ea0e4918f704",
+      "criadoEm": "2026-09-23T20:44:11.687Z"
+    },
+    {
+      "login": "celio.leao",
+      "nome": "Avec Uberlândia",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$5d71ae395107f626466c1a3870b7be54$00e34b1142f7270fc6e68d51436b83b7cb133d2744f1011671b7b219ea27e60e",
+      "criadoEm": "2026-09-23T20:45:51.845Z"
+    },
+    {
+      "login": "vanessa.chagas",
+      "nome": "Avec Barueri",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$b9c64a73e6e64924a1b9a40b3a29652f$5393c2a5ec060519543dd73876eda6ec7d1e019532207ca279785d798e376a7a",
+      "criadoEm": "2026-09-23T20:46:23.310Z"
+    },
+    {
+      "login": "zania.kuelle",
+      "nome": "Avec Porto Alegre",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$5e5d6b06bde1e3632864c498caecd96d$a7e1a5b25d3f57eaad0bec822005a2fe94063106c679335f60f816ca0b22922a",
+      "criadoEm": "2026-09-23T20:46:58.993Z"
+    },
+    {
+      "login": "bruno.tomasi",
+      "nome": "Bruno Tomasi",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes",
+        "extrator",
+        "central",
+        "reunioes"
+      ],
+      "senha": "pbkdf2$210000$71a559275d53c1b3b269d46e57e1bbd9$692b80bf5aa47433f12971b727416b189e7410cd4fb931f0117970114f4f4f87",
+      "criadoEm": "2026-09-24T13:24:41.791Z",
+      "franquiaId": "avec-interno",
+      "perfil": "franqueado"
+    },
+    {
+      "login": "camila.cristina",
+      "nome": "GT Camila",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$961077f27689e5b7894b0083e7f397e5$daf2b910ed86ecba4dbd8203c822f1ef57bad0281fd0070f3b846cfa92715c2f",
+      "criadoEm": "2026-09-24T13:45:12.094Z"
+    },
+    {
+      "login": "bruna.reis",
+      "nome": "GT Bruna",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$00d7d6dd887ec690135ff31d6e6e83df$c52c9cebc80483032ef6215f2581be8d02fbf604e4cef687e34431af0a25a938",
+      "criadoEm": "2026-09-24T13:45:47.149Z"
+    },
+    {
+      "login": "larissa.silva",
+      "nome": "GT Larissa",
+      "papel": "franqueado",
+      "ativo": true,
+      "modulos": [],
+      "senha": "pbkdf2$210000$48f0e22594df7465265aaa654b38d8bd$2907ce37887e48aa54b4943d771dfe9d33f70e77de24e793059c103abe49a0e7",
+      "criadoEm": "2026-09-24T13:46:25.052Z"
+    }
+  ],
+  "manutencao": {
+    "central": {
+      "ativo": true,
+      "mensagem": "",
+      "desde": "2026-09-22T22:05:34.445Z",
+      "por": "Christian Vieira"
+    },
+    "arvore": {
+      "ativo": true,
+      "mensagem": "",
+      "desde": "2026-09-23T18:21:44.221Z",
+      "por": "Christian Vieira"
+    }
   },
-  {
-   "login": "diana.gracia",
-   "nome": "Diana de Gracia",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas",
-    "instagram",
-    "clientes",
-    "extrator"
-   ],
-   "senha": "pbkdf2$210000$532abfd835748b2d50537c3b29905d40$b1bc1a9f9e66d29e66ddabb1181a6313f1169745e59b5c5a38146e518e48d743",
-   "criadoEm": "2026-09-15T19:54:54.408Z",
-   "franquiaId": "avec-interno",
-   "perfil": "franqueado"
-  },
-  {
-   "login": "tiago.barros",
-   "nome": "Tiago Barros",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas",
-    "instagram",
-    "clientes"
-   ],
-   "senha": "pbkdf2$210000$aaddc47f36429e7bc36839c264ff4380$31194f4562c99e3c8f878b96b53101db2333d9d65b7fc3fc11421b515ad4d13a",
-   "criadoEm": "2026-09-15T20:08:27.080Z"
-  },
-  {
-   "login": "luiz.gustavo",
-   "nome": "luiz.gustavo",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas",
-    "instagram",
-    "clientes"
-   ],
-   "senha": "pbkdf2$210000$dc02cea35f8ea2e542a98f797113ef7c$6d892812b29de5eb3643d73e7b8697702679f7452b9d239dbeec6b333cd0783d",
-   "criadoEm": "2026-09-15T20:08:57.105Z"
-  },
-  {
-   "login": "eduardo.borges",
-   "nome": "Eduardo Borges",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas",
-    "instagram",
-    "clientes"
-   ],
-   "senha": "pbkdf2$210000$97e87915446a1e49b7e00c8fd3ce866b$6c1786ab51c8a42922687b2e0073681d94038e932b19e823fd6842689b56b4de",
-   "criadoEm": "2026-09-15T20:09:21.618Z"
-  },
-  {
-   "login": "anderson.santana",
-   "nome": "Anderson Santana",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas",
-    "instagram",
-    "clientes"
-   ],
-   "senha": "pbkdf2$210000$dbdb0188686dff7a23eb54428c535ed4$779fce52617dd33754e00712d60347b8c8707b1a0fd3c42475a2eeb473a2e64d",
-   "criadoEm": "2026-09-15T20:17:27.368Z"
-  },
-  {
-   "login": "simone.camargo",
-   "nome": "Simone Camargo",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas",
-    "instagram",
-    "clientes",
-    "extrator",
-    "central",
-    "reunioes"
-   ],
-   "senha": "pbkdf2$210000$85649b6ad11b93aa70cafb55eea553aa$32ae1c2b5f95c9fcafc16380894de5f168adc44eece363d29ef8c3c453030eb2",
-   "criadoEm": "2026-09-18T18:12:51.257Z",
-   "franquiaId": "avec-sul",
-   "perfil": "franqueado"
-  },
-  {
-   "login": "claiton.camargo",
-   "nome": "Claiton Carmargo",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [
-    "clientes",
-    "extrator",
-    "instagram",
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas"
-   ],
-   "senha": "pbkdf2$210000$097c7de40820e8d89829998a00cd99ef$f25a48fe5f981bd1b977a6324534ccd69c51e3097848cfeef60f2138e0a50e2d",
-   "criadoEm": "2026-09-18T18:13:27.665Z",
-   "franquiaId": "avec-sul",
-   "perfil": "franqueado"
-  },
-  {
-   "login": "larissa.santos",
-   "nome": "Larissa Santos",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$d2a94ea42d283d4840b9c516a10f87a9$cefd082a5f39b774f2565eaf7e34c22145bd8a2a7e19a1c89402e76f077a83bc",
-   "recuperacao": "pbkdf2$210000$6620ed58d478e543b577b576b80cf3c9$b7192f3cde1f4257f65b97b6613a3ab6e6aa450fa6aa22c6604a66641b8167be",
-   "criadoEm": "2026-09-22T22:04:28.405Z"
-  },
-  {
-   "login": "rafael.duarte",
-   "nome": "Rafael Duarte",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$d0da45dd3169dbb2fb0ed150e4f236e8$75f8eb7a7d7e0189c4cc6c55c81741868733fd03c3d9386f997ad096ab42fd58",
-   "recuperacao": "pbkdf2$210000$2f6a798503dcaa05b9fcfa0025cbcd9e$2d828eb7b13464b100406334a77a8a280a1c222296faa5fde6d8bd7ac680b05c",
-   "criadoEm": "2026-09-23T14:06:08.644Z"
-  },
-  {
-   "login": "harana.lima",
-   "nome": "Avec Goias",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$539b6f087cbf55bf31d23b834a024d9f$a7327e385983d767ee6f79e17c53bcd6d179af8c1a794fa765783f7804648189",
-   "criadoEm": "2026-09-23T14:16:58.374Z"
-  },
-  {
-   "login": "kater.hoss",
-   "nome": "kater Hoss",
-   "papel": "admin",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$fa1f755046cd2dfe8a73db168f48695c$006f78fc03a0adf8253bfe037ee47551b887567852977c32f03f3605e52cb990",
-   "recuperacao": "pbkdf2$210000$33daf7c2c3a3ec6ed88f7cb57857ce2e$7a8ba4cb90592685b7aa8bbcff58ce446da761040fa6213259ac6d83c3cfdaeb",
-   "criadoEm": "2026-09-23T14:26:00.954Z"
-  },
-  {
-   "login": "katia.oliveira",
-   "nome": "Avec São Paulo - Katia",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$e2a822d1a81577a7a2f6c22aebeb83ca$2ee2629c5ae2357ac182c4df28189204ee21c32ddb5437a1deeb65cafda499cf",
-   "criadoEm": "2026-09-23T17:14:16.865Z"
-  },
-  {
-   "login": "henrique.lopes",
-   "nome": "Avec Rio de Janeiro",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$eb313fd0555f8b7be2b890e90a7bbf0d$0a04ba7f933423a36ff0c2a31b2ef5df2e1fe8578747c5938d190ee2371edbee",
-   "criadoEm": "2026-09-23T17:15:06.600Z"
-  },
-  {
-   "login": "gunther.augusto",
-   "nome": "Avec Aracaju",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$9ad9bd9a12bd3d1cb714d219396eb60b$e2b432c3edc38b09ed13443f05f3fa3c54884fe8d0c9c9838d06304dbb82725b",
-   "criadoEm": "2026-09-23T17:16:20.470Z"
-  },
-  {
-   "login": "felipe.lopes",
-   "nome": "Avec Guarapuava",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$7448916bcf7d1daba1e5d07e3d545f40$d8abaa8b06154387638757953560bbec50a1b5f7a9260e46978a78f751687445",
-   "criadoEm": "2026-09-23T17:17:55.033Z"
-  },
-  {
-   "login": "mauricio.fudo",
-   "nome": "Avec Bauru",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$a3a642fb7b34073ad8ee3ed771a30143$4243edb48c72b09c81fa51771cf8796c54cdf0317a766bda532bb0ca04386600",
-   "criadoEm": "2026-09-23T17:18:31.255Z"
-  },
-  {
-   "login": "anderson.cordeiro",
-   "nome": "Avec Cascavel",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$fc7d8ba4576cf6dcff1519bdbb310d19$7212572f4afb792c1cc945fe44fc0de9080f7b52295e130147546803e1119689",
-   "criadoEm": "2026-09-23T17:19:56.657Z"
-  },
-  {
-   "login": "rejane.silva",
-   "nome": "Avec Espírito Santo",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$59fc4532e1ac1e5968701698c4a5daf0$0e289cd190b6390850f0c9a8370c9d0ee51e9c7f1595f8c60827c1b8ee0ce606",
-   "criadoEm": "2026-09-23T17:21:01.032Z"
-  },
-  {
-   "login": "rafael.bomfim",
-   "nome": "Avec Feira de Santana",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$6efc6154e75e770a4149cdee09f67e1d$7ce8328f3f54d32e5e4b1cabc94bd515f4711a9295dfecaeadf8cf8843ff9413",
-   "criadoEm": "2026-09-23T17:21:54.775Z"
-  },
-  {
-   "login": "kleber.souza",
-   "nome": "Avec Ipatinga",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$7e0958ee85f22ba414f679ed654295f4$026b5296616780ea2c1ec125b556a688fcca99f391fbd3d69234f343557568bb",
-   "criadoEm": "2026-09-23T17:28:48.557Z"
-  },
-  {
-   "login": "vinicius.garrido",
-   "nome": "Avec Paraiba",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$caf808fdedb4b8f85206a66c6ca78037$ce600973a60198aacb2f2243424c7c4e47b0dd803618eaa35ff74aa05031e492",
-   "criadoEm": "2026-09-23T17:30:20.800Z"
-  },
-  {
-   "login": "emanuel.elton",
-   "nome": "Avec Petrolina",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$12b168aa2440ca51dfa10a9ca6ef4f43$e647990d48724711a5412ce7c9e4476a57103e7a0dc56aa26ce385b949ebf4f3",
-   "criadoEm": "2026-09-23T17:31:01.380Z"
-  },
-  {
-   "login": "emanuel.guimaraes",
-   "nome": "Avec Rio Grande do Norte",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$60f85646ab667d6c319bde1fdca27c99$0dee47168d90cca6970566d4aa4dccef53b5c09346a98cd15aaba2d72baaf455",
-   "criadoEm": "2026-09-23T17:40:54.713Z"
-  },
-  {
-   "login": "leandro.silva",
-   "nome": "Avec São José do Rio Preto",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$1c0aa64dfae165ca2adf6f2f773173de$01d5154bb437c82b83be6eb133a18deed10eeb11b5413e49804d424fad6510da",
-   "criadoEm": "2026-09-23T17:42:54.925Z"
-  },
-  {
-   "login": "harutyun.ghazaryan",
-   "nome": "Avec São Paulo - Harutyun",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$12d0ddbe54fe7ad67c6b54fc3bdf4240$a141127b46fd97640443ff0199f6a0839fab1d1791eb62ae64267ca4260c1827",
-   "criadoEm": "2026-09-23T17:44:09.305Z"
-  },
-  {
-   "login": "thiago.neves",
-   "nome": "Avec Osasco",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$55a1db6594f0cdb37b2ecee0b0188f20$c244f706c160e247a579bee8cacfa96b8d84dfbb2b000ef47df12a8feca1b2e6",
-   "criadoEm": "2026-09-23T17:44:47.966Z"
-  },
-  {
-   "login": "rafael.cardoso",
-   "nome": "Avec Vitória da Conquista",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$59ebbbdfb4da20191d1b4f09f7c607a5$1dab2bcf5a9fd3b45fdd1a76153a371a9270b7c06407c987b5c52402a7d0d1fc",
-   "criadoEm": "2026-09-23T17:45:39.563Z"
-  },
-  {
-   "login": "leonardo.fernandes",
-   "nome": "Avec Belo Horizonte",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$ed19776bcb90ead2087507d08040ab5a$a087fc161ea96b74c40e7353ee8abcf9bbaa5e9a1f288facabc1cabcd8286ca3",
-   "criadoEm": "2026-09-23T17:47:12.710Z"
-  },
-  {
-   "login": "robert.sena",
-   "nome": "Avec Fortaleza",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$6860a7fe2b44788cb5ff45a6f2fb403b$93194e82e703767b2af09f079a95a7e9e3d65d6f1470bcb245e41b6a514d44ee",
-   "criadoEm": "2026-09-23T18:32:26.222Z"
-  },
-  {
-   "login": "robert.cordeiro",
-   "nome": "Avec Maceio",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$2bef98fe1467c9b2d7ef817a04555fc6$39ffe2d703691363c460b3782c567bc7d2f9a50cda9442f79a8974f4b75d9ebf",
-   "criadoEm": "2026-09-23T18:33:07.428Z"
-  },
-  {
-   "login": "eduardo.afonso",
-   "nome": "Avec Sorocaba",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$36b2ebef64c0f5f4b880b55948444cc7$0241ffc20005afd789b47110ee3422bf9eda1113e44935b761bb5462cab366eb",
-   "criadoEm": "2026-09-23T18:40:39.988Z"
-  },
-  {
-   "login": "emerson.brandao",
-   "nome": "Avec São Paulo - Emerson",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$297a959480eab3f3ac9411b2c9c9d031$7d9609f14200697d9c356d47d8babaf67510c3b3aec604340c9f8955f6c70a7a",
-   "criadoEm": "2026-09-23T18:49:26.226Z"
-  },
-  {
-   "login": "fabio.santos",
-   "nome": "Avec São Paulo ABC",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$c1bd9fb700248f93042fa5f7134f321f$705e0dd153e8707717293bbfcfe0aa96d2d7c48ec4dcf3ba93e073a3c8a8f98c",
-   "criadoEm": "2026-09-23T18:50:16.080Z"
-  },
-  {
-   "login": "wagner.junior",
-   "nome": "Avec Baixada Santista",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$694bdd11a4a0f6944efd17eed4adb6a0$744ad6c0373ec63c99bfc815dc955c77da1f2f18f573b9286c0b0b3c8bae5628",
-   "criadoEm": "2026-09-23T18:50:56.057Z"
-  },
-  {
-   "login": "carlos.eduardo",
-   "nome": "Avec Itu",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$3c28178601079ba55176616e08f07cbe$0f11fabcd6c27d8f9b75bc2aaf056b2b303d6333fed729465a8fe1efa9eddcbe",
-   "criadoEm": "2026-09-23T18:51:57.564Z"
-  },
-  {
-   "login": "gilson.augustinhaki",
-   "nome": "Avec Curitiba",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$155c8093aeb739ddbcca015e707119ed$9b71200c95c73669c5232beabd58f37430f4323798dec1800bf968d0755165e6",
-   "criadoEm": "2026-09-23T18:55:20.610Z"
-  },
-  {
-   "login": "gunther.taveiras",
-   "nome": "Avec Salvador",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$6d2e364b359edaf03f2115c85222899c$e1072a1987c3025f21d30c9b06d27c7c436a7524dc0fc78b628a76e2d8af7323",
-   "criadoEm": "2026-09-23T18:57:31.583Z"
-  },
-  {
-   "login": "leonardo.delachave",
-   "nome": "Avec São Paulo - Leonardo",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$43b58ae6b94726f293fcd3af9bf49ab5$1cbd6844d013d98fa677589b576cf70e3b90b7c8e1bc884a95d6745b8ea3f34c",
-   "criadoEm": "2026-09-23T18:59:41.748Z"
-  },
-  {
-   "login": "thiago.fernandes",
-   "nome": "Avec Mato Grosso",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$9faaa375aa965bb11fa0a0f7222a2f9b$5292b2876b855fe3c5a2de9ca483d0cb988ba7563e4c1aae3bba52f1902aaaaf",
-   "criadoEm": "2026-09-23T19:00:23.604Z"
-  },
-  {
-   "login": "carlos.afonso",
-   "nome": "Avec Presidente Prudente",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$f91f3b9e289a888b19e4e4ddbbb77447$503b9ebfa3b5d8b66fb91fd63e9d5b13005c85f08be5b41f8593d88771b88ef3",
-   "criadoEm": "2026-09-23T19:01:15.427Z"
-  },
-  {
-   "login": "rafael.vila",
-   "nome": "Avec Londrina",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$36ac3a51a073b13e5b902c01cfdb5e62$ca186534a3fa575e4ff089a224d6fa8a6f2db1fa1692acdc680898addcc033d1",
-   "criadoEm": "2026-09-23T19:03:00.863Z"
-  },
-  {
-   "login": "rafael.martins",
-   "nome": "Avec Maringá",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$b5c8344b7bc4a733153017380bfbbc75$555f377f41bb451b25bca95345af57414cf7f5b340bba69f6d6755a5151a7ed0",
-   "criadoEm": "2026-09-23T19:03:37.961Z"
-  },
-  {
-   "login": "ramon.silva",
-   "nome": "Avec Distrito Federal",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$f8dec4f5ed0385fcf25a43e1be7c5de7$2482690cf2da99f7d67b14454ea2e15c090be533d8a8f816ebaadf8cabaab385",
-   "criadoEm": "2026-09-23T19:04:10.321Z"
-  },
-  {
-   "login": "ricardo.noblat",
-   "nome": "Avec Recife",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$4ddbefb6674eeeeb8e6664b01267489c$c47d762e3f56db4ae591ad610b86bf0dc33bcd3496baaea3607b803a54724d1a",
-   "criadoEm": "2026-09-23T20:42:13.819Z"
-  },
-  {
-   "login": "rodrigo.goncalves",
-   "nome": "Avec Grande Florianópolis",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$200509708f2971805b6b7bdf87b04f81$563b38e6f16935cac5099bc3199517d608780d77db987e7dd74c0bc07e16748b",
-   "criadoEm": "2026-09-23T20:43:38.668Z"
-  },
-  {
-   "login": "rodrigo.leao",
-   "nome": "Avec Novo Hamburgo",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$d70d7c291e167582fd2b37ddbcb1ef94$0bebba0c71b47cc3f7c32901e1b0256bbd64b65b1a92d0fc6545ea0e4918f704",
-   "criadoEm": "2026-09-23T20:44:11.687Z"
-  },
-  {
-   "login": "celio.leao",
-   "nome": "Avec Uberlândia",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$5d71ae395107f626466c1a3870b7be54$00e34b1142f7270fc6e68d51436b83b7cb133d2744f1011671b7b219ea27e60e",
-   "criadoEm": "2026-09-23T20:45:51.845Z"
-  },
-  {
-   "login": "vanessa.chagas",
-   "nome": "Avec Barueri",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$b9c64a73e6e64924a1b9a40b3a29652f$5393c2a5ec060519543dd73876eda6ec7d1e019532207ca279785d798e376a7a",
-   "criadoEm": "2026-09-23T20:46:23.310Z"
-  },
-  {
-   "login": "zania.kuelle",
-   "nome": "Avec Porto Alegre",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$5e5d6b06bde1e3632864c498caecd96d$a7e1a5b25d3f57eaad0bec822005a2fe94063106c679335f60f816ca0b22922a",
-   "criadoEm": "2026-09-23T20:46:58.993Z"
-  },
-  {
-   "login": "bruno.tomasi",
-   "nome": "Bruno Tomasi",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas",
-    "instagram",
-    "clientes",
-    "extrator",
-    "central",
-    "reunioes"
-   ],
-   "senha": "pbkdf2$210000$71a559275d53c1b3b269d46e57e1bbd9$692b80bf5aa47433f12971b727416b189e7410cd4fb931f0117970114f4f4f87",
-   "criadoEm": "2026-09-24T13:24:41.791Z",
-   "franquiaId": "avec-interno",
-   "perfil": "franqueado"
-  },
-  {
-   "login": "camila.cristina",
-   "nome": "GT Camila",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$961077f27689e5b7894b0083e7f397e5$daf2b910ed86ecba4dbd8203c822f1ef57bad0281fd0070f3b846cfa92715c2f",
-   "criadoEm": "2026-09-24T13:45:12.094Z"
-  },
-  {
-   "login": "bruna.reis",
-   "nome": "GT Bruna",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$00d7d6dd887ec690135ff31d6e6e83df$c52c9cebc80483032ef6215f2581be8d02fbf604e4cef687e34431af0a25a938",
-   "criadoEm": "2026-09-24T13:45:47.149Z"
-  },
-  {
-   "login": "larissa.silva",
-   "nome": "GT Larissa",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [],
-   "senha": "pbkdf2$210000$48f0e22594df7465265aaa654b38d8bd$2907ce37887e48aa54b4943d771dfe9d33f70e77de24e793059c103abe49a0e7",
-   "criadoEm": "2026-09-24T13:46:25.052Z"
-  }
- ],
- "manutencao": {
-  "central": {
-   "ativo": true,
-   "mensagem": "",
-   "desde": "2026-09-22T22:05:34.445Z",
-   "por": "Christian Vieira"
-  },
-  "arvore": {
-   "ativo": true,
-   "mensagem": "",
-   "desde": "2026-09-23T18:21:44.221Z",
-   "por": "Christian Vieira"
-  }
- },
- "franquias": [
-  {
-   "id": "avec-sul",
-   "nome": "Avec Sul",
-   "ativo": true
-  },
-  {
-   "id": "avec-interno",
-   "nome": "Avec Interno",
-   "ativo": true
-  }
- ]
+  "franquias": [
+    {
+      "id": "avec-sul",
+      "nome": "Avec Sul",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes",
+        "extrator",
+        "central",
+        "reunioes"
+      ]
+    },
+    {
+      "id": "avec-interno",
+      "nome": "Avec Interno",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes",
+        "extrator",
+        "central",
+        "reunioes"
+      ]
+    }
+  ]
 }
