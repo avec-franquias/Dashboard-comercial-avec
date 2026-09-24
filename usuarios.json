@@ -1,6 +1,6 @@
 {
   "instalacao": "63bc96d9dc3c6c61",
-  "atualizadoEm": "2026-09-24T18:50:55.310Z",
+  "atualizadoEm": "2026-09-24T19:30:27.603Z",
   "usuarios": [
     {
       "login": "christian.vieira",
@@ -650,6 +650,23 @@
     {
       "id": "avec-sao-paulo-katia",
       "nome": "Avec São Paulo - Katia",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes",
+        "extrator",
+        "central",
+        "reunioes"
+      ]
+    },
+    {
+      "id": "avec-campinas",
+      "nome": "Avec Campinas",
       "ativo": true,
       "modulos": [
         "ativacao",
