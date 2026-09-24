@@ -1,6 +1,6 @@
 {
   "instalacao": "63bc96d9dc3c6c61",
-  "atualizadoEm": "2026-09-24T16:19:58.275Z",
+  "atualizadoEm": "2026-09-24T16:20:01.872Z",
   "usuarios": [
     {
       "login": "christian.vieira",
@@ -501,22 +501,9 @@
       "nome": "Bruno Tomasi",
       "papel": "franqueado",
       "ativo": true,
-      "modulos": [
-        "ativacao",
-        "arvore",
-        "previsao",
-        "taxas",
-        "propostas",
-        "instagram",
-        "clientes",
-        "extrator",
-        "central",
-        "reunioes"
-      ],
+      "modulos": [],
       "senha": "pbkdf2$210000$71a559275d53c1b3b269d46e57e1bbd9$692b80bf5aa47433f12971b727416b189e7410cd4fb931f0117970114f4f4f87",
-      "criadoEm": "2026-09-24T13:24:41.791Z",
-      "franquiaId": "avec-interno",
-      "perfil": "franqueado"
+      "criadoEm": "2026-09-24T13:24:41.791Z"
     },
     {
       "login": "camila.cristina",
