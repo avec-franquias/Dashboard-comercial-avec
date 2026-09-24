@@ -7,41 +7,23 @@
   },
   "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':(exclude)extrator-data/**' ':(exclude)instagram-data/**' ':(exclude)clientes-enrichment/**'",
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/api/portal"
-    },
-    {
-      "source": "/index.html",
-      "destination": "/api/portal"
-    },
-    {
-      "source": "/index",
-      "destination": "/api/portal"
-    },
-    {
-      "source": "/portal",
-      "destination": "/api/portal"
-    }
+    {"source": "/", "destination": "/api/portal"},
+    {"source": "/index.html", "destination": "/api/portal"},
+    {"source": "/index", "destination": "/api/portal"},
+    {"source": "/portal", "destination": "/api/portal"},
+    {"source": "/api/data-leads", "destination": "/api/data?type=leads"},
+    {"source": "/api/data-instagram", "destination": "/api/data?type=instagram"},
+    {"source": "/api/data-clientes", "destination": "/api/data?type=clientes"},
+    {"source": "/api/_login-client.js", "destination": "/portal-assets/_login-client.js"}
   ],
   "headers": [
     {
       "source": "/",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, max-age=0"
-        }
-      ]
+      "headers": [{"key": "Cache-Control", "value": "no-store, max-age=0"}]
     },
     {
       "source": "/index.html",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, max-age=0"
-        }
-      ]
+      "headers": [{"key": "Cache-Control", "value": "no-store, max-age=0"}]
     }
   ]
 }
