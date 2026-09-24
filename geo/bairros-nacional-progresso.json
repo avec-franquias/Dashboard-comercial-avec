@@ -1,4 +1,5 @@
 {
-  "estadosProcessados": 27,
-  "cidadesComBairros": 1023
+  "fonte": "Estados-Cidades-IBGE + base existente",
+  "cidadesComBairros": 1023,
+  "bairros": 20017
 }
