@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-24T13:45:09.597Z",
+ "atualizadoEm": "2026-09-24T13:45:44.046Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -561,6 +561,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$961077f27689e5b7894b0083e7f397e5$daf2b910ed86ecba4dbd8203c822f1ef57bad0281fd0070f3b846cfa92715c2f",
    "criadoEm": "2026-09-24T13:45:12.094Z"
+  },
+  {
+   "login": "bruna.reis",
+   "nome": "GT Bruna",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$00d7d6dd887ec690135ff31d6e6e83df$c52c9cebc80483032ef6215f2581be8d02fbf604e4cef687e34431af0a25a938",
+   "criadoEm": "2026-09-24T13:45:47.149Z"
   }
  ],
  "manutencao": {
