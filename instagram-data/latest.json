@@ -4310,21 +4310,6 @@
           "source": "duckduckgo"
         },
         {
-          "username": "intimesolucoesembeleza",
-          "profile_url": "https://www.instagram.com/intimesolucoesembeleza/",
-          "name": "SALÃO DE BELEZA IN TIME - CENTRO RJ (@intimesolucoesembeleza ...",
-          "bio": "SALÃO DE BELEZA IN TIME - CENTRO RJ (@intimesolucoesembeleza ...",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Rio de Janeiro",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
           "username": "atelierdabelezacentro",
           "profile_url": "https://www.instagram.com/atelierdabelezacentro/",
           "name": "Atelier da Beleza",
@@ -4340,10 +4325,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "espacodk.com.br",
-          "profile_url": "https://www.instagram.com/espacodk.com.br/",
-          "name": "Salão Espaço DK",
-          "bio": "Salão Espaço DK (@espacodk.com.br) - Instagram",
+          "username": "intimesolucoesembeleza",
+          "profile_url": "https://www.instagram.com/intimesolucoesembeleza/",
+          "name": "SALÃO DE BELEZA IN TIME - CENTRO RJ (@intimesolucoesembeleza ...",
+          "bio": "SALÃO DE BELEZA IN TIME - CENTRO RJ (@intimesolucoesembeleza ...",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -4370,25 +4355,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "vogueinstitutodebeleza",
-          "profile_url": "https://www.instagram.com/vogueinstitutodebeleza/",
-          "name": "Salão Vogue",
-          "bio": "Salão Vogue (@vogueinstitutodebeleza) • Instagram photos and videos",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Rio de Janeiro",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "curlyspace.rj",
-          "profile_url": "https://www.instagram.com/curlyspace.rj/",
-          "name": "Curly Space | Ondulados, Cacheados e Crespos (@curlyspace.rj ...",
-          "bio": "Curly Space | Ondulados, Cacheados e Crespos (@curlyspace.rj ...",
+          "username": "espacodk.com.br",
+          "profile_url": "https://www.instagram.com/espacodk.com.br/",
+          "name": "Salão Espaço DK",
+          "bio": "Salão Espaço DK (@espacodk.com.br) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -4415,10 +4385,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "esteticabelezacarioca",
-          "profile_url": "https://www.instagram.com/esteticabelezacarioca/",
-          "name": "Estética Beleza Carioca",
-          "bio": "Estética Beleza Carioca (@esteticabelezacarioca) - Instagram",
+          "username": "perfilestudiodebeleza",
+          "profile_url": "https://www.instagram.com/perfilestudiodebeleza/",
+          "name": "Perfil Estudio De Beleza",
+          "bio": "Perfil Estudio De Beleza (@perfilestudiodebeleza) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -4430,10 +4400,40 @@
           "source": "duckduckgo"
         },
         {
-          "username": "perfilestudiodebeleza",
-          "profile_url": "https://www.instagram.com/perfilestudiodebeleza/",
-          "name": "Perfil Estudio De Beleza",
-          "bio": "Perfil Estudio De Beleza (@perfilestudiodebeleza) - Instagram",
+          "username": "vogueinstitutodebeleza",
+          "profile_url": "https://www.instagram.com/vogueinstitutodebeleza/",
+          "name": "Salão Vogue",
+          "bio": "Salão Vogue (@vogueinstitutodebeleza) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Rio de Janeiro",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaomkbeautycenter",
+          "profile_url": "https://www.instagram.com/salaomkbeautycenter/",
+          "name": "Salão Mk Beauty Center Rio",
+          "bio": "Salão Mk Beauty Center Rio (@salaomkbeautycenter) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Rio de Janeiro",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "curlyspace.rj",
+          "profile_url": "https://www.instagram.com/curlyspace.rj/",
+          "name": "Curly Space | Ondulados, Cacheados e Crespos (@curlyspace.rj ...",
+          "bio": "Curly Space | Ondulados, Cacheados e Crespos (@curlyspace.rj ...",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -4461,21 +4461,11 @@
         }
       ],
       "total": 11,
-      "new_count": 11,
+      "new_count": 1,
       "new_usernames": [
-        "studiojh.beleza",
-        "intimesolucoesembeleza",
-        "atelierdabelezacentro",
-        "espacodk.com.br",
-        "elisandradeoficial",
-        "vogueinstitutodebeleza",
-        "curlyspace.rj",
-        "studiosandrafonseca",
-        "esteticabelezacarioca",
-        "perfilestudiodebeleza",
-        "la.beautyconcept"
+        "salaomkbeautycenter"
       ],
-      "finished_at": "2026-09-24T11:44:31.996Z"
+      "finished_at": "2026-09-24T13:51:35.410Z"
     },
     {
       "query": {
