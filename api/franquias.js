@@ -4,6 +4,8 @@ import fs from 'node:fs/promises';
 const REPO=process.env.GITHUB_REPOSITORY||'avec-franquias/Dashboard-comercial-avec';
 const BRANCH=process.env.GITHUB_BRANCH||'main';
 const FILE='usuarios.json';
+const MODS=['ativacao','arvore','previsao','taxas','propostas','instagram','clientes','extrator','central','reunioes'];
+
 function cors(req,res){const o=req.headers.origin||'*';res.setHeader('Access-Control-Allow-Origin',o);res.setHeader('Vary','Origin');res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS');res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');res.setHeader('Cache-Control','no-store')}
 function body(req){if(req.body&&typeof req.body==='object')return req.body;try{return JSON.parse(req.body||'{}')}catch{return {}}}
 function validar(req){const secret=process.env.GITHUB_TOKEN||process.env.PORTAL_SESSION_SECRET;if(!secret)throw Object.assign(new Error('Chave administrativa indisponivel'),{status:500});const token=String(req.headers.authorization||'').replace(/^Bearer\s+/i,'');const [p,s]=token.split('.');if(!p||!s)throw Object.assign(new Error('Sessao invalida'),{status:401});const exp=crypto.createHmac('sha256',secret).update(p).digest('base64url');const a=Buffer.from(s),b=Buffer.from(exp);if(a.length!==b.length||!crypto.timingSafeEqual(a,b))throw Object.assign(new Error('Sessao invalida'),{status:401});const d=JSON.parse(Buffer.from(p,'base64url').toString('utf8'));if(d.papel!=='admin'||Date.now()>Number(d.exp||0))throw Object.assign(new Error('Acesso administrativo necessario'),{status:403});return d}
@@ -11,6 +13,53 @@ async function local(){const txt=await fs.readFile(new URL('../usuarios.json',im
 async function gh(path,opts={}){const t=process.env.GITHUB_TOKEN;if(!t)throw Object.assign(new Error('GITHUB_TOKEN nao configurado'),{status:500});const r=await fetch('https://api.github.com/repos/'+REPO+path,{...opts,headers:{Authorization:'Bearer '+t,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json','User-Agent':'avec-portal-api'}});const tx=await r.text();let j={};try{j=tx?JSON.parse(tx):{}}catch{};if(!r.ok)throw Object.assign(new Error(j.message||('GitHub '+r.status)),{status:r.status});return j}
 async function atual(){try{const j=await gh('/contents/'+FILE+'?ref='+encodeURIComponent(BRANCH));return {db:JSON.parse(Buffer.from(j.content,'base64').toString('utf8')),sha:j.sha}}catch{return {db:await local(),sha:null}}}
 function id(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,80)}
+function uniqMods(xs){return [...new Set((Array.isArray(xs)?xs:[]).filter(x=>MODS.includes(x)))]}
+function preparar(db){
+  db.franquias=Array.isArray(db.franquias)?db.franquias:[];
+  db.usuarios=Array.isArray(db.usuarios)?db.usuarios:[];
+  for(const f of db.franquias){
+    let mods=uniqMods(f.modulos);
+    if(!mods.length)mods=uniqMods(db.usuarios.filter(u=>u.franquiaId===f.id).flatMap(u=>u.modulos||[]));
+    f.modulos=mods.length?mods:[...MODS];
+    for(const u of db.usuarios)if(u.papel!=='admin'&&u.franquiaId===f.id)u.modulos=[...f.modulos];
+  }
+  return db;
+}
+function sincronizarGrupo(db,franquiaId){
+  const f=db.franquias.find(x=>x.id===franquiaId);if(!f)return;
+  f.modulos=uniqMods(f.modulos);
+  for(const u of db.usuarios)if(u.papel!=='admin'&&u.franquiaId===franquiaId)u.modulos=[...f.modulos];
+}
 async function salvar(db,sha,admin){db.atualizadoEm=new Date().toISOString();const payload={message:'Portal: atualiza franquias por '+admin.login,content:Buffer.from(JSON.stringify(db,null,2)).toString('base64'),branch:BRANCH,...(sha?{sha}:{})};const r=await gh('/contents/'+FILE,{method:'PUT',body:JSON.stringify(payload)});return r.commit?.sha}
-function saida(db){return {ok:true,franquias:db.franquias||[],usuarios:(db.usuarios||[]).map(u=>({login:u.login,nome:u.nome,papel:u.papel,perfil:u.perfil||null,franquiaId:u.franquiaId||null,ativo:u.ativo,modulos:u.modulos||[]}))}}
-export default async function handler(req,res){cors(req,res);if(req.method==='OPTIONS')return res.status(204).end();try{const admin=validar(req);const {db,sha}=await atual();db.franquias=Array.isArray(db.franquias)?db.franquias:[];db.usuarios=Array.isArray(db.usuarios)?db.usuarios:[];if(req.method==='GET')return res.status(200).json(saida(db));if(req.method!=='POST')return res.status(405).json({ok:false,error:'Metodo nao permitido'});const b=body(req);if(b.action==='create'){const nome=String(b.nome||'').trim();if(!nome)return res.status(400).json({ok:false,error:'Informe o nome'});let fid=id(nome);if(db.franquias.some(f=>f.id===fid)){let n=2;while(db.franquias.some(f=>f.id===fid+'-'+n))n++;fid=fid+'-'+n}db.franquias.push({id:fid,nome,ativo:true})}else if(b.action==='link'){const f=db.franquias.find(x=>x.id===b.franquiaId);const u=db.usuarios.find(x=>x.login===b.login);if(!f||!u)return res.status(404).json({ok:false,error:'Franquia ou usuario nao encontrado'});u.franquiaId=f.id;u.perfil=b.perfil==='funcionario'?'funcionario':'franqueado';u.modulos=Array.isArray(b.modulos)?b.modulos:[];if(u.papel!=='admin')u.papel='franqueado'}else if(b.action==='unlink'){const u=db.usuarios.find(x=>x.login===b.login);if(!u)return res.status(404).json({ok:false,error:'Usuario nao encontrado'});delete u.franquiaId;delete u.perfil}else return res.status(400).json({ok:false,error:'Acao invalida'});const commit=await salvar(db,sha,admin);return res.status(200).json({...saida(db),commit})}catch(e){return res.status(e.status||500).json({ok:false,error:e.message||'Falha administrativa'})}}
+function saida(db){return {ok:true,franquias:(db.franquias||[]).map(f=>({...f,modulos:uniqMods(f.modulos)})),usuarios:(db.usuarios||[]).map(u=>({login:u.login,nome:u.nome,papel:u.papel,perfil:u.perfil||null,franquiaId:u.franquiaId||null,ativo:u.ativo,modulos:u.papel==='admin'?[...MODS]:uniqMods(u.modulos)}))}}
+export default async function handler(req,res){
+  cors(req,res);
+  if(req.method==='OPTIONS')return res.status(204).end();
+  try{
+    const admin=validar(req);
+    const {db:raw,sha}=await atual();
+    const db=preparar(raw);
+    if(req.method==='GET')return res.status(200).json(saida(db));
+    if(req.method!=='POST')return res.status(405).json({ok:false,error:'Metodo nao permitido'});
+    const b=body(req);
+    if(b.action==='create'){
+      const nome=String(b.nome||'').trim();if(!nome)return res.status(400).json({ok:false,error:'Informe o nome'});
+      let fid=id(nome);if(db.franquias.some(f=>f.id===fid)){let n=2;while(db.franquias.some(f=>f.id===fid+'-'+n))n++;fid=fid+'-'+n}
+      db.franquias.push({id:fid,nome,ativo:true,modulos:[...MODS]});
+    }else if(b.action==='setModules'){
+      const f=db.franquias.find(x=>x.id===b.franquiaId);if(!f)return res.status(404).json({ok:false,error:'Franquia nao encontrada'});
+      f.modulos=uniqMods(b.modulos);
+      sincronizarGrupo(db,f.id);
+    }else if(b.action==='link'){
+      const f=db.franquias.find(x=>x.id===b.franquiaId);const u=db.usuarios.find(x=>x.login===b.login);
+      if(!f||!u)return res.status(404).json({ok:false,error:'Franquia ou usuario nao encontrado'});
+      u.franquiaId=f.id;u.perfil=b.perfil==='funcionario'?'funcionario':'franqueado';if(u.papel!=='admin')u.papel='franqueado';
+      sincronizarGrupo(db,f.id);
+    }else if(b.action==='unlink'){
+      const u=db.usuarios.find(x=>x.login===b.login);if(!u)return res.status(404).json({ok:false,error:'Usuario nao encontrado'});
+      delete u.franquiaId;delete u.perfil;if(u.papel!=='admin')u.modulos=[];
+    }else return res.status(400).json({ok:false,error:'Acao invalida'});
+    const commit=await salvar(db,sha,admin);
+    return res.status(200).json({...saida(db),commit});
+  }catch(e){return res.status(e.status||500).json({ok:false,error:e.message||'Falha administrativa'})}
+}
