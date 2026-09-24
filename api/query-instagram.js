@@ -1,4 +1,4 @@
-import {fail} from './_github.js';
+import {fail} from '../lib/github.js';
 const norm=s=>String(s||'').trim().toLocaleLowerCase('pt-BR');
 export default async function handler(req,res){
   try{
@@ -11,11 +11,7 @@ export default async function handler(req,res){
     });
     if(!r.ok) throw new Error('Base do Instagram indisponivel ('+r.status+')');
     const data=await r.json();
-    const run=(data.runs||[]).find(x=>
-      norm(x.query?.nicho)===norm(nicho)&&norm(x.query?.uf)===norm(uf)&&
-      norm(x.query?.cidade)===norm(cidade)&&norm(x.query?.bairro||'')===norm(bairro||'')&&
-      norm(x.query?.palavra_chave||'')===norm(palavra||'')
-    );
+    const run=(data.runs||[]).find(x=>norm(x.query?.nicho)===norm(nicho)&&norm(x.query?.uf)===norm(uf)&&norm(x.query?.cidade)===norm(cidade)&&norm(x.query?.bairro||'')===norm(bairro||'')&&norm(x.query?.palavra_chave||'')===norm(palavra||''));
     res.setHeader('Cache-Control','no-store, max-age=0');
     return res.status(200).json({ok:true,run:run||null});
   }catch(e){return fail(res,e)}
