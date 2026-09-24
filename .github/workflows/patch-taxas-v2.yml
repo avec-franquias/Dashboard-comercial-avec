@@ -1,0 +1,102 @@
+name: Ajustar simulador de taxas v2
+'on':
+  push:
+    branches: [main]
+    paths: ['.github/triggers/taxas-v2.txt']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: taxas-v2
+  cancel-in-progress: true
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 5}
+      - name: Alterar somente modulo taxas
+        shell: python
+        run: |
+          import re,json,base64
+          from pathlib import Path
+          p=Path('index.html'); s=p.read_text(encoding='utf-8')
+          m=re.search(r'(<script[^>]+id=["\']modulosEmbutidos["\'][^>]*>)(.*?)(</script>)',s,re.S)
+          if not m: raise SystemExit('modulosEmbutidos nao encontrado')
+          mods=json.loads(m.group(2))
+          raw=mods.get('taxas')
+          if not raw: raise SystemExit('modulo taxas nao encontrado')
+          prefix=''
+          if raw.startswith('data:text/html;base64,'): prefix='data:text/html;base64,'; raw=raw[len(prefix):]
+          try: html=base64.b64decode(raw).decode('utf-8')
+          except: html=raw
+          original=html
+          # 1) Mesa/Squad: somente Franquias e Grandes Contas.
+          html=re.sub(r'"squads"\s*:\s*\[[^\]]*\]', '"squads":["Franquias","Grandes Contas"]', html, count=1)
+          # Mantem mccSquad estruturalmente intacto; a UI so oferece os dois squads.
+          # 2) Ramo: somente Beauty & Wellness. Faz a lista de MCC exibir apenas esse grupo.
+          html=re.sub(r'"mccs"\s*:\s*\[[^\]]*\]', '"mccs":["Beauty & Wellness"]', html, count=1)
+          # Se ramo for derivado de chaves/objeto, filtra select no runtime sem apagar dados internos.
+          inject=r'''
+          <script>
+          document.addEventListener('DOMContentLoaded',()=>{
+            const filterSelect=(id,allowed)=>{
+              const el=document.getElementById(id); if(!el)return;
+              [...el.options].forEach(o=>{if(o.value && !allowed.includes(o.text.trim()) && !allowed.includes(o.value))o.remove()});
+              if(el.options.length){el.selectedIndex=0;el.dispatchEvent(new Event('change',{bubbles:true}))}
+            };
+            setTimeout(()=>{
+              filterSelect('squad',['Franquias','Grandes Contas']);
+              const ramo=[...document.querySelectorAll('select')].find(x=>/beauty|food|com[eé]rcio geral/i.test(x.innerText||''));
+              if(ramo){[...ramo.options].forEach(o=>{if(o.value && o.text.trim()!=='Beauty & Wellness')o.remove()});ramo.selectedIndex=0;ramo.dispatchEvent(new Event('change',{bubbles:true}))}
+            },50);
+          });
+          </script>'''
+          html=html.replace('</body>',inject+'</body>') if '</body>' in html else html+inject
+          # 3) Remove apenas linhas/modelos Wow dos terminais, preservando Avec e TEF.
+          html=re.sub(r'\{[^{}]*"modelo"\s*:\s*"[^"]*Wow[^"]*"[^{}]*\}\s*,?', '', html)
+          # fallback para arrays/objetos com nomes literais conhecidos
+          html=re.sub(r'\s*"POS S920 - Wow"\s*:\s*\{[^{}]*\}\s*,?', '', html)
+          html=re.sub(r'\s*"POS D195 - Wow"\s*:\s*\{[^{}]*\}\s*,?', '', html)
+          # 4) Negociacao: Venda, Aluguel, Comodato. Acrescenta Comodato onde lista vem da string.
+          html=html.replace('Venda,Aluguel"', 'Venda,Aluguel,Comodato"')
+          html=html.replace('Venda, Aluguel"', 'Venda, Aluguel, Comodato"')
+          # Garante valor zero quando Comodato for escolhido, sem interferir nos outros tipos.
+          js=r'''<script>
+          document.addEventListener('change',e=>{
+            if(e.target && e.target.tagName==='SELECT' && String(e.target.value).toLowerCase()==='comodato'){
+              const tr=e.target.closest('tr'); if(!tr)return;
+              const inputs=[...tr.querySelectorAll('input')];
+              const valor=inputs.find(i=>/valor/i.test(i.name||i.id||i.placeholder||'')) || inputs[inputs.length-1];
+              if(valor){valor.value='0';valor.dispatchEvent(new Event('input',{bubbles:true}));valor.dispatchEvent(new Event('change',{bubbles:true}))}
+            }
+          });
+          </script>'''
+          html=html.replace('</body>',js+'</body>') if '</body>' in html else html+js
+          # 5) Logo AVEC no documento impresso/PDF: injeta marca vetorial textual no print.
+          logo=r'''<style>
+          .avec-print-logo{display:none}
+          @media print{.avec-print-logo{display:block;font:900 30px Arial,sans-serif;letter-spacing:-2px;margin:0 0 18px;color:#111}.avec-print-logo span{font-size:11px;letter-spacing:1px;font-weight:700;margin-left:8px}}
+          </style><div class="avec-print-logo">AVEC<span>BEAUTY & WELLNESS</span></div>'''
+          if '<body' in html: html=re.sub(r'(<body[^>]*>)',r'\1'+logo,html,count=1)
+          else: html=logo+html
+          # Validacoes de seguranca antes de publicar.
+          for required in ['Franquias','Grandes Contas','Beauty & Wellness','Comodato','POS S920 - Avec','POS D195 - Avec']:
+              if required not in html: raise SystemExit('faltou '+required)
+          if 'POS S920 - Wow' in html or 'POS D195 - Wow' in html: raise SystemExit('Wow ainda presente')
+          if len(html)<len(original)*0.80: raise SystemExit('alteracao removeu conteudo demais')
+          enc=prefix+base64.b64encode(html.encode()).decode() if prefix else html
+          mods['taxas']=enc
+          ns=s[:m.start(2)]+json.dumps(mods,ensure_ascii=False,separators=(',',':'))+s[m.end(2):]
+          p.write_text(ns,encoding='utf-8')
+          print('OK: patch taxas aplicado; tamanho',len(original),'->',len(html))
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Portal: ajusta Simulador de Taxas comercial" || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
