@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-24T18:20:16.254Z",
+ "atualizadoEm": "2026-09-24T18:20:57.438Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -538,7 +538,7 @@
   {
    "login": "camila.cristina",
    "nome": "GT Camila",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [],
    "senha": "pbkdf2$210000$961077f27689e5b7894b0083e7f397e5$daf2b910ed86ecba4dbd8203c822f1ef57bad0281fd0070f3b846cfa92715c2f",
