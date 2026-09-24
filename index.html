@@ -793,6 +793,11 @@ function entrarNoPortal(u){
   const admin = u.papel === 'admin';
   $('#abas').classList.toggle('hidden', !admin);
   $('#btnSenha').classList.toggle('hidden', !admin);
+  if(!admin){
+    for(const id of ['abaUsuarios','abaFranquias','abaManutencao','abaConteudo']){
+      const el=document.getElementById(id); if(el) el.classList.add('hidden');
+    }
+  }
   desenhaModulos();
   $('#quemMod').textContent = u.nome;
   $('#trocaMod').innerHTML = MODULOS.filter(podeUsar).map(m => `<option value="${m.id}">${esc(m.nome)}</option>`).join('');
@@ -806,8 +811,13 @@ function entrarNoPortal(u){
   }
   rota();
 }
-const SEMPRE_LIBERADOS = ['central','migrador'];   // disponíveis para todos os usuários
-const podeUsar = m => !!perfil; // todos os modulos atuais e futuros sao liberados por padrao
+const SEMPRE_LIBERADOS = ['central','migrador'];
+const podeUsar = m => {
+  if(!perfil) return false;
+  if(perfil.papel === 'admin') return true;
+  const liberados=Array.isArray(perfil.modulos)?perfil.modulos:[];
+  return SEMPRE_LIBERADOS.includes(m.id) || liberados.includes(m.id);
+};
 
 function desenhaModulos(){
   const lista = MODULOS.filter(podeUsar);
