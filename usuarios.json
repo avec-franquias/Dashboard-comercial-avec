@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-24T18:20:57.438Z",
+ "atualizadoEm": "2026-09-24T18:21:01.043Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -547,7 +547,7 @@
   {
    "login": "bruna.reis",
    "nome": "GT Bruna",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [],
    "senha": "pbkdf2$210000$00d7d6dd887ec690135ff31d6e6e83df$c52c9cebc80483032ef6215f2581be8d02fbf604e4cef687e34431af0a25a938",
