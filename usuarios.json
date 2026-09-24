@@ -1,6 +1,6 @@
 {
   "instalacao": "63bc96d9dc3c6c61",
-  "atualizadoEm": "2026-09-24T13:22:21.173Z",
+  "atualizadoEm": "2026-09-24T13:23:02.340Z",
   "usuarios": [
     {
       "login": "christian.vieira",
@@ -112,17 +112,21 @@
       "papel": "franqueado",
       "ativo": true,
       "modulos": [
-        "clientes",
-        "extrator",
-        "instagram",
         "ativacao",
         "arvore",
         "previsao",
         "taxas",
-        "propostas"
+        "propostas",
+        "instagram",
+        "clientes",
+        "extrator",
+        "central",
+        "reunioes"
       ],
       "senha": "pbkdf2$210000$85649b6ad11b93aa70cafb55eea553aa$32ae1c2b5f95c9fcafc16380894de5f168adc44eece363d29ef8c3c453030eb2",
-      "criadoEm": "2026-09-18T18:12:51.257Z"
+      "criadoEm": "2026-09-18T18:12:51.257Z",
+      "franquiaId": "avec-sul",
+      "perfil": "franqueado"
     },
     {
       "login": "claiton.camargo",
