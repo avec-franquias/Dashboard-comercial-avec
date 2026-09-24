@@ -282,6 +282,9 @@ textarea.inp{resize:vertical;min-height:120px}
 .export-box b{display:block;margin-bottom:4px}
 .export-status{font-size:13px;color:var(--tinta-suave);margin-top:8px;line-height:1.45}
 
+
+body[data-portal-admin="0"] #abaFranquias,
+body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
 </style>
 </head>
 <body>
@@ -791,12 +794,22 @@ function entrarNoPortal(u){
   const hora = new Date().getHours();
   $('#ola').textContent = `${hora < 12 ? 'Bom dia' : hora < 18 ? 'Boa tarde' : 'Boa noite'}, ${u.nome.split(' ')[0]}`;
   const admin = u.papel === 'admin';
+  document.body.dataset.portalAdmin = admin ? '1' : '0';
   $('#abas').classList.toggle('hidden', !admin);
   $('#btnSenha').classList.toggle('hidden', !admin);
+  const secFranquias=document.getElementById('abaFranquias');
+  const tabFranquias=document.querySelector('[data-aba="franquias"]');
   if(!admin){
     for(const id of ['abaUsuarios','abaFranquias','abaManutencao','abaConteudo']){
-      const el=document.getElementById(id); if(el) el.classList.add('hidden');
+      const el=document.getElementById(id);
+      if(el){el.classList.add('hidden');el.style.setProperty('display','none','important')}
     }
+    if(tabFranquias) tabFranquias.style.setProperty('display','none','important');
+  }else{
+    for(const id of ['abaUsuarios','abaFranquias','abaManutencao','abaConteudo']){
+      const el=document.getElementById(id); if(el) el.style.removeProperty('display');
+    }
+    if(tabFranquias) tabFranquias.style.removeProperty('display');
   }
   desenhaModulos();
   $('#quemMod').textContent = u.nome;
@@ -1278,11 +1291,12 @@ $('#btnSenha').onclick = () => {
 };
 
 // ================= aba usuários =================
-const SUB_ABA = { modulos: 'Escolha a ferramenta que você quer usar.', usuarios: 'Crie acessos, libere módulos e desative quem saiu.', manutencao: 'Bloqueie temporariamente um módulo enquanto ele é ajustado.', conteudo: 'Edite páginas, textos, imagens e materiais da Central do Franqueado.' };
+const SUB_ABA = { modulos: 'Escolha a ferramenta que você quer usar.', usuarios: 'Crie acessos, libere módulos e desative quem saiu.', franquias: 'Cadastre franquias e vincule usuários existentes.', manutencao: 'Bloqueie temporariamente um módulo enquanto ele é ajustado.', conteudo: 'Edite páginas, textos, imagens e materiais da Central do Franqueado.' };
 function trocaAba(aba){
   $$('#abas button').forEach(x => x.setAttribute('aria-selected', x.dataset.aba === aba));
   $('#abaModulos').classList.toggle('hidden', aba !== 'modulos');
   $('#abaUsuarios').classList.toggle('hidden', aba !== 'usuarios');
+  const af=$('#abaFranquias'); if(af) af.classList.toggle('hidden', aba !== 'franquias');
   $('#abaManutencao').classList.toggle('hidden', aba !== 'manutencao');
   $('#abaConteudo').classList.toggle('hidden', aba !== 'conteudo');
   $('#olaSub').textContent = SUB_ABA[aba];
