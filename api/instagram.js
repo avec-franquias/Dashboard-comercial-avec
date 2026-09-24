@@ -1,4 +1,4 @@
-import {cors,dispatch,body,fail} from './_github.js';
+import {cors,dispatch,body,fail} from '../lib/github.js';
 export default async function handler(req,res){
   if(req.method==='OPTIONS'){cors(req,res);return res.status(204).end()}
   if(req.method!=='POST') return res.status(405).json({ok:false,error:'Metodo nao permitido'});
