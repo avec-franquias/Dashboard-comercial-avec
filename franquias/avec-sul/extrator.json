@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "extrator",
-  "atualizadoEm": "2026-09-24T19:19:08.554Z",
+  "atualizadoEm": "2026-09-24T19:19:43.670Z",
   "atualizadoPor": "christian.vieira",
   "dados": {
-    "portal-wpp-leads-v1": "{\"0x94deb04bf232c025:0xa7e9644b5e40540e\":{\"status\":\"Contatado\",\"at\":\"2026-09-18T20:11:38.902Z\"},\"0x94deaf806389fe3d:0xbc739d3a4db19093\":{\"status\":\"Contatado\",\"at\":\"2026-09-19T16:19:14.583Z\"},\"0x951979c0c060e1d5:0xfb2ff11ac0bcf9bd\":{\"status\":\"Contatado\",\"at\":\"2026-09-21T13:36:53.122Z\"},\"0x94deb044553c26d5:0xc4e731ecb751a7b8\":{\"status\":\"Contatado\",\"at\":\"2026-09-24T19:19:07.826Z\"}}"
+    "portal-wpp-leads-v1": "{\"0x94deb04bf232c025:0xa7e9644b5e40540e\":{\"status\":\"Contatado\",\"at\":\"2026-09-18T20:11:38.902Z\"},\"0x94deaf806389fe3d:0xbc739d3a4db19093\":{\"status\":\"Contatado\",\"at\":\"2026-09-19T16:19:14.583Z\"},\"0x951979c0c060e1d5:0xfb2ff11ac0bcf9bd\":{\"status\":\"Contatado\",\"at\":\"2026-09-21T13:36:53.122Z\"},\"0x94deb044553c26d5:0xc4e731ecb751a7b8\":{\"status\":\"Contatado\",\"at\":\"2026-09-24T19:19:42.977Z\"}}"
   }
 }
