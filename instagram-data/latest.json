@@ -4802,6 +4802,119 @@
         "popular"
       ],
       "finished_at": "2026-09-24T15:04:41.599Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "RS",
+        "cidade": "Porto Alegre",
+        "bairro": "Espírito Santo",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "ellasbeautyspace",
+          "profile_url": "https://www.instagram.com/ellasbeautyspace/",
+          "name": "ELLAS BEAUTY SPACE SALÃO DE BELEZA | PORTO ALEGRE ...",
+          "bio": "ELLAS BEAUTY SPACE SALÃO DE BELEZA | PORTO ALEGRE ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Porto Alegre",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "lesalon_total",
+          "profile_url": "https://www.instagram.com/lesalon_total/",
+          "name": "Salão de Beleza | Perucas e Laces | Shopping Total (@lesalon_total ...",
+          "bio": "Salão de Beleza | Perucas e Laces | Shopping Total (@lesalon_total ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Porto Alegre",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "estetica_alle",
+          "profile_url": "https://www.instagram.com/estetica_alle/",
+          "name": "Salão Beleza Porto Alegre",
+          "bio": "Salão Beleza Porto Alegre (@estetica_alle) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Porto Alegre",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaoespacofenix",
+          "profile_url": "https://www.instagram.com/salaoespacofenix/",
+          "name": "Espaço Fênix | Salão de Beleza no Largo do Machado ...",
+          "bio": "Espaço Fênix | Salão de Beleza no Largo do Machado ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Porto Alegre",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studioa.poa",
+          "profile_url": "https://www.instagram.com/studioa.poa/",
+          "name": "Salão de Beleza Porto Alegre",
+          "bio": "Salão de Beleza Porto Alegre (@studioa.poa) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Porto Alegre",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaodebelezaurbana",
+          "profile_url": "https://www.instagram.com/salaodebelezaurbana/",
+          "name": "Salão de Beleza • Porto Alegre",
+          "bio": "Salão de Beleza • Porto Alegre (@salaodebelezaurbana) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Porto Alegre",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 6,
+      "new_count": 6,
+      "new_usernames": [
+        "ellasbeautyspace",
+        "lesalon_total",
+        "estetica_alle",
+        "salaoespacofenix",
+        "studioa.poa",
+        "salaodebelezaurbana"
+      ],
+      "finished_at": "2026-09-24T19:28:15.834Z"
     }
   ]
 }
