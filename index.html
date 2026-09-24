@@ -804,10 +804,11 @@ function entrarNoPortal(u){
   avisoPublicar();
   mostra('portal');
   if (!admin) {
+    // Franqueado sempre inicia na home de módulos. Rotas administrativas nunca são reaproveitadas.
     trocaAba('modulos');
-    if (!location.hash || location.hash === '#franquias') {
-      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
-    }
+    const atual=decodeURIComponent(location.hash.slice(1));
+    const moduloValido=MODULOS.some(m=>m.id===atual && podeUsar(m));
+    if(!moduloValido && location.hash) history.replaceState(null,'',location.pathname+location.search);
   }
   rota();
 }
@@ -1530,6 +1531,11 @@ window.portalMenu = () => { location.hash = ''; };
 function rota(){
   if (!perfil) return;
   const id = decodeURIComponent(location.hash.slice(1));
+  if(perfil.papel!=='admin' && ['franquias','usuarios','manutencao','conteudo'].includes(id)){
+    history.replaceState(null,'',location.pathname+location.search);
+    trocaAba('modulos');
+    return fechaModulo();
+  }
   const m = MODULOS.find(x => x.id === id);
   if (!id) return fechaModulo();
   if (!m || !EMBUTIDOS[id]) { history.replaceState(null, '', location.pathname + location.search); return fechaModulo(); }
