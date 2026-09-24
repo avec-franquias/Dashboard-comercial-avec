@@ -349,6 +349,9 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
       <span class="titulo">Portal do franqueado</span>
       <span class="cresce"></span>
       <div class="quem"><span><b id="nomeTopo"></b><small id="papelTopo"></small></span><div class="av" id="avTopo"></div></div>
+      <select class="troca hidden" id="adminFranquiaView" aria-label="Franquia visualizada" style="max-width:230px">
+        <option value="">Franquia: selecione</option>
+      </select>
       <button class="btn linha peq hidden" id="btnSenha">Minha senha</button>
       <button class="btn peq" id="btnSair">Sair</button>
     </div>
@@ -797,6 +800,7 @@ function entrarNoPortal(u){
   document.body.dataset.portalAdmin = admin ? '1' : '0';
   $('#abas').classList.toggle('hidden', !admin);
   $('#btnSenha').classList.toggle('hidden', !admin);
+  configuraVisaoFranquiaAdmin(u,admin);
   const secFranquias=document.getElementById('abaFranquias');
   const tabFranquias=document.querySelector('[data-aba="franquias"]');
   if(!admin){
@@ -1536,9 +1540,124 @@ function desenhaConteudoAdmin(){
 }
 
 // o módulo Ativação usa estes dados para saber quem está logado
-window.portalUsuarioAtual = () => perfil && { login: perfil.login, nome: perfil.nome, papel: perfil.papel };
+window.portalUsuarioAtual = () => perfil && { login: perfil.login, nome: perfil.nome, papel: perfil.papel, franquiaId: perfil.franquiaId||null };
 window.portalUsuarios = () => usuarios().map(u => ({ login: u.login, nome: u.nome, papel: u.papel }));
 window.portalMenu = () => { location.hash = ''; };
+
+
+const PORTAL_API_BASE = location.hostname.endsWith('github.io') ? 'https://dashboard-comercial-avec.vercel.app' : '';
+window.PORTAL_ADMIN_FRANQUIA = localStorage.getItem('portal-admin-franquia-view')||'';
+
+async function configuraVisaoFranquiaAdmin(u,admin){
+  const sel=document.getElementById('adminFranquiaView');
+  if(!sel) return;
+  if(!admin){sel.classList.add('hidden'); return}
+  sel.classList.remove('hidden');
+  try{
+    const token=localStorage.getItem('portal-admin-token')||'';
+    const r=await fetch(PORTAL_API_BASE+'/api/franquias',{headers:{Authorization:'Bearer '+token},cache:'no-store'});
+    const d=await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error(d.error||'Falha ao carregar franquias');
+    const fr=(d.franquias||[]).filter(x=>x.ativo!==false);
+    sel.innerHTML='<option value="">Franquia: selecione</option>'+fr.map(f=>'<option value="'+esc(f.id)+'">'+esc(f.nome)+'</option>').join('');
+    let atual=window.PORTAL_ADMIN_FRANQUIA;
+    if(!fr.some(f=>f.id===atual)) atual=fr[0]?.id||'';
+    window.PORTAL_ADMIN_FRANQUIA=atual;
+    sel.value=atual;
+    if(atual) localStorage.setItem('portal-admin-franquia-view',atual);
+    sel.onchange=()=>{
+      window.PORTAL_ADMIN_FRANQUIA=sel.value;
+      if(sel.value)localStorage.setItem('portal-admin-franquia-view',sel.value);else localStorage.removeItem('portal-admin-franquia-view');
+      const box=document.getElementById('frames'); if(box) box.innerHTML='';
+      desenhaModulos();
+      if(location.hash) rota();
+    };
+  }catch(e){
+    console.warn('Visao de franquia:',e);
+    sel.innerHTML='<option value="">Franquia indisponivel</option>';
+  }
+}
+
+function portalFranquiaAlvo(){
+  if(!perfil) return '';
+  return perfil.papel==='admin' ? (window.PORTAL_ADMIN_FRANQUIA||'') : (perfil.franquiaId||'');
+}
+
+async function portalEstadoFranquia(modulo){
+  const franquiaId=portalFranquiaAlvo();
+  if(!franquiaId) return {ativo:false,dados:{}};
+  const token=localStorage.getItem('portal-admin-token')||'';
+  if(!token) return {ativo:false,dados:{}};
+  try{
+    const qs=new URLSearchParams({modulo});
+    if(perfil?.papel==='admin') qs.set('franquiaId',franquiaId);
+    const r=await fetch(PORTAL_API_BASE+'/api/franquia-data?'+qs.toString(),{headers:{Authorization:'Bearer '+token},cache:'no-store'});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error(j.error||'Falha ao carregar dados da franquia');
+    const dados=(j.dados&&typeof j.dados==='object'&&'dados' in j.dados)?j.dados.dados:(j.dados||{});
+    return {ativo:true,dados:dados&&typeof dados==='object'?dados:{}};
+  }catch(e){
+    console.warn('Dados da franquia '+modulo+':',e);
+    return {ativo:false,dados:{}};
+  }
+}
+
+function portalInjetaEstado(html,modulo,estado){
+  const dados=JSON.stringify(estado?.dados||{}).replace(/</g,'\\u003c');
+  const franquia=JSON.stringify(portalFranquiaAlvo());
+  const token=JSON.stringify(localStorage.getItem('portal-admin-token')||'');
+  const api=JSON.stringify(PORTAL_API_BASE);
+  const ativo=estado?.ativo?'true':'false';
+  const boot=`<script>(function(){
+    const REMOTE_ATIVO=${ativo};
+    const MODULO=${JSON.stringify(modulo)};
+    const FRANQUIA=${franquia};
+    const TOKEN=${token};
+    const API=${api};
+    const REMOTE=${dados};
+    const rawGet=Storage.prototype.getItem, rawSet=Storage.prototype.setItem, rawRemove=Storage.prototype.removeItem, rawClear=Storage.prototype.clear;
+    let timer=null;
+    function isLocal(self){try{return self===window.localStorage}catch{return false}}
+    function enviar(){
+      if(!REMOTE_ATIVO||!FRANQUIA||!TOKEN)return;
+      clearTimeout(timer);
+      timer=setTimeout(async()=>{
+        try{
+          const qs=new URLSearchParams({modulo:MODULO});
+          if(${perfil?.papel==='admin'?'true':'false'}) qs.set('franquiaId',FRANQUIA);
+          await fetch(API+'/api/franquia-data?'+qs.toString(),{
+            method:'POST',
+            headers:{'Content-Type':'application/json','Authorization':'Bearer '+TOKEN},
+            body:JSON.stringify({modulo:MODULO,franquiaId:FRANQUIA,dados:REMOTE})
+          });
+        }catch(e){console.warn('Sincronizacao da franquia:',e)}
+      },350);
+    }
+    Storage.prototype.getItem=function(k){
+      if(!isLocal(this)||!REMOTE_ATIVO)return rawGet.call(this,k);
+      if(Object.prototype.hasOwnProperty.call(REMOTE,k))return REMOTE[k];
+      const antigo=rawGet.call(this,k);
+      if(antigo!==null){REMOTE[k]=antigo;enviar()}
+      return antigo;
+    };
+    Storage.prototype.setItem=function(k,v){
+      if(!isLocal(this)||!REMOTE_ATIVO)return rawSet.call(this,k,v);
+      REMOTE[k]=String(v); rawSet.call(this,k,v); enviar();
+    };
+    Storage.prototype.removeItem=function(k){
+      if(!isLocal(this)||!REMOTE_ATIVO)return rawRemove.call(this,k);
+      delete REMOTE[k]; rawRemove.call(this,k); enviar();
+    };
+    Storage.prototype.clear=function(){
+      if(!isLocal(this)||!REMOTE_ATIVO)return rawClear.call(this);
+      for(const k of Object.keys(REMOTE))delete REMOTE[k];
+      enviar();
+    };
+    window.addEventListener('beforeunload',()=>{if(timer){clearTimeout(timer);timer=null} enviar()});
+  })();<\/script>`;
+  if(/<head[^>]*>/i.test(html)) return html.replace(/<head[^>]*>/i,m=>m+boot);
+  return boot+html;
+}
 
 
 
@@ -1560,7 +1679,7 @@ function rota(){
   }
   abreModulo(m);
 }
-function abreModulo(m){
+async function abreModulo(m){
   const box = $('#frames');
   [...box.children].forEach(el => el.classList.toggle('hidden', el.dataset.mod !== m.id));
   let fr = box.querySelector(`iframe[data-mod="${m.id}"]`);
@@ -1571,10 +1690,11 @@ function abreModulo(m){
     try { fr.contentDocument?.querySelector('#btnEditar')?.click(); } catch {}
   };
   if (!fr) {
+    const estado=await portalEstadoFranquia(m.id);
     fr = document.createElement('iframe');
     fr.dataset.mod = m.id; fr.title = m.nome;
     fr.setAttribute('allow', 'clipboard-read; clipboard-write');
-    fr.srcdoc = decodifica(EMBUTIDOS[m.id]);
+    fr.srcdoc = portalInjetaEstado(decodifica(EMBUTIDOS[m.id]),m.id,estado);
     fr.addEventListener('load', () => setTimeout(abreEdit, 80), { once: true });
     box.appendChild(fr);
   } else {
