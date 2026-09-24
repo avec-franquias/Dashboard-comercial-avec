@@ -31,23 +31,44 @@ jobs:
       - name: Instalar Vercel CLI
         run: npm install --global vercel@latest
 
-      - name: Vincular projeto existente
+      - name: Descobrir time e projeto na Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        shell: bash
         run: |
-          vercel link --yes \
-            --project dashboard-comercial-avec \
-            --scope avec-franquias \
-            --token "$VERCEL_TOKEN"
+          set -euo pipefail
+          TEAMS_JSON=$(curl -fsS -H "Authorization: Bearer $VERCEL_TOKEN" https://api.vercel.com/v2/teams)
+          TEAM_ID=$(printf '%s' "$TEAMS_JSON" | python3 -c "import json,sys; d=json.load(sys.stdin); xs=d.get('teams',[]); x=next((t for t in xs if t.get('slug')=='avec-franquias' or t.get('name')=='avec-franquias'), None); print((x or {}).get('id',''))")
+          if [ -z "$TEAM_ID" ]; then
+            echo "::error::Nao encontrei o time avec-franquias para este token."
+            exit 3
+          fi
+          PROJECT_JSON=$(curl -fsS -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v9/projects/dashboard-comercial-avec?teamId=$TEAM_ID")
+          PROJECT_ID=$(printf '%s' "$PROJECT_JSON" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('id',''))")
+          if [ -z "$PROJECT_ID" ]; then
+            echo "::error::Nao encontrei o projeto dashboard-comercial-avec."
+            exit 4
+          fi
+          echo "TEAM_ID=$TEAM_ID" >> "$GITHUB_ENV"
+          echo "PROJECT_ID=$PROJECT_ID" >> "$GITHUB_ENV"
+
+      - name: Criar vinculo local do projeto
+        run: |
+          mkdir -p .vercel
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          Path('.vercel/project.json').write_text(json.dumps({
+            "orgId": os.environ["TEAM_ID"],
+            "projectId": os.environ["PROJECT_ID"]
+          }), encoding='utf-8')
+          PY
 
       - name: Baixar configuracao de producao
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          vercel pull --yes \
-            --environment=production \
-            --scope avec-franquias \
-            --token "$VERCEL_TOKEN"
+          vercel pull --yes --environment=production --token "$VERCEL_TOKEN"
 
       - name: Build fora da infraestrutura da Vercel
         env:
@@ -59,6 +80,4 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          vercel deploy --prebuilt --prod \
-            --scope avec-franquias \
-            --token "$VERCEL_TOKEN"
+          vercel deploy --prebuilt --prod --token "$VERCEL_TOKEN"
