@@ -798,6 +798,12 @@ function entrarNoPortal(u){
   $('#trocaMod').innerHTML = MODULOS.filter(podeUsar).map(m => `<option value="${m.id}">${esc(m.nome)}</option>`).join('');
   avisoPublicar();
   mostra('portal');
+  if (!admin) {
+    trocaAba('modulos');
+    if (!location.hash || location.hash === '#franquias') {
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    }
+  }
   rota();
 }
 const SEMPRE_LIBERADOS = ['central','migrador'];   // disponíveis para todos os usuários
