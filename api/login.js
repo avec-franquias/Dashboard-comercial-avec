@@ -25,7 +25,7 @@ function confere(senha,guardado){
 function criarToken(u){
   const secret=process.env.GITHUB_TOKEN||process.env.PORTAL_SESSION_SECRET;
   if(!secret) throw new Error('Chave administrativa indisponivel no servidor');
-  const payload=Buffer.from(JSON.stringify({login:u.login,papel:u.papel,exp:Date.now()+30*24*60*60*1000})).toString('base64url');
+  const payload=Buffer.from(JSON.stringify({login:u.login,papel:u.papel,franquiaId:u.franquiaId||null,exp:Date.now()+30*24*60*60*1000})).toString('base64url');
   const sig=crypto.createHmac('sha256',secret).update(payload).digest('base64url');
   return payload+'.'+sig;
 }
@@ -61,8 +61,8 @@ export default async function handler(req,res){
     const u=(db.usuarios||[]).find(x=>String(x.login||'').toLowerCase()===login);
     if(!u||!confere(senha,u.senha))return res.status(401).json({ok:false,error:'Usuario ou senha incorretos'});
     if(!u.ativo)return res.status(403).json({ok:false,error:'Acesso desativado'});
-    const usuario={login:u.login,nome:u.nome,papel:u.papel,ativo:u.ativo,modulos:u.modulos||[]};
-    const token=u.papel==='admin'?criarToken(u):null;
+    const usuario={login:u.login,nome:u.nome,papel:u.papel,franquiaId:u.franquiaId||null,ativo:u.ativo,modulos:u.modulos||[]};
+    const token=criarToken(u);
     return res.status(200).json({ok:true,usuario,token});
   }catch(e){return res.status(500).json({ok:false,error:e.message||'Falha no login'})}
 }
