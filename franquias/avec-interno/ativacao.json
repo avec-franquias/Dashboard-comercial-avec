@@ -1,9 +1,904 @@
 {
   "franquiaId": "avec-interno",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-24T17:24:28.203Z",
+  "atualizadoEm": "2026-09-24T17:24:29.233Z",
   "atualizadoPor": "diana.gracia",
   "dados": {
-    "kanban-ativacao-sessao": "eae3caf9f907c1b9"
+    "db": {
+      "users": [
+        {
+          "id": "688e8ae94f0b6db3",
+          "name": "Christian Vieira",
+          "login": "christian.vieira",
+          "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "eae3caf9f907c1b9",
+          "name": "Diana de Gracia",
+          "login": "diana.gracia",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "c2dc140603e04a20",
+          "name": "kater Hoss",
+          "login": "kater.hoss",
+          "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "e3dccdab91f32ee7",
+          "name": "Tiago Barros",
+          "login": "tiago.barros",
+          "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "d3c0b2ae2cf76a0d",
+          "name": "luiz.gustavo",
+          "login": "luiz.gustavo",
+          "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "886e855650f8f8cd",
+          "name": "Eduardo Borges",
+          "login": "eduardo.borges",
+          "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "57649851bf6a3f9a",
+          "name": "Anderson Santana",
+          "login": "anderson.santana",
+          "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "77ed99388bdcedc9",
+          "name": "Vanessa Manholer",
+          "login": "vanessa.manholer",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "0f9f496d1b121aa6",
+          "name": "Simone Camargo",
+          "login": "simone.camargo",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "758b9e27bb4ae254",
+          "name": "Claiton Carmargo",
+          "login": "claiton.camargo",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "95f82027bbba3eac",
+          "name": "Larissa Santos",
+          "login": "larissa.santos",
+          "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "f064e14de3301631",
+          "name": "Rafael Duarte",
+          "login": "rafael.duarte",
+          "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "2480e16b926d6d1c",
+          "name": "Avec Goias",
+          "login": "harana.lima",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "8cb66e5dafd29a9d",
+          "name": "Avec São Paulo - Katia",
+          "login": "katia.oliveira",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "989e7c300d9915f3",
+          "name": "Avec Rio de Janeiro",
+          "login": "henrique.lopes",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "33bf21d5d4010a65",
+          "name": "Avec Aracaju",
+          "login": "gunther.augusto",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "1a5714770d413d24",
+          "name": "Avec Guarapuava",
+          "login": "felipe.lopes",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "ea8853f10d471116",
+          "name": "Avec Bauru",
+          "login": "mauricio.fudo",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "4833487041fb460c",
+          "name": "Avec Cascavel",
+          "login": "anderson.cordeiro",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "8a76728cf892a3e7",
+          "name": "Avec Espírito Santo",
+          "login": "rejane.silva",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "9083845061cfc453",
+          "name": "Avec Feira de Santana",
+          "login": "rafael.bomfim",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "bc6d4ef343233455",
+          "name": "Avec Ipatinga",
+          "login": "kleber.souza",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "5d9fd5c93330c31e",
+          "name": "Avec Paraiba",
+          "login": "vinicius.garrido",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "b7a62783a8961e09",
+          "name": "Avec Petrolina",
+          "login": "emanuel.elton",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "d0b0756c13a6b514",
+          "name": "Avec Rio Grande do Norte",
+          "login": "emanuel.guimaraes",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "a6345a119ad71980",
+          "name": "Avec São José do Rio Preto",
+          "login": "leandro.silva",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "44a6091bdccf2427",
+          "name": "Avec São Paulo - Harutyun",
+          "login": "harutyun.ghazaryan",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "0b6e71685ba3fc82",
+          "name": "Avec Osasco",
+          "login": "thiago.neves",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "0011c6c39815bbf0",
+          "name": "Avec Vitória da Conquista",
+          "login": "rafael.cardoso",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "2230b3ece94ad87e",
+          "name": "Avec Belo Horizonte",
+          "login": "leonardo.fernandes",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "69302f071d119d49",
+          "name": "Avec Fortaleza",
+          "login": "robert.sena",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "eebbedbd6fdcf829",
+          "name": "Avec Maceio",
+          "login": "robert.cordeiro",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "6ed2801c0460eb37",
+          "name": "Avec Sorocaba",
+          "login": "eduardo.afonso",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "3df56481f621fcb7",
+          "name": "Avec São Paulo - Emerson",
+          "login": "emerson.brandao",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "fd45ae21439e1f64",
+          "name": "Avec São Paulo ABC",
+          "login": "fabio.santos",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "0267c849302060a9",
+          "name": "Avec Baixada Santista",
+          "login": "wagner.junior",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "b8531b19809484a3",
+          "name": "Avec Itu",
+          "login": "carlos.eduardo",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "6ee0ad1690ec30cf",
+          "name": "Avec Curitiba",
+          "login": "gilson.augustinhaki",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "6bfe66dae08ac88e",
+          "name": "Avec Salvador",
+          "login": "gunther.taveiras",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "850cad8c89ffb55f",
+          "name": "Avec São Paulo - Leonardo",
+          "login": "leonardo.delachave",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "2e114a2d400be05e",
+          "name": "Avec Mato Grosso",
+          "login": "thiago.fernandes",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "844a5335ad83ac10",
+          "name": "Avec Presidente Prudente",
+          "login": "carlos.afonso",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "754d128d52a43258",
+          "name": "Avec Londrina",
+          "login": "rafael.vila",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "c0d67f292e2029a8",
+          "name": "Avec Maringá",
+          "login": "rafael.martins",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "4400f14efb031e9c",
+          "name": "Avec Distrito Federal",
+          "login": "ramon.silva",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "54b24b67e83065a8",
+          "name": "Avec Recife",
+          "login": "ricardo.noblat",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "28e863075b44be9a",
+          "name": "Avec Grande Florianópolis",
+          "login": "rodrigo.goncalves",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "647cd4624faeca8f",
+          "name": "Avec Novo Hamburgo",
+          "login": "rodrigo.leao",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "2cd75f2994fe26e0",
+          "name": "Avec Uberlândia",
+          "login": "celio.leao",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "340b8846ecb6599c",
+          "name": "Avec Barueri",
+          "login": "vanessa.chagas",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "9b1e1f286e3d50a0",
+          "name": "Avec Porto Alegre",
+          "login": "zania.kuelle",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "4d4a190d38cafcbf",
+          "name": "Bruno Tomasi",
+          "login": "bruno.tomasi",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "c0bf39157e1f1055",
+          "name": "GT Camila",
+          "login": "camila.cristina",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "eff8836a87bc59ce",
+          "name": "GT Bruna",
+          "login": "bruna.reis",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "4846f56eb18f1ba6",
+          "name": "GT Larissa",
+          "login": "larissa.silva",
+          "role": "franqueado",
+          "pass": "portal"
+        }
+      ],
+      "cards": [
+        {
+          "id": "e865b5ecea62a184",
+          "ownerId": "eae3caf9f907c1b9",
+          "column": "novo",
+          "clientCode": "tertert",
+          "title": "terter",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-24T11:37",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "9302ea3e77607db1",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "a4c630ffd0da8bf8",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "da76104d2bd42481",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "f409ae72f1e46fff",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "a114f3401ec5b40e",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "35d0817acb7ffbf9",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "d56f63f5109bd113",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "cc3caf1b88690f8e",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "07022df132506d8a",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "f7cbfa35e076f3cd",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "dc008db09841d9bf",
+              "type": "action",
+              "at": "2026-09-24T14:37:30.769Z",
+              "author": "Diana de Gracia",
+              "authorId": "eae3caf9f907c1b9",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-24T14:37:30.768Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-24T14:37:30.768Z",
+          "updatedAt": "2026-09-24T14:37:30.768Z",
+          "finishedAt": "",
+          "ordem": 1790260650769
+        },
+        {
+          "id": "90ab796e2fdaa586",
+          "ownerId": "4d4a190d38cafcbf",
+          "column": "novo",
+          "clientCode": "oijkjl",
+          "title": "ljlkj",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-24T13:18",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "f683f792e0a5227d",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "9f979597c63fcbb2",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "287c485f3aa6e397",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "abaeb02c9fb4759e",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "f224d7aa83d13f31",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "105818bf10121fef",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "6a06c3cc4a30e369",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "c0198eb839184167",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "ce95ee6955c35a72",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "ac004bb85e8f7734",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "cb85e00a7693ad18",
+              "type": "action",
+              "at": "2026-09-24T16:18:36.241Z",
+              "author": "Bruno Tomasi",
+              "authorId": "4d4a190d38cafcbf",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-24T16:18:36.240Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-24T16:18:36.240Z",
+          "updatedAt": "2026-09-24T16:18:36.240Z",
+          "finishedAt": "",
+          "ordem": 1790266716241
+        },
+        {
+          "id": "c46e371284fb1721",
+          "ownerId": "eae3caf9f907c1b9",
+          "column": "novo",
+          "clientCode": "qweoiuqoieuq",
+          "title": "oijoijqwe",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-24T13:18",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "4c7825261ef18ab5",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "7eb8f2619866cd4d",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "3618f1464dd445c2",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "68471f4e4805d993",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "eda9773dd575f11d",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "f28e7411f1ef4a66",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "892723e2d2194577",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "9f1dc3b06c53213f",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "243ecc8dfced1dee",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "32838c33a7862adb",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "32c646e0436d405a",
+              "type": "action",
+              "at": "2026-09-24T16:18:59.276Z",
+              "author": "Diana de Gracia",
+              "authorId": "eae3caf9f907c1b9",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-24T16:18:59.276Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-24T16:18:59.276Z",
+          "updatedAt": "2026-09-24T16:18:59.276Z",
+          "finishedAt": "",
+          "ordem": 1790266739276
+        },
+        {
+          "id": "4cc0e3123f36c401",
+          "ownerId": "4d4a190d38cafcbf",
+          "column": "novo",
+          "clientCode": "dasdas",
+          "title": "dasasd",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-24T13:21",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "873fdd460efbc1aa",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "23aae95cc2c96e02",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "ed9d1e045b797155",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "f2cdddd7297ea1ad",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "be032002dd25c5b7",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "0186b618141ed957",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "f4e5925e6a2fa91c",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "ac1aab7055e64495",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "44a2f11e67f19462",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "46360653af3ac540",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "39af28a0ead11483",
+              "type": "action",
+              "at": "2026-09-24T16:21:35.152Z",
+              "author": "Bruno Tomasi",
+              "authorId": "4d4a190d38cafcbf",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-24T16:21:35.151Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-24T16:21:35.151Z",
+          "updatedAt": "2026-09-24T16:21:35.151Z",
+          "finishedAt": "",
+          "ordem": 1790266895152
+        },
+        {
+          "id": "dec43d794adcaec0",
+          "ownerId": "4d4a190d38cafcbf",
+          "column": "novo",
+          "clientCode": "ytfvoluvfouytfvo,fivy",
+          "title": "6trytruytrfiuyg.uyg",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-24T14:14",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "928d31031930162a",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "afbb34701ca5e991",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "20bb83bb198bf254",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "1b6f0bdbe2fa026e",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "5bd3fc3ff673ec05",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "27ae70731d42bde2",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "64634582044d75d9",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "035914e4a0e0ac6c",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "7ec9e7c7de5887d2",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "67ac3f11980af94a",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "ea9c43b22115be7c",
+              "type": "action",
+              "at": "2026-09-24T17:14:39.128Z",
+              "author": "Bruno Tomasi",
+              "authorId": "4d4a190d38cafcbf",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-24T17:14:39.127Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-24T17:14:39.127Z",
+          "updatedAt": "2026-09-24T17:14:39.127Z",
+          "finishedAt": "",
+          "ordem": 1790270079128
+        }
+      ]
+    }
   }
 }
