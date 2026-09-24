@@ -1,6 +1,6 @@
 {
   "instalacao": "63bc96d9dc3c6c61",
-  "atualizadoEm": "2026-09-24T18:10:38.778Z",
+  "atualizadoEm": "2026-09-24T18:10:45.599Z",
   "usuarios": [
     {
       "login": "christian.vieira",
@@ -137,9 +137,22 @@
       "nome": "Claiton Carmargo",
       "papel": "franqueado",
       "ativo": true,
-      "modulos": [],
+      "modulos": [
+        "ativacao",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes",
+        "extrator",
+        "central",
+        "reunioes"
+      ],
       "senha": "pbkdf2$210000$097c7de40820e8d89829998a00cd99ef$f25a48fe5f981bd1b977a6324534ccd69c51e3097848cfeef60f2138e0a50e2d",
-      "criadoEm": "2026-09-18T18:13:27.665Z"
+      "criadoEm": "2026-09-18T18:13:27.665Z",
+      "franquiaId": "avec-sul",
+      "perfil": "franqueado"
     },
     {
       "login": "larissa.santos",
