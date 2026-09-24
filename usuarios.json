@@ -1,6 +1,6 @@
 {
   "instalacao": "63bc96d9dc3c6c61",
-  "atualizadoEm": "2026-09-24T13:25:00.515Z",
+  "atualizadoEm": "2026-09-24T13:38:34.240Z",
   "usuarios": [
     {
       "login": "christian.vieira",
@@ -549,9 +549,7 @@
         "reunioes"
       ],
       "senha": "pbkdf2$210000$71a559275d53c1b3b269d46e57e1bbd9$692b80bf5aa47433f12971b727416b189e7410cd4fb931f0117970114f4f4f87",
-      "criadoEm": "2026-09-24T13:24:41.791Z",
-      "franquiaId": "avec-interno",
-      "perfil": "franqueado"
+      "criadoEm": "2026-09-24T13:24:41.791Z"
     }
   ],
   "manutencao": {
