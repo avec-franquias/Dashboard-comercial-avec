@@ -137,7 +137,34 @@ export default async function handler(req,res){
  setTimeout(removerMonitoramento,300);setTimeout(removerMonitoramento,1200);
 })();
 </script>`;
-    html=html.replace('</body>',patch+'\n'+coveragePatch+'\n'+'<script src="/franquias-admin.js"></script>\n'+`
+    html=html.replace('
+<script>
+/* FRANQUEADO_FALLBACK_UI_V1 */
+(function(){
+  const MODS=['ativacao','arvore','previsao','taxas','propostas','instagram','clientes','extrator','central','reunioes'];
+  function corrigirUsuario(){
+    try{
+      const chaves=['usuarioPortal','portalUsuario','usuario','user'];
+      for(const area of [sessionStorage,localStorage]){
+        for(const k of chaves){
+          const raw=area.getItem(k); if(!raw) continue;
+          let u; try{u=JSON.parse(raw)}catch{continue}
+          if(u&&u.papel==='franqueado'){
+            let mudou=false;
+            if(!Array.isArray(u.modulos)||!u.modulos.length){u.modulos=[...MODS];mudou=true}
+            if(!u.franquiaId){u.franquiaId='acesso-'+String(u.login||'franqueado').toLowerCase().replace(/[^a-z0-9_-]/g,'-');mudou=true}
+            if(mudou)area.setItem(k,JSON.stringify(u));
+          }
+        }
+      }
+    }catch{}
+  }
+  corrigirUsuario();
+  window.addEventListener('storage',corrigirUsuario);
+  setInterval(corrigirUsuario,1000);
+})();
+</script>
+</body>',patch+'\n'+coveragePatch+'\n'+'<script src="/franquias-admin.js"></script>\n'+`
 <script>
 /* ADMIN_VERCEL_DIRECT_V3 */
 (function(){
