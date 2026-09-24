@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-24T13:45:44.046Z",
+ "atualizadoEm": "2026-09-24T13:46:22.085Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -570,6 +570,15 @@
    "modulos": [],
    "senha": "pbkdf2$210000$00d7d6dd887ec690135ff31d6e6e83df$c52c9cebc80483032ef6215f2581be8d02fbf604e4cef687e34431af0a25a938",
    "criadoEm": "2026-09-24T13:45:47.149Z"
+  },
+  {
+   "login": "larissa.silva",
+   "nome": "GT Larissa",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [],
+   "senha": "pbkdf2$210000$48f0e22594df7465265aaa654b38d8bd$2907ce37887e48aa54b4943d771dfe9d33f70e77de24e793059c103abe49a0e7",
+   "criadoEm": "2026-09-24T13:46:25.052Z"
   }
  ],
  "manutencao": {
