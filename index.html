@@ -368,6 +368,7 @@ textarea.inp{resize:vertical;min-height:120px}
       <div class="abas hidden" id="abas" role="tablist">
         <button role="tab" aria-selected="true" data-aba="modulos">Módulos</button>
         <button role="tab" aria-selected="false" data-aba="usuarios">Usuários</button>
+        <button role="tab" aria-selected="false" data-aba="franquias">Franquias</button>
         <button role="tab" aria-selected="false" data-aba="manutencao">Manutenção</button>
         <button role="tab" aria-selected="false" data-aba="conteudo">Conteúdo</button>
       </div>
@@ -410,6 +411,19 @@ textarea.inp{resize:vertical;min-height:120px}
         <p class="sub">Um módulo em manutenção fica bloqueado para os franqueados, com o recado que você escrever. Você continua abrindo normalmente para testar. A mudança chega aos franqueados em cerca de 1 minuto.</p>
         <p class="sub" id="statusGithub2" style="margin-top:-10px"></p>
         <div id="listaManut"></div>
+      </div>
+    </section>
+
+    <section id="abaFranquias" class="hidden">
+      <div class="painel">
+        <h2>Franquias</h2>
+        <p class="sub">Cadastre cada franquia uma vez e vincule os usuários que já existem. Não é necessário recriar acessos.</p>
+        <form id="formFranquia" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
+          <input class="inp" id="fNome" placeholder="Ex.: Avec Joinville" style="max-width:360px">
+          <button class="btn cheio" id="fCriar">Criar franquia</button>
+        </form>
+        <div class="msg" id="fMsg"></div>
+        <div id="listaFranquias"></div>
       </div>
     </section>
 
@@ -1630,6 +1644,7 @@ window.portalBuscarWhatsAppCliente = async ({ cliente_id, nome, documento = '' }
 })();
 </script>
 
+<script src="/franquias-admin.js?v=20260924-1020"></script>
 </body>
 </html>
 
