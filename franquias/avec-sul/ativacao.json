@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-24T18:08:05.913Z",
+  "atualizadoEm": "2026-09-24T19:15:27.513Z",
   "atualizadoPor": "christian.vieira",
   "dados": {
     "db": {
@@ -11,6 +11,20 @@
           "name": "Christian Vieira",
           "login": "christian.vieira",
           "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "43b2da7cffc3daf7",
+          "name": "Simone Camargo",
+          "login": "simone.camargo",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "edd316195d24c88e",
+          "name": "Claiton Carmargo",
+          "login": "claiton.camargo",
+          "role": "franqueado",
           "pass": "portal"
         }
       ],
