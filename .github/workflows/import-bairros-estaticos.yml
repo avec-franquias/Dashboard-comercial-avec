@@ -48,19 +48,27 @@ jobs:
               eid=v(x,'id','id_estado','codigo_uf','uf_id')
               uf=v(x,'uf','sigla')
               if eid and uf: emap[eid]=uf.upper()
+          # O Codigo do bairro = 7 digitos do Codigo IBGE do municipio + 3 digitos do bairro.
+          # Ex.: 1100015001 -> municipio 1100015.
           cmap={}
           for x in cidades:
-              cid=v(x,'id','id_municipio','municipio_id','codigo_ibge')
+              codigo=v(x,'codigo','codigo_ibge')
               nome=v(x,'nome','municipio','cidade')
-              eid=v(x,'estado','estado_id','id_estado','uf_id','codigo_uf')
-              uf=v(x,'uf','sigla') or emap.get(eid)
-              if cid and nome and uf: cmap[cid]=(uf.upper(),nome)
+              uf=v(x,'uf','sigla')
+              if codigo and nome and uf: cmap[codigo]=(uf.upper(),nome)
           out={}; usados=0
           for x in bairros:
               nome=v(x,'nome','bairro')
-              cid=v(x,'municipio','municipio_id','id_municipio','cidade_id')
+              codigo=v(x,'codigo')
+              uf_b=v(x,'uf','sigla')
+              cid=codigo[:7] if codigo and len(codigo)>=10 else None
               if nome and cid in cmap:
                   uf,cidade=cmap[cid]
+                  if uf_b and uf_b.upper()!=uf: continue
+                  # Dataset traz nomes como "Centro - Curitiba"; remove apenas o sufixo da cidade.
+                  sufixo=' - '+cidade
+                  if nome.casefold().endswith(sufixo.casefold()):
+                      nome=nome[:-len(sufixo)].strip()
                   out.setdefault(uf,{}).setdefault(norm(cidade),[]).append(nome)
                   usados+=1
           if usados<1000:
