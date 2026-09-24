@@ -1,0 +1,49 @@
+name: Corrigir acessos GT
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-gt-access.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  corrigir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Corrigir grupo GT
+        shell: python
+        run: |
+          import json, pathlib
+          p=pathlib.Path('usuarios.json')
+          db=json.loads(p.read_text(encoding='utf-8'))
+          mods=['ativacao','arvore','previsao','taxas','propostas','instagram','clientes','extrator','central','reunioes']
+          gid='grupo-gt'
+          frs=db.setdefault('franquias',[])
+          fr=next((x for x in frs if x.get('id')==gid),None)
+          if fr is None:
+              fr={'id':gid,'nome':'Grupo GT','ativo':True,'modulos':mods}
+              frs.append(fr)
+          else:
+              fr.update({'nome':'Grupo GT','ativo':True,'modulos':mods})
+          alvos={'camila.cristina','bruna.reis','larissa.silva'}
+          for u in db.get('usuarios',[]):
+              if u.get('login') in alvos:
+                  u['papel']='franqueado'
+                  u['franquiaId']=gid
+                  u['perfil']='funcionario'
+                  u['modulos']=mods
+                  u['ativo']=True
+          p.write_text(json.dumps(db,ensure_ascii=False,indent=1),encoding='utf-8')
+      - name: Publicar
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add usuarios.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Corrige acessos do grupo GT"
+          git push
