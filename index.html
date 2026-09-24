@@ -114,7 +114,7 @@ main.conteudo{max-width:1180px;margin:0 auto;padding:40px 24px 64px}
 .painel{background:#fff;border:1px solid var(--linha);border-radius:var(--r);padding:22px 24px;margin-bottom:18px}
 .painel h2{font-size:19px;font-weight:600;margin:0 0 4px}
 .painel .sub{color:var(--tinta-suave);margin:0 0 18px;font-size:15px}
-.linha-form{display:grid;grid-template-columns:1.2fr 1.4fr 1fr .9fr;gap:12px}
+.linha-form{display:grid;grid-template-columns:1.15fr 1.2fr .95fr .85fr 1.15fr;gap:12px}
 .chk-grupo{display:flex;flex-wrap:wrap;gap:6px 14px;margin:4px 0 16px}
 .chk{display:inline-flex;align-items:center;gap:6px;font-size:14px}
 .chk input{width:16px;height:16px;accent-color:var(--roxo)}
@@ -444,6 +444,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
             <div class="campo"><label for="nLogin">Usuário</label><input class="inp" id="nLogin" autocapitalize="none" spellcheck="false" placeholder="ex.: joinville"></div>
             <div class="campo"><label for="nSenha">Senha inicial</label><input class="inp" id="nSenha" type="text" autocomplete="off" placeholder="mínimo 8 caracteres"></div>
             <div class="campo"><label for="nPapel">Perfil</label><select class="inp" id="nPapel"><option value="franqueado">Franqueado</option><option value="admin">Administrador</option></select></div>
+            <div class="campo" id="campoNFranquia"><label for="nFranquia">Franquia vinculada</label><select class="inp" id="nFranquia"><option value="">Selecione a franquia</option></select></div>
           </div>
           <div class="campo" style="margin-bottom:0"><label>Módulos liberados</label></div>
           <div class="chk-grupo" id="nModulos"></div>
@@ -457,7 +458,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
         <p class="sub">Administradores veem todos os módulos. As mudanças são salvas no site na hora e valem para os franqueados em cerca de 1 minuto.</p>
         <p class="sub" id="statusGithub" style="margin-top:-10px"></p>
         <div class="tabela"><table>
-          <thead><tr><th>Usuário</th><th>Perfil</th><th>Situação</th><th>Módulos</th><th></th></tr></thead>
+          <thead><tr><th>Usuário</th><th>Perfil</th><th>Franquia vinculada</th><th>Situação</th><th>Módulos</th><th></th></tr></thead>
           <tbody id="corpoUsuarios"></tbody>
         </table></div>
       </div>
@@ -1367,24 +1368,74 @@ function desenhaManutencao(){
   });
 }
 const chkModulos = (sel, nome) => MODULOS.filter(m => false).map(m => `<label class="chk"><input type="checkbox" name="${nome}" value="${m.id}" ${sel.includes(m.id)?'checked':''}>${esc(m.nome)}</label>`).join('');
+
+let FRANQUIAS_ADMIN = [];
+let FRANQUIAS_CARREGANDO = null;
+function opcoesFranquias(valor=''){
+  return '<option value="">Sem vínculo</option>'+FRANQUIAS_ADMIN.filter(f=>f.ativo!==false).map(f=>'<option value="'+esc(f.id)+'" '+(f.id===valor?'selected':'')+'>'+esc(f.nome)+'</option>').join('');
+}
+function atualizaCampoNovaFranquia(){
+  const sel=$('#nFranquia'), campo=$('#campoNFranquia'), papel=$('#nPapel');
+  if(!sel||!campo||!papel)return;
+  const admin=papel.value==='admin';
+  campo.classList.toggle('hidden',admin);
+  if(admin) sel.value='';
+  else { const atual=sel.value; sel.innerHTML=opcoesFranquias(atual); if(atual && FRANQUIAS_ADMIN.some(f=>f.id===atual))sel.value=atual; }
+}
+async function garanteFranquiasAdmin(){
+  if(FRANQUIAS_ADMIN.length)return FRANQUIAS_ADMIN;
+  if(FRANQUIAS_CARREGANDO)return FRANQUIAS_CARREGANDO;
+  FRANQUIAS_CARREGANDO=(async()=>{
+    const token=localStorage.getItem('portal-admin-token')||'';
+    if(!token)return [];
+    const r=await fetch((window.PORTAL_API_BASE||'')+'/api/franquias',{headers:{Authorization:'Bearer '+token},cache:'no-store'});
+    const d=await r.json().catch(()=>({}));
+    if(!r.ok)throw new Error(d.error||'Falha ao carregar franquias');
+    FRANQUIAS_ADMIN=Array.isArray(d.franquias)?d.franquias:[];
+    atualizaCampoNovaFranquia();
+    return FRANQUIAS_ADMIN;
+  })();
+  try{return await FRANQUIAS_CARREGANDO}finally{FRANQUIAS_CARREGANDO=null}
+}
+async function vinculaUsuarioFranquia(login,franquiaId){
+  const token=localStorage.getItem('portal-admin-token')||'';
+  if(!token)throw new Error('Sessão administrativa indisponível. Entre novamente no Portal.');
+  const payload=franquiaId?{action:'link',login,franquiaId,perfil:'franqueado'}:{action:'unlink',login};
+  const r=await fetch((window.PORTAL_API_BASE||'')+'/api/franquias',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(payload)});
+  const d=await r.json().catch(()=>({}));
+  if(!r.ok)throw new Error(d.error||'Não foi possível atualizar o vínculo.');
+  FRANQUIAS_ADMIN=Array.isArray(d.franquias)?d.franquias:FRANQUIAS_ADMIN;
+  const atualizado=(d.usuarios||[]).find(x=>x.login===login);
+  const local=usuarios().find(x=>x.login===login);
+  if(local&&atualizado){
+    local.franquiaId=atualizado.franquiaId||null;
+    local.perfil=atualizado.perfil||null;
+    local.modulos=Array.isArray(atualizado.modulos)?atualizado.modulos:local.modulos;
+  }
+}
 $('#nModulos').innerHTML = chkModulos(MODULOS.map(m=>m.id), 'nmod');
+$('#nPapel').onchange=atualizaCampoNovaFranquia;
+garanteFranquiasAdmin().then(()=>{atualizaCampoNovaFranquia();desenhaUsuarios();}).catch(e=>console.warn('Franquias:',e.message));
 
 $('#formNovo').onsubmit = async e => {
   e.preventDefault();
   const msg = $('#msgNovo'); msg.className = 'msg erro';
   const nome = $('#nNome').value.trim(), login = normLogin($('#nLogin').value), senha = $('#nSenha').value;
-  const papel = $('#nPapel').value, modulos = $$('input[name="nmod"]:checked').map(i => i.value);
+  const papel = $('#nPapel').value, franquiaId = papel==='admin' ? '' : ($('#nFranquia')?.value||''), modulos = $('input[name="nmod"]:checked').map(i => i.value);
   if (!nome) { msg.textContent = 'Informe o nome.'; return $('#nNome').focus(); }
   if (!loginValido(login)) { msg.textContent = 'O usuário deve ter de 3 a 40 letras, números, ponto, hífen ou sublinhado, sem espaços.'; return $('#nLogin').focus(); }
   if (usuarios().some(u => u.login === login)) { msg.textContent = 'Esse usuário já existe.'; return $('#nLogin').focus(); }
   if (senha.length < 8) { msg.textContent = 'A senha inicial precisa ter pelo menos 8 caracteres.'; return $('#nSenha').focus(); }
+  if (papel!=='admin' && !franquiaId) { msg.textContent = 'Selecione a franquia que este usuário deve enxergar.'; return $('#nFranquia').focus(); }
   $('#btnCriar').disabled = true;
   try {
     const codigoNovo = papel === 'admin' ? novoCodigo() : null;
-    const novoU = { login, nome, papel, ativo:true, modulos, senha: await geraHash(senha), ...(codigoNovo ? { recuperacao: await geraHash(normCodigo(codigoNovo)) } : {}), criadoEm:new Date().toISOString() };
+    const franquiaEscolhida=FRANQUIAS_ADMIN.find(f=>f.id===franquiaId);
+    const modsGrupo=papel==='admin'?modulos:(Array.isArray(franquiaEscolhida?.modulos)?franquiaEscolhida.modulos:modulos);
+    const novoU = { login, nome, papel, ativo:true, modulos:modsGrupo, ...(franquiaId?{franquiaId,perfil:'franqueado'}:{}), senha: await geraHash(senha), ...(codigoNovo ? { recuperacao: await geraHash(normCodigo(codigoNovo)) } : {}), criadoEm:new Date().toISOString() };
     msg.className = 'msg'; msg.textContent = 'Salvando…';
     await alterarUsuarios(l => { if (l.some(u => u.login === login)) throw new Error('Esse usuário já existe.'); l.push(novoU); }, `Portal: cria ${login}`);
-    $('#formNovo').reset(); $('#nModulos').innerHTML = chkModulos(MODULOS.map(m=>m.id), 'nmod');
+    $('#formNovo').reset(); $('#nModulos').innerHTML = chkModulos(MODULOS.map(m=>m.id), 'nmod'); atualizaCampoNovaFranquia();
     msg.className = 'msg ok'; msg.textContent = `${nome} foi criado (usuário: ${login}). Em cerca de 1 minuto a pessoa já consegue entrar com a senha inicial.`;
     desenhaUsuarios();
     if (codigoNovo) { toast('Entregue este código ao novo administrador.'); mostraCodigo(codigoNovo); }
@@ -1394,6 +1445,7 @@ $('#formNovo').onsubmit = async e => {
 
 function desenhaUsuarios(){
   avisoPublicar();
+  if(!FRANQUIAS_ADMIN.length && !FRANQUIAS_CARREGANDO) garanteFranquiasAdmin().then(()=>desenhaUsuarios()).catch(()=>{});
   const lista = usuarios();
   $('#corpoUsuarios').innerHTML = lista.map(u => {
     const eu = u.login === perfil.login;
@@ -1402,6 +1454,7 @@ function desenhaUsuarios(){
       <td><select data-campo="papel" ${eu?'disabled':''} aria-label="Perfil de ${esc(u.nome)}">
         <option value="franqueado" ${u.papel==='franqueado'?'selected':''}>Franqueado</option>
         <option value="admin" ${u.papel==='admin'?'selected':''}>Administrador</option></select></td>
+      <td>${u.papel==='admin' ? '<span class="email">Visão global</span>' : `<select data-campo="franquia" aria-label="Franquia de ${esc(u.nome)}">${opcoesFranquias(u.franquiaId||'')}</select>`}</td>
       <td><span class="selo ${u.ativo?'on':'off'}">${u.ativo?'Ativo':'Desativado'}</span></td>
       <td>${u.papel==='admin' ? '<span class="email">Todos os módulos</span>' : `<div class="mods">${chkModulos(u.modulos||[], 'm-'+u.login)}</div>`}</td>
       <td><div class="acoes">
@@ -1421,7 +1474,14 @@ function desenhaUsuarios(){
       desenhaUsuarios();
     };
     const pap = tr.querySelector('[data-campo="papel"]');
-    pap.onchange = () => altera(u => u.papel = pap.value, 'Perfil atualizado.');
+    pap.onchange = () => altera(u => { u.papel = pap.value; if(pap.value==='admin'){delete u.franquiaId;delete u.perfil;} }, 'Perfil atualizado.');
+    const frSel=tr.querySelector('[data-campo="franquia"]');
+    if(frSel) frSel.onchange=async()=>{
+      tr.style.opacity=.5;
+      try{await vinculaUsuarioFranquia(login,frSel.value);toast(frSel.value?'Franquia vinculada.':'Vínculo removido.');}
+      catch(err){toast(err.message);}
+      desenhaUsuarios();
+    };
     tr.querySelectorAll(`input[name="m-${CSS.escape(login)}"]`).forEach(cb => cb.onchange = () =>
       altera(u => u.modulos = [...tr.querySelectorAll(`input[name="m-${CSS.escape(login)}"]:checked`)].map(i => i.value), 'Módulos atualizados.'));
     const bA = tr.querySelector('[data-acao="ativo"]');
@@ -1566,6 +1626,8 @@ async function configuraVisaoFranquiaAdmin(u,admin){
     const d=await r.json().catch(()=>({}));
     if(!r.ok) throw new Error(d.error||'Falha ao carregar franquias');
     const fr=(d.franquias||[]).filter(x=>x.ativo!==false);
+    FRANQUIAS_ADMIN=Array.isArray(d.franquias)?d.franquias:FRANQUIAS_ADMIN;
+    atualizaCampoNovaFranquia();
     sel.innerHTML='<option value="">Franquia: selecione</option>'+fr.map(f=>'<option value="'+esc(f.id)+'">'+esc(f.nome)+'</option>').join('');
     let atual=window.PORTAL_ADMIN_FRANQUIA;
     if(!fr.some(f=>f.id===atual)) atual=fr[0]?.id||'';
