@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-24T19:15:27.513Z",
+  "atualizadoEm": "2026-09-24T19:15:42.612Z",
   "atualizadoPor": "christian.vieira",
   "dados": {
     "db": {
@@ -28,7 +28,109 @@
           "pass": "portal"
         }
       ],
-      "cards": []
+      "cards": [
+        {
+          "id": "c39ba53b848c6511",
+          "ownerId": "43b2da7cffc3daf7",
+          "column": "novo",
+          "clientCode": "teste",
+          "title": "teste",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-24T16:15",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "ecf98637315437ea",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "435984f6fb2a0a67",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "2819306f10606575",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "ec66e320ae0dca46",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "4154304e1c6602d1",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "cef075ba28f54cad",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "3202eba3b6e2d9a8",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "ed1ae137cbd72eca",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "d633aeee159aff28",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "1a284d2a0d09ddc9",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "d1be23285f7ac1b8",
+              "type": "action",
+              "at": "2026-09-24T19:15:42.250Z",
+              "author": "Christian Vieira",
+              "authorId": "eb10fc1dbcf76c2a",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-24T19:15:42.249Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-24T19:15:42.249Z",
+          "updatedAt": "2026-09-24T19:15:42.249Z",
+          "finishedAt": "",
+          "ordem": 1790277342250
+        }
+      ]
     }
   }
 }
