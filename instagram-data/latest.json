@@ -2851,7 +2851,7 @@
           "username": "studiomarycorreaofficial",
           "profile_url": "https://www.instagram.com/studiomarycorreaofficial/",
           "name": "Studio MaryCorrea | Salão de Beleza | Porto Alegre ...",
-          "bio": "Studio MaryCorrea | Salão de Beleza | Porto Alegre ...",
+          "bio": "Studio MaryCorrea | Salão de Beleza | Porto Alegre ... - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -2878,21 +2878,6 @@
           "source": "duckduckgo"
         },
         {
-          "username": "theroompoa",
-          "profile_url": "https://www.instagram.com/theroompoa/",
-          "name": "THE ROOM • Salão de Beleza • POA",
-          "bio": "THE ROOM • Salão de Beleza • POA (@theroompoa) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Porto Alegre",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
           "username": "sinnara_capelli",
           "profile_url": "https://www.instagram.com/sinnara_capelli/",
           "name": "SINNARA CAPELLI | SALÃO DE BELEZA | PORTO ALEGRE (@sinnara_capelli ...",
@@ -2908,10 +2893,25 @@
           "source": "duckduckgo"
         },
         {
-          "username": "estetica_alle",
-          "profile_url": "https://www.instagram.com/estetica_alle/",
-          "name": "Salão Beleza Porto Alegre",
-          "bio": "Salão Beleza Porto Alegre (@estetica_alle) - Instagram",
+          "username": "studioa.poa",
+          "profile_url": "https://www.instagram.com/studioa.poa/",
+          "name": "Salão de Beleza Porto Alegre",
+          "bio": "Salão de Beleza Porto Alegre (@studioa.poa) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Porto Alegre",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "theroompoa",
+          "profile_url": "https://www.instagram.com/theroompoa/",
+          "name": "THE ROOM • Salão de Beleza • POA",
+          "bio": "THE ROOM • Salão de Beleza • POA (@theroompoa) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -2938,10 +2938,25 @@
           "source": "duckduckgo"
         },
         {
-          "username": "hbr.nilo",
-          "profile_url": "https://www.instagram.com/hbr.nilo/",
-          "name": "HBR | SALÃO DE BELEZA",
-          "bio": "HBR | SALÃO DE BELEZA (@hbr.nilo) • Instagram photos and videos",
+          "username": "magdashair",
+          "profile_url": "https://www.instagram.com/magdashair/",
+          "name": "Magda's Hair | Salão de Beleza e Estética em Porto Alegre ...",
+          "bio": "Magda's Hair | Salão de Beleza e Estética em Porto Alegre ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Porto Alegre",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "estetica_alle",
+          "profile_url": "https://www.instagram.com/estetica_alle/",
+          "name": "Salão Beleza Porto Alegre",
+          "bio": "Salão Beleza Porto Alegre (@estetica_alle) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -2968,25 +2983,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "casa22poa",
-          "profile_url": "https://www.instagram.com/casa22poa/",
-          "name": "Salão de Beleza, Porto Alegre - RS",
-          "bio": "Salão de Beleza, Porto Alegre - RS (@casa22poa) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Porto Alegre",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "studioa.poa",
-          "profile_url": "https://www.instagram.com/studioa.poa/",
-          "name": "Salão de Beleza Porto Alegre",
-          "bio": "Salão de Beleza Porto Alegre (@studioa.poa) - Instagram",
+          "username": "ellasbeautyspace",
+          "profile_url": "https://www.instagram.com/ellasbeautyspace/",
+          "name": "ELLAS BEAUTY SPACE SALÃO DE BELEZA | PORTO ALEGRE ...",
+          "bio": "ELLAS BEAUTY SPACE SALÃO DE BELEZA | PORTO ALEGRE ... - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -3014,22 +3014,12 @@
         }
       ],
       "total": 12,
-      "new_count": 12,
+      "new_count": 2,
       "new_usernames": [
-        "shineestetica_",
-        "studiomarycorreaofficial",
-        "moyyabeauty",
-        "theroompoa",
-        "sinnara_capelli",
-        "estetica_alle",
-        "kapo_hairlab",
-        "hbr.nilo",
-        "studiow_b",
-        "casa22poa",
-        "studioa.poa",
-        "salaodebelezaurbana"
+        "magdashair",
+        "ellasbeautyspace"
       ],
-      "finished_at": "2026-09-22T12:49:35.954Z"
+      "finished_at": "2026-09-24T19:21:19.965Z"
     },
     {
       "query": {
