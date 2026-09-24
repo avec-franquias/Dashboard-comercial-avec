@@ -1,6 +1,6 @@
 {
   "instalacao": "63bc96d9dc3c6c61",
-  "atualizadoEm": "2026-09-24T13:23:58.099Z",
+  "atualizadoEm": "2026-09-24T13:24:11.692Z",
   "usuarios": [
     {
       "login": "christian.vieira",
@@ -32,11 +32,14 @@
         "taxas",
         "propostas",
         "instagram",
-        "clientes",
-        "extrator"
+        "extrator",
+        "central",
+        "reunioes"
       ],
       "senha": "pbkdf2$210000$532abfd835748b2d50537c3b29905d40$b1bc1a9f9e66d29e66ddabb1181a6313f1169745e59b5c5a38146e518e48d743",
-      "criadoEm": "2026-09-15T19:54:54.408Z"
+      "criadoEm": "2026-09-15T19:54:54.408Z",
+      "franquiaId": "avec-interno",
+      "perfil": "franqueado"
     },
     {
       "login": "tiago.barros",
