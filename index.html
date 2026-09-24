@@ -13,6 +13,7 @@
 // Usuários: crie e altere pela aba "Usuários" do próprio portal
 // e publique o arquivo baixado no lugar deste.
 // ============================================================
+window.PORTAL_API_BASE = location.hostname.endsWith('github.io') ? 'https://dashboard-comercial-avec.vercel.app' : '';
 window.PORTAL_CONFIG = {
   // Módulos do menu (os arquivos estão embutidos no fim desta página). "id" é usado para liberar ou bloquear por usuário.
   modulos: [
@@ -655,13 +656,13 @@ if(!token){
   const login=perfil?.login||'';
   const senhaSessao=sessionStorage.getItem('portal-admin-password')||'';
   if(login && senhaSessao){
-    const lr=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({login,senha:senhaSessao})});
+    const lr=await fetch(window.PORTAL_API_BASE+'/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({login,senha:senhaSessao})});
     const ld=await lr.json().catch(()=>({}));
     if(lr.ok && ld.token){ token=ld.token; localStorage.setItem('portal-admin-token',token); }
   }
 }
 if(!token) throw new Error('Sessao administrativa indisponivel. Entre novamente no Portal.');
-  const r=await fetch('/api/admin-state',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({instalacao:INSTALACAO,usuarios:base,manutencao:m,mensagem:mensagem||'Portal: atualizacao administrativa'})});
+  const r=await fetch(window.PORTAL_API_BASE+'/api/admin-state',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({instalacao:INSTALACAO,usuarios:base,manutencao:m,mensagem:mensagem||'Portal: atualizacao administrativa'})});
   let d={}; try{d=await r.json()}catch{}
   if(!r.ok) throw new Error(d.error||'Nao foi possivel salvar pelo Portal.');
   LISTA=Array.isArray(d.usuarios)?d.usuarios:base;
@@ -783,7 +784,13 @@ async function iniciar(){
   let s = null; try { s = JSON.parse(localStorage.getItem(SESS) || 'null'); } catch {}
   if (s && s.instalacao !== INSTALACAO) s = null;
   const u = s && usuarios().find(x => x.login === s.login);
-  if (u && u.ativo) return entrarNoPortal(u);
+  const apiToken=localStorage.getItem('portal-admin-token')||'';
+  if (u && u.ativo && apiToken) return entrarNoPortal(u);
+  if (u && u.ativo && !apiToken) {
+    localStorage.removeItem(SESS);
+    aviso('Entre novamente uma vez para ativar a sincronização da sua franquia.');
+    return formEntrada('formLogin');
+  }
   if (s) { localStorage.removeItem(SESS); if (u && !u.ativo) aviso('Seu acesso está desativado. Fale com a franqueadora.'); }
   formEntrada('formLogin');
 }
@@ -1202,7 +1209,7 @@ $('#formLogin').onsubmit = async e => {
   if (!senha) { msg.textContent = 'Informe sua senha.'; return $('#senha').focus(); }
   const b = $('#btnEntrar'); b.disabled = true; b.textContent = 'Entrando…';
   try {
-    const r=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({login,senha})});
+    const r=await fetch(window.PORTAL_API_BASE+'/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({login,senha})});
     let d={}; try{d=await r.json()}catch{}
     if(!r.ok) throw new Error(d.error||'Usuário ou senha incorretos.');
     const u=d.usuario;
@@ -1545,7 +1552,7 @@ window.portalUsuarios = () => usuarios().map(u => ({ login: u.login, nome: u.nom
 window.portalMenu = () => { location.hash = ''; };
 
 
-const PORTAL_API_BASE = location.hostname.endsWith('github.io') ? 'https://dashboard-comercial-avec.vercel.app' : '';
+const PORTAL_API_BASE = window.PORTAL_API_BASE || '';
 window.PORTAL_ADMIN_FRANQUIA = localStorage.getItem('portal-admin-franquia-view')||'';
 
 async function configuraVisaoFranquiaAdmin(u,admin){
