@@ -41,7 +41,14 @@ export default async function handler(req,res){
     const admin=validar(req), b=body(req);
     if(!Array.isArray(b.usuarios)||!b.manutencao||typeof b.manutencao!=='object') return res.status(400).json({ok:false,error:'Dados administrativos invalidos'});
     const cur=await gh('/contents/'+FILE+'?ref='+encodeURIComponent(BRANCH));
-    const doc={instalacao:b.instalacao||'portal-franqueado',atualizadoEm:new Date().toISOString(),usuarios:b.usuarios,manutencao:b.manutencao};
+    const atual=JSON.parse(Buffer.from(cur.content,'base64').toString('utf8'));
+    const enviados=new Map(b.usuarios.map(u=>[u.login,u]));
+    const usuarios=(Array.isArray(atual.usuarios)?atual.usuarios:[]).map(u=>{
+      const novo=enviados.get(u.login);
+      return novo?{...u,...novo,franquiaId:novo.franquiaId??u.franquiaId,perfil:novo.perfil??u.perfil}:u;
+    });
+    for(const novo of b.usuarios){if(!usuarios.some(u=>u.login===novo.login))usuarios.push(novo)}
+    const doc={...atual,instalacao:b.instalacao||atual.instalacao||'portal-franqueado',atualizadoEm:new Date().toISOString(),usuarios,manutencao:b.manutencao,franquias:Array.isArray(atual.franquias)?atual.franquias:[]};
     await gh('/contents/'+FILE,{method:'PUT',body:JSON.stringify({message:b.mensagem||('Portal: atualizacao administrativa por '+admin.login),content:Buffer.from(JSON.stringify(doc,null,1),'utf8').toString('base64'),branch:BRANCH,sha:cur.sha})});
     return res.status(200).json({ok:true,usuarios:doc.usuarios,manutencao:doc.manutencao});
   }catch(e){return res.status(e.status||500).json({ok:false,error:e.message||'Falha administrativa'})}
