@@ -1,9 +1,533 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-24T16:21:00.657Z",
+  "atualizadoEm": "2026-09-24T18:08:04.609Z",
   "atualizadoPor": "christian.vieira",
   "dados": {
-    "kanban-ativacao-sessao": "688e8ae94f0b6db3"
+    "db": {
+      "users": [
+        {
+          "id": "eae3caf9f907c1b9",
+          "name": "Diana de Gracia",
+          "login": "diana.gracia",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "4d4a190d38cafcbf",
+          "name": "Bruno Tomasi",
+          "login": "bruno.tomasi",
+          "role": "franqueado",
+          "pass": "portal"
+        }
+      ],
+      "cards": [
+        {
+          "id": "e865b5ecea62a184",
+          "ownerId": "eae3caf9f907c1b9",
+          "column": "novo",
+          "clientCode": "tertert",
+          "title": "terter",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-24T11:37",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "9302ea3e77607db1",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "a4c630ffd0da8bf8",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "da76104d2bd42481",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "f409ae72f1e46fff",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "a114f3401ec5b40e",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "35d0817acb7ffbf9",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "d56f63f5109bd113",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "cc3caf1b88690f8e",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "07022df132506d8a",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "f7cbfa35e076f3cd",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "dc008db09841d9bf",
+              "type": "action",
+              "at": "2026-09-24T14:37:30.769Z",
+              "author": "Diana de Gracia",
+              "authorId": "eae3caf9f907c1b9",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-24T14:37:30.768Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-24T14:37:30.768Z",
+          "updatedAt": "2026-09-24T14:37:30.768Z",
+          "finishedAt": "",
+          "ordem": 1790260650769
+        },
+        {
+          "id": "90ab796e2fdaa586",
+          "ownerId": "4d4a190d38cafcbf",
+          "column": "novo",
+          "clientCode": "oijkjl",
+          "title": "ljlkj",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-24T13:18",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "f683f792e0a5227d",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "9f979597c63fcbb2",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "287c485f3aa6e397",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "abaeb02c9fb4759e",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "f224d7aa83d13f31",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "105818bf10121fef",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "6a06c3cc4a30e369",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "c0198eb839184167",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "ce95ee6955c35a72",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "ac004bb85e8f7734",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "cb85e00a7693ad18",
+              "type": "action",
+              "at": "2026-09-24T16:18:36.241Z",
+              "author": "Bruno Tomasi",
+              "authorId": "4d4a190d38cafcbf",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-24T16:18:36.240Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-24T16:18:36.240Z",
+          "updatedAt": "2026-09-24T16:18:36.240Z",
+          "finishedAt": "",
+          "ordem": 1790266716241
+        },
+        {
+          "id": "c46e371284fb1721",
+          "ownerId": "eae3caf9f907c1b9",
+          "column": "novo",
+          "clientCode": "qweoiuqoieuq",
+          "title": "oijoijqwe",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-24T13:18",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "4c7825261ef18ab5",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "7eb8f2619866cd4d",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "3618f1464dd445c2",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "68471f4e4805d993",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "eda9773dd575f11d",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "f28e7411f1ef4a66",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "892723e2d2194577",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "9f1dc3b06c53213f",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "243ecc8dfced1dee",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "32838c33a7862adb",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "32c646e0436d405a",
+              "type": "action",
+              "at": "2026-09-24T16:18:59.276Z",
+              "author": "Diana de Gracia",
+              "authorId": "eae3caf9f907c1b9",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-24T16:18:59.276Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-24T16:18:59.276Z",
+          "updatedAt": "2026-09-24T16:18:59.276Z",
+          "finishedAt": "",
+          "ordem": 1790266739276
+        },
+        {
+          "id": "4cc0e3123f36c401",
+          "ownerId": "4d4a190d38cafcbf",
+          "column": "novo",
+          "clientCode": "dasdas",
+          "title": "dasasd",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-24T13:21",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "873fdd460efbc1aa",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "23aae95cc2c96e02",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "ed9d1e045b797155",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "f2cdddd7297ea1ad",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "be032002dd25c5b7",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "0186b618141ed957",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "f4e5925e6a2fa91c",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "ac1aab7055e64495",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "44a2f11e67f19462",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "46360653af3ac540",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "39af28a0ead11483",
+              "type": "action",
+              "at": "2026-09-24T16:21:35.152Z",
+              "author": "Bruno Tomasi",
+              "authorId": "4d4a190d38cafcbf",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-24T16:21:35.151Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-24T16:21:35.151Z",
+          "updatedAt": "2026-09-24T16:21:35.151Z",
+          "finishedAt": "",
+          "ordem": 1790266895152
+        },
+        {
+          "id": "dec43d794adcaec0",
+          "ownerId": "4d4a190d38cafcbf",
+          "column": "novo",
+          "clientCode": "ytfvoluvfouytfvo,fivy",
+          "title": "6trytruytrfiuyg.uyg",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-24T14:14",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "928d31031930162a",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "afbb34701ca5e991",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "20bb83bb198bf254",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "1b6f0bdbe2fa026e",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "5bd3fc3ff673ec05",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "27ae70731d42bde2",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "64634582044d75d9",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "035914e4a0e0ac6c",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "7ec9e7c7de5887d2",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "67ac3f11980af94a",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "ea9c43b22115be7c",
+              "type": "action",
+              "at": "2026-09-24T17:14:39.128Z",
+              "author": "Bruno Tomasi",
+              "authorId": "4d4a190d38cafcbf",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-24T17:14:39.127Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-24T17:14:39.127Z",
+          "updatedAt": "2026-09-24T17:14:39.127Z",
+          "finishedAt": "",
+          "ordem": 1790270079128
+        }
+      ]
+    }
   }
 }
