@@ -1,0 +1,64 @@
+name: Deploy Vercel prebuilt
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy-vercel-prebuilt.yml'
+
+concurrency:
+  group: vercel-prebuilt-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verificar token
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error::Secret VERCEL_TOKEN nao configurado no repositorio."
+            exit 2
+          fi
+
+      - name: Instalar Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Vincular projeto existente
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          vercel link --yes \
+            --project dashboard-comercial-avec \
+            --scope avec-franquias \
+            --token "$VERCEL_TOKEN"
+
+      - name: Baixar configuracao de producao
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          vercel pull --yes \
+            --environment=production \
+            --scope avec-franquias \
+            --token "$VERCEL_TOKEN"
+
+      - name: Build fora da infraestrutura da Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          vercel build --prod --token "$VERCEL_TOKEN"
+
+      - name: Publicar prebuilt em producao
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          vercel deploy --prebuilt --prod \
+            --scope avec-franquias \
+            --token "$VERCEL_TOKEN"
