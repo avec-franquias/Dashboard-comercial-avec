@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-24T19:15:42.612Z",
+  "atualizadoEm": "2026-09-24T19:15:53.621Z",
   "atualizadoPor": "christian.vieira",
   "dados": {
     "db": {
@@ -32,7 +32,7 @@
         {
           "id": "c39ba53b848c6511",
           "ownerId": "43b2da7cffc3daf7",
-          "column": "novo",
+          "column": "acompanhamento",
           "clientCode": "teste",
           "title": "teste",
           "phone": "",
@@ -40,7 +40,7 @@
           "members": [],
           "contractDate": "2026-09-24T16:15",
           "firstContactDate": "",
-          "startDate": "",
+          "startDate": "2026-09-24T16:15",
           "dueDate": "",
           "painPoint": "",
           "painValidated": false,
@@ -117,18 +117,38 @@
               "author": "Christian Vieira",
               "authorId": "eb10fc1dbcf76c2a",
               "text": "adicionou este cartão a Novo cliente"
+            },
+            {
+              "id": "1aa0aeaa6c2f8383",
+              "type": "action",
+              "at": "2026-09-24T19:15:53.096Z",
+              "author": "Christian Vieira",
+              "authorId": "eb10fc1dbcf76c2a",
+              "text": "moveu este cartão de Novo cliente para Acompanhamento de uso"
+            },
+            {
+              "id": "8b0c78a07cd5a891",
+              "type": "action",
+              "at": "2026-09-24T19:15:53.096Z",
+              "author": "Christian Vieira",
+              "authorId": "eb10fc1dbcf76c2a",
+              "text": "registrou a apresentação em 24 de set. de 2026 às 16:15"
             }
           ],
           "history": [
             {
               "at": "2026-09-24T19:15:42.249Z",
               "column": "novo"
+            },
+            {
+              "at": "2026-09-24T19:15:53.096Z",
+              "column": "acompanhamento"
             }
           ],
           "createdAt": "2026-09-24T19:15:42.249Z",
-          "updatedAt": "2026-09-24T19:15:42.249Z",
+          "updatedAt": "2026-09-24T19:15:53.096Z",
           "finishedAt": "",
-          "ordem": 1790277342250
+          "ordem": 1790277353096
         }
       ]
     }
