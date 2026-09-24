@@ -10,7 +10,15 @@
   function esc2(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
   function addUi(){
     const abas=document.getElementById('abas');
-    if(!abas||document.querySelector('[data-aba="franquias"]'))return;
+    if(!abas)return;
+    const existente=document.querySelector('[data-aba="franquias"]');
+    if(existente&&document.getElementById('abaFranquias')){
+      const sec=document.getElementById('abaFranquias');
+      existente.onclick=()=>{document.querySelectorAll('#abas [data-aba]').forEach(x=>x.setAttribute('aria-selected',x===existente?'true':'false'));document.querySelectorAll('main.conteudo>section[id^="aba"]').forEach(x=>x.classList.add('hidden'));sec.classList.remove('hidden');carregar()};
+      const form=document.getElementById('formFranquia');
+      if(form)form.onsubmit=async e=>{e.preventDefault();const nome=document.getElementById('fNome').value.trim();if(!nome)return;try{await api({action:'create',nome});document.getElementById('fNome').value='';document.getElementById('fMsg').textContent='';await carregar()}catch(err){document.getElementById('fMsg').textContent=err.message}};
+      return;
+    }
     const b=document.createElement('button');
     b.setAttribute('role','tab');b.setAttribute('aria-selected','false');b.dataset.aba='franquias';b.textContent='Franquias';
     const before=[...abas.children].find(x=>x.dataset.aba==='manutencao');abas.insertBefore(b,before||null);
