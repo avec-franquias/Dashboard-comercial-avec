@@ -1,6 +1,6 @@
 {
   "instalacao": "63bc96d9dc3c6c61",
-  "atualizadoEm": "2026-09-24T13:23:20.076Z",
+  "atualizadoEm": "2026-09-24T13:23:58.099Z",
   "usuarios": [
     {
       "login": "christian.vieira",
@@ -550,6 +550,11 @@
     {
       "id": "avec-sul",
       "nome": "Avec Sul",
+      "ativo": true
+    },
+    {
+      "id": "avec-interno",
+      "nome": "Avec Interno",
       "ativo": true
     }
   ]
