@@ -9,6 +9,14 @@
   }
   function esc2(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
   function isAdmin(){
+    try{
+      const s=JSON.parse(localStorage.getItem('portal-sessao')||'null');
+      if(s&&s.login){
+        const lista=JSON.parse(localStorage.getItem('portal-usuarios')||'[]');
+        const u=Array.isArray(lista)?lista.find(x=>x.login===s.login):null;
+        if(u) return u.papel==='admin';
+      }
+    }catch{}
     const papel=(document.getElementById('papelTopo')?.textContent||'').trim().toLowerCase();
     return papel==='administrador';
   }
