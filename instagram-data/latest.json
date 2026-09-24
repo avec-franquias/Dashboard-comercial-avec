@@ -4476,6 +4476,151 @@
         "la.beautyconcept"
       ],
       "finished_at": "2026-09-24T11:44:31.996Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "PE",
+        "cidade": "Abreu e Lima",
+        "bairro": "Centro",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "salaoafim.pe",
+          "profile_url": "https://www.instagram.com/salaoafim.pe/",
+          "name": "Salão Afim | Abreu e Lima",
+          "bio": "Salão Afim | Abreu e Lima (@salaoafim.pe) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abreu e Lima",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiogenildabeauty",
+          "profile_url": "https://www.instagram.com/studiogenildabeauty/",
+          "name": "Salão de Beleza| Abreu e lima- PE",
+          "bio": "Salão de Beleza| Abreu e lima- PE (@studiogenildabeauty) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abreu e Lima",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studioninacabellos",
+          "profile_url": "https://www.instagram.com/studioninacabellos/",
+          "name": "Nina ‍♀️|salão de beleza|abreu e lima (@studioninacabellos ...",
+          "bio": "Nina ‍♀️|salão de beleza|abreu e lima (@studioninacabellos ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abreu e Lima",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salao_espacoviip",
+          "profile_url": "https://www.instagram.com/salao_espacoviip/",
+          "name": "𝗦𝗮𝗹𝗮̃𝗼 𝗲𝘀𝗽𝗮𝗰̧𝗼 𝘃𝗶𝗽 | ABREU E LIMA",
+          "bio": "𝗦𝗮𝗹𝗮̃𝗼 𝗲𝘀𝗽𝗮𝗰̧𝗼 𝘃𝗶𝗽 | ABREU E LIMA (@salao_espacoviip) • Instagram ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abreu e Lima",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "tokfinosalao",
+          "profile_url": "https://www.instagram.com/tokfinosalao/",
+          "name": "SALÃO TOK FINO",
+          "bio": "SALÃO TOK FINO (@tokfinosalao) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abreu e Lima",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "nagila_abreu.salaounidade2",
+          "profile_url": "https://www.instagram.com/nagila_abreu.salaounidade2/",
+          "name": "Nagila Abreu | Salão de Beleza | Unidade 2 (@nagila_abreu ...",
+          "bio": "Nagila Abreu | Salão de Beleza | Unidade 2 (@nagila_abreu ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abreu e Lima",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espaco_da_belezaleasantos",
+          "profile_url": "https://www.instagram.com/espaco_da_belezaleasantos/",
+          "name": "ABREU E LIMA-PE",
+          "bio": "ABREU E LIMA-PE (@espaco_da_belezaleasantos) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abreu e Lima",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "cromiesalon",
+          "profile_url": "https://www.instagram.com/cromiesalon/",
+          "name": "CROMIÉ salão de beleza",
+          "bio": "CROMIÉ salão de beleza (@cromiesalon) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Abreu e Lima",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 8,
+      "new_count": 8,
+      "new_usernames": [
+        "salaoafim.pe",
+        "studiogenildabeauty",
+        "studioninacabellos",
+        "salao_espacoviip",
+        "tokfinosalao",
+        "nagila_abreu.salaounidade2",
+        "espaco_da_belezaleasantos",
+        "cromiesalon"
+      ],
+      "finished_at": "2026-09-24T13:42:23.994Z"
     }
   ]
 }
