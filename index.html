@@ -1591,7 +1591,8 @@ window.portalSolicitarInstagram = async ({ nicho = '', uf = '', cidade = '', bai
 };
 
 // ================= módulos dentro do portal =================
-const EMBUTIDOS = JSON.parse($('#modulosEmbutidos').textContent);
+let EMBUTIDOS=null;
+const embutidos=()=>EMBUTIDOS||(EMBUTIDOS=JSON.parse($('#modulosEmbutidos').textContent));
 const decodifica = b64 => new TextDecoder().decode(Uint8Array.from(atob(b64), c => c.charCodeAt(0)));
 let centralAdminFrame = null;
 function desenhaConteudoAdmin(){
@@ -1601,7 +1602,7 @@ function desenhaConteudoAdmin(){
     centralAdminFrame = document.createElement('iframe');
     centralAdminFrame.title = 'Editor da Central do Franqueado';
     centralAdminFrame.setAttribute('allow', 'clipboard-read; clipboard-write');
-    centralAdminFrame.srcdoc = decodifica(EMBUTIDOS.central);
+    centralAdminFrame.srcdoc = decodifica(embutidos().central);
     box.innerHTML = '';
     box.appendChild(centralAdminFrame);
   }
@@ -1746,7 +1747,7 @@ function rota(){
   }
   const m = MODULOS.find(x => x.id === id);
   if (!id) return fechaModulo();
-  if (!m || !EMBUTIDOS[id]) { history.replaceState(null, '', location.pathname + location.search); return fechaModulo(); }
+  if (!m || !embutidos()[id]) { history.replaceState(null, '', location.pathname + location.search); return fechaModulo(); }
   if (!podeUsar(m)) { history.replaceState(null, '', location.pathname + location.search); fechaModulo(); toast('Seu usuário não tem acesso a esse módulo. Fale com a franqueadora.'); return; }
   if (emManut(m.id) && perfil.papel !== 'admin') {
     history.replaceState(null, '', location.pathname + location.search); fechaModulo();
