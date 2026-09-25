@@ -7,3 +7,5 @@ split-modules
 legacy-browser-compat
 
 login-visible-without-js
+
+health-check-page
