@@ -1,0 +1,96 @@
+name: Corrigir bairros estruturalmente
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-bairros-estrutural.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  corrigir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Corrigir funcao de bairros do Extrator
+        shell: python
+        run: |
+          from pathlib import Path
+          import re,json,base64
+
+          p=Path("index.html")
+          s=p.read_text(encoding="utf-8")
+          m=re.search(r'(<script type="application/json" id="modulosEmbutidos">)([\s\S]*?)(</script>)',s)
+          if not m:
+              raise SystemExit("modulosEmbutidos nao encontrado")
+
+          mods=json.loads(m.group(2))
+          raw=base64.b64decode(mods["extrator"]).decode("utf-8")
+
+          a=raw.find("async function atualizarBairros(){")
+          b=raw.find("async function build(){",a)
+          if a<0 or b<0:
+              raise SystemExit("funcao atualizarBairros nao encontrada")
+
+          new=r"""async function atualizarBairros(){
+            const cidadeValor=String($('#cidade').value||'').trim();
+            const estadoValor=String($('#estado').value||'').trim();
+
+            const partes=cidadeValor.split(',');
+            let ufCidade='';
+            let nome=cidadeValor;
+            if(partes.length>1){
+              ufCidade=String(partes.pop()||'').trim().toUpperCase().match(/[A-Z]{2}/)?.[0]||'';
+              nome=partes.join(',').trim();
+            }
+
+            const estadoNorm=estadoValor.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();
+            const ufEstado=(estadoNorm.match(/(?:^|\s)([A-Z]{2})(?:\s|$|[-–—])/)||[])[1]||'';
+            const uf=ufCidade||ufEstado;
+
+            opts('#bairro',['Carregando bairros...'],'Carregando bairros...');
+            $('#bairro').disabled=true;
+
+            let bairros=[];
+            try{
+              const base=await carregarBaseBairros();
+              bairros=base?.[uf]?.[chaveGeo(nome)]||[];
+            }catch(e){ console.warn('Base local de bairros:',e); }
+
+            if(!bairros.length && uf && nome){
+              try{
+                const ctrl=new AbortController();
+                const tm=setTimeout(()=>ctrl.abort(),8000);
+                const r=await fetch('/api/bairros?uf='+encodeURIComponent(uf)+'&cidade='+encodeURIComponent(nome)+'&ts='+Date.now(),{cache:'no-store',signal:ctrl.signal});
+                clearTimeout(tm);
+                if(r.ok){
+                  const j=await r.json();
+                  bairros=Array.isArray(j.bairros)?j.bairros:[];
+                }
+              }catch(e){ console.warn('API de bairros:',e); }
+            }
+
+            const conhecidos=unique('bairro').filter(x=>x&&x!=='Todos os bairros'&&x!=='Carregando bairros...');
+            bairros=[...new Set([...bairros,...conhecidos])].filter(Boolean).sort((x,y)=>x.localeCompare(y,'pt-BR'));
+
+            opts('#bairro',['Todos os bairros',...bairros],'Todos os bairros');
+            $('#bairro').disabled=false;
+          }
+
+"""
+          raw=raw[:a]+new+raw[b:]
+          mods["extrator"]=base64.b64encode(raw.encode("utf-8")).decode("ascii")
+          s=s[:m.start(2)]+json.dumps(mods,separators=(',',':'),ensure_ascii=False)+s[m.end(2):]
+          p.write_text(s,encoding="utf-8")
+
+      - name: Publicar correcao
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Extrator: corrige bairros na funcao principal"
+          git push
