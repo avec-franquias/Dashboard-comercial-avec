@@ -80,3 +80,5 @@ if(s.includes('embutidos()[')||s.includes('EMBUTIDOS')){
 fs.writeFileSync(indexPath,s,'utf8');
 console.log('modulos extraidos:',Object.keys(mods).length);
 console.log('index bytes:',Buffer.byteLength(s,'utf8'));
+
+// trigger split
