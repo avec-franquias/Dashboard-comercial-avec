@@ -73,9 +73,7 @@ s=s.replace(
 "    const html=await carregaModulo(m.id);\n    fr.srcdoc = portalInjetaEstado(html,m.id,estado);"
 );
 
-if(s.includes('embutidos()[')||s.includes('EMBUTIDOS')){
-  throw new Error('Ainda existem referencias antigas a EMBUTIDOS');
-}
+const refs=[]; let pos=0; while((pos=s.indexOf('EMBUTIDOS',pos))>=0){refs.push(s.slice(Math.max(0,pos-180),Math.min(s.length,pos+260)));pos+=9;} if(refs.length){throw new Error('Referencias restantes a EMBUTIDOS:\n'+refs.join('\n---\n'));}
 
 fs.writeFileSync(indexPath,s,'utf8');
 console.log('modulos extraidos:',Object.keys(mods).length);
