@@ -16,8 +16,9 @@ jobs:
         with:
           node-version: 24
       - name: Validar scripts inline
-        shell: node
+        shell: bash
         run: |
+          node <<'NODE'
           const fs=require('fs');
           const vm=require('vm');
           const s=fs.readFileSync('index.html','utf8');
@@ -33,6 +34,7 @@ jobs:
           }
           console.log('SCRIPT_TOTAL',i,'FAIL',fail);
           if(fail) process.exit(2);
+          NODE
       - name: Testar producao
         run: |
           set -eux
