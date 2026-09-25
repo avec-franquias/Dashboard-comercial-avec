@@ -1,0 +1,42 @@
+name: Verificar raiz de producao
+'on':
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/check-production-root.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Comparar index local e producao
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "LOCAL_SHA"
+          sha256sum index.html
+          echo "ROOT_HEADERS"
+          curl -sSIL https://dashboard-comercial-avec.vercel.app/ | sed -n '1,20p'
+          echo "INDEX_HEADERS"
+          curl -sSIL https://dashboard-comercial-avec.vercel.app/index.html | sed -n '1,20p'
+          curl -sS https://dashboard-comercial-avec.vercel.app/ -o /tmp/root.html
+          curl -sS https://dashboard-comercial-avec.vercel.app/index.html -o /tmp/index-live.html
+          echo "ROOT_SHA"
+          sha256sum /tmp/root.html
+          echo "INDEX_LIVE_SHA"
+          sha256sum /tmp/index-live.html
+          echo "ROOT_SIZE"
+          wc -c /tmp/root.html
+          echo "INDEX_LIVE_SIZE"
+          wc -c /tmp/index-live.html
+          echo "ROOT_TELA"
+          grep -o 'id="telaEntrada"[^>]*' /tmp/root.html | head -1 || true
+          echo "INDEX_TELA"
+          grep -o 'id="telaEntrada"[^>]*' /tmp/index-live.html | head -1 || true
+          echo "ROOT_TITLE"
+          grep -o '<title>[^<]*</title>' /tmp/root.html | head -1 || true
+          echo "INDEX_TITLE"
+          grep -o '<title>[^<]*</title>' /tmp/index-live.html | head -1 || true
