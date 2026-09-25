@@ -1,0 +1,79 @@
+name: Corrigir acessos de todos os franqueados
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-all-franchise-access.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  corrigir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Corrigir acessos
+        shell: python
+        run: |
+          import json, pathlib, re, unicodedata
+          p=pathlib.Path('usuarios.json')
+          db=json.loads(p.read_text(encoding='utf-8'))
+          mods=['ativacao','arvore','previsao','taxas','propostas','instagram','clientes','extrator','central','reunioes']
+
+          def slug(text):
+              s=unicodedata.normalize('NFD',str(text or ''))
+              s=''.join(ch for ch in s if unicodedata.category(ch)!='Mn')
+              s=s.lower().strip()
+              s=re.sub(r'[^a-z0-9]+','-',s).strip('-')
+              return s[:80]
+
+          frs=db.setdefault('franquias',[])
+          by_id={f.get('id'):f for f in frs if f.get('id')}
+          changed=[]
+
+          for u in db.get('usuarios',[]):
+              if u.get('papel')!='franqueado' or u.get('ativo') is False:
+                  continue
+              if u.get('franquiaId'):
+                  if not u.get('modulos'):
+                      fr=by_id.get(u.get('franquiaId'))
+                      u['modulos']=list((fr or {}).get('modulos') or mods)
+                      changed.append(u.get('login'))
+                  continue
+
+              nome=str(u.get('nome') or u.get('login') or 'Franquia').strip()
+              if nome.lower().startswith('avec '):
+                  gid=slug(nome)
+                  gnome=nome
+              else:
+                  gid='acesso-'+slug(u.get('login'))
+                  gnome='Acesso '+nome
+
+              if gid not in by_id:
+                  fr={'id':gid,'nome':gnome,'ativo':True,'modulos':list(mods)}
+                  frs.append(fr)
+                  by_id[gid]=fr
+              else:
+                  by_id[gid]['ativo']=True
+                  by_id[gid]['modulos']=list(mods)
+
+              u['franquiaId']=gid
+              u['perfil']=u.get('perfil') or 'franqueado'
+              u['modulos']=list(mods)
+              changed.append(u.get('login'))
+
+          db['atualizadoEm']=__import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat()
+          p.write_text(json.dumps(db,ensure_ascii=False,indent=1),encoding='utf-8')
+          print('usuarios corrigidos:',len(changed))
+
+      - name: Publicar
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add usuarios.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Corrige acessos de todos os franqueados"
+          git push
