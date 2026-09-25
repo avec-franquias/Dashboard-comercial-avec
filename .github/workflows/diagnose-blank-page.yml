@@ -1,0 +1,43 @@
+name: Diagnosticar tela branca
+'on':
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/diagnose-blank-page.yml
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Validar scripts inline
+        shell: node
+        run: |
+          const fs=require('fs');
+          const vm=require('vm');
+          const s=fs.readFileSync('index.html','utf8');
+          console.log('INDEX_BYTES',Buffer.byteLength(s));
+          const re=/<script(?![^>]*type=["']application\/json["'])[^>]*>([\s\S]*?)<\/script>/gi;
+          let m,i=0,fail=0;
+          while((m=re.exec(s))){
+            i++;
+            const js=m[1].trim();
+            if(!js) continue;
+            try{ new vm.Script(js,{filename:'inline-'+i+'.js'}); console.log('SCRIPT_OK',i,js.length); }
+            catch(e){ fail++; console.log('SCRIPT_FAIL',i,e.stack); }
+          }
+          console.log('SCRIPT_TOTAL',i,'FAIL',fail);
+          if(fail) process.exit(2);
+      - name: Testar producao
+        run: |
+          set -eux
+          curl -L --max-time 20 -D /tmp/headers.txt -o /tmp/page.html https://dashboard-comercial-avec.vercel.app/
+          cat /tmp/headers.txt
+          wc -c /tmp/page.html
+          grep -o "<title>[^<]*" /tmp/page.html | head -5 || true
+          grep -n "modulosEmbutidos\|formLogin\|carregaModulo" /tmp/page.html | head -20 || true
