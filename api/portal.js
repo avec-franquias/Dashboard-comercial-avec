@@ -50,7 +50,8 @@ function patchModulos(html){
     const norm=s=>String(s||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').trim().toUpperCase();
     const estadoRaw=String(estado.value||String(cidade.value||'').split(',').pop()||'').trim();
     const estadoNorm=norm(estadoRaw);
-    const uf=Object.keys(ESTADOS).find(k=>k===estadoNorm||ESTADOS[k]===estadoNorm)||estadoNorm;
+    const sigla=(estadoNorm.match(/(?:^|\\s)([A-Z]{2})(?:\\s|$|[-–—])/ )||[])[1];
+    const uf=sigla||Object.keys(ESTADOS).find(k=>k===estadoNorm||ESTADOS[k]===estadoNorm)||estadoNorm;
     const nome=String(cidade.value||'').replace(/,\\s*[A-Z]{2}\\s*$/,'').trim();
     if(!uf||!nome){bairro.innerHTML='<option>Todos os bairros</option>';return;}
     const valor=bairro.value;
