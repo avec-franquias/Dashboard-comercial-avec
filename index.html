@@ -891,15 +891,9 @@ async function iniciar() {
   }
   if (s && s.instalacao !== INSTALACAO) s = null;
   const u = s && usuarios().find((x) => x.login === s.login);
-  const apiToken = localStorage.getItem("portal-admin-token") || "";
-  if (u && u.ativo && apiToken) return entrarNoPortal(u);
-  if (u && u.ativo && !apiToken) {
-    localStorage.removeItem(SESS);
-    aviso("Entre novamente uma vez para ativar a sincroniza\xE7\xE3o da sua franquia.");
-    return formEntrada("formLogin");
-  }
   if (s) {
     localStorage.removeItem(SESS);
+    localStorage.removeItem("portal-admin-token");
     if (u && !u.ativo) aviso("Seu acesso est\xE1 desativado. Fale com a franqueadora.");
   }
   formEntrada("formLogin");
