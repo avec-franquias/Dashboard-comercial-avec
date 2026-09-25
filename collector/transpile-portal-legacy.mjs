@@ -33,3 +33,5 @@ for(const jsFile of ['franquias-admin.js']){
 }
 
 console.log('legacy transpile concluido');
+
+// trigger legacy transpile
