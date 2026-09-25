@@ -74,5 +74,5 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addUi,{once:true});else addUi();
   setTimeout(addUi,500);
   setTimeout(bloquearNaoAdmin,700);
-  setInterval(bloquearNaoAdmin,1500);
+  setTimeout(bloquearNaoAdmin,1800);
 })();
