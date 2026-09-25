@@ -1,0 +1,40 @@
+name: Compatibilizar Portal com navegadores antigos
+'on':
+  push:
+    branches:
+      - main
+    paths:
+      - collector/transpile-portal-legacy.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  transpile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install --no-save esbuild@0.25.10
+      - run: node collector/transpile-portal-legacy.mjs
+      - name: Validar sintaxe
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          const s=fs.readFileSync('index.html','utf8');
+          const re=/<script(?![^>]*type=["']application\/json["'])(?![^>]*src=)[^>]*>([\s\S]*?)<\/script>/gi;
+          let m,n=0; while((m=re.exec(s))){ if(!m[1].trim()) continue; new vm.Script(m[1]); n++; }
+          console.log('scripts validados',n);
+          console.log('optional chaining restante',(s.match(/\?\./g)||[]).length);
+          console.log('nullish restante',(s.match(/\?\?/g)||[]).length);
+          NODE
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html franquias-admin.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Portal: compatibiliza JavaScript com navegadores corporativos"
+          git push
