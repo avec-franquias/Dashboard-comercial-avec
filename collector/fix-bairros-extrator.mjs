@@ -58,3 +58,5 @@ mods.extrator=Buffer.from(raw,'utf8').toString('base64');
 s=s.replace(m[0],m[1]+JSON.stringify(mods)+m[3]);
 fs.writeFileSync(path,s,'utf8');
 console.log('ok');
+
+// trigger
