@@ -1,0 +1,68 @@
+name: Diagnostico real no navegador
+'on':
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/browser-diagnose.yml'
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install --no-save playwright@1.55.0
+      - run: npx playwright install --with-deps chromium
+      - name: Abrir portal e diagnosticar
+        shell: bash
+        run: |
+          cat > /tmp/diag.mjs <<'NODE'
+          import { chromium } from 'playwright';
+          const browser = await chromium.launch({headless:true});
+          const page = await browser.newPage({viewport:{width:390,height:844}});
+          page.on('console', m => console.log('CONSOLE', m.type(), m.text()));
+          page.on('pageerror', e => console.log('PAGEERROR', e.message));
+          page.on('requestfailed', r => console.log('REQUESTFAILED', r.url(), r.failure()?.errorText || ''));
+          const resp = await page.goto('https://dashboard-comercial-avec.vercel.app/', {waitUntil:'domcontentloaded', timeout:30000});
+          console.log('STATUS', resp?.status());
+          await page.waitForTimeout(3000);
+          console.log('TITLE', await page.title());
+          console.log('URL', page.url());
+          console.log('BODY_TEXT', JSON.stringify((await page.locator('body').innerText()).slice(0,1000)));
+          console.log('BODY_HTML_LEN', (await page.locator('body').innerHTML()).length);
+          console.log('TELA_COUNT', await page.locator('#telaEntrada').count());
+          if (await page.locator('#telaEntrada').count()) {
+            const x = await page.locator('#telaEntrada').evaluate(el => {
+              const s=getComputedStyle(el), r=el.getBoundingClientRect();
+              return {display:s.display,visibility:s.visibility,opacity:s.opacity,width:r.width,height:r.height,top:r.top,left:r.left,className:el.className};
+            });
+            console.log('TELA_STYLE', JSON.stringify(x));
+          }
+          console.log('FORM_COUNT', await page.locator('#formLogin').count());
+          if (await page.locator('#formLogin').count()) {
+            const x = await page.locator('#formLogin').evaluate(el => {
+              const s=getComputedStyle(el), r=el.getBoundingClientRect();
+              return {display:s.display,visibility:s.visibility,opacity:s.opacity,width:r.width,height:r.height,top:r.top,left:r.left,className:el.className};
+            });
+            console.log('FORM_STYLE', JSON.stringify(x));
+          }
+          const top = await page.evaluate(() => {
+            const els=[...document.querySelectorAll('body *')].map(el=>{
+              const r=el.getBoundingClientRect(),s=getComputedStyle(el);
+              return {tag:el.tagName,id:el.id,cls:el.className,display:s.display,visibility:s.visibility,position:s.position,z:s.zIndex,w:r.width,h:r.height,top:r.top,left:r.left};
+            }).filter(x=>x.w>=380&&x.h>=800&&x.display!=='none').slice(0,20);
+            return els;
+          });
+          console.log('FULLSCREEN_ELEMENTS', JSON.stringify(top));
+          await page.screenshot({path:'/tmp/portal.png',fullPage:true});
+          await browser.close();
+          NODE
+          node /tmp/diag.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portal-browser-diagnostic
+          path: /tmp/portal.png
