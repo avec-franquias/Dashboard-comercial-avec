@@ -10,7 +10,6 @@ html=html.replace(/<script(?![^>]*type=["']application\/json["'])([^>]*)>([\s\S]
   const out=transformSync(code,{
     loader:'js',
     target:['chrome70','edge79'],
-    format:'default',
     minify:false,
     legalComments:'inline'
   }).code;
@@ -25,7 +24,6 @@ for(const jsFile of ['franquias-admin.js']){
   const out=transformSync(src,{
     loader:'js',
     target:['chrome70','edge79'],
-    format:'default',
     minify:false,
     legalComments:'inline'
   }).code;
