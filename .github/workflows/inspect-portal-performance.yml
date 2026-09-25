@@ -18,7 +18,7 @@ jobs:
           from pathlib import Path
           s=Path("index.html").read_text(encoding="utf-8")
           print("INDEX_BYTES",len(s.encode("utf-8")))
-          for term in ["modulosEmbutidos","entrarNoPortal","srcdoc","atob(","Buffer.from","iframe","setInterval(","setTimeout("]:
+          for term in ["modulosEmbutidos","EMBUTIDOS","decodifica(","entrarNoPortal","srcdoc","atob(","iframe","setInterval(","setTimeout("]:
               print("\nTERM",term,"COUNT",s.count(term))
               start=0
               shown=0
