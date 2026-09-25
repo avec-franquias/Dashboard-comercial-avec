@@ -20,7 +20,7 @@ jobs:
       - name: Abrir portal e diagnosticar
         shell: bash
         run: |
-          cat > /tmp/diag.mjs <<'NODE'
+          cat > diag.mjs <<'NODE'
           import { chromium } from 'playwright';
           const browser = await chromium.launch({headless:true});
           const page = await browser.newPage({viewport:{width:390,height:844}});
@@ -61,7 +61,7 @@ jobs:
           await page.screenshot({path:'/tmp/portal.png',fullPage:true});
           await browser.close();
           NODE
-          node /tmp/diag.mjs
+          node diag.mjs
       - uses: actions/upload-artifact@v4
         with:
           name: portal-browser-diagnostic
