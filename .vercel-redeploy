@@ -5,3 +5,5 @@ portal-load-optimize
 split-modules
 
 legacy-browser-compat
+
+login-visible-without-js
