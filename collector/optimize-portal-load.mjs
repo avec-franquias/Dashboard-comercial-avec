@@ -16,3 +16,5 @@ s=s.replaceAll('EMBUTIDOS[id]','embutidos()[id]');
 
 fs.writeFileSync(path,s,'utf8');
 console.log('lazy modules enabled');
+
+// trigger optimization
