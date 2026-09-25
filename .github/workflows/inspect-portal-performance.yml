@@ -1,0 +1,30 @@
+name: Inspecionar performance Portal
+'on':
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/inspect-portal-performance.yml
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mapear carregamento inicial
+        shell: python
+        run: |
+          from pathlib import Path
+          s=Path("index.html").read_text(encoding="utf-8")
+          print("INDEX_BYTES",len(s.encode("utf-8")))
+          for term in ["modulosEmbutidos","entrarNoPortal","srcdoc","atob(","Buffer.from","iframe","setInterval(","setTimeout("]:
+              print("\nTERM",term,"COUNT",s.count(term))
+              start=0
+              shown=0
+              while shown<5:
+                  i=s.find(term,start)
+                  if i<0: break
+                  a=max(0,i-500); b=min(len(s),i+1800)
+                  print("\n---",i,"---\n",s[a:b])
+                  start=i+len(term); shown+=1
