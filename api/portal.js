@@ -152,7 +152,7 @@ export default async function handler(req,res){
   setTimeout(instalarLoginApi,250);
   setTimeout(instalarLoginApi,1000);
   setTimeout(instalarLoginApi,2500);
-  setInterval(instalarLoginApi,2000);
+  setTimeout(instalarLoginApi,5000);
 })();
 </script>`;
     html=html
@@ -206,7 +206,7 @@ export default async function handler(req,res){
   }
   corrigirUsuario();
   window.addEventListener('storage',corrigirUsuario);
-  setInterval(corrigirUsuario,1000);
+  setTimeout(corrigirUsuario,1500);
 })();
 </script>
 </body>',patch+'\n'+coveragePatch+'\n'+'<script src="/franquias-admin.js"></script>\n'+`
