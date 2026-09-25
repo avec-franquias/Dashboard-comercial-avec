@@ -629,7 +629,8 @@ async function ghGravar(g, lista, sha, mensagem, manut){
 
 // carrega a lista oficial
 async function carregaUsuarios(){
-  const g = ghCfg();
+  const g = NO_SITE ? null : ghCfg();
+  if (NO_SITE) { try { localStorage.removeItem(GH); } catch {} }
   let lido = false;
   if (g) {
     try { const { lista, manut } = await ghLer(g); if (lista) { LISTA = lista; MANUT = manut; TEM_ARQUIVO = lido = true; } }
@@ -637,7 +638,10 @@ async function carregaUsuarios(){
   }
   if (!lido && NO_SITE) {
     try {
-      const r = await fetch(`${ARQ}?t=${Date.now()}`, { cache: 'no-store' });
+      const ctrl = new AbortController();
+      const tm = setTimeout(() => ctrl.abort(), 5000);
+      const r = await fetch(`${ARQ}?t=${Date.now()}`, { cache: 'no-store', signal: ctrl.signal });
+      clearTimeout(tm);
       if (r.ok) { const j = await r.json(); if (Array.isArray(j.usuarios)) { LISTA = j.usuarios; MANUT = j.manutencao || {}; TEM_ARQUIVO = true; } }
     } catch {}
   }
@@ -781,6 +785,7 @@ function formEntrada(qual){
 function aviso(txt){ const a=$('#avisoEntrada'); a.textContent=txt||''; a.classList.toggle('hidden',!txt); }
 
 async function iniciar(){
+  formEntrada('formLogin');
   await carregaUsuarios();
   if (!usuarios().length) return formEntrada('formSetup');
   let s = null; try { s = JSON.parse(localStorage.getItem(SESS) || 'null'); } catch {}
