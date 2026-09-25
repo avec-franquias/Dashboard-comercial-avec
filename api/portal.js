@@ -46,7 +46,11 @@ function patchModulos(html){
     const estado=document.getElementById('estado');
     const bairro=document.getElementById('bairro');
     if(!cidade||!estado||!bairro) return;
-    const uf=String(estado.value||String(cidade.value||'').split(',').pop()||'').trim().toUpperCase();
+    const ESTADOS={AC:'ACRE',AL:'ALAGOAS',AP:'AMAPA',AM:'AMAZONAS',BA:'BAHIA',CE:'CEARA',DF:'DISTRITO FEDERAL',ES:'ESPIRITO SANTO',GO:'GOIAS',MA:'MARANHAO',MT:'MATO GROSSO',MS:'MATO GROSSO DO SUL',MG:'MINAS GERAIS',PA:'PARA',PB:'PARAIBA',PR:'PARANA',PE:'PERNAMBUCO',PI:'PIAUI',RJ:'RIO DE JANEIRO',RN:'RIO GRANDE DO NORTE',RS:'RIO GRANDE DO SUL',RO:'RONDONIA',RR:'RORAIMA',SC:'SANTA CATARINA',SP:'SAO PAULO',SE:'SERGIPE',TO:'TOCANTINS'};
+    const norm=s=>String(s||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').trim().toUpperCase();
+    const estadoRaw=String(estado.value||String(cidade.value||'').split(',').pop()||'').trim();
+    const estadoNorm=norm(estadoRaw);
+    const uf=Object.keys(ESTADOS).find(k=>k===estadoNorm||ESTADOS[k]===estadoNorm)||estadoNorm;
     const nome=String(cidade.value||'').replace(/,\\s*[A-Z]{2}\\s*$/,'').trim();
     if(!uf||!nome){bairro.innerHTML='<option>Todos os bairros</option>';return;}
     const valor=bairro.value;
