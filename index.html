@@ -478,7 +478,6 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
 <script type="application/json" id="modulosEmbutidos">{}</script>
 
 <script>var _a;
-const FONTE_INICIAL = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
 const CFG = window.PORTAL_CONFIG || {};
 const MODULOS = CFG.modulos || [];
 const $ = (s) => document.querySelector(s);
@@ -1928,7 +1927,7 @@ const MODULO_CACHE = /* @__PURE__ */ new Map();
 const decodifica = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
 async function carregaModulo(id) {
   if (MODULO_CACHE.has(id)) return MODULO_CACHE.get(id);
-  const r = await fetch("/portal-assets/modulos/" + encodeURIComponent(id) + ".b64", { cache: "force-cache" });
+  const r = await fetch(new URL("portal-assets/modulos/" + encodeURIComponent(id) + ".b64", location.href), { cache: "force-cache" });
   if (!r.ok) throw new Error("Nao foi possivel carregar o modulo " + id + ".");
   const html = decodifica((await r.text()).trim());
   MODULO_CACHE.set(id, html);
@@ -2248,7 +2247,7 @@ window.portalBuscarWhatsAppCliente = async ({ cliente_id, nome, documento = "" }
 })();
 </script>
 
-<script defer src="/franquias-admin.js?v=20260924-1020"></script>
+<!-- franquias-admin.js removido: a lógica já está incorporada no index e não deve bloquear DOMContentLoaded -->
 </body>
 </html>
 
