@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-paraiba",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T18:58:26.881Z",
+  "atualizadoEm": "2026-09-29T19:41:35.545Z",
   "atualizadoPor": "christian.vieira",
   "dados": {
     "db": {
@@ -24,14 +24,14 @@
           "id": "be7035d0f488850d",
           "name": "Simone Camargo",
           "login": "simone.camargo",
-          "role": "franqueado",
+          "role": "historico",
           "pass": "portal"
         },
         {
           "id": "1e30f5849a9a508a",
           "name": "Claiton Carmargo",
           "login": "claiton.camargo",
-          "role": "franqueado",
+          "role": "historico",
           "pass": "portal"
         },
         {
