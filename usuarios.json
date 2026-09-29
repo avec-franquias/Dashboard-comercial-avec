@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-29T13:49:21.115Z",
+ "atualizadoEm": "2026-09-29T13:49:28.310Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1089,7 +1089,7 @@
   {
    "login": "bruna.reis",
    "nome": "GT Bruna",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [
     "ativacao",
