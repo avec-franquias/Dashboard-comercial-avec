@@ -509,6 +509,33 @@ function desenhaModulos() {
   }
   carregarHomeCentral();
 }
+const HOME_API_SUPABASE = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home";
+const HOME_IMG_SUPABASE = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home-image";
+async function homeCredenciais(){
+  if (!perfil || perfil.papel !== "admin") throw new Error("Apenas administradores podem editar.");
+  const login = perfil.login || "";
+  const senha = sessionStorage.getItem("portal-admin-password") || "";
+  if (!login || !senha) throw new Error("Sessao administrativa indisponivel. Entre novamente no Portal.");
+  return { login, senha };
+}
+async function salvarHomeSupabase(doc){
+  const cred = await homeCredenciais();
+  const r = await fetch(HOME_API_SUPABASE,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...cred,data:doc})});
+  const j = await r.json().catch(()=>({}));
+  if(!r.ok || !j.ok) throw new Error(j.error || "Nao foi possivel salvar a pagina inicial.");
+  localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(doc));
+  window.PORTAL_PENDENTE_CENTRAL = doc;
+  return doc;
+}
+async function lerHomeSupabase(){
+  try{
+    const r=await fetch(HOME_API_SUPABASE+"?t="+Date.now(),{cache:"no-store"});
+    const j=await r.json().catch(()=>({}));
+    if(r.ok && j.ok && j.data && typeof j.data==="object" && Object.keys(j.data).length) return j.data;
+  }catch(e){ console.warn("Home Supabase:",e); }
+  return null;
+}
+
 const HOME_CONFIG_PADRAO = {
   titulo: "Portal do FRANQUEADO 2026",
   subtitulo: "Seu ponto de apoio para gest\xE3o, crescimento e excel\xEAncia na opera\xE7\xE3o da franquia.",
@@ -566,18 +593,9 @@ function imagemPortal(src) {
   }
 }
 async function publicarHomeAtual(homeParcial) {
-  let g = ghCfg();
-  if (!g) {
-    await conectarGithub();
-    g = ghCfg();
-  }
-  if (!g) throw new Error("Conecte o GitHub para publicar a altera\xE7\xE3o.");
-  const l = await ghLerJson(g, ARQ_CENTRAL);
-  const doc = l.doc ? clone(l.doc) : {};
-  doc.home = { ...doc.home || {}, ...homeParcial };
-  await ghGravarJson(g, ARQ_CENTRAL, doc, l.sha, "Portal: atualiza p\xE1gina inicial");
-  localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(doc));
-  window.PORTAL_PENDENTE_CENTRAL = doc;
+  const doc = await window.portalLerCentral() || {};
+  doc.home = { ...(doc.home || {}), ...homeParcial };
+  await salvarHomeSupabase(doc);
   await carregarHomeCentral();
   return doc;
 }
@@ -589,7 +607,7 @@ function renderHomePrincipal(h) {
     <h1>${esc(h.titulo)}</h1>
     <p class="destaque"><b>${esc(h.subtitulo)}</b></p>
     <p>${esc(h.intro)}</p>
-    <div class="home-bloco"><h2>Franqueado destaque do m\xEAs \u2014 ${esc(h.destaqueMes)}</h2><div class="home-destaques">${cards}</div></div>
+    <div class="home-bloco"><h2>Melhores do m\xEAs \u2014 ${esc(h.destaqueMes)}</h2><div class="home-destaques">${cards}</div></div>
     <div class="home-bloco"><h2>${esc(h.novidadeTitulo)}</h2><p><b>${esc(h.novidadePeriodo)}</b></p>${h.novidadeTexto ? `<p>${esc(h.novidadeTexto)}</p>` : ""}${novidades ? `<div class="novidade-fotos">${novidades}</div>` : ""}${h.novidadeUrl ? `<div class="home-links"><a href="${esc(h.novidadeUrl)}" target="_blank" rel="noopener">Abrir material</a></div>` : ""}</div>
     <div class="home-bloco"><h2>${esc(h.ajudaTitulo)}</h2><p>${esc(h.ajudaTexto)}</p><div class="home-links">${ajuda}<a href="${esc(h.instagram)}" target="_blank" rel="noopener">Instagram</a><a href="${esc(h.facebook)}" target="_blank" rel="noopener">Facebook</a><a href="${esc(h.linkedin)}" target="_blank" rel="noopener">LinkedIn</a></div></div>
   </article>`;
@@ -631,31 +649,18 @@ async function prepararFotoLocal(inputId, hiddenId, previewId, statusId, pasta) 
   if (!file) throw new Error("Escolha uma imagem primeiro.");
   if (!file.type.startsWith("image/")) throw new Error("Selecione um arquivo de imagem.");
   const status = $(statusId), preview = $(previewId);
-  status.textContent = "Preparando foto\u2026";
-  let g = ghCfg();
-  if (!g) {
-    await conectarGithub();
-    g = ghCfg();
-  }
-  if (!g) throw new Error("Conecte o GitHub para enviar a foto.");
+  status.textContent = "Preparando foto...";
   const blob = await arquivoComoJpg(file);
   const base64 = await blobParaBase64(blob);
-  const nome = slugImg(file.name, "imagem");
-  const caminho = `portal-assets/${pasta}/${nome}`;
-  status.textContent = "Enviando para o GitHub\u2026";
-  await gh(g, `/contents/${caminho}`, {
-    method: "PUT",
-    body: {
-      message: `Portal: envia imagem ${nome}`,
-      content: base64,
-      branch: g.branch
-    }
-  });
-  const url = imagemPortal(caminho);
-  $(hiddenId).value = caminho;
-  preview.src = url + `?v=${Date.now()}`;
-  status.textContent = "\u2713 Foto publicada no GitHub";
-  return caminho;
+  const cred = await homeCredenciais();
+  status.textContent = "Enviando foto...";
+  const r = await fetch(HOME_IMG_SUPABASE,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...cred,filename:slugImg(file.name,"imagem"),mime:"image/jpeg",base64})});
+  const j = await r.json().catch(()=>({}));
+  if(!r.ok || !j.ok) throw new Error(j.error || "Nao foi possivel enviar a foto.");
+  $(hiddenId).value = j.url;
+  preview.src = j.url + "?v=" + Date.now();
+  status.textContent = "✓ Foto enviada";
+  return j.url;
 }
 async function blobParaBase64(blob) {
   return await new Promise((resolve, reject) => {
@@ -687,7 +692,7 @@ function abrirModalEditorHome(h) {
   while (fotos.length < 6) fotos.push({ titulo: "", texto: "", imagem: "" });
   $("#modalRaiz").innerHTML = `<div class="modal-fundo"><form class="modal home-edit" id="formEditarHome" novalidate>
     <h2>Atualizar p\xE1gina inicial</h2>
-    <p class="sub">Edite tudo o que aparece na tela principal. As fotos s\xE3o enviadas diretamente para o GitHub. Na primeira vez, o navegador pedir\xE1 a conex\xE3o; depois disso, a administradora n\xE3o precisa repetir.</p>
+    <p class="sub">Edite tudo o que aparece na tela principal. As altera\xE7\xF5es ficam salvas no Portal e podem ser feitas por qualquer administrador, sem token do GitHub.</p>
     <div class="editor-home-grid">
       <div class="campo"><label>T\xEDtulo</label><input class="inp" id="ehTitulo" value="${esc(h.titulo)}"></div>
       <div class="campo"><label>M\xEAs do destaque</label><input class="inp" id="ehMes" value="${esc(h.destaqueMes)}"></div>
@@ -831,14 +836,8 @@ function abrirModalEditorHome(h) {
     const btn = $("#salvarEditarHome"), msg = $("#msgEditarHome"), area = $("#areaDownloadPacote");
     btn.disabled = true;
     msg.className = "msg";
-    msg.textContent = "Salvando no GitHub\u2026";
+    msg.textContent = "Salvando...";
     try {
-      let g = ghCfg();
-      if (!g) {
-        await conectarGithub();
-        g = ghCfg();
-      }
-      if (!g) throw new Error("Conecte o GitHub para publicar as altera\xE7\xF5es.");
       const home = {
         titulo: $("#ehTitulo").value.trim(),
         subtitulo: $("#ehSub").value.trim(),
@@ -857,26 +856,18 @@ function abrirModalEditorHome(h) {
         facebook: $("#ehFB").value.trim(),
         linkedin: $("#ehLI").value.trim()
       };
-      let doc = {};
-      try {
-        const l = await ghLerJson(g, ARQ_CENTRAL);
-        doc = l.doc ? clone(l.doc) : {};
-        doc.home = home;
-        await ghGravarJson(g, ARQ_CENTRAL, doc, l.sha, "Portal: atualiza p\xE1gina inicial");
-      } catch (err) {
-        throw err;
-      }
-      localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(doc));
-      window.PORTAL_PENDENTE_CENTRAL = doc;
+      const doc = await window.portalLerCentral() || {};
+      doc.home = home;
+      await salvarHomeSupabase(doc);
       if (area) area.classList.add("hidden");
       msg.className = "msg ok";
-      msg.textContent = "\u2713 P\xE1gina inicial publicada no GitHub.";
-      toast("P\xE1gina inicial atualizada.");
+      msg.textContent = "✓ Página inicial atualizada.";
+      toast("Página inicial atualizada.");
       await carregarHomeCentral();
       setTimeout(() => $("#modalRaiz").innerHTML = "", 700);
     } catch (err) {
       msg.className = "msg erro";
-      msg.textContent = err.message || "N\xE3o foi poss\xEDvel publicar.";
+      msg.textContent = err.message || "Não foi possível salvar.";
     } finally {
       btn.disabled = false;
     }
@@ -1375,20 +1366,16 @@ async function ghGravarJson(g, nome, obj, sha, mensagem) {
 }
 window.portalPodeEditarCentral = () => !!perfil && perfil.papel === "admin";
 window.portalLerCentral = async () => {
+  const remoto = await lerHomeSupabase();
+  if (remoto) {
+    localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(remoto));
+    return remoto;
+  }
   if (NO_SITE) {
     try {
       const r = await fetch(`${ARQ_CENTRAL}?t=${Date.now()}`, { cache: "no-store" });
       if (r.ok) return await r.json();
     } catch {
-    }
-  }
-  const g = ghCfg();
-  if (g) {
-    try {
-      const { doc } = await ghLerJson(g, ARQ_CENTRAL);
-      if (doc) return doc;
-    } catch (e) {
-      console.warn("GitHub:", e.message);
     }
   }
   try {
@@ -1401,13 +1388,7 @@ window.portalAlterarCentral = async (padrao, fn, mensagem) => {
   if (!perfil || perfil.papel !== "admin") throw new Error("Apenas administradores podem editar.");
   const d = await window.portalLerCentral() || clone(padrao);
   await fn(d);
-  const g = ghCfg();
-  if (g) {
-    const l = await ghLerJson(g, ARQ_CENTRAL);
-    await ghGravarJson(g, ARQ_CENTRAL, d, l.sha, mensagem || "Portal: atualiza conte\xFAdo da Central");
-  }
-  localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(d));
-  window.PORTAL_PENDENTE_CENTRAL = d;
+  await salvarHomeSupabase(d);
   return d;
 };
 window.portalEnviarArquivoCentral = async (file, pasta = "arquivos") => {
