@@ -1658,6 +1658,78 @@ async function portalEstadoFranquia(modulo) {
     return { ativo: true, dados: {} };
   }
 }
+window.portalVendaGanhaParaAtivacao = async (lead) => {
+  const franquiaId = portalFranquiaAlvo();
+  const token = localStorage.getItem("portal-admin-token") || "";
+  if (!franquiaId || !token) throw new Error("Franquia ou sessao indisponivel.");
+  const estado = await portalEstadoFranquia("ativacao");
+  const dados = estado && estado.dados && typeof estado.dados === "object" ? clone(estado.dados) : {};
+  const db = dados.db && typeof dados.db === "object" ? dados.db : { users: [], cards: [] };
+  if (!Array.isArray(db.users)) db.users = [];
+  if (!Array.isArray(db.cards)) db.cards = [];
+  if (lead && lead.salesOpportunityId && db.cards.some((c) => c.salesOpportunityId === lead.salesOpportunityId)) {
+    return { ok: true, duplicado: true };
+  }
+  const rid = () => {
+    try { return crypto.randomUUID().replace(/-/g, "").slice(0, 16); }
+    catch { return Math.random().toString(16).slice(2) + Date.now().toString(16); }
+  };
+  const login = String((lead && lead.ownerLogin) || (perfil && perfil.login) || "").toLowerCase();
+  let dono = db.users.find((u) => String(u.login || "").toLowerCase() === login);
+  if (!dono) {
+    dono = {
+      id: rid(),
+      name: (lead && lead.ownerName) || (perfil && perfil.nome) || login || "Franqueado",
+      login: login || ("vendas-" + rid()),
+      role: "franqueado",
+      pass: "portal"
+    };
+    db.users.push(dono);
+  }
+  const nowIso = new Date().toISOString();
+  const cardId = rid();
+  db.cards.push({
+    id: cardId,
+    ownerId: dono.id,
+    column: "novo",
+    clientCode: "",
+    title: (lead && lead.title) || "Novo cliente",
+    phone: (lead && lead.phone) || "",
+    labels: [],
+    members: [],
+    contractDate: (lead && lead.wonAt) || nowIso.slice(0,16),
+    firstContactDate: "",
+    startDate: "",
+    dueDate: "",
+    painPoint: "",
+    painValidated: false,
+    pontosAtencao: "",
+    oportunidades: lead && lead.value ? "Venda fechada no funil: " + Number(lead.value).toLocaleString("pt-BR",{style:"currency",currency:"BRL"}) : "",
+    observacoes: (lead && lead.notes) || "",
+    checklists: [{ id: rid(), name: "BÁSICO", items: ["Boas-vindas","Configurações gerais","Agenda","Caixa","Comanda","Fluxo básico de atendimento"].map((text) => ({ id: rid(), text, done: false })) }],
+    uso: [7,15,30].map((dia) => ({ id: rid(), dia, status: "", nota: "", em: "" })),
+    attachments: [],
+    activity: [{ id: rid(), type: "action", at: nowIso, author: (lead && lead.ownerName) || (perfil && perfil.nome) || "Portal", authorId: dono.id, text: "cliente enviado automaticamente pelo Funil de Vendas" }],
+    history: [{ at: nowIso, column: "novo" }],
+    createdAt: nowIso,
+    updatedAt: nowIso,
+    finishedAt: "",
+    ordem: Date.now(),
+    salesOpportunityId: (lead && lead.salesOpportunityId) || ""
+  });
+  dados.db = db;
+  const qs = new URLSearchParams({ modulo: "ativacao" });
+  if (perfil && perfil.papel === "admin") qs.set("franquiaId", franquiaId);
+  const r = await fetch(PORTAL_API_BASE + "/api/franquia-data?" + qs.toString(), {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
+    body: JSON.stringify({ modulo: "ativacao", franquiaId, dados })
+  });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.error || "Nao foi possivel enviar o cliente para Ativacao.");
+  return { ok: true, duplicado: false, cardId };
+};
+
 function portalInjetaEstado(html, modulo, estado) {
   const dados = JSON.stringify((estado == null ? void 0 : estado.dados) || {}).replace(/</g, "\\u003c");
   const franquia = JSON.stringify(portalFranquiaAlvo());
