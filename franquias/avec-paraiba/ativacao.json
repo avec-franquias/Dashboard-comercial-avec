@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-paraiba",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T18:58:25.644Z",
+  "atualizadoEm": "2026-09-29T18:58:26.881Z",
   "atualizadoPor": "christian.vieira",
   "dados": {
     "db": {
@@ -46,6 +46,13 @@
           "name": "luiz.gustavo",
           "login": "luiz.gustavo",
           "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "7a039f33e420a5c8",
+          "name": "Avec Paraiba",
+          "login": "vinicius.garrido",
+          "role": "franqueado",
           "pass": "portal"
         }
       ],
