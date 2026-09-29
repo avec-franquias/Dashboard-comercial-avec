@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-29T18:07:08.161Z",
+ "atualizadoEm": "2026-09-29T18:07:10.637Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -169,7 +169,8 @@
     "central",
     "clientes",
     "migrador",
-    "extrator"
+    "extrator",
+    "arvore"
    ],
    "senha": "pbkdf2$210000$d0da45dd3169dbb2fb0ed150e4f236e8$75f8eb7a7d7e0189c4cc6c55c81741868733fd03c3d9386f997ad096ab42fd58",
    "recuperacao": "pbkdf2$210000$2f6a798503dcaa05b9fcfa0025cbcd9e$2d828eb7b13464b100406334a77a8a280a1c222296faa5fde6d8bd7ac680b05c",
