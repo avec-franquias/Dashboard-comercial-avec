@@ -6096,6 +6096,119 @@
         "ludaabeauty"
       ],
       "finished_at": "2026-09-29T13:26:56.200Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SC",
+        "cidade": "Correia Pinto",
+        "bairro": "Carregando bairros...",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "studio_essenciafemininaa",
+          "profile_url": "https://www.instagram.com/studio_essenciafemininaa/",
+          "name": "Studio Essência feminina Salão de Beleza |Correia Pinto (@studio ...",
+          "bio": "Studio Essência feminina Salão de Beleza |Correia Pinto (@studio ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Correia Pinto",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "renanpenteadosalaodebeleza",
+          "profile_url": "https://www.instagram.com/renanpenteadosalaodebeleza/",
+          "name": "Salão de Beleza Renan Penteado. (@renanpenteadosalaodebeleza ...",
+          "bio": "Salão de Beleza Renan Penteado. (@renanpenteadosalaodebeleza ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Correia Pinto",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "labelle.beleza.estetica",
+          "profile_url": "https://www.instagram.com/labelle.beleza.estetica/",
+          "name": "La Belle | Studio de Beleza & Estética | Correia Pinto SC ...",
+          "bio": "La Belle | Studio de Beleza & Estética | Correia Pinto SC ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Correia Pinto",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiorosangelapereira_",
+          "profile_url": "https://www.instagram.com/studiorosangelapereira_/",
+          "name": "CORREIA PINTO | Rosangela Pereira (@studiorosangelapereira ...",
+          "bio": "CORREIA PINTO | Rosangela Pereira (@studiorosangelapereira ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Correia Pinto",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "socorropintopinto",
+          "profile_url": "https://www.instagram.com/socorropintopinto/",
+          "name": "MARIA & SALÃO ESTAÇÃO BELEZA ️",
+          "bio": "MARIA & SALÃO ESTAÇÃO BELEZA ️ (@socorropintopinto) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Correia Pinto",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "bellariaexpress",
+          "profile_url": "https://www.instagram.com/bellariaexpress/",
+          "name": "Bellaria Express | SALÃO DE BELEZA",
+          "bio": "Bellaria Express | SALÃO DE BELEZA (@bellariaexpress) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Correia Pinto",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 6,
+      "new_count": 6,
+      "new_usernames": [
+        "studio_essenciafemininaa",
+        "renanpenteadosalaodebeleza",
+        "labelle.beleza.estetica",
+        "studiorosangelapereira_",
+        "socorropintopinto",
+        "bellariaexpress"
+      ],
+      "finished_at": "2026-09-29T13:35:14.527Z"
     }
   ]
 }
