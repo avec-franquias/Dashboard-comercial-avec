@@ -1651,18 +1651,17 @@ function portalInjetaEstado(html, modulo, estado) {
     }
     Storage.prototype.getItem=function(k){
       if(!isLocal(this)||!REMOTE_ATIVO)return rawGet.call(this,k);
-      if(Object.prototype.hasOwnProperty.call(REMOTE,k))return REMOTE[k];
-      const antigo=rawGet.call(this,k);
-      if(antigo!==null){REMOTE[k]=antigo;enviar()}
-      return antigo;
+      return Object.prototype.hasOwnProperty.call(REMOTE,k)?REMOTE[k]:null;
     };
     Storage.prototype.setItem=function(k,v){
       if(!isLocal(this)||!REMOTE_ATIVO)return rawSet.call(this,k,v);
-      REMOTE[k]=String(v); rawSet.call(this,k,v); enviar();
+      REMOTE[k]=String(v);
+      enviar();
     };
     Storage.prototype.removeItem=function(k){
       if(!isLocal(this)||!REMOTE_ATIVO)return rawRemove.call(this,k);
-      delete REMOTE[k]; rawRemove.call(this,k); enviar();
+      delete REMOTE[k];
+      enviar();
     };
     Storage.prototype.clear=function(){
       if(!isLocal(this)||!REMOTE_ATIVO)return rawClear.call(this);
