@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-29T13:09:35.483Z",
+  "updated_at": "2026-09-29T20:59:29.512Z",
   "clientes": {
     "25276": {
       "cliente_id": "25276",
@@ -12,6 +12,18 @@
       "website": "https://www.solasalonstudios.com/locations/dover?utm_source=gmb&utm_medium=organic",
       "encontrado_em": "2026-09-21T14:33:31.849Z",
       "nome_encontrado": "Sola Salons"
+    },
+    "66512": {
+      "cliente_id": "66512",
+      "nome": "#BONITA",
+      "documento": "38009509000178",
+      "status": "sem_telefone",
+      "telefone": "",
+      "fonte": "Google Maps",
+      "maps_url": "https://www.google.com/maps/search/%23BONITA%2038009509000178",
+      "website": "",
+      "encontrado_em": "2026-09-29T20:59:26.314Z",
+      "nome_encontrado": ""
     },
     "74339": {
       "cliente_id": "74339",
