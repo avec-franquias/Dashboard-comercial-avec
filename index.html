@@ -200,6 +200,20 @@ textarea.inp{resize:vertical;min-height:120px}
 .conteudo-admin{padding-bottom:14px}
 .editor-central-admin{height:calc(100vh - 235px);min-height:700px;border:1px solid var(--linha);border-radius:12px;overflow:hidden;background:#fff}
 .editor-central-admin iframe{width:100%;height:100%;border:0;display:block;background:#fff}
+.logs-admin{padding-bottom:24px}
+.logs-head,.logs-card-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logs-head h2,.logs-card h3{margin:0}
+.logs-filtros{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0}
+.logs-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0}
+.logs-kpi,.logs-card{border:1px solid var(--linha);border-radius:12px;background:#fff;padding:14px}
+.logs-kpi b{display:block;font-size:26px;line-height:1.1}.logs-kpi span{display:block;color:var(--tinta-suave);font-size:12px;margin-top:4px}
+.logs-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.logs-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:10px}.logs-table th{text-align:left;color:var(--tinta-suave);font-size:11px;padding:8px 6px;border-bottom:1px solid var(--linha)}.logs-table td{padding:8px 6px;border-bottom:1px solid #efeff4;vertical-align:top}
+.logs-bar{display:flex;align-items:center;gap:8px;margin:9px 0}.logs-bar b{min-width:135px;font-size:12px}.logs-bar-track{height:8px;border-radius:99px;background:var(--cinza);overflow:hidden;flex:1}.logs-bar-fill{height:100%;background:var(--roxo);border-radius:99px}.logs-bar small{width:38px;text-align:right;color:var(--tinta-suave)}
+.logs-empty{color:var(--tinta-suave);padding:18px 0;font-size:13px}
+@media(max-width:900px){.logs-filtros,.logs-kpis,.logs-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.logs-filtros,.logs-kpis,.logs-grid{grid-template-columns:1fr}}
+
 
 /* ---------- novo painel inicial ---------- */
 .painel-inicial{display:grid;grid-template-columns:280px minmax(0,1fr);gap:18px;align-items:start}
@@ -402,6 +416,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
         <button role="tab" aria-selected="false" data-aba="franquias">Franquias</button>
         <button role="tab" aria-selected="false" data-aba="manutencao">Manutenção</button>
         <button role="tab" aria-selected="false" data-aba="conteudo">Conteúdo</button>
+        <button role="tab" aria-selected="false" data-aba="logs">Logs</button>
       </div>
     </div>
 
@@ -427,6 +442,35 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
     </section>
 
     
+    <section id="abaLogs" class="hidden">
+      <div class="painel logs-admin">
+        <div class="logs-head">
+          <div><h2>Logs de utilização</h2><p class="sub">Acompanhe quem está usando o Portal, quais módulos são acessados e como cada franquia utiliza o Extrator de Leads.</p></div>
+          <button class="btn linha" id="logsAtualizar">Atualizar</button>
+        </div>
+        <div class="logs-filtros">
+          <select class="inp" id="logsPeriodo"><option value="7">Últimos 7 dias</option><option value="30" selected>Últimos 30 dias</option><option value="90">Últimos 90 dias</option></select>
+          <select class="inp" id="logsFranquia"><option value="">Todas as franquias</option></select>
+          <select class="inp" id="logsUsuario"><option value="">Todos os usuários</option></select>
+          <select class="inp" id="logsModulo"><option value="">Todos os módulos</option></select>
+        </div>
+        <div id="logsMsg" class="msg"></div>
+        <div id="logsKpis" class="logs-kpis"></div>
+        <div class="logs-grid">
+          <div class="logs-card"><h3>Módulos mais acessados</h3><div id="logsModulos"></div></div>
+          <div class="logs-card"><h3>Uso por franquia</h3><div id="logsFranquias"></div></div>
+        </div>
+        <div class="logs-card" style="margin-top:14px">
+          <div class="logs-card-head"><h3>Uso do Extrator de Leads</h3><span class="sub">Google Maps e Instagram</span></div>
+          <div id="logsExtrator"></div>
+        </div>
+        <div class="logs-card" style="margin-top:14px">
+          <h3>Linha do tempo</h3>
+          <div id="logsTimeline"></div>
+        </div>
+      </div>
+    </section>
+
     <section id="abaConteudo" class="hidden">
       <div class="painel conteudo-admin">
         <h2>Conteúdo do Portal</h2>
@@ -518,7 +562,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
     if (appLoading) return appLoading;
     appLoading = new Promise(function(resolve,reject){
       var s=document.createElement("script");
-      s.src="portal-app.js?v=20260929-2325";
+      s.src="portal-app.js?v=20260929-logs1";
       s.onload=function(){ window.__PORTAL_APP_READY=true; resolve(); };
       s.onerror=function(){ reject(new Error("Nao foi possivel carregar o Portal.")); };
       document.body.appendChild(s);
