@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-campinas",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T12:34:57.947Z",
+  "atualizadoEm": "2026-09-29T12:35:19.512Z",
   "atualizadoPor": "teste.teste",
   "dados": {
     "db": {
@@ -14,7 +14,109 @@
           "pass": "portal"
         }
       ],
-      "cards": []
+      "cards": [
+        {
+          "id": "6ea51315eac2b5dd",
+          "ownerId": "f3401ab3f7b05d2e",
+          "column": "novo",
+          "clientCode": "321313",
+          "title": "teste teste",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-29T09:35",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "380ce5adcac1bb16",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "716d6bced1b2c65c",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "0948b8105b16e50a",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "a4a94d6ad0e5ffe1",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "63a74caedc965e80",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "04e1dd5c01ace96d",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "2b250e4a544b65eb",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "c5989023200d6f3a",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "95c1da06d025cf55",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "a506ff9ad8e4d1d8",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "38b9586792eb490f",
+              "type": "action",
+              "at": "2026-09-29T12:35:18.325Z",
+              "author": "teste teste",
+              "authorId": "f3401ab3f7b05d2e",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-29T12:35:18.325Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-29T12:35:18.325Z",
+          "updatedAt": "2026-09-29T12:35:18.325Z",
+          "finishedAt": "",
+          "ordem": 1790685318325
+        }
+      ]
     }
   }
 }
