@@ -1253,9 +1253,9 @@ async function desenhaLogsAdmin(){
       moSel.innerHTML='<option value="">Todos os módulos</option>'+MODULOS.map(m=>'<option value="'+esc(m.id)+'">'+esc(m.nome)+'</option>').join("");
       if([...moSel.options].some(o=>o.value===moAtual)) moSel.value=moAtual;
     }
-    const total=logs.length, usuarios=new Set(logs.map(x=>x.login)).size, franquias=new Set(logs.map(x=>x.franquia_id).filter(Boolean)).size, extr=logs.filter(x=>x.evento==="extracao_leads");
+    const total=logs.length, usuariosAtivos=new Set(logs.map(x=>x.login)).size, franquiasAtivas=new Set(logs.map(x=>x.franquia_id).filter(Boolean)).size, extr=logs.filter(x=>x.evento==="extracao_leads");
     $("#logsKpis").innerHTML=[
-      ["Eventos",total],["Usuários ativos",usuarios],["Franquias ativas",franquias],["Buscas no Extrator",extr.length]
+      ["Eventos",total],["Usuários ativos",usuariosAtivos],["Franquias ativas",franquiasAtivas],["Buscas no Extrator",extr.length]
     ].map(([l,v])=>'<div class="logs-kpi"><b>'+v+'</b><span>'+l+'</span></div>').join("");
     const countBy=(arr,key)=>{const m=new Map();for(const x of arr){const k=key(x)||"Sem informação";m.set(k,(m.get(k)||0)+1)}return [...m.entries()].sort((a,b)=>b[1]-a[1])};
     const bars=(arr)=>{const max=Math.max(1,...arr.map(x=>x[1]));return arr.slice(0,10).map(([k,v])=>'<div class="logs-bar"><b>'+esc(k)+'</b><div class="logs-bar-track"><div class="logs-bar-fill" style="width:'+Math.round(v/max*100)+'%"></div></div><small>'+v+'</small></div>').join("")||'<div class="logs-empty">Sem dados no período.</div>'};
