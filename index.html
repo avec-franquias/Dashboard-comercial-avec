@@ -933,6 +933,9 @@ function entrarNoPortal(u) {
   $("#trocaMod").innerHTML = MODULOS.filter(podeUsar).map((m) => `<option value="${m.id}">${esc(m.nome)}</option>`).join("");
   avisoPublicar();
   mostra("portal");
+  setTimeout(function() {
+    if (typeof window.portalHideCoverageSafe === "function") window.portalHideCoverageSafe();
+  }, 0);
   if (!admin) {
     trocaAba("modulos");
     const atual = decodeURIComponent(location.hash.slice(1));
@@ -2240,10 +2243,7 @@ window.portalBuscarWhatsAppCliente = async ({ cliente_id, nome, documento = "" }
       }
     }
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", hideCoverage, { once: true });
-  else hideCoverage();
-  setTimeout(hideCoverage, 800);
-  setTimeout(hideCoverage, 2500);
+  window.portalHideCoverageSafe = hideCoverage;
 })();
 </script>
 
