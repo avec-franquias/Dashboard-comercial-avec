@@ -5164,10 +5164,40 @@
           "source": "duckduckgo"
         },
         {
+          "username": "popular",
+          "profile_url": "https://www.instagram.com/popular/",
+          "name": "Salao De Beleza Costa E Silva",
+          "bio": "Salao De Beleza Costa E Silva - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
           "username": "arlimstudio_",
           "profile_url": "https://www.instagram.com/arlimstudio_/",
           "name": "Studio de Beleza ꜰᴇᴍ-ᴍᴀꜱᴄ | Joinville Costa e Silva (@arlimstudio ...",
           "bio": "Studio de Beleza ꜰᴇᴍ-ᴍᴀꜱᴄ | Joinville Costa e Silva (@arlimstudio ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiorjoinville",
+          "profile_url": "https://www.instagram.com/studiorjoinville/",
+          "name": "Studio R | Salão de Beleza |",
+          "bio": "Studio R | Salão de Beleza | (@studiorjoinville) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -5194,55 +5224,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "popular",
-          "profile_url": "https://www.instagram.com/popular/",
-          "name": "Salao De Beleza Costa E Silva",
-          "bio": "Salao De Beleza Costa E Silva - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Joinville",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "nayracostanail",
-          "profile_url": "https://www.instagram.com/nayracostanail/",
-          "name": "ESMALTERIA NAYRA COSTA",
-          "bio": "ESMALTERIA NAYRA COSTA (@nayracostanail) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Joinville",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "_alessandrasilvastudio",
-          "profile_url": "https://www.instagram.com/_alessandrasilvastudio/",
-          "name": "Alessandra Silva Beauty Studio (@_alessandrasilvastudio ...",
-          "bio": "Alessandra Silva Beauty Studio (@_alessandrasilvastudio ... - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Joinville",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "studioamandajille",
-          "profile_url": "https://www.instagram.com/studioamandajille/",
-          "name": "Studio Amanda Beauty | Joinville",
-          "bio": "Studio Amanda Beauty | Joinville (@studioamandajille) - Instagram",
+          "username": "marlenefrancostudiodebeleza",
+          "profile_url": "https://www.instagram.com/marlenefrancostudiodebeleza/",
+          "name": "Especialista em Gloss Express Joinville ...",
+          "bio": "Especialista em Gloss Express Joinville ... - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -5254,21 +5239,13 @@
           "source": "duckduckgo"
         }
       ],
-      "total": 10,
-      "new_count": 10,
+      "total": 9,
+      "new_count": 2,
       "new_usernames": [
-        "daylimasalaodebeleza",
-        "andystudiodabeleza",
-        "marcianunes_belezaebemestar",
-        "gilmarestudiodebeleza",
-        "arlimstudio_",
-        "crescieperdi_costaesilva",
-        "popular",
-        "nayracostanail",
-        "_alessandrasilvastudio",
-        "studioamandajille"
+        "studiorjoinville",
+        "marlenefrancostudiodebeleza"
       ],
-      "finished_at": "2026-09-29T02:43:56.743Z"
+      "finished_at": "2026-09-29T02:54:30.265Z"
     }
   ]
 }
