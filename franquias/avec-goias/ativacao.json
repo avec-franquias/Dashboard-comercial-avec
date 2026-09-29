@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-goias",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T20:10:40.955Z",
+  "atualizadoEm": "2026-09-29T20:12:30.714Z",
   "atualizadoPor": "harana.lima",
   "dados": {
     "db": {
@@ -338,6 +338,107 @@
           "updatedAt": "2026-09-29T12:35:28.075Z",
           "finishedAt": "",
           "ordem": 1790685328076
+        },
+        {
+          "id": "f73c49052198cc97",
+          "ownerId": "34ffe12d88555eb8",
+          "column": "acompanhamento",
+          "clientCode": "107548",
+          "title": "Monterie",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-29T17:12",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "73be2882e85d4a4d",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "83b9c263569ada64",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "cb42c7462647fec6",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "654c963ecd90e462",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "04faaccd3a9fc202",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "a8807eec77305626",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "0784fec6b094d213",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "92eb6b19383e4cb4",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "81b4ebcd618e42e5",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "8d0c8a0444460108",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "25b23f4ecaff9ee7",
+              "type": "action",
+              "at": "2026-09-29T20:12:30.312Z",
+              "author": "Avec Goias",
+              "authorId": "34ffe12d88555eb8",
+              "text": "adicionou este cartão a Acompanhamento de uso"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-29T20:12:30.312Z",
+              "column": "acompanhamento"
+            }
+          ],
+          "createdAt": "2026-09-29T20:12:30.312Z",
+          "updatedAt": "2026-09-29T20:12:30.312Z",
+          "finishedAt": "",
+          "ordem": 1790712750312
         }
       ]
     }
