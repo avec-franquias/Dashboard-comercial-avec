@@ -1561,6 +1561,20 @@ window.portalUsuarios = () => {
   const alvo = portalFranquiaAlvo();
   return usuarios().filter((u) => u.login === (perfil == null ? void 0 : perfil.login) || !!alvo && u.franquiaId === alvo).map((u) => ({ login: u.login, nome: u.nome, papel: u.papel, franquiaId: u.franquiaId || null }));
 };
+window.portalFranquias = () => (FRANQUIAS_ADMIN || []).filter((f) => f.ativo !== false).map((f) => ({ id:f.id, nome:f.nome }));
+window.portalSelecionarFranquia = (id) => {
+  if (!perfil || perfil.papel !== "admin") return false;
+  const existe = (FRANQUIAS_ADMIN || []).some((f) => f.id === id && f.ativo !== false);
+  if (!existe) return false;
+  window.PORTAL_ADMIN_FRANQUIA = id;
+  localStorage.setItem("portal-admin-franquia-view", id);
+  const sel = document.getElementById("adminFranquiaView");
+  if (sel) sel.value = id;
+  const box = document.getElementById("frames");
+  if (box) box.innerHTML = "";
+  if (location.hash) rota();
+  return true;
+};
 window.portalMenu = () => {
   location.hash = "";
 };
