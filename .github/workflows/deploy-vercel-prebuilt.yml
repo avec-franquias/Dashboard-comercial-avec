@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'index.html'
+      - 'portal-app.js'
       - 'franquias-admin.js'
       - 'usuarios.json'
       - 'api/**'
