@@ -1,11 +1,19 @@
 {
   "franquiaId": "avec-osasco",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T20:52:48.162Z",
+  "atualizadoEm": "2026-09-29T20:52:49.295Z",
   "atualizadoPor": "thiago.neves",
   "dados": {
     "db": {
-      "users": [],
+      "users": [
+        {
+          "id": "144c69b26cc60187",
+          "name": "Avec Osasco",
+          "login": "thiago.neves",
+          "role": "franqueado",
+          "pass": "portal"
+        }
+      ],
       "cards": []
     }
   }
