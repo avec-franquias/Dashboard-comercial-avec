@@ -550,7 +550,7 @@ function desenhaModulos() {
   carregarHomeCentral();
 }
 
-const PORTAL_USAGE_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-usage";
+const PORTAL_USAGE_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home";
 async function portalLog(evento, modulo="", detalhe={}) {
   try {
     if (!perfil || !perfil.login) return;
