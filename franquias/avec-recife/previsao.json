@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-recife",
   "modulo": "previsao",
-  "atualizadoEm": "2026-09-29T19:55:49.871Z",
+  "atualizadoEm": "2026-09-29T19:56:03.753Z",
   "atualizadoPor": "ricardo.noblat",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"ouro\":{\"mesRef\":\"2026-09\",\"m0\":\"30.766,59\",\"m1\":\"19.895,36\",\"m2\":\"20.043,05\",\"m3\":\"20.237,11\",\"b32\":\"\",\"b33\":\"412,00\",\"b36\":\"9\"}},\"historico\":[{\"quando\":\"2026-09-29T19:52:22.316Z\",\"mesRef\":\"2026-09\",\"rotulo\":\"Set/26\",\"carteira\":\"Ouro\",\"trimestre\":\"Jul/26 · Ago/26 · Set/26\",\"meses\":[30766.59,19895.36,20043.05,20237.11],\"mediaAnterior\":23568.333333333332,\"mediaAtual\":20058.506666666668,\"crescimento\":-0.1489212926950002,\"tier\":2,\"comissao\":0.05,\"rmv\":23696.09,\"pagamento\":1184.8045,\"ticket\":null}],\"carteira\":\"ouro\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"ouro\",\"ultimaGravacao\":\"2026-09-29T19:55:45.859Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"ouro\":{\"mesRef\":\"2026-09\",\"m0\":\"30.766,59\",\"m1\":\"19.895,36\",\"m2\":\"20.043,05\",\"m3\":\"20.237,11\",\"b32\":\"\",\"b33\":\"412,00\",\"b36\":\"9\"}},\"historico\":[{\"quando\":\"2026-09-29T19:52:22.316Z\",\"mesRef\":\"2026-09\",\"rotulo\":\"Set/26\",\"carteira\":\"Ouro\",\"trimestre\":\"Jul/26 · Ago/26 · Set/26\",\"meses\":[30766.59,19895.36,20043.05,20237.11],\"mediaAnterior\":23568.333333333332,\"mediaAtual\":20058.506666666668,\"crescimento\":-0.1489212926950002,\"tier\":2,\"comissao\":0.05,\"rmv\":23696.09,\"pagamento\":1184.8045,\"ticket\":null},{\"quando\":\"2026-09-29T19:55:57.737Z\",\"mesRef\":\"2026-09\",\"rotulo\":\"Set/26\",\"carteira\":\"Ouro\",\"trimestre\":\"Jul/26 · Ago/26 · Set/26\",\"meses\":[30766.59,19895.36,20043.05,20237.11],\"mediaAnterior\":23568.333333333332,\"mediaAtual\":20058.506666666668,\"crescimento\":-0.1489212926950002,\"tier\":2,\"comissao\":0.05,\"rmv\":23696.09,\"pagamento\":1184.8045,\"ticket\":0}],\"carteira\":\"ouro\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"ouro\",\"ultimaGravacao\":\"2026-09-29T19:55:59.701Z\"}"
   }
 }
