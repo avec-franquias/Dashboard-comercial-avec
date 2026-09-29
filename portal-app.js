@@ -659,9 +659,6 @@ async function carregarHomeCentral() {
     const home = mesclaHome(doc || {});
     box.innerHTML = renderHomePrincipal(home);
     carregarMelhoresMes();
-    box.querySelectorAll(".novidade-img-btn").forEach((btn) => {
-      btn.addEventListener("click", () => abrirImagemHome(btn.dataset.img || "", btn.dataset.alt || "Novidade de produto"));
-    });
     box.querySelectorAll("img").forEach((img) => {
       img.loading = "lazy";
       img.addEventListener("error", () => {
@@ -689,7 +686,7 @@ async function publicarHomeAtual(homeParcial) {
 }
 function renderHomePrincipal(h) {
   const cards = (h.destaques || []).map((d) => `<figure class="home-destaque"><img src="${esc(imagemPortal(d.imagem || ""))}" alt="${esc(d.nome || "")}"><figcaption class="hd-info"><b>${esc(d.nome || "")}</b><small>${esc(d.nivel || "")}</small></figcaption></figure>`).join("");
-  const novidades = (h.novidadeFotos || []).filter((x) => x && x.imagem).map((d) => `<figure class="novidade-card"><button type="button" class="novidade-img-btn" data-img="${esc(imagemPortal(d.imagem))}" data-alt="${esc(d.titulo || "Novidade de produto")}" aria-label="Ampliar imagem"><img src="${esc(imagemPortal(d.imagem))}" alt="${esc(d.titulo || "Novidade de produto")}"></button><figcaption class="nf-info"><b>${esc(d.titulo || "")}</b><small>${esc(d.texto || "")}</small></figcaption></figure>`).join("");
+  const novidades = (h.novidadeFotos || []).filter((x) => x && x.imagem).map((d,i) => `<a class="novidade-link" href="${esc(imagemPortal(d.imagem))}" target="_blank" rel="noopener">Melhoria ${i+1}</a>`).join("");
   const ajuda = h.ajudaUrl ? `<a href="${esc(h.ajudaUrl)}" target="_blank" rel="noopener">Central de ajuda</a>` : "";
   return `<article>
     <h1>${esc(h.titulo)}</h1>
@@ -697,7 +694,7 @@ function renderHomePrincipal(h) {
     <p>${esc(h.intro)}</p>
     <div class="home-bloco hidden" id="melhoresMesHome"></div>
     <div class="home-bloco"><h2>Franqueado destaque do m\xEAs \u2014 ${esc(h.destaqueMes)}</h2><div class="home-destaques">${cards}</div></div>
-    <div class="home-bloco"><h2>${esc(h.novidadeTitulo)}</h2><p><b>${esc(h.novidadePeriodo)}</b></p>${h.novidadeTexto ? `<p>${esc(h.novidadeTexto)}</p>` : ""}${novidades ? `<div class="novidade-fotos">${novidades}</div>` : ""}${h.novidadeUrl ? `<div class="home-links"><a href="${esc(h.novidadeUrl)}" target="_blank" rel="noopener">Abrir material</a></div>` : ""}</div>
+    <div class="home-bloco"><h2>${esc(h.novidadeTitulo)}</h2><p><b>${esc(h.novidadePeriodo)}</b></p>${h.novidadeTexto ? `<p>${esc(h.novidadeTexto)}</p>` : ""}${novidades ? `<div class="novidade-links">${novidades}</div>` : ""}${h.novidadeUrl ? `<div class="home-links"><a href="${esc(h.novidadeUrl)}" target="_blank" rel="noopener">Abrir material</a></div>` : ""}</div>
     <div class="home-bloco"><h2>${esc(h.ajudaTitulo)}</h2><p>${esc(h.ajudaTexto)}</p><div class="home-links">${ajuda}<a href="${esc(h.instagram)}" target="_blank" rel="noopener">Instagram</a><a href="${esc(h.facebook)}" target="_blank" rel="noopener">Facebook</a><a href="${esc(h.linkedin)}" target="_blank" rel="noopener">LinkedIn</a></div></div>
   </article>`;
 }
