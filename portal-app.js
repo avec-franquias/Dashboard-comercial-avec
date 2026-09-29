@@ -735,31 +735,18 @@ async function prepararFotoLocal(inputId, hiddenId, previewId, statusId, pasta) 
   if (!file) throw new Error("Escolha uma imagem primeiro.");
   if (!file.type.startsWith("image/")) throw new Error("Selecione um arquivo de imagem.");
   const status = $(statusId), preview = $(previewId);
-  status.textContent = "Preparando foto\u2026";
-  let g = ghCfg();
-  if (!g) {
-    await conectarGithub();
-    g = ghCfg();
-  }
-  if (!g) throw new Error("Conecte o GitHub para enviar a foto.");
+  status.textContent = "Preparando foto...";
   const blob = await arquivoComoJpg(file);
   const base64 = await blobParaBase64(blob);
-  const nome = slugImg(file.name, "imagem");
-  const caminho = `portal-assets/${pasta}/${nome}`;
-  status.textContent = "Enviando para o GitHub\u2026";
-  await gh(g, `/contents/${caminho}`, {
-    method: "PUT",
-    body: {
-      message: `Portal: envia imagem ${nome}`,
-      content: base64,
-      branch: g.branch
-    }
-  });
-  const url = imagemPortal(caminho);
-  $(hiddenId).value = caminho;
-  preview.src = url + `?v=${Date.now()}`;
-  status.textContent = "\u2713 Foto publicada no GitHub";
-  return caminho;
+  const cred = await credenciaisMelhores();
+  status.textContent = "Enviando foto...";
+  const r = await fetch(MELHORES_IMG_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...cred,filename:slugImg(file.name,pasta||"imagem"),mime:"image/jpeg",base64})});
+  const j = await r.json().catch(()=>({}));
+  if(!r.ok||!j.ok) throw new Error(j.error||"Não foi possível enviar a foto.");
+  $(hiddenId).value = j.url;
+  preview.src = j.url + "?v=" + Date.now();
+  status.textContent = "✓ Foto enviada";
+  return j.url;
 }
 async function blobParaBase64(blob) {
   return await new Promise((resolve, reject) => {
@@ -791,14 +778,14 @@ function abrirModalEditorHome(h) {
   while (fotos.length < 6) fotos.push({ titulo: "", texto: "", imagem: "" });
   $("#modalRaiz").innerHTML = `<div class="modal-fundo"><form class="modal home-edit" id="formEditarHome" novalidate>
     <h2>Atualizar p\xE1gina inicial</h2>
-    <p class="sub">Edite tudo o que aparece na tela principal. As fotos s\xE3o enviadas diretamente para o GitHub. Na primeira vez, o navegador pedir\xE1 a conex\xE3o; depois disso, a administradora n\xE3o precisa repetir.</p>
+    <p class="sub">Edite tudo o que aparece na tela principal. As alterações são salvas no Portal e podem ser feitas por qualquer administrador, sem token do GitHub.</p>
     <div class="editor-home-grid">
       <div class="campo"><label>T\xEDtulo</label><input class="inp" id="ehTitulo" value="${esc(h.titulo)}"></div>
       <div class="campo"><label>M\xEAs do destaque</label><input class="inp" id="ehMes" value="${esc(h.destaqueMes)}"></div>
       <div class="campo full"><label>Subt\xEDtulo</label><input class="inp" id="ehSub" value="${esc(h.subtitulo)}"></div>
       <div class="campo full"><label>Texto de abertura</label><textarea class="inp" id="ehIntro" rows="3">${esc(h.intro)}</textarea></div>
     </div>
-    <div class="home-bloco"><h3>Franqueados destaque</h3><p class="sub">Selecione uma foto do computador e clique em \u201CEnviar foto\u201D. Ela ser\xE1 publicada diretamente no GitHub.<div class="upload-row" style="margin:10px 0 14px;align-items:center"><input type="file" id="ehFilesLote" accept="image/*" multiple><button type="button" class="btn cheio peq" id="ehEnviarLote">Enviar 4 fotos</button><span class="upload-status" id="ehLoteStatus">Selecione at\xE9 4 fotos, na ordem dos destaques.</span></div></p><div class="editor-home-grid">${cards.map((d, i) => `<div class="editor-destaque"><h3>${i + 1}\xBA destaque</h3><div class="campo"><label>Nome</label><input class="inp" id="ehNome${i}" value="${esc(d.nome || "")}"></div><div class="campo"><label>N\xEDvel / legenda</label><input class="inp" id="ehNivel${i}" value="${esc(d.nivel || "")}"></div><div class="upload-box"><img class="upload-preview" id="ehPrev${i}" src="${esc(d.imagem || "")}" alt="Pr\xE9via"><div class="upload-row"><input type="file" id="ehFile${i}" accept="image/*"><button type="button" class="btn peq" id="ehUp${i}">Enviar foto</button></div><input type="hidden" id="ehImg${i}" value="${esc(d.imagem || "")}"><span class="upload-status" id="ehStatus${i}">${d.imagem ? "Foto atual" : "Nenhuma foto selecionada"}</span></div></div>`).join("")}</div></div>
+    <div class="home-bloco"><h3>Franqueados destaque</h3><p class="sub">Selecione uma foto do computador e clique em \u201CEnviar foto\u201D. Ela será salva diretamente no Portal.<div class="upload-row" style="margin:10px 0 14px;align-items:center"><input type="file" id="ehFilesLote" accept="image/*" multiple><button type="button" class="btn cheio peq" id="ehEnviarLote">Enviar 4 fotos</button><span class="upload-status" id="ehLoteStatus">Selecione at\xE9 4 fotos, na ordem dos destaques.</span></div></p><div class="editor-home-grid">${cards.map((d, i) => `<div class="editor-destaque"><h3>${i + 1}\xBA destaque</h3><div class="campo"><label>Nome</label><input class="inp" id="ehNome${i}" value="${esc(d.nome || "")}"></div><div class="campo"><label>N\xEDvel / legenda</label><input class="inp" id="ehNivel${i}" value="${esc(d.nivel || "")}"></div><div class="upload-box"><img class="upload-preview" id="ehPrev${i}" src="${esc(d.imagem || "")}" alt="Pr\xE9via"><div class="upload-row"><input type="file" id="ehFile${i}" accept="image/*"><button type="button" class="btn peq" id="ehUp${i}">Enviar foto</button></div><input type="hidden" id="ehImg${i}" value="${esc(d.imagem || "")}"><span class="upload-status" id="ehStatus${i}">${d.imagem ? "Foto atual" : "Nenhuma foto selecionada"}</span></div></div>`).join("")}</div></div>
     <div class="home-bloco"><h3>Novidade de produto</h3><div class="editor-home-grid">
       <div class="campo"><label>T\xEDtulo</label><input class="inp" id="ehNT" value="${esc(h.novidadeTitulo)}"></div>
       <div class="campo"><label>Per\xEDodo</label><input class="inp" id="ehNP" value="${esc(h.novidadePeriodo)}"></div>
@@ -935,14 +922,8 @@ function abrirModalEditorHome(h) {
     const btn = $("#salvarEditarHome"), msg = $("#msgEditarHome"), area = $("#areaDownloadPacote");
     btn.disabled = true;
     msg.className = "msg";
-    msg.textContent = "Salvando no GitHub\u2026";
+    msg.textContent = "Salvando...";
     try {
-      let g = ghCfg();
-      if (!g) {
-        await conectarGithub();
-        g = ghCfg();
-      }
-      if (!g) throw new Error("Conecte o GitHub para publicar as altera\xE7\xF5es.");
       const home = {
         titulo: $("#ehTitulo").value.trim(),
         subtitulo: $("#ehSub").value.trim(),
@@ -961,26 +942,16 @@ function abrirModalEditorHome(h) {
         facebook: $("#ehFB").value.trim(),
         linkedin: $("#ehLI").value.trim()
       };
-      let doc = {};
-      try {
-        const l = await ghLerJson(g, ARQ_CENTRAL);
-        doc = l.doc ? clone(l.doc) : {};
-        doc.home = home;
-        await ghGravarJson(g, ARQ_CENTRAL, doc, l.sha, "Portal: atualiza p\xE1gina inicial");
-      } catch (err) {
-        throw err;
-      }
-      localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(doc));
-      window.PORTAL_PENDENTE_CENTRAL = doc;
+      await salvarHomeSupabaseIsolada(home);
       if (area) area.classList.add("hidden");
       msg.className = "msg ok";
-      msg.textContent = "\u2713 P\xE1gina inicial publicada no GitHub.";
-      toast("P\xE1gina inicial atualizada.");
+      msg.textContent = "✓ Página inicial atualizada.";
+      toast("Página inicial atualizada.");
       await carregarHomeCentral();
       setTimeout(() => $("#modalRaiz").innerHTML = "", 700);
     } catch (err) {
       msg.className = "msg erro";
-      msg.textContent = err.message || "N\xE3o foi poss\xEDvel publicar.";
+      msg.textContent = err.message || "Não foi possível salvar.";
     } finally {
       btn.disabled = false;
     }
@@ -1503,17 +1474,12 @@ window.portalLerCentral = async () => {
 };
 window.portalAlterarCentral = async (padrao, fn, mensagem) => {
   if (!perfil || perfil.papel !== "admin") throw new Error("Apenas administradores podem editar.");
-  const d = await window.portalLerCentral() || clone(padrao);
+  const d = await lerHomePrincipal() || clone(padrao);
   await fn(d);
-  const g = ghCfg();
-  if (g) {
-    const l = await ghLerJson(g, ARQ_CENTRAL);
-    await ghGravarJson(g, ARQ_CENTRAL, d, l.sha, mensagem || "Portal: atualiza conte\xFAdo da Central");
-  }
-  localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(d));
-  window.PORTAL_PENDENTE_CENTRAL = d;
+  if(d.home) await salvarHomeSupabaseIsolada(d.home);
+  else localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(d));
   return d;
-};
+}
 window.portalEnviarArquivoCentral = async (file, pasta = "arquivos") => {
   if (!perfil || perfil.papel !== "admin") throw new Error("Apenas administradores podem enviar arquivos.");
   if (!file) throw new Error("Escolha um arquivo.");
