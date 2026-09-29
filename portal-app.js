@@ -501,14 +501,96 @@ function desenhaModulos() {
   const atalho = $("#atalhoAdminConteudo");
   if (atalho) atalho.classList.toggle("hidden", !admin);
   const acoes = $("#homeAcoesAdmin");
-  if (acoes) acoes.innerHTML = admin ? '<button class="btn cheio peq" id="btnEditarHomePrincipal">Editar p\xE1gina inicial</button>' : "";
+  if (acoes) acoes.innerHTML = admin ? '<button class="btn cheio peq" id="btnEditarMelhoresMes">Atualizar melhores do mês</button> <button class="btn peq" id="btnEditarHomePrincipal">Editar p\xE1gina inicial</button>' : "";
   if (admin) {
     const editarHome = () => abrirEditorHome();
     (_a2 = $("#btnEditarHomeConteudo")) == null ? void 0 : _a2.addEventListener("click", editarHome);
     (_b = $("#btnEditarHomePrincipal")) == null ? void 0 : _b.addEventListener("click", editarHome);
+    const bm=$("#btnEditarMelhoresMes"); if(bm) bm.addEventListener("click", abrirEditorMelhoresMes);
   }
   carregarHomeCentral();
 }
+const MELHORES_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home";
+const MELHORES_IMG_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home-image";
+async function lerMelhoresMes(){
+  try{
+    const r=await fetch(MELHORES_API+"?t="+Date.now(),{cache:"no-store"});
+    const j=await r.json().catch(()=>({}));
+    const m=j&&j.data&&j.data.melhores;
+    return r.ok&&j.ok&&m&&typeof m==="object"?m:null;
+  }catch(e){ console.warn("Melhores do mes:",e); return null; }
+}
+async function credenciaisMelhores(){
+  if(!perfil||perfil.papel!=="admin") throw new Error("Apenas administradores podem atualizar.");
+  const login=perfil.login||"";
+  const senha=sessionStorage.getItem("portal-admin-password")||"";
+  if(!login||!senha) throw new Error("Entre novamente no Portal para atualizar.");
+  return {login,senha};
+}
+async function salvarMelhoresMes(melhores){
+  const cred=await credenciaisMelhores();
+  let atual={};
+  try{
+    const r0=await fetch(MELHORES_API+"?t="+Date.now(),{cache:"no-store"});
+    const j0=await r0.json().catch(()=>({}));
+    if(r0.ok&&j0.ok&&j0.data&&typeof j0.data==="object") atual=j0.data;
+  }catch{}
+  atual.melhores=melhores;
+  const r=await fetch(MELHORES_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...cred,data:atual})});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok||!j.ok) throw new Error(j.error||"Não foi possível salvar.");
+  return melhores;
+}
+async function enviarFotoMelhores(file){
+  if(!file) throw new Error("Escolha uma imagem.");
+  if(!file.type.startsWith("image/")) throw new Error("Selecione uma imagem válida.");
+  const blob=await arquivoComoJpg(file);
+  const base64=await blobParaBase64(blob);
+  const cred=await credenciaisMelhores();
+  const r=await fetch(MELHORES_IMG_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...cred,filename:slugImg(file.name,"melhores"),mime:"image/jpeg",base64})});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok||!j.ok) throw new Error(j.error||"Não foi possível enviar a foto.");
+  return j.url;
+}
+async function carregarMelhoresMes(){
+  const box=$("#melhoresMesHome");
+  if(!box) return;
+  const m=await lerMelhoresMes();
+  if(!m||(!m.imagem&&!m.periodo)){ box.classList.add("hidden"); return; }
+  box.classList.remove("hidden");
+  box.innerHTML=`<h2>Melhores do mês</h2>${m.periodo?`<p><b>Período analisado: ${esc(m.periodo)}</b></p>`:""}${m.imagem?`<figure style="margin:14px 0 0;border:1px solid var(--linha);border-radius:14px;overflow:hidden;background:#fff"><img src="${esc(m.imagem)}" alt="Melhores do mês" style="width:100%;max-height:620px;object-fit:contain;display:block;background:#F7F7FB"></figure>`:""}`;
+}
+async function abrirEditorMelhoresMes(){
+  if(!perfil||perfil.papel!=="admin") return;
+  const atual=await lerMelhoresMes()||{periodo:"",imagem:""};
+  $("#modalRaiz").innerHTML=`<div class="modal-fundo"><form class="modal home-edit" id="formMelhoresMes" novalidate>
+    <h2>Atualizar melhores do mês</h2>
+    <p class="sub">Atualize o período analisado e a foto. Não é necessário token do GitHub.</p>
+    <div class="campo"><label>Período analisado</label><input class="inp" id="mmPeriodo" value="${esc(atual.periodo||"")}" placeholder="Ex.: 01/09 a 30/09"></div>
+    <div class="upload-box"><img class="upload-preview" id="mmPreview" src="${esc(atual.imagem||"")}" alt="Prévia"><div class="upload-row"><input type="file" id="mmFile" accept="image/*"></div></div>
+    <div class="msg" id="mmMsg"></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px"><button type="button" class="btn linha" id="mmCancelar">Cancelar</button><button type="submit" class="btn cheio" id="mmSalvar">Salvar</button></div>
+  </form></div>`;
+  const file=$("#mmFile"),preview=$("#mmPreview");
+  file.onchange=()=>{const x=file.files&&file.files[0];if(x)preview.src=URL.createObjectURL(x);};
+  $("#mmCancelar").onclick=()=>$("#modalRaiz").innerHTML="";
+  $("#formMelhoresMes").onsubmit=async(e)=>{
+    e.preventDefault();
+    const btn=$("#mmSalvar"),msg=$("#mmMsg");
+    btn.disabled=true;msg.className="msg";msg.textContent="Salvando...";
+    try{
+      let imagem=atual.imagem||"";
+      const x=file.files&&file.files[0];
+      if(x) imagem=await enviarFotoMelhores(x);
+      await salvarMelhoresMes({periodo:$("#mmPeriodo").value.trim(),imagem});
+      msg.className="msg ok";msg.textContent="✓ Melhores do mês atualizado.";
+      await carregarMelhoresMes();
+      setTimeout(()=>$("#modalRaiz").innerHTML="",500);
+    }catch(err){msg.className="msg erro";msg.textContent=err.message||"Não foi possível salvar.";}
+    finally{btn.disabled=false;}
+  };
+}
+
 const HOME_CONFIG_PADRAO = {
   titulo: "Portal do FRANQUEADO 2026",
   subtitulo: "Seu ponto de apoio para gest\xE3o, crescimento e excel\xEAncia na opera\xE7\xE3o da franquia.",
@@ -547,6 +629,7 @@ async function carregarHomeCentral() {
     const doc = await window.portalLerCentral();
     const home = mesclaHome(doc || {});
     box.innerHTML = renderHomePrincipal(home);
+    carregarMelhoresMes();
     box.querySelectorAll("img").forEach((img) => {
       img.loading = "lazy";
       img.addEventListener("error", () => {
@@ -589,6 +672,7 @@ function renderHomePrincipal(h) {
     <h1>${esc(h.titulo)}</h1>
     <p class="destaque"><b>${esc(h.subtitulo)}</b></p>
     <p>${esc(h.intro)}</p>
+    <div class="home-bloco hidden" id="melhoresMesHome"></div>
     <div class="home-bloco"><h2>Franqueado destaque do m\xEAs \u2014 ${esc(h.destaqueMes)}</h2><div class="home-destaques">${cards}</div></div>
     <div class="home-bloco"><h2>${esc(h.novidadeTitulo)}</h2><p><b>${esc(h.novidadePeriodo)}</b></p>${h.novidadeTexto ? `<p>${esc(h.novidadeTexto)}</p>` : ""}${novidades ? `<div class="novidade-fotos">${novidades}</div>` : ""}${h.novidadeUrl ? `<div class="home-links"><a href="${esc(h.novidadeUrl)}" target="_blank" rel="noopener">Abrir material</a></div>` : ""}</div>
     <div class="home-bloco"><h2>${esc(h.ajudaTitulo)}</h2><p>${esc(h.ajudaTexto)}</p><div class="home-links">${ajuda}<a href="${esc(h.instagram)}" target="_blank" rel="noopener">Instagram</a><a href="${esc(h.facebook)}" target="_blank" rel="noopener">Facebook</a><a href="${esc(h.linkedin)}" target="_blank" rel="noopener">LinkedIn</a></div></div>
