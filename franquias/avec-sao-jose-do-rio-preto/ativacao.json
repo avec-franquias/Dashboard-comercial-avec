@@ -1,11 +1,19 @@
 {
   "franquiaId": "avec-sao-jose-do-rio-preto",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T20:37:30.588Z",
+  "atualizadoEm": "2026-09-29T20:37:31.934Z",
   "atualizadoPor": "leandro.silva",
   "dados": {
     "db": {
-      "users": [],
+      "users": [
+        {
+          "id": "87b6e40dd8d1f761",
+          "name": "Avec São José do Rio Preto",
+          "login": "leandro.silva",
+          "role": "franqueado",
+          "pass": "portal"
+        }
+      ],
       "cards": []
     }
   }
