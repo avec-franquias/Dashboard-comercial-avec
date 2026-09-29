@@ -512,6 +512,35 @@ function desenhaModulos() {
 }
 const MELHORES_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home";
 const MELHORES_IMG_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home-image";
+async function lerEstadoHomeSupabase(){
+  try{
+    const r=await fetch(MELHORES_API+"?t="+Date.now(),{cache:"no-store"});
+    const j=await r.json().catch(()=>({}));
+    return r.ok&&j.ok&&j.data&&typeof j.data==="object"?j.data:null;
+  }catch(e){ console.warn("Home Supabase:",e); return null; }
+}
+async function lerHomeSupabaseIsolada(){
+  const d=await lerEstadoHomeSupabase();
+  return d&&d.home&&typeof d.home==="object"?{home:d.home}:null;
+}
+async function salvarHomeSupabaseIsolada(home){
+  const cred=await credenciaisMelhores();
+  const atual=await lerEstadoHomeSupabase()||{};
+  atual.home=home;
+  const r=await fetch(MELHORES_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...cred,data:atual})});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok||!j.ok) throw new Error(j.error||"Não foi possível salvar a página inicial.");
+  const doc={home};
+  localStorage.setItem(CENTRAL_LOCAL,JSON.stringify(doc));
+  window.PORTAL_PENDENTE_CENTRAL=doc;
+  return doc;
+}
+async function lerHomePrincipal(){
+  const remoto=await lerHomeSupabaseIsolada();
+  if(remoto) return remoto;
+  return await window.portalLerCentral();
+}
+
 async function lerMelhoresMes(){
   try{
     const r=await fetch(MELHORES_API+"?t="+Date.now(),{cache:"no-store"});
@@ -626,7 +655,7 @@ async function carregarHomeCentral() {
   if (!box) return;
   box.innerHTML = '<div class="home-vazio">Carregando conte\xFAdo do portal...</div>';
   try {
-    const doc = await window.portalLerCentral();
+    const doc = await lerHomePrincipal();
     const home = mesclaHome(doc || {});
     box.innerHTML = renderHomePrincipal(home);
     carregarMelhoresMes();
@@ -649,20 +678,11 @@ function imagemPortal(src) {
   }
 }
 async function publicarHomeAtual(homeParcial) {
-  let g = ghCfg();
-  if (!g) {
-    await conectarGithub();
-    g = ghCfg();
-  }
-  if (!g) throw new Error("Conecte o GitHub para publicar a altera\xE7\xE3o.");
-  const l = await ghLerJson(g, ARQ_CENTRAL);
-  const doc = l.doc ? clone(l.doc) : {};
-  doc.home = { ...doc.home || {}, ...homeParcial };
-  await ghGravarJson(g, ARQ_CENTRAL, doc, l.sha, "Portal: atualiza p\xE1gina inicial");
-  localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(doc));
-  window.PORTAL_PENDENTE_CENTRAL = doc;
+  const doc = await lerHomePrincipal() || {};
+  const home = { ...(doc.home || {}), ...homeParcial };
+  const salvo = await salvarHomeSupabaseIsolada(home);
   await carregarHomeCentral();
-  return doc;
+  return salvo;
 }
 function renderHomePrincipal(h) {
   const cards = (h.destaques || []).map((d) => `<figure class="home-destaque"><img src="${esc(imagemPortal(d.imagem || ""))}" alt="${esc(d.nome || "")}"><figcaption class="hd-info"><b>${esc(d.nome || "")}</b><small>${esc(d.nivel || "")}</small></figcaption></figure>`).join("");
@@ -680,7 +700,7 @@ function renderHomePrincipal(h) {
 }
 function abrirEditorHome() {
   if (!perfil || perfil.papel !== "admin") return;
-  window.portalLerCentral().then((doc) => abrirModalEditorHome(mesclaHome(doc || {}))).catch(() => abrirModalEditorHome(clone(HOME_CONFIG_PADRAO)));
+  lerHomePrincipal().then((doc) => abrirModalEditorHome(mesclaHome(doc || {}))).catch(() => abrirModalEditorHome(clone(HOME_CONFIG_PADRAO)));
 }
 const UPLOADS_PENDENTES = window.UPLOADS_PENDENTES || (window.UPLOADS_PENDENTES = {});
 const slugImg = (name, prefix = "imagem") => {
