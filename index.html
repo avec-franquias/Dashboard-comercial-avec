@@ -511,6 +511,18 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
     return appLoading;
   }
 
+  // Restaura automaticamente uma sessao valida apos F5.
+  try{
+    var sessaoSalva=JSON.parse(localStorage.getItem("portal-sessao")||"null");
+    var tokenSalvo=localStorage.getItem("portal-admin-token")||"";
+    if(sessaoSalva && sessaoSalva.login && tokenSalvo){
+      loadApp().catch(function(err){
+        var msg=byId("msgLogin");
+        if(msg) msg.textContent=err.message||"Nao foi possivel restaurar a sessao.";
+      });
+    }
+  }catch(_){}
+
   var form=byId("formLogin");
   if(form){
     form.onsubmit=async function(e){
