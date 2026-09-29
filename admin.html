@@ -1676,7 +1676,7 @@ $("#formNovo").onsubmit = async (e) => {
   const msg = $("#msgNovo");
   msg.className = "msg erro";
   const nome = $("#nNome").value.trim(), login = normLogin($("#nLogin").value), senha = $("#nSenha").value;
-  const papel = $("#nPapel").value, franquiaId = papel === "admin" ? "" : ((_a2 = $("#nFranquia")) == null ? void 0 : _a2.value) || "", modulos = $('input[name="nmod"]:checked').map((i) => i.value);
+  const papel = $("#nPapel").value, franquiaId = papel === "admin" ? "" : ((_a2 = $("#nFranquia")) == null ? void 0 : _a2.value) || "", modulos = $$('input[name="nmod"]:checked').map((i) => i.value);
   if (!nome) {
     msg.textContent = "Informe o nome.";
     return $("#nNome").focus();
