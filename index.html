@@ -237,6 +237,8 @@ textarea.inp{resize:vertical;min-height:120px}
 .home-destaque{border:1px solid var(--linha);border-radius:12px;overflow:hidden;background:#fff}
 .home-destaque img{width:100%;height:260px;object-fit:contain;object-position:center;background:#F7F7FB;display:block}
 .home-destaque .hd-info{padding:10px 11px}.home-destaque b{display:block;font-size:13px}.home-destaque small{display:block;color:var(--tinta-suave);margin-top:3px;font-size:12px}
+.melhores-mes-figura{margin:14px 0 0!important;border:1px solid var(--linha)!important;border-radius:14px!important;overflow:hidden!important;background:#F7F7FB!important;display:block!important}
+.home-corpo .melhores-mes-figura .melhores-mes-imagem{width:100%!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important;display:block!important;background:#F7F7FB!important}
 .home-bloco{margin-top:22px;padding-top:18px;border-top:1px solid var(--linha)}
 .home-bloco h3{margin:0 0 7px;font-size:18px}.home-bloco p{margin:5px 0}
 .home-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.home-links a{border:1px solid var(--linha);border-radius:999px;padding:7px 10px;text-decoration:none;background:#fff}
@@ -501,7 +503,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
     if (appLoading) return appLoading;
     appLoading = new Promise(function(resolve,reject){
       var s=document.createElement("script");
-      s.src="portal-app.js?v=20260929-1850";
+      s.src="portal-app.js?v=20260929-1905";
       s.onload=function(){ window.__PORTAL_APP_READY=true; resolve(); };
       s.onerror=function(){ reject(new Error("Nao foi possivel carregar o Portal.")); };
       document.body.appendChild(s);
