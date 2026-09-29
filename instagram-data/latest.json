@@ -6459,25 +6459,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "studio_mayfreitas",
-          "profile_url": "https://www.instagram.com/studio_mayfreitas/",
-          "name": "Salão de Beleza ️ Fortaleza ce",
-          "bio": "Salão de Beleza ️ Fortaleza ce (@studio_mayfreitas) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Fortaleza",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "tfspacobeleza",
-          "profile_url": "https://www.instagram.com/tfspacobeleza/",
-          "name": "Salão de beleza Fortaleza - Ce",
-          "bio": "Salão de beleza Fortaleza - Ce (@tfspacobeleza) - Instagram",
+          "username": "beautyconceito",
+          "profile_url": "https://www.instagram.com/beautyconceito/",
+          "name": "Salão de Beleza & Estética em Fortaleza (@beautyconceito ...",
+          "bio": "Salão de Beleza & Estética em Fortaleza (@beautyconceito ... - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -6504,10 +6489,40 @@
           "source": "duckduckgo"
         },
         {
+          "username": "tfspacobeleza",
+          "profile_url": "https://www.instagram.com/tfspacobeleza/",
+          "name": "Salão de beleza Fortaleza - Ce",
+          "bio": "Salão de beleza Fortaleza - Ce (@tfspacobeleza) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Fortaleza",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
           "username": "ohmyclub.ce",
           "profile_url": "https://www.instagram.com/ohmyclub.ce/",
           "name": "SALÃO DE BELEZA E BARBEARIA FORTALEZA/CE",
           "bio": "SALÃO DE BELEZA E BARBEARIA FORTALEZA/CE (@ohmyclub.ce) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Fortaleza",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiol.fortaleza",
+          "profile_url": "https://www.instagram.com/studiol.fortaleza/",
+          "name": "A maior rede de salões do Ceará",
+          "bio": "A maior rede de salões do Ceará (@studiol.fortaleza) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -6549,36 +6564,6 @@
           "source": "duckduckgo"
         },
         {
-          "username": "beautyconceito",
-          "profile_url": "https://www.instagram.com/beautyconceito/",
-          "name": "Salão de Beleza & Estética em Fortaleza (@beautyconceito ...",
-          "bio": "Salão de Beleza & Estética em Fortaleza (@beautyconceito ... - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Fortaleza",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "s3salone",
-          "profile_url": "https://www.instagram.com/s3salone/",
-          "name": "Salão de Beleza em Fortaleza",
-          "bio": "Salão de Beleza em Fortaleza (@s3salone) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Fortaleza",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
           "username": "unicosalon",
           "profile_url": "https://www.instagram.com/unicosalon/",
           "name": "Salão de beleza | ÚNICO - Fortaleza/CE",
@@ -6594,10 +6579,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "boutiquebelezanl",
-          "profile_url": "https://www.instagram.com/boutiquebelezanl/",
-          "name": "Salão de Beleza | Fortaleza",
-          "bio": "Salão de Beleza | Fortaleza (@boutiquebelezanl) - Instagram",
+          "username": "salaobeautyspa",
+          "profile_url": "https://www.instagram.com/salaobeautyspa/",
+          "name": "Salão Beauty Spa - Serviços Express - Aldeota - Fortaleza-CE ...",
+          "bio": "Salão Beauty Spa - Serviços Express - Aldeota - Fortaleza-CE ...",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -6609,13 +6594,13 @@
           "source": "duckduckgo"
         }
       ],
-      "total": 11,
+      "total": 10,
       "new_count": 2,
       "new_usernames": [
-        "s3salone",
-        "boutiquebelezanl"
+        "studiol.fortaleza",
+        "salaobeautyspa"
       ],
-      "finished_at": "2026-09-29T20:18:13.256Z"
+      "finished_at": "2026-09-29T20:26:39.987Z"
     },
     {
       "query": {
