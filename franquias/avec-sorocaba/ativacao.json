@@ -1,11 +1,19 @@
 {
   "franquiaId": "avec-sorocaba",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T22:58:07.682Z",
+  "atualizadoEm": "2026-09-29T22:58:09.063Z",
   "atualizadoPor": "eduardo.afonso",
   "dados": {
     "db": {
-      "users": [],
+      "users": [
+        {
+          "id": "f0ad7e3f5c59b168",
+          "name": "Avec Sorocaba",
+          "login": "eduardo.afonso",
+          "role": "franqueado",
+          "pass": "portal"
+        }
+      ],
       "cards": []
     }
   }
