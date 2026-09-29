@@ -5246,6 +5246,135 @@
         "marlenefrancostudiodebeleza"
       ],
       "finished_at": "2026-09-29T02:54:30.265Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SC",
+        "cidade": "Joinville",
+        "bairro": "Aventureiro",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "salao_sandracuchi",
+          "profile_url": "https://www.instagram.com/salao_sandracuchi/",
+          "name": "Sandra Cuchi | Salão de beleza",
+          "bio": "Sandra Cuchi | Salão de beleza (@salao_sandracuchi) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "beleza.renovada.jlle",
+          "profile_url": "https://www.instagram.com/beleza.renovada.jlle/",
+          "name": "Beleza Renovada",
+          "bio": "Beleza Renovada (@beleza.renovada.jlle) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "virtuosajoinvilleaventureiro",
+          "profile_url": "https://www.instagram.com/virtuosajoinvilleaventureiro/",
+          "name": "Virtuosa Joinville Aventureiro (@virtuosajoinvilleaventureiro ...",
+          "bio": "Virtuosa Joinville Aventureiro (@virtuosajoinvilleaventureiro ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "amakha.belezaebemestar",
+          "profile_url": "https://www.instagram.com/amakha.belezaebemestar/",
+          "name": "Perfumaria em Joinville",
+          "bio": "Perfumaria em Joinville (@amakha.belezaebemestar) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "lumi.nelaser",
+          "profile_url": "https://www.instagram.com/lumi.nelaser/",
+          "name": "Lumine Laser | Depilação a Laser em Joinville (@lumi.nelaser ...",
+          "bio": "Lumine Laser | Depilação a Laser em Joinville (@lumi.nelaser ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studio_mairaalejandra",
+          "profile_url": "https://www.instagram.com/studio_mairaalejandra/",
+          "name": "Cabeleleira | Luzes Joinville |Alisamento #LOREALISTARBR (@studio ...",
+          "bio": "Cabeleleira | Luzes Joinville |Alisamento #LOREALISTARBR (@studio ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "popular",
+          "profile_url": "https://www.instagram.com/popular/",
+          "name": "Salao De Beleza Em Joinville",
+          "bio": "Salao De Beleza Em Joinville - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 7,
+      "new_count": 7,
+      "new_usernames": [
+        "salao_sandracuchi",
+        "beleza.renovada.jlle",
+        "virtuosajoinvilleaventureiro",
+        "amakha.belezaebemestar",
+        "lumi.nelaser",
+        "studio_mairaalejandra",
+        "popular"
+      ],
+      "finished_at": "2026-09-29T09:48:13.119Z"
     }
   ]
 }
