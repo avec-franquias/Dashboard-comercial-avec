@@ -491,22 +491,57 @@ function desenhaModulos() {
   const admin = perfil && perfil.papel === "admin";
   const box = $("#listaModulos");
   if (!box) return;
+
+  const itemModulo = (m) => {
+    const mt = emManut(m.id), rec = mt && MANUT[m.id].mensagem;
+    return `<a href="#${esc(m.id)}" class="mod-lista" style="--cor:${esc(m.cor || "#5B4FE9")}" data-modulo="${esc(m.id)}">
+      <span class="ic-mini">${iconeDe(m.id)}</span>
+      <span class="mi"><b>${esc(m.nome)}</b><small>${esc(mt ? rec || "Em manutenção" : m.desc)}</small></span>
+      <span class="seta">${mt && !admin ? "!" : "›"}</span>
+    </a>`;
+  };
+
   if (!lista.length) {
-    box.innerHTML = '<div class="vazio">Nenhum m\xF3dulo liberado para o seu usu\xE1rio ainda. Fale com a franqueadora.</div>';
+    box.innerHTML = '<div class="vazio">Nenhum módulo liberado para o seu usuário ainda. Fale com a franqueadora.</div>';
   } else {
-    box.innerHTML = lista.map((m) => {
-      const mt = emManut(m.id), rec = mt && MANUT[m.id].mensagem;
-      return `<a href="#${esc(m.id)}" class="mod-lista" style="--cor:${esc(m.cor || "#5B4FE9")}" data-modulo="${esc(m.id)}">
-        <span class="ic-mini">${iconeDe(m.id)}</span>
-        <span class="mi"><b>${esc(m.nome)}</b><small>${esc(mt ? rec || "Em manuten\xE7\xE3o" : m.desc)}</small></span>
-        <span class="seta">${mt && !admin ? "!" : "\u203A"}</span>
-      </a>`;
+    const porId = new Map(lista.map(m => [m.id, m]));
+    const central = porId.get("central");
+    const grupos = [
+      { id:"ferramentas", nome:"Ferramentas", mods:["migrador","taxas","propostas"] },
+      { id:"mkt", nome:"MKT", mods:["extrator"] },
+      { id:"crm", nome:"CRM", mods:["vendas","ativacao"] },
+      { id:"gestao", nome:"Gestão", mods:["arvore","clientes","previsao"] }
+    ];
+
+    let html = central ? '<div class="menu-central">' + itemModulo(central) + '</div>' : '';
+    html += grupos.map((g,idx) => {
+      const mods = g.mods.map(id => porId.get(id)).filter(Boolean);
+      if (!mods.length) return "";
+      return `<details class="menu-grupo" ${idx===0 ? "open" : ""}>
+        <summary>
+          <span class="menu-grupo-nome">${esc(g.nome)}</span>
+          <span class="menu-grupo-qtd">${mods.length}</span>
+          <span class="menu-grupo-seta">⌄</span>
+        </summary>
+        <div class="menu-grupo-itens">${mods.map(itemModulo).join("")}</div>
+      </details>`;
     }).join("");
+
+    const agrupados = new Set(["central","migrador","taxas","propostas","extrator","vendas","ativacao","arvore","clientes","previsao"]);
+    const extras = lista.filter(m => !agrupados.has(m.id));
+    if (extras.length) {
+      html += `<details class="menu-grupo">
+        <summary><span class="menu-grupo-nome">Outros</span><span class="menu-grupo-qtd">${extras.length}</span><span class="menu-grupo-seta">⌄</span></summary>
+        <div class="menu-grupo-itens">${extras.map(itemModulo).join("")}</div>
+      </details>`;
+    }
+    box.innerHTML = html;
   }
+
   const atalho = $("#atalhoAdminConteudo");
   if (atalho) atalho.classList.toggle("hidden", !admin);
   const acoes = $("#homeAcoesAdmin");
-  if (acoes) acoes.innerHTML = admin ? '<button class="btn cheio peq" id="btnEditarMelhoresMes">Atualizar melhores do mês</button> <button class="btn peq" id="btnEditarHomePrincipal">Editar p\xE1gina inicial</button>' : "";
+  if (acoes) acoes.innerHTML = admin ? '<button class="btn cheio peq" id="btnEditarMelhoresMes">Atualizar melhores do mês</button> <button class="btn peq" id="btnEditarHomePrincipal">Editar página inicial</button>' : "";
   if (admin) {
     const editarHome = () => abrirEditorHome();
     (_a2 = $("#btnEditarHomeConteudo")) == null ? void 0 : _a2.addEventListener("click", editarHome);
@@ -515,6 +550,7 @@ function desenhaModulos() {
   }
   carregarHomeCentral();
 }
+
 const MELHORES_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home";
 const MELHORES_IMG_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home-image";
 async function lerEstadoHomeSupabase(){
