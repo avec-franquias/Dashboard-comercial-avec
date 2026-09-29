@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-paraiba",
   "modulo": "vendas",
-  "atualizadoEm": "2026-09-29T20:08:54.531Z",
+  "atualizadoEm": "2026-09-29T20:08:56.333Z",
   "atualizadoPor": "christian.vieira",
   "dados": {
-    "vendas-funil-v1": "{\"deals\":[{\"id\":\"584671532-2650451338-2738678211\",\"client\":\"christian vieira\",\"contact\":\"47 4342\",\"phone\":\"423423423\",\"value\":250,\"stage\":\"nao_iniciado\",\"nextStep\":\"\",\"notes\":\"\",\"lostReason\":\"\",\"createdAt\":\"2026-09-29T20:08:38.499Z\",\"updatedAt\":\"2026-09-29T20:08:53.502Z\"}]}"
+    "vendas-funil-v1": "{\"deals\":[{\"id\":\"584671532-2650451338-2738678211\",\"client\":\"christian vieira\",\"contact\":\"47 4342\",\"phone\":\"423423423\",\"value\":250,\"stage\":\"ganho\",\"nextStep\":\"\",\"notes\":\"\",\"lostReason\":\"\",\"createdAt\":\"2026-09-29T20:08:38.499Z\",\"updatedAt\":\"2026-09-29T20:08:55.511Z\",\"wonAt\":\"2026-09-29T20:08:55.511Z\"}]}"
   }
 }
