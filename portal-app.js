@@ -541,6 +541,7 @@ const HOME_CONFIG_PADRAO = {
   subtitulo: "Seu ponto de apoio para gest\xE3o, crescimento e excel\xEAncia na opera\xE7\xE3o da franquia.",
   intro: "Tudo o que voc\xEA precisa est\xE1 aqui. Use o menu ao lado ou a busca para encontrar um assunto.",
   destaqueMes: "Agosto 2026",
+  melhoresImagem: "",
   destaques: [
     { nome: "Avec Mato Grosso do Sul", nivel: "Destaque N\xEDvel Bronze \u2014 Agosto", imagem: "https://sites.google.com/sitesv-images-rt/AMxu72t_B1Hlaurn04yvGmZ-CwoCR1Kp-BTFufRv3JTxnggEB2uCChqufBJ2pzZ_gZ6EarltFZRokgKzi9nJhr-cxt6IZgHTCybp0jdfuBvGMlD50rJbJVsfjRnBoSEzYyWWFaSLWVNHOtZvWDSOjTmX-k9kwFnL2DvPFR3EMrGuDQNHqE5W8VjVuHeFAVu7fuEGIir-coz5bJXJyHyBVMhZqfwe6SLCd0XxN6gQ94SFYio=w1280" },
     { nome: "Avec Barueri", nivel: "Destaque N\xEDvel Prata \u2014 Agosto", imagem: "https://sites.google.com/sitesv-images-rt/AMxu72vIEvc3S2xtIfAVw2LWG7OXs-Up7TzvIT4YMDqm_969vrk_MXq6l92Y6xcyNVx8DCcavZ4Tg59vWYSNPxY2D5MjMWEaZsLwGzBigr2CrbbnOs8ZTfbnmawpGu1h2dYpwRdvSBdrbOk6Du8-pQ9B-CgJ63uHNkA3urTSBA5JbvR5062lfQpBBqwzFe_gqhuMkkBzXWLiw0k5toE14icwxf8Ft7rRSXUtXANa9hbvAZY=w1280" },
@@ -601,13 +602,14 @@ async function publicarHomeAtual(homeParcial) {
 }
 function renderHomePrincipal(h) {
   const cards = (h.destaques || []).map((d) => `<figure class="home-destaque"><img src="${esc(imagemPortal(d.imagem || ""))}" alt="${esc(d.nome || "")}"><figcaption class="hd-info"><b>${esc(d.nome || "")}</b><small>${esc(d.nivel || "")}</small></figcaption></figure>`).join("");
+  const melhores = h.melhoresImagem ? `<figure style="margin:14px 0 0;border:1px solid var(--linha);border-radius:14px;overflow:hidden;background:#fff"><img src="${esc(imagemPortal(h.melhoresImagem))}" alt="Melhores do mês" style="width:100%;max-height:620px;object-fit:contain;display:block;background:#F7F7FB"></figure>` : `<div class="home-destaques">${cards}</div>`;
   const novidades = (h.novidadeFotos || []).filter((x) => x && x.imagem).map((d) => `<figure class="novidade-card"><img src="${esc(imagemPortal(d.imagem))}" alt="${esc(d.titulo || "Novidade de produto")}"><figcaption class="nf-info"><b>${esc(d.titulo || "")}</b><small>${esc(d.texto || "")}</small></figcaption></figure>`).join("");
   const ajuda = h.ajudaUrl ? `<a href="${esc(h.ajudaUrl)}" target="_blank" rel="noopener">Central de ajuda</a>` : "";
   return `<article>
     <h1>${esc(h.titulo)}</h1>
     <p class="destaque"><b>${esc(h.subtitulo)}</b></p>
     <p>${esc(h.intro)}</p>
-    <div class="home-bloco"><h2>Melhores do m\xEAs \u2014 ${esc(h.destaqueMes)}</h2><div class="home-destaques">${cards}</div></div>
+    <div class="home-bloco"><h2>Melhores do m\xEAs</h2><p><b>Per\xEDodo analisado: ${esc(h.destaqueMes)}</b></p>${melhores}</div>
     <div class="home-bloco"><h2>${esc(h.novidadeTitulo)}</h2><p><b>${esc(h.novidadePeriodo)}</b></p>${h.novidadeTexto ? `<p>${esc(h.novidadeTexto)}</p>` : ""}${novidades ? `<div class="novidade-fotos">${novidades}</div>` : ""}${h.novidadeUrl ? `<div class="home-links"><a href="${esc(h.novidadeUrl)}" target="_blank" rel="noopener">Abrir material</a></div>` : ""}</div>
     <div class="home-bloco"><h2>${esc(h.ajudaTitulo)}</h2><p>${esc(h.ajudaTexto)}</p><div class="home-links">${ajuda}<a href="${esc(h.instagram)}" target="_blank" rel="noopener">Instagram</a><a href="${esc(h.facebook)}" target="_blank" rel="noopener">Facebook</a><a href="${esc(h.linkedin)}" target="_blank" rel="noopener">LinkedIn</a></div></div>
   </article>`;
@@ -695,11 +697,12 @@ function abrirModalEditorHome(h) {
     <p class="sub">Edite tudo o que aparece na tela principal. As altera\xE7\xF5es ficam salvas no Portal e podem ser feitas por qualquer administrador, sem token do GitHub.</p>
     <div class="editor-home-grid">
       <div class="campo"><label>T\xEDtulo</label><input class="inp" id="ehTitulo" value="${esc(h.titulo)}"></div>
-      <div class="campo"><label>M\xEAs do destaque</label><input class="inp" id="ehMes" value="${esc(h.destaqueMes)}"></div>
+      <div class="campo"><label>Per\xEDodo analisado</label><input class="inp" id="ehMes" value="${esc(h.destaqueMes)}" placeholder="Ex.: 01/09 a 30/09"></div>
       <div class="campo full"><label>Subt\xEDtulo</label><input class="inp" id="ehSub" value="${esc(h.subtitulo)}"></div>
       <div class="campo full"><label>Texto de abertura</label><textarea class="inp" id="ehIntro" rows="3">${esc(h.intro)}</textarea></div>
     </div>
-    <div class="home-bloco"><h3>Franqueados destaque</h3><p class="sub">Selecione uma foto do computador e clique em \u201CEnviar foto\u201D. Ela ser\xE1 publicada diretamente no GitHub.<div class="upload-row" style="margin:10px 0 14px;align-items:center"><input type="file" id="ehFilesLote" accept="image/*" multiple><button type="button" class="btn cheio peq" id="ehEnviarLote">Enviar 4 fotos</button><span class="upload-status" id="ehLoteStatus">Selecione at\xE9 4 fotos, na ordem dos destaques.</span></div></p><div class="editor-home-grid">${cards.map((d, i) => `<div class="editor-destaque"><h3>${i + 1}\xBA destaque</h3><div class="campo"><label>Nome</label><input class="inp" id="ehNome${i}" value="${esc(d.nome || "")}"></div><div class="campo"><label>N\xEDvel / legenda</label><input class="inp" id="ehNivel${i}" value="${esc(d.nivel || "")}"></div><div class="upload-box"><img class="upload-preview" id="ehPrev${i}" src="${esc(d.imagem || "")}" alt="Pr\xE9via"><div class="upload-row"><input type="file" id="ehFile${i}" accept="image/*"><button type="button" class="btn peq" id="ehUp${i}">Enviar foto</button></div><input type="hidden" id="ehImg${i}" value="${esc(d.imagem || "")}"><span class="upload-status" id="ehStatus${i}">${d.imagem ? "Foto atual" : "Nenhuma foto selecionada"}</span></div></div>`).join("")}</div></div>
+    <div class="home-bloco"><h3>Melhores do m\xEAs</h3><p class="sub">Atualize a foto principal e o per\xEDodo analisado. Qualquer administrador pode fazer isso sem token do GitHub.</p><div class="upload-box"><img class="upload-preview" id="ehMelhoresPrev" src="${esc(h.melhoresImagem || "")}" alt="Pr\xE9via dos melhores do m\xEAs"><div class="upload-row"><input type="file" id="ehMelhoresFile" accept="image/*"><button type="button" class="btn cheio peq" id="ehMelhoresUp">Enviar foto</button></div><input type="hidden" id="ehMelhoresImg" value="${esc(h.melhoresImagem || "")}"><span class="upload-status" id="ehMelhoresStatus">${h.melhoresImagem ? "Foto atual" : "Nenhuma foto principal selecionada"}</span></div></div>
+    <div class="home-bloco"><h3>Destaques individuais (opcional)</h3><p class="sub">Voc\xEA pode manter os cards individuais abaixo, se quiser.<div class="upload-row" style="margin:10px 0 14px;align-items:center"><input type="file" id="ehFilesLote" accept="image/*" multiple><button type="button" class="btn cheio peq" id="ehEnviarLote">Enviar 4 fotos</button><span class="upload-status" id="ehLoteStatus">Selecione at\xE9 4 fotos, na ordem dos destaques.</span></div></p><div class="editor-home-grid">${cards.map((d, i) => `<div class="editor-destaque"><h3>${i + 1}\xBA destaque</h3><div class="campo"><label>Nome</label><input class="inp" id="ehNome${i}" value="${esc(d.nome || "")}"></div><div class="campo"><label>N\xEDvel / legenda</label><input class="inp" id="ehNivel${i}" value="${esc(d.nivel || "")}"></div><div class="upload-box"><img class="upload-preview" id="ehPrev${i}" src="${esc(d.imagem || "")}" alt="Pr\xE9via"><div class="upload-row"><input type="file" id="ehFile${i}" accept="image/*"><button type="button" class="btn peq" id="ehUp${i}">Enviar foto</button></div><input type="hidden" id="ehImg${i}" value="${esc(d.imagem || "")}"><span class="upload-status" id="ehStatus${i}">${d.imagem ? "Foto atual" : "Nenhuma foto selecionada"}</span></div></div>`).join("")}</div></div>
     <div class="home-bloco"><h3>Novidade de produto</h3><div class="editor-home-grid">
       <div class="campo"><label>T\xEDtulo</label><input class="inp" id="ehNT" value="${esc(h.novidadeTitulo)}"></div>
       <div class="campo"><label>Per\xEDodo</label><input class="inp" id="ehNP" value="${esc(h.novidadePeriodo)}"></div>
@@ -729,9 +732,23 @@ function abrirModalEditorHome(h) {
       p.src = u;
     });
   };
+  previewBind("#ehMelhoresFile", "#ehMelhoresPrev");
   cards.forEach((_, i) => previewBind("#ehFile" + i, "#ehPrev" + i));
   fotos.forEach((_, i) => previewBind("#ehNF" + i, "#ehNFp" + i));
-  cards.forEach((_, i) => $("#ehUp" + i).onclick = async (e) => {
+  $("#ehMelhoresUp").onclick = async (e) => {
+    const b = e.currentTarget;
+    b.disabled = true;
+    try {
+      const caminho = await prepararFotoLocal("#ehMelhoresFile", "#ehMelhoresImg", "#ehMelhoresPrev", "#ehMelhoresStatus", "melhores");
+      await publicarHomeAtual({ melhoresImagem: caminho, destaqueMes: $("#ehMes").value.trim() });
+      $("#ehMelhoresStatus").textContent = "✓ Foto atualizada";
+    } catch (err) {
+      $("#ehMelhoresStatus").textContent = "Erro: " + (err.message || "falha ao enviar a foto");
+    } finally {
+      b.disabled = false;
+    }
+  });
+    cards.forEach((_, i) => $("#ehUp" + i).onclick = async (e) => {
     var _a2;
     const b = e.currentTarget;
     b.disabled = true;
@@ -843,6 +860,7 @@ function abrirModalEditorHome(h) {
         subtitulo: $("#ehSub").value.trim(),
         intro: $("#ehIntro").value.trim(),
         destaqueMes: $("#ehMes").value.trim(),
+        melhoresImagem: $("#ehMelhoresImg").value.trim(),
         destaques: cards.map((_, i) => ({ nome: $("#ehNome" + i).value.trim(), nivel: $("#ehNivel" + i).value.trim(), imagem: $("#ehImg" + i).value.trim() })),
         novidadeTitulo: $("#ehNT").value.trim(),
         novidadePeriodo: $("#ehNP").value.trim(),
