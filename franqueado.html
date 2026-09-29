@@ -871,6 +871,14 @@ function mostra(tela) {
 function formEntrada(qual) {
   ["formLogin", "formSetup", "formRecuperar"].forEach((id) => $("#" + id).classList.toggle("hidden", id !== qual));
   mostra("entrada");
+  if (qual === "formLogin") {
+    const b = $("#btnEntrar");
+    if (b) { b.disabled = false; b.textContent = "Entrar"; }
+    const msg = $("#msgLogin");
+    if (msg) msg.textContent = "";
+    const senha = $("#senha");
+    if (senha) senha.value = "";
+  }
   const f = $("#" + qual + " input");
   if (f) f.focus();
 }
