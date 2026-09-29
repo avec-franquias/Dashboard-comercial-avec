@@ -1451,7 +1451,7 @@ const MODULO_CACHE = /* @__PURE__ */ new Map();
 const decodifica = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
 async function carregaModulo(id) {
   if (MODULO_CACHE.has(id)) return MODULO_CACHE.get(id);
-  const r = await fetch(new URL("portal-assets/modulos/" + encodeURIComponent(id) + ".b64", location.href), { cache: "force-cache" });
+  const r = await fetch(new URL("portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20260928-2317", location.href), { cache: "no-store" });
   if (!r.ok) throw new Error("Nao foi possivel carregar o modulo " + id + ".");
   const html = decodifica((await r.text()).trim());
   MODULO_CACHE.set(id, html);
