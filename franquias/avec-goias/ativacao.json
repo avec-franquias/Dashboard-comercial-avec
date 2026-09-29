@@ -1,8 +1,8 @@
 {
   "franquiaId": "avec-goias",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T19:41:06.552Z",
-  "atualizadoPor": "kater.hoss",
+  "atualizadoEm": "2026-09-29T20:10:40.955Z",
+  "atualizadoPor": "harana.lima",
   "dados": {
     "db": {
       "users": [
@@ -10,14 +10,14 @@
           "id": "f3401ab3f7b05d2e",
           "name": "teste teste",
           "login": "teste.teste",
-          "role": "franqueado",
+          "role": "historico",
           "pass": "portal"
         },
         {
           "id": "24dc688a73a9d03a",
           "name": "Avec Campinas",
           "login": "alexandre.scaquette",
-          "role": "franqueado",
+          "role": "historico",
           "pass": "portal"
         },
         {
