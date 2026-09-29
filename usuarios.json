@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-29T20:57:41.573Z",
+ "atualizadoEm": "2026-09-29T21:12:39.563Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1157,6 +1157,22 @@
    "perfil": "franqueado",
    "senha": "pbkdf2$210000$5ee37cf4b275c169dbf8d2abf6d9c0f3$29e80953f34aa75465126c9ac4bb90a56890bf10ba015290d3a49a3082f55762",
    "criadoEm": "2026-09-29T20:51:30.974Z"
+  },
+  {
+   "login": "michelle.soares",
+   "nome": "Michelle Soares",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
+    "migrador",
+    "arvore",
+    "taxas",
+    "propostas"
+   ],
+   "franquiaId": "avec-goias",
+   "perfil": "franqueado",
+   "senha": "pbkdf2$210000$4646f08684e209ca1a33495fb2345f5a$1e912a98a0e3ae849de16054ad7fb263f398cdca6822ce920a9875843f959c00",
+   "criadoEm": "2026-09-29T21:12:39.677Z"
   }
  ],
  "manutencao": {
