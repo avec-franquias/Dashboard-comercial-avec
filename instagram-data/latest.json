@@ -6444,10 +6444,10 @@
       },
       "results": [
         {
-          "username": "studio_mayfreitas",
-          "profile_url": "https://www.instagram.com/studio_mayfreitas/",
-          "name": "Salão de Beleza ️ Fortaleza ce",
-          "bio": "Salão de Beleza ️ Fortaleza ce (@studio_mayfreitas) - Instagram",
+          "username": "salaodebeleza.fortaleza",
+          "profile_url": "https://www.instagram.com/salaodebeleza.fortaleza/",
+          "name": "Salão de Beleza",
+          "bio": "Salão de Beleza (@salaodebeleza.fortaleza) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -6459,10 +6459,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "salaodebeleza.fortaleza",
-          "profile_url": "https://www.instagram.com/salaodebeleza.fortaleza/",
-          "name": "Salão de Beleza",
-          "bio": "Salão de Beleza (@salaodebeleza.fortaleza) - Instagram",
+          "username": "studio_mayfreitas",
+          "profile_url": "https://www.instagram.com/studio_mayfreitas/",
+          "name": "Salão de Beleza ️ Fortaleza ce",
+          "bio": "Salão de Beleza ️ Fortaleza ce (@studio_mayfreitas) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -6564,6 +6564,21 @@
           "source": "duckduckgo"
         },
         {
+          "username": "s3salone",
+          "profile_url": "https://www.instagram.com/s3salone/",
+          "name": "Salão de Beleza em Fortaleza",
+          "bio": "Salão de Beleza em Fortaleza (@s3salone) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Fortaleza",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
           "username": "unicosalon",
           "profile_url": "https://www.instagram.com/unicosalon/",
           "name": "Salão de beleza | ÚNICO - Fortaleza/CE",
@@ -6579,10 +6594,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "studiol.fortaleza",
-          "profile_url": "https://www.instagram.com/studiol.fortaleza/",
-          "name": "A maior rede de salões do Ceará",
-          "bio": "A maior rede de salões do Ceará (@studiol.fortaleza) - Instagram",
+          "username": "boutiquebelezanl",
+          "profile_url": "https://www.instagram.com/boutiquebelezanl/",
+          "name": "Salão de Beleza | Fortaleza",
+          "bio": "Salão de Beleza | Fortaleza (@boutiquebelezanl) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -6594,21 +6609,13 @@
           "source": "duckduckgo"
         }
       ],
-      "total": 10,
-      "new_count": 10,
+      "total": 11,
+      "new_count": 2,
       "new_usernames": [
-        "studio_mayfreitas",
-        "salaodebeleza.fortaleza",
-        "tfspacobeleza",
-        "salao_beautyline",
-        "ohmyclub.ce",
-        "studiomeirefigueredo",
-        "dgcabelos",
-        "beautyconceito",
-        "unicosalon",
-        "studiol.fortaleza"
+        "s3salone",
+        "boutiquebelezanl"
       ],
-      "finished_at": "2026-09-29T20:09:08.311Z"
+      "finished_at": "2026-09-29T20:18:13.256Z"
     },
     {
       "query": {
