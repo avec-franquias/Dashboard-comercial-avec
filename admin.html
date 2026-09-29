@@ -1,0 +1,2224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>avec · Portal do franqueado</title>
+<script>window.PORTAL_API_BASE = location.hostname.endsWith("github.io") ? "https://dashboard-comercial-avec.vercel.app" : "";
+window.PORTAL_CONFIG = {
+  // Módulos do menu (os arquivos estão embutidos no fim desta página). "id" é usado para liberar ou bloquear por usuário.
+  modulos: [
+    { id: "central", arquivo: "central.html", nome: "Central do franqueado", desc: "Treinamentos, produtos, m\xF3dulos e reuni\xF5es da rede em um s\xF3 lugar.", cor: "#0E7490" },
+    { id: "clientes", arquivo: "clientes.html", nome: "Clientes", desc: "Carteira consolidada, MRR, produtos contratados e oportunidades por cliente.", cor: "#059669" },
+    { id: "migrador", arquivo: "migrador-planilhas.html", nome: "Migrador de Planilhas", desc: "Converta planilhas de clientes, produtos, servi\xE7os e profissionais para o formato AVEC.", cor: "#6C47FF" },
+    { id: "extrator", arquivo: "extrator-leads.html", nome: "Extrator de Leads", desc: "Encontre novos estabelecimentos por nicho e regi\xE3o, sem repetir leads j\xE1 extra\xEDdos.", cor: "#7C3AED" },
+    { id: "ativacao", arquivo: "ativacao.html", nome: "Ativa\xE7\xE3o de clientes", desc: "Kanban de onboarding com SLA de 48h, checklists e registro de cada contato.", cor: "#5B4FE9" },
+    { id: "arvore", arquivo: "arvorealavanca.html", nome: "\xC1rvore de Alavancas", desc: "Plano do m\xEAs, plano vs proje\xE7\xE3o, acompanhamento semanal e radar pr\xE9-churn.", cor: "#C2410C" },
+    { id: "previsao", arquivo: "previsaoderesultados.html", nome: "Previs\xE3o de resultados", desc: "Faturamento MRR + Net Take, tier do trimestre e remunera\xE7\xE3o estimada.", cor: "#334155" },
+    { id: "taxas", arquivo: "taxas.html", nome: "Simulador de taxas", desc: "Precifica\xE7\xE3o de Payments, avalia\xE7\xE3o do take e gera\xE7\xE3o de token para o BKO.", cor: "#1A56DB" },
+    { id: "propostas", arquivo: "calculadora-propostas.html", nome: "Calculadora de propostas", desc: "Monte o or\xE7amento com o cat\xE1logo avec e salve a proposta em PDF.", cor: "#0F9D58" }
+  ]
+};
+</script>
+<style>
+:root{
+  --roxo:#5B4FE9; --roxo-claro:#746EF6; --roxo-escuro:#3F35B8; --roxo-leve:#ECEAFE;
+  --tinta:#1C1B2E; --tinta-suave:#6B6A80; --linha:#E4E3ED; --cinza:#F6F6FA;
+  --ok:#1E9E6A; --erro:#C8372D; --r:14px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:var(--tinta);background:var(--cinza);min-height:100vh;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--roxo-claro);outline-offset:2px}
+.hidden{display:none!important}
+.logo{display:inline-flex;color:var(--roxo)}
+.logo svg{height:26px;width:auto}
+
+/* ---------- entrada ---------- */
+.entrada{min-height:100vh;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr)}
+.marca{background:var(--roxo);color:#fff;padding:48px 56px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.marca .logo{color:#fff}
+.marca .logo svg{height:34px}
+.marca h1{font-size:clamp(34px,4vw,52px);line-height:1.04;font-weight:600;letter-spacing:-.02em;margin:0 0 18px;max-width:11ch}
+.marca p{font-size:18px;line-height:1.5;opacity:.85;max-width:34ch;margin:0}
+.marca ul{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.marca li{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:5px 12px;font-size:14px}
+.marca .rodape{font-size:13px;opacity:.7}
+.marca::after{content:"";position:absolute;right:-120px;bottom:-120px;width:360px;height:360px;border-radius:50%;border:56px solid rgba(255,255,255,.08)}
+.form-lado{display:grid;place-items:center;padding:40px 24px;background:#fff}
+.form{width:min(380px,100%)}
+.form h2{font-size:28px;font-weight:600;margin:0 0 6px;letter-spacing:-.01em}
+.form .sub{color:var(--tinta-suave);margin:0 0 28px;line-height:1.5}
+.campo{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.campo label{font-size:14px;font-weight:500}
+.inp{border:1.5px solid var(--linha);border-radius:10px;padding:11px 13px;background:#fff;width:100%;transition:border-color .15s}
+.inp:hover{border-color:#cfcde0}
+.inp:focus{border-color:var(--roxo);outline:none;box-shadow:0 0 0 3px var(--roxo-leve)}
+.btn{border:0;border-radius:10px;padding:11px 18px;font-weight:600;background:var(--roxo-leve);color:var(--roxo-escuro)}
+.btn:hover{background:#dedbfd}
+.btn.cheio{background:var(--roxo);color:#fff}
+.btn.cheio:hover{background:var(--roxo-escuro)}
+.btn.bloco{width:100%}
+.btn.linha{background:#fff;border:1.5px solid var(--linha);color:var(--tinta)}
+.btn.linha:hover{border-color:var(--roxo);color:var(--roxo)}
+.btn.peq{padding:7px 12px;font-size:14px;border-radius:8px}
+.btn:disabled{opacity:.6;cursor:wait}
+.link{background:none;border:0;padding:0;color:var(--roxo);font-weight:500;text-decoration:underline;text-underline-offset:3px}
+.msg{min-height:22px;font-size:14px;margin:4px 0 12px;line-height:1.4}
+.msg.erro{color:var(--erro)} .msg.ok{color:var(--ok)}
+.aviso{background:var(--roxo-leve);color:var(--roxo-escuro);border-radius:10px;padding:10px 14px;font-size:14px;margin-bottom:18px;line-height:1.45}
+.config ol{padding-left:20px;line-height:1.7;margin:0}
+.config code{background:var(--roxo-leve);padding:1px 6px;border-radius:5px;font-size:13px}
+
+/* ---------- menu ---------- */
+.topo{background:#fff;border-bottom:1px solid var(--linha);position:sticky;top:0;z-index:5}
+.topo-in{max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:14px}
+.topo .sep{width:1px;height:22px;background:var(--linha)}
+.topo .titulo{color:var(--tinta-suave);font-size:15px}
+.topo .cresce{flex:1}
+.quem{display:flex;align-items:center;gap:10px;font-size:14px}
+.quem b{display:block;font-weight:600}
+.quem small{color:var(--tinta-suave)}
+.av{width:36px;height:36px;border-radius:50%;background:var(--roxo);color:#fff;display:grid;place-items:center;font-weight:600;font-size:14px;flex:none}
+main.conteudo{max-width:1180px;margin:0 auto;padding:40px 24px 64px}
+.ola{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.ola h1{font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-.02em;margin:0 0 6px}
+.ola p{margin:0;color:var(--tinta-suave);font-size:17px}
+.abas{display:inline-flex;background:#fff;border:1px solid var(--linha);border-radius:12px;padding:4px;gap:4px}
+.abas button{border:0;background:none;border-radius:9px;padding:8px 16px;font-weight:500;color:var(--tinta-suave)}
+.abas button[aria-selected="true"]{background:var(--roxo);color:#fff}
+
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.mod{position:relative;background:#fff;border:1px solid var(--linha);border-radius:var(--r);padding:22px 22px 20px;text-decoration:none;color:inherit;display:flex;flex-direction:column;min-height:210px;transition:border-color .15s,transform .15s,box-shadow .15s}
+.mod:hover{border-color:var(--cor);box-shadow:0 10px 28px -14px color-mix(in srgb,var(--cor) 60%,transparent);transform:translateY(-2px)}
+.mod .ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--cor) 12%,#fff);color:var(--cor);margin-bottom:18px}
+.mod .ic svg{width:26px;height:26px}
+.mod h3{margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-.01em}
+.mod p{margin:0;color:var(--tinta-suave);line-height:1.5;flex:1}
+.mod .abrir{margin-top:18px;font-weight:600;color:var(--cor);display:inline-flex;align-items:center;gap:6px}
+.mod.novo::before{content:"Novo";position:absolute;top:22px;right:22px;background:var(--roxo);color:#fff;font-size:12px;font-weight:600;border-radius:999px;padding:3px 10px}
+.vazio{background:#fff;border:1px dashed var(--linha);border-radius:var(--r);padding:32px;text-align:center;color:var(--tinta-suave)}
+
+/* ---------- usuários ---------- */
+.painel{background:#fff;border:1px solid var(--linha);border-radius:var(--r);padding:22px 24px;margin-bottom:18px}
+.painel h2{font-size:19px;font-weight:600;margin:0 0 4px}
+.painel .sub{color:var(--tinta-suave);margin:0 0 18px;font-size:15px}
+.linha-form{display:grid;grid-template-columns:1.15fr 1.2fr .95fr .85fr 1.15fr;gap:12px}
+.chk-grupo{display:flex;flex-wrap:wrap;gap:6px 14px;margin:4px 0 16px}
+.chk{display:inline-flex;align-items:center;gap:6px;font-size:14px}
+.chk input{width:16px;height:16px;accent-color:var(--roxo)}
+.tabela{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-weight:500;color:var(--tinta-suave);padding:10px 12px;border-bottom:1px solid var(--linha);white-space:nowrap}
+td{padding:12px;border-bottom:1px solid var(--linha);vertical-align:top}
+tr.inativo td{color:var(--tinta-suave)}
+td .nome{font-weight:600}
+td .email{color:var(--tinta-suave);font-size:13px}
+td select{border:1.5px solid var(--linha);border-radius:8px;padding:5px 8px;background:#fff}
+.mods{display:flex;flex-wrap:wrap;gap:4px 10px;max-width:420px}
+.mods .chk{font-size:13px}
+.acoes{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.selo{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600}
+.selo.on{background:#DDF5EB;color:#146C49} .selo.off{background:#F1F0F5;color:var(--tinta-suave)}
+
+.modal-fundo{position:fixed;inset:0;background:rgba(28,27,46,.5);display:grid;place-items:center;padding:16px;z-index:20}
+.modal{background:#fff;border-radius:16px;padding:26px;width:min(420px,100%)}
+.modal h2{margin:0 0 16px;font-size:22px;font-weight:600}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--tinta);color:#fff;padding:11px 18px;border-radius:10px;z-index:30;font-size:15px;max-width:calc(100% - 32px)}
+
+/* ---------- código de recuperação ---------- */
+.codigo{font:600 24px/1.2 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.06em;text-align:center;background:var(--roxo-leve);color:var(--roxo-escuro);border-radius:12px;padding:16px 10px;user-select:all;word-break:break-all}
+
+/* ---------- aviso de publicação ---------- */
+.publicar{display:flex;align-items:center;gap:16px;justify-content:space-between;flex-wrap:wrap;background:#FFF6DA;border:1px solid #F2D57A;color:#5C4400;border-radius:var(--r);padding:14px 18px;margin-bottom:24px;line-height:1.45}
+.publicar b{display:block}
+.mod.bloqueado{cursor:not-allowed;opacity:.75;filter:grayscale(.6)}
+.mod.bloqueado:hover{transform:none;box-shadow:none;border-color:var(--linha)}
+.mod.bloqueado .abrir{color:var(--tinta-suave)}
+.mod.em-manut{border-style:dashed}
+.manut-aviso{margin-top:14px;background:#FFF6DA;border:1px solid #F2D57A;color:#5C4400;border-radius:10px;padding:9px 12px;font-size:14px;line-height:1.4}
+.manut-aviso b{display:block}
+.manut-aviso small{display:block;margin-top:4px;opacity:.8}
+.selo.manut{background:#FFF1C2;color:#7A5A00}
+.manut-linha{display:grid;grid-template-columns:48px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--linha)}
+.manut-linha:last-child{border-bottom:0}
+.manut-linha .ic{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;background:color-mix(in srgb,var(--cor) 12%,#fff);color:var(--cor)}
+.manut-linha .ic svg{width:24px;height:24px}
+.manut-info{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.manut-info b{font-size:16px}
+.manut-info small{color:var(--tinta-suave)}
+.manut-info .inp{flex-basis:100%;padding:8px 11px;font-size:14px}
+.manut-acoes{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+@media (max-width:860px){.manut-linha{grid-template-columns:44px 1fr}.manut-acoes{grid-column:1/-1;flex-direction:row;align-items:center}}
+.passos{margin:0 0 14px;padding-left:20px;line-height:1.6;font-size:14px}
+.passos a{color:var(--roxo)}
+.two-gh{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.publicar-acoes{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.publicar .diag{flex-basis:100%;background:#fff;border-radius:10px;padding:10px 14px;color:var(--tinta)}
+.publicar .diag ul{margin:6px 0;padding-left:20px}
+.publicar code{background:rgba(0,0,0,.06);padding:1px 5px;border-radius:4px}
+
+/* ---------- módulo aberto ---------- */
+#telaModulo{position:fixed;inset:0;display:flex;flex-direction:column;background:#fff;z-index:10}
+.barra-mod{height:46px;flex:none;display:flex;align-items:center;gap:12px;padding:0 14px;background:var(--tinta);color:#fff}
+.barra-mod .logo{color:#fff}
+.barra-mod .logo svg{height:20px}
+.barra-mod .voltar{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:0;color:#fff;border-radius:8px;padding:6px 12px;font-weight:500}
+.barra-mod .voltar:hover{background:var(--roxo)}
+.barra-mod .voltar svg{width:16px;height:16px}
+.barra-mod .nome-mod{font-weight:600}
+.barra-mod .cresce{flex:1}
+.barra-mod .troca{background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:8px;padding:6px 8px;max-width:220px}
+.barra-mod .troca option{color:var(--tinta)}
+.barra-mod small{opacity:.7;font-size:13px}
+.frames{flex:1;position:relative}
+.frames iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
+.carregando{position:absolute;inset:0;display:grid;place-items:center;color:var(--tinta-suave)}
+.sql{position:relative;margin:12px 0 0}
+.sql pre{background:var(--tinta);color:#e7e6f5;border-radius:10px;padding:14px;max-height:220px;overflow:auto;font-size:12px;line-height:1.5;margin:0}
+.sql button{position:absolute;top:8px;right:8px}
+.form.config{width:min(560px,100%)}
+@media print{#telaModulo{position:static}.barra-mod{display:none}}
+
+@media (max-width:860px){
+  .barra-mod small,.barra-mod .troca{display:none}
+  .entrada{grid-template-columns:1fr}
+  .marca{padding:32px 24px}
+  .marca h1{max-width:none}
+  .marca .rodape{display:none}
+  .linha-form{grid-template-columns:1fr}
+  .topo .titulo,.topo .sep,.quem span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---------- administração de conteúdo ---------- */
+textarea.inp{resize:vertical;min-height:120px}
+.conteudo-admin{padding-bottom:14px}
+.editor-central-admin{height:calc(100vh - 235px);min-height:700px;border:1px solid var(--linha);border-radius:12px;overflow:hidden;background:#fff}
+.editor-central-admin iframe{width:100%;height:100%;border:0;display:block;background:#fff}
+
+/* ---------- novo painel inicial ---------- */
+.painel-inicial{display:grid;grid-template-columns:280px minmax(0,1fr);gap:18px;align-items:start}
+.menu-modulos{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:10px;position:sticky;top:90px}
+.menu-modulos-titulo{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--tinta-suave);font-weight:700;padding:8px 10px 10px}
+.lista-modulos{display:flex;flex-direction:column;gap:4px}
+.mod-lista{display:flex;align-items:center;gap:10px;width:100%;border:0;background:transparent;text-align:left;border-radius:10px;padding:10px;cursor:pointer;color:var(--tinta);text-decoration:none}
+.mod-lista:hover{background:var(--cinza)}
+.mod-lista .ic-mini{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;flex:none;background:color-mix(in srgb,var(--cor) 12%,#fff);color:var(--cor)}
+.mod-lista .ic-mini svg{width:20px;height:20px}
+.mod-lista .mi{min-width:0;flex:1}
+.mod-lista .mi b{display:block;font-size:14px;line-height:1.25}
+.mod-lista .mi small{display:block;color:var(--tinta-suave);font-size:12px;line-height:1.25;margin-top:2px}
+.mod-lista .seta{color:var(--tinta-suave);font-size:18px;line-height:1}
+.mod-lista.destaque{background:var(--roxo-leve);color:var(--roxo-escuro)}
+.mod-lista.destaque .mi b{color:var(--roxo-escuro)}
+.atalho-admin{margin-top:10px;padding-top:10px;border-top:1px solid var(--linha)}
+.home-principal{background:#fff;border:1px solid var(--linha);border-radius:14px;min-height:640px;overflow:hidden}
+.home-cabecalho{padding:20px 24px;border-bottom:1px solid var(--linha);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.home-cabecalho h2{margin:0;font-size:21px;font-weight:600}
+.home-cabecalho p{margin:3px 0 0;color:var(--tinta-suave);font-size:13px}
+.home-acoes{display:flex;gap:8px;flex-wrap:wrap}
+.home-corpo{padding:24px}
+.home-corpo h1{font-size:34px;line-height:1.08;margin:0 0 12px;letter-spacing:-.02em}
+.home-corpo h2{font-size:21px;line-height:1.2;margin:28px 0 10px}
+.home-corpo p{font-size:15px;line-height:1.6;margin:8px 0;color:var(--tinta)}
+.home-corpo .destaque{font-size:17px;color:var(--tinta-suave)}
+.home-corpo .nota{background:var(--roxo-leve);border-radius:10px;padding:10px 12px}
+.home-corpo a{color:var(--roxo);font-weight:600}
+.home-corpo .galeria{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}
+.home-corpo figure{margin:0;border:1px solid var(--linha);border-radius:12px;overflow:hidden;background:#fff}
+.home-corpo figure img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--cinza)}
+.home-corpo figcaption{padding:9px 10px;font-size:12px;line-height:1.4;color:var(--tinta-suave)}
+.home-vazio{padding:40px 20px;text-align:center;color:var(--tinta-suave)}
+.home-destaques{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0 10px}
+.home-destaque{border:1px solid var(--linha);border-radius:12px;overflow:hidden;background:#fff}
+.home-destaque img{width:100%;height:260px;object-fit:contain;object-position:center;background:#F7F7FB;display:block}
+.home-destaque .hd-info{padding:10px 11px}.home-destaque b{display:block;font-size:13px}.home-destaque small{display:block;color:var(--tinta-suave);margin-top:3px;font-size:12px}
+.home-bloco{margin-top:22px;padding-top:18px;border-top:1px solid var(--linha)}
+.home-bloco h3{margin:0 0 7px;font-size:18px}.home-bloco p{margin:5px 0}
+.home-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.home-links a{border:1px solid var(--linha);border-radius:999px;padding:7px 10px;text-decoration:none;background:#fff}
+.editor-home-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.editor-home-grid .campo.full{grid-column:1/-1}
+.editor-destaque{border:1px solid var(--linha);border-radius:12px;padding:14px;background:#fff}.editor-destaque h3{margin:0 0 10px;font-size:15px}
+.modal.home-edit{width:min(900px,100%);max-height:90vh;overflow:auto}
+.upload-box{border:1px dashed var(--linha);border-radius:12px;padding:12px;background:var(--cinza);display:flex;flex-direction:column;gap:8px}
+.upload-box .upload-preview{width:100%;height:260px;object-fit:contain;object-position:center;border-radius:10px;background:#fff;border:1px solid var(--linha)}
+.upload-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.upload-status{font-size:12px;color:var(--tinta-suave)}
+.novidade-fotos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.novidade-card{border:1px solid var(--linha);border-radius:12px;overflow:hidden;background:#fff}
+.novidade-card img{width:100%;height:210px;object-fit:contain;object-position:center;background:#F7F7FB;display:block}
+.novidade-card .nf-info{padding:10px 11px}.novidade-card b{display:block;font-size:13px}.novidade-card small{display:block;color:var(--tinta-suave);margin-top:3px}
+@media (max-width:980px){.novidade-fotos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.novidade-fotos{grid-template-columns:1fr}}
+
+@media (max-width:980px){.home-destaques{grid-template-columns:repeat(2,minmax(0,1fr))}.editor-home-grid{grid-template-columns:1fr}}
+@media (max-width:620px){.home-destaques{grid-template-columns:1fr}}
+
+@media (max-width:980px){.painel-inicial{grid-template-columns:1fr}.menu-modulos{position:static}.lista-modulos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.home-corpo .galeria{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.central-welcome{min-height:520px;display:flex;align-items:center;justify-content:center;padding:38px}
+.central-welcome-card{width:min(760px,100%);border:1px solid var(--linha);border-radius:22px;padding:46px;background:linear-gradient(135deg,#ffffff 0%,#f7f5ff 100%);box-shadow:0 14px 40px rgba(34,31,68,.08);text-align:center}
+.central-welcome-icon{width:74px;height:74px;margin:0 auto 20px;border-radius:20px;display:flex;align-items:center;justify-content:center;background:#ece9ff;color:#5848e8;font-size:34px;font-weight:800}
+.central-welcome-card h1{margin:0 0 12px;font-size:40px;line-height:1.08}
+.central-welcome-card p{margin:0 auto 22px;max-width:620px;color:var(--tinta-suave);font-size:18px;line-height:1.55}
+.central-welcome-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:20px 0 28px}
+.central-welcome-pill{padding:10px 14px;border-radius:999px;background:#fff;border:1px solid var(--linha);font-size:13px;font-weight:700}
+.central-welcome-button{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;background:#5a4be7;color:#fff;text-decoration:none;font-weight:800}
+
+@media (max-width:620px){.lista-modulos{grid-template-columns:1fr}.home-corpo{padding:18px}.home-corpo .galeria{grid-template-columns:1fr}}
+
+/* ---------- publicação via GitHub Actions ---------- */
+.export-box{background:#F7F7FB;border:1px solid var(--linha);border-radius:12px;padding:14px;margin-top:12px}
+.export-box b{display:block;margin-bottom:4px}
+.export-status{font-size:13px;color:var(--tinta-suave);margin-top:8px;line-height:1.45}
+
+
+body[data-portal-admin="0"] #abaFranquias,
+body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
+#adminFranquiaView{display:none!important}
+</style>
+</head>
+<body>
+
+<!-- ============ ENTRADA ============ -->
+<div id="telaEntrada" class="entrada">
+  <section class="marca">
+    <div><span class="logo" aria-label="avec"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 809 273"><g transform="translate(0.000000,273.000000) scale(0.100000,-0.100000)" fill="currentColor"><path d="M1971 2624 c-129 -35 -149 -51 -611 -510 -239 -237 -594 -588 -788 -780 -205 -202 -369 -373 -392 -407 -143 -214 -114 -505 69 -686 113 -112 232 -162 391 -162 102 0 170 16 255 58 72 37 73 37 385 346 l285 282 6 -135 c5 -117 10 -144 34 -203 68 -166 205 -287 376 -332 70 -19 209 -19 279 0 190 50 346 206 394 391 14 54 16 166 16 879 0 725 -2 823 -16 873 -54 186 -199 332 -383 386 -68 20 -226 20 -300 0z m277 -254 c73 -33 138 -109 163 -192 25 -80 22 -129 -10 -203 -18 -41 -76 -105 -307 -335 l-285 -285 3 405 c3 387 4 407 24 451 74 159 254 229 412 159z m-1045 -1621 c-424 -423 -426 -424 -563 -424 -73 0 -92 4 -136 27 -137 72 -199 227 -150 378 17 53 44 81 614 650 l597 595 3 -430 2 -430 -367 -366z m1216 -179 c-6 -30 -18 -68 -26 -83 -25 -48 -85 -107 -137 -135 -44 -23 -63 -27 -136 -27 -73 0 -92 4 -135 27 -60 32 -114 87 -146 148 -23 43 -24 56 -27 274 l-4 229 309 309 308 308 3 -497 c2 -354 0 -514 -9 -553z"/><path d="M3674 1930 c-226 -34 -393 -176 -466 -395 -19 -59 -23 -89 -22 -195 1 -108 4 -134 26 -192 37 -99 85 -172 153 -237 75 -70 141 -106 241 -131 166 -43 351 -9 462 84 35 30 42 32 42 9 0 -9 11 -31 25 -49 30 -39 87 -60 139 -50 45 9 101 62 110 106 3 18 6 233 6 479 0 405 -2 449 -18 481 -41 83 -150 107 -217 49 -19 -17 -38 -42 -41 -55 -3 -13 -8 -24 -10 -24 -2 0 -27 16 -54 36 -95 68 -253 103 -376 84z m248 -302 c64 -29 119 -81 150 -141 18 -35 22 -59 23 -137 0 -110 -17 -155 -88 -228 -82 -85 -236 -111 -347 -60 -79 36 -115 70 -152 146 -29 59 -33 75 -32 147 1 60 6 92 23 128 38 82 115 144 206 168 55 15 158 4 217 -23z"/><path d="M6190 1931 c-322 -44 -523 -315 -489 -658 36 -354 357 -575 724 -498 128 27 282 121 320 196 46 87 -26 190 -124 176 -22 -3 -69 -27 -118 -60 -112 -76 -191 -92 -306 -62 -99 26 -165 81 -202 168 -8 20 -15 39 -15 42 0 3 171 5 381 5 430 0 434 1 469 71 24 46 25 75 5 167 -35 168 -106 278 -238 367 -98 67 -274 104 -407 86z m226 -279 c23 -12 56 -36 74 -54 32 -31 69 -99 70 -125 0 -10 -64 -13 -289 -13 l-290 0 9 30 c22 77 80 136 167 171 66 27 200 22 259 -9z"/><path d="M7520 1931 c-257 -36 -458 -224 -505 -474 -19 -99 -19 -129 0 -225 67 -332 392 -533 738 -456 86 19 198 75 232 116 52 61 23 173 -52 205 -45 18 -93 12 -160 -21 -140 -70 -310 -44 -407 64 -54 60 -76 118 -76 200 0 133 63 234 178 288 48 23 70 27 142 27 73 -1 95 -5 157 -33 145 -65 243 -24 243 100 0 63 -27 99 -106 140 -114 60 -260 86 -384 69z"/><path d="M4585 1887 c-20 -20 -36 -48 -41 -71 -7 -39 -4 -50 66 -216 15 -36 89 -213 165 -395 76 -181 150 -346 164 -365 70 -91 207 -95 276 -8 15 19 113 237 217 484 172 407 189 453 185 494 -4 35 -13 51 -41 77 -31 29 -43 33 -88 33 -55 0 -97 -19 -122 -56 -7 -10 -73 -169 -147 -351 -73 -183 -135 -333 -138 -333 -4 0 -62 141 -130 313 -68 171 -135 331 -148 354 -29 53 -67 73 -134 73 -44 0 -55 -4 -84 -33z"/></g></svg></span></div>
+    <div>
+      <h1>Portal do franqueado</h1>
+      <p>Todas as ferramentas da operação num só lugar: ativação de clientes, previsão, taxas e propostas.</p>
+      <ul id="listaMarca"></ul>
+    </div>
+    <div class="rodape">Acesso restrito a franqueados e equipe avec.</div>
+  </section>
+
+  <section class="form-lado">
+    <form class="form" id="formLogin" novalidate>
+      <h2>Entrar</h2>
+      <p class="sub">Use o usuário e a senha enviados pela franqueadora.</p>
+      <div class="aviso hidden" id="avisoEntrada"></div>
+      <div class="campo"><label for="usuario">Usuário</label><input class="inp" id="usuario" autocomplete="username" autocapitalize="none" spellcheck="false"></div>
+      <div class="campo"><label for="senha">Senha</label><input class="inp" id="senha" type="password" autocomplete="current-password"></div>
+      <div class="msg erro" id="msgLogin" role="alert"></div>
+      <button class="btn cheio bloco" id="btnEntrar">Entrar</button>
+      <p style="text-align:center;margin-top:18px"><button type="button" class="link" id="lnkEsqueci">Esqueci minha senha</button></p>
+      <div class="hidden" id="txtEsqueci" style="text-align:center;margin-top:8px">
+        <p class="sub" style="margin:0 0 6px">Franqueado: peça para a franqueadora redefinir sua senha.</p>
+        <button type="button" class="link" id="lnkCodigo">Sou administrador e tenho o código de recuperação</button>
+      </div>
+    </form>
+
+    <form class="form hidden" id="formRecuperar" novalidate>
+      <h2>Recuperar acesso</h2>
+      <p class="sub">Use o código de recuperação que foi mostrado quando o administrador foi criado.</p>
+      <div class="campo"><label for="rcLogin">Usuário do administrador</label><input class="inp" id="rcLogin" autocapitalize="none" spellcheck="false"></div>
+      <div class="campo"><label for="rcCodigo">Código de recuperação</label><input class="inp" id="rcCodigo" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX"></div>
+      <div class="campo"><label for="rcSenha">Nova senha</label><input class="inp" id="rcSenha" type="password" autocomplete="new-password" placeholder="mínimo 8 caracteres"></div>
+      <div class="msg erro" id="msgRecuperar" role="alert"></div>
+      <button class="btn cheio bloco">Redefinir senha e entrar</button>
+      <p style="text-align:center;margin-top:18px"><button type="button" class="link" id="lnkVoltarLogin">Voltar para o login</button></p>
+    </form>
+
+    <form class="form hidden" id="formSetup" novalidate>
+      <h2>Criar o administrador</h2>
+      <p class="sub">Primeiro acesso ao portal. Crie o usuário da franqueadora; depois você cadastra os franqueados.</p>
+      <div class="campo"><label for="suNome">Seu nome</label><input class="inp" id="suNome" placeholder="Ex.: Christian Vieira"></div>
+      <div class="campo"><label for="suLogin">Usuário</label><input class="inp" id="suLogin" autocapitalize="none" spellcheck="false" placeholder="ex.: christian"></div>
+      <div class="campo"><label for="suSenha">Senha</label><input class="inp" id="suSenha" type="password" autocomplete="new-password" placeholder="mínimo 8 caracteres"></div>
+      <div class="msg erro" id="msgSetup" role="alert"></div>
+      <button class="btn cheio bloco">Criar e entrar</button>
+    </form>
+  </section>
+</div>
+
+<!-- ============ PORTAL ============ -->
+<div id="telaPortal" class="hidden">
+  <header class="topo">
+    <div class="topo-in">
+      <span class="logo" aria-label="avec"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 809 273"><g transform="translate(0.000000,273.000000) scale(0.100000,-0.100000)" fill="currentColor"><path d="M1971 2624 c-129 -35 -149 -51 -611 -510 -239 -237 -594 -588 -788 -780 -205 -202 -369 -373 -392 -407 -143 -214 -114 -505 69 -686 113 -112 232 -162 391 -162 102 0 170 16 255 58 72 37 73 37 385 346 l285 282 6 -135 c5 -117 10 -144 34 -203 68 -166 205 -287 376 -332 70 -19 209 -19 279 0 190 50 346 206 394 391 14 54 16 166 16 879 0 725 -2 823 -16 873 -54 186 -199 332 -383 386 -68 20 -226 20 -300 0z m277 -254 c73 -33 138 -109 163 -192 25 -80 22 -129 -10 -203 -18 -41 -76 -105 -307 -335 l-285 -285 3 405 c3 387 4 407 24 451 74 159 254 229 412 159z m-1045 -1621 c-424 -423 -426 -424 -563 -424 -73 0 -92 4 -136 27 -137 72 -199 227 -150 378 17 53 44 81 614 650 l597 595 3 -430 2 -430 -367 -366z m1216 -179 c-6 -30 -18 -68 -26 -83 -25 -48 -85 -107 -137 -135 -44 -23 -63 -27 -136 -27 -73 0 -92 4 -135 27 -60 32 -114 87 -146 148 -23 43 -24 56 -27 274 l-4 229 309 309 308 308 3 -497 c2 -354 0 -514 -9 -553z"/><path d="M3674 1930 c-226 -34 -393 -176 -466 -395 -19 -59 -23 -89 -22 -195 1 -108 4 -134 26 -192 37 -99 85 -172 153 -237 75 -70 141 -106 241 -131 166 -43 351 -9 462 84 35 30 42 32 42 9 0 -9 11 -31 25 -49 30 -39 87 -60 139 -50 45 9 101 62 110 106 3 18 6 233 6 479 0 405 -2 449 -18 481 -41 83 -150 107 -217 49 -19 -17 -38 -42 -41 -55 -3 -13 -8 -24 -10 -24 -2 0 -27 16 -54 36 -95 68 -253 103 -376 84z m248 -302 c64 -29 119 -81 150 -141 18 -35 22 -59 23 -137 0 -110 -17 -155 -88 -228 -82 -85 -236 -111 -347 -60 -79 36 -115 70 -152 146 -29 59 -33 75 -32 147 1 60 6 92 23 128 38 82 115 144 206 168 55 15 158 4 217 -23z"/><path d="M6190 1931 c-322 -44 -523 -315 -489 -658 36 -354 357 -575 724 -498 128 27 282 121 320 196 46 87 -26 190 -124 176 -22 -3 -69 -27 -118 -60 -112 -76 -191 -92 -306 -62 -99 26 -165 81 -202 168 -8 20 -15 39 -15 42 0 3 171 5 381 5 430 0 434 1 469 71 24 46 25 75 5 167 -35 168 -106 278 -238 367 -98 67 -274 104 -407 86z m226 -279 c23 -12 56 -36 74 -54 32 -31 69 -99 70 -125 0 -10 -64 -13 -289 -13 l-290 0 9 30 c22 77 80 136 167 171 66 27 200 22 259 -9z"/><path d="M7520 1931 c-257 -36 -458 -224 -505 -474 -19 -99 -19 -129 0 -225 67 -332 392 -533 738 -456 86 19 198 75 232 116 52 61 23 173 -52 205 -45 18 -93 12 -160 -21 -140 -70 -310 -44 -407 64 -54 60 -76 118 -76 200 0 133 63 234 178 288 48 23 70 27 142 27 73 -1 95 -5 157 -33 145 -65 243 -24 243 100 0 63 -27 99 -106 140 -114 60 -260 86 -384 69z"/><path d="M4585 1887 c-20 -20 -36 -48 -41 -71 -7 -39 -4 -50 66 -216 15 -36 89 -213 165 -395 76 -181 150 -346 164 -365 70 -91 207 -95 276 -8 15 19 113 237 217 484 172 407 189 453 185 494 -4 35 -13 51 -41 77 -31 29 -43 33 -88 33 -55 0 -97 -19 -122 -56 -7 -10 -73 -169 -147 -351 -73 -183 -135 -333 -138 -333 -4 0 -62 141 -130 313 -68 171 -135 331 -148 354 -29 53 -67 73 -134 73 -44 0 -55 -4 -84 -33z"/></g></svg></span>
+      <span class="sep"></span>
+      <span class="titulo">Portal do franqueado</span>
+      <span class="cresce"></span>
+      <div class="quem"><span><b id="nomeTopo"></b><small id="papelTopo"></small></span><div class="av" id="avTopo"></div></div>
+      <select class="troca hidden" id="adminFranquiaView" aria-label="Franquia visualizada" style="max-width:230px">
+        <option value="">Franquia: selecione</option>
+      </select>
+      <button class="btn linha peq hidden" id="btnSenha">Minha senha</button>
+      <button class="btn peq" id="btnSair">Sair</button>
+    </div>
+  </header>
+
+  <main class="conteudo">
+    <div class="publicar hidden" id="avisoPublicar">
+      <div>
+        <b>Conecte o GitHub uma única vez.</b>
+        <span>Assim os usuários são salvos no site automaticamente e você não precisa mais baixar nem subir arquivos.</span>
+      </div>
+      <div class="publicar-acoes"><button class="btn cheio peq" id="btnConectar">Conectar ao GitHub</button></div>
+    </div>
+
+    <div class="ola">
+      <div>
+        <h1 id="ola"></h1>
+        <p id="olaSub">Escolha a ferramenta que você quer usar.</p>
+      </div>
+      <div class="abas hidden" id="abas" role="tablist">
+        <button role="tab" aria-selected="true" data-aba="modulos">Módulos</button>
+        <button role="tab" aria-selected="false" data-aba="usuarios">Usuários</button>
+        <button role="tab" aria-selected="false" data-aba="franquias">Franquias</button>
+        <button role="tab" aria-selected="false" data-aba="manutencao">Manutenção</button>
+        <button role="tab" aria-selected="false" data-aba="conteudo">Conteúdo</button>
+      </div>
+    </div>
+
+    <section id="abaModulos">
+      <div class="painel-inicial">
+        <aside class="menu-modulos">
+          <div class="menu-modulos-titulo">Menu principal</div>
+          <div id="listaModulos" class="lista-modulos"></div>
+          <div class="atalho-admin" id="atalhoAdminConteudo">
+            <button class="btn cheio bloco peq" id="btnEditarHomeConteudo">Editar página inicial</button>
+          </div>
+        </aside>
+        <section class="home-principal">
+          <div class="home-cabecalho">
+            <div><h2>Página inicial</h2><p>Conteúdo principal do Portal do Franqueado 2026</p></div>
+            <div class="home-acoes" id="homeAcoesAdmin"></div>
+          </div>
+          <div id="homeCentralPrincipal" class="home-corpo">
+            <div class="home-vazio">Carregando conteúdo do portal...</div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    
+    <section id="abaConteudo" class="hidden">
+      <div class="painel conteudo-admin">
+        <h2>Conteúdo do Portal</h2>
+        <p class="sub">Use o botão abaixo para atualizar a página inicial rapidamente ou abra a Central do Franqueado para editar as páginas completas.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px"><button class="btn cheio" id="btnEditarHomeAdmin">Editar página inicial</button></div>
+        <div id="editorCentralAdmin" class="editor-central-admin"></div>
+      </div>
+    </section>
+
+    <section id="abaManutencao" class="hidden">
+      <div class="painel">
+        <h2>Módulos em manutenção</h2>
+        <p class="sub">Um módulo em manutenção fica bloqueado para os franqueados, com o recado que você escrever. Você continua abrindo normalmente para testar. A mudança chega aos franqueados em cerca de 1 minuto.</p>
+        <p class="sub" id="statusGithub2" style="margin-top:-10px"></p>
+        <div id="listaManut"></div>
+      </div>
+    </section>
+
+    <section id="abaFranquias" class="hidden">
+      <div class="painel">
+        <h2>Franquias</h2>
+        <p class="sub">Cadastre cada franquia uma vez e vincule os usuários que já existem. Não é necessário recriar acessos.</p>
+        <form id="formFranquia" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
+          <input class="inp" id="fNome" placeholder="Ex.: Avec Joinville" style="max-width:360px">
+          <button class="btn cheio" id="fCriar">Criar franquia</button>
+        </form>
+        <div class="msg" id="fMsg"></div>
+        <div id="listaFranquias"></div>
+      </div>
+    </section>
+
+    <section id="abaUsuarios" class="hidden">
+      <div class="painel">
+        <h2>Novo usuário</h2>
+        <p class="sub">Envie para a pessoa o endereço do portal, o usuário e a senha inicial.</p>
+        <form id="formNovo" novalidate>
+          <div class="linha-form">
+            <div class="campo"><label for="nNome">Nome da franquia ou pessoa</label><input class="inp" id="nNome" placeholder="Ex.: Franquia Joinville"></div>
+            <div class="campo"><label for="nLogin">Usuário</label><input class="inp" id="nLogin" autocapitalize="none" spellcheck="false" placeholder="ex.: joinville"></div>
+            <div class="campo"><label for="nSenha">Senha inicial</label><input class="inp" id="nSenha" type="text" autocomplete="off" placeholder="mínimo 8 caracteres"></div>
+            <div class="campo"><label for="nPapel">Perfil</label><select class="inp" id="nPapel"><option value="franqueado">Franqueado</option><option value="admin">Administrador</option></select></div>
+            <div class="campo" id="campoNFranquia"><label for="nFranquia">Franquia vinculada</label><select class="inp" id="nFranquia"><option value="">Selecione a franquia</option></select></div>
+          </div>
+          <div class="campo" style="margin-bottom:0"><label>Módulos liberados</label></div>
+          <div class="chk-grupo" id="nModulos"></div>
+          <div class="msg" id="msgNovo" role="alert"></div>
+          <button class="btn cheio" id="btnCriar">Criar usuário</button>
+        </form>
+      </div>
+
+      <div class="painel">
+        <h2>Usuários cadastrados</h2>
+        <p class="sub">Administradores veem todos os módulos. As mudanças são salvas no site na hora e valem para os franqueados em cerca de 1 minuto.</p>
+        <p class="sub" id="statusGithub" style="margin-top:-10px"></p>
+        <div class="tabela"><table>
+          <thead><tr><th>Usuário</th><th>Perfil</th><th>Franquia vinculada</th><th>Situação</th><th>Módulos</th><th></th></tr></thead>
+          <tbody id="corpoUsuarios"></tbody>
+        </table></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ============ MÓDULO ABERTO ============ -->
+<div id="telaModulo" class="hidden">
+  <div class="barra-mod">
+    <button class="voltar" id="btnVoltar" title="Voltar ao menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Menu</button>
+    <span class="nome-mod" id="nomeMod"></span>
+    <span class="cresce"></span>
+    <select class="troca" id="trocaMod" aria-label="Trocar de módulo"></select>
+    <small id="quemMod"></small>
+  </div>
+  <div class="frames" id="frames"></div>
+</div>
+
+<div id="modalRaiz"></div>
+
+<!-- Usuários publicados. Gerado pela aba Usuários: não edite à mão. -->
+<script type="application/json" id="usuariosPortal">{"instalacao":"63bc96d9dc3c6c61","versao":0,"usuarios":[]}</script>
+<!-- Módulos embutidos -->
+<script type="application/json" id="modulosEmbutidos">{}</script>
+
+<script>var _a;
+const CFG = window.PORTAL_CONFIG || {};
+const MODULOS = CFG.modulos || [];
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
+const esc = (s) => String(s != null ? s : "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const ICONES = {
+  extrator: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M8 11h6M11 8v6"/></svg>',
+  central: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M8 7h7M8 11h5"/></svg>',
+  ativacao: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="10" y="4" width="5" height="10" rx="1.5"/><rect x="17" y="4" width="4" height="13" rx="1.5"/></svg>',
+  arvore: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 6.5V17M12 11c-7 0-7 3-7 6M12 11c7 0 7 3 7 6"/></svg>',
+  previsao: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="m4 15 5-5 4 3 7-7"/><path d="M15 6h5v5"/></svg>',
+  taxas: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/><path d="m8 16 3-3M8.5 13.2h.01M10.5 16h.01"/></svg>',
+  propostas: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>'
+};
+const iconeDe = (id) => ICONES[id] || ICONES.propostas;
+const iniciais = (n) => String(n || "?").split(/\s+/).filter(Boolean).slice(0, 2).map((p) => p[0].toUpperCase()).join("");
+const normLogin = (v) => String(v || "").trim().toLowerCase();
+const loginValido = (v) => /^[a-z0-9._-]{3,40}$/.test(v);
+function toast(t) {
+  document.querySelectorAll(".toast").forEach((x) => x.remove());
+  const el = document.createElement("div");
+  el.className = "toast";
+  el.textContent = t;
+  el.setAttribute("role", "status");
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 3400);
+}
+$("#listaMarca").innerHTML = MODULOS.map((m) => `<li>${esc(m.nome)}</li>`).join("");
+const hex = (b) => [...new Uint8Array(b)].map((x) => x.toString(16).padStart(2, "0")).join("");
+const ITER = 21e4;
+async function geraHash(senha, salt = hex(crypto.getRandomValues(new Uint8Array(16))), iter = ITER) {
+  if (!crypto.subtle) throw new Error("Abra o portal pelo endere\xE7o https do site (o navegador bloqueia a criptografia neste modo).");
+  const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(senha), "PBKDF2", false, ["deriveBits"]);
+  const bits = await crypto.subtle.deriveBits({ name: "PBKDF2", salt: new TextEncoder().encode(salt), iterations: iter, hash: "SHA-256" }, key, 256);
+  return `pbkdf2$${iter}$${salt}$${hex(bits)}`;
+}
+async function confere(senha, guardado) {
+  const [tipo, iter, salt] = String(guardado || "").split("$");
+  if (tipo !== "pbkdf2") return false;
+  return await geraHash(senha, salt, +iter) === guardado;
+}
+function novoCodigo() {
+  const abc = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const r = crypto.getRandomValues(new Uint8Array(16));
+  const c = [...r].map((x) => abc[x % abc.length]).join("");
+  return c.match(/.{4}/g).join("-");
+}
+const normCodigo = (v) => String(v || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+function mostraCodigo(codigo, depois) {
+  $("#modalRaiz").innerHTML = `<div class="modal-fundo"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="tCod" style="width:min(460px,100%)">
+    <h2 id="tCod">Guarde seu c\xF3digo de recupera\xE7\xE3o</h2>
+    <p class="sub" style="color:var(--tinta-suave);line-height:1.5;margin:0 0 14px">Se voc\xEA esquecer a senha, este c\xF3digo permite criar uma nova. Ele n\xE3o aparece de novo.</p>
+    <div class="codigo" id="codTxt">${codigo}</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px">
+      <button type="button" class="btn linha peq" id="codCopiar">Copiar</button>
+      <button type="button" class="btn linha peq" id="codBaixar">Baixar em arquivo .txt</button>
+    </div>
+    <label class="chk" style="margin-bottom:16px"><input type="checkbox" id="codOk"> Guardei o c\xF3digo num lugar seguro</label>
+    <button type="button" class="btn cheio bloco" id="codFechar" disabled>Continuar</button>
+  </div></div>`;
+  $("#codCopiar").onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(codigo);
+      toast("C\xF3digo copiado.");
+    } catch {
+      toast("Selecione o c\xF3digo e copie com Ctrl+C.");
+    }
+  };
+  $("#codBaixar").onclick = () => {
+    const txt = `Portal do franqueado avec
+Usu\xE1rio: ${(perfil == null ? void 0 : perfil.login) || ""}
+C\xF3digo de recupera\xE7\xE3o: ${codigo}
+
+Na tela de login: Esqueci minha senha > Sou administrador e tenho o c\xF3digo de recupera\xE7\xE3o.
+`;
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([txt], { type: "text/plain;charset=utf-8" }));
+    a.download = "codigo-recuperacao-portal.txt";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  };
+  $("#codOk").onchange = (e) => $("#codFechar").disabled = !e.target.checked;
+  $("#codFechar").onclick = () => {
+    $("#modalRaiz").innerHTML = "";
+    if (depois) depois();
+  };
+}
+const PUBLICADO = JSON.parse($("#usuariosPortal").textContent);
+const INSTALACAO = PUBLICADO.instalacao;
+const RASC = "portal-usuarios-rascunho", SESS = "portal-sessao", GH = "portal-github", ARQ = "usuarios.json";
+const NO_SITE = location.protocol.startsWith("http");
+function NO_SITE_INI() {
+  return NO_SITE;
+}
+let LISTA = PUBLICADO.usuarios, TEM_ARQUIVO = false, rasc = null;
+let MANUT = {};
+const emManut = (id) => !!(MANUT[id] && MANUT[id].ativo);
+try {
+  const r = JSON.parse(localStorage.getItem(RASC) || "null");
+  if (r && r.instalacao === INSTALACAO && Array.isArray(r.usuarios) && r.usuarios.length) {
+    rasc = r;
+    if (!NO_SITE_INI() && r.manutencao) MANUT = r.manutencao;
+  } else localStorage.removeItem(RASC);
+} catch {
+  localStorage.removeItem(RASC);
+}
+const usuarios = () => rasc ? rasc.usuarios : LISTA;
+const clone = (o) => JSON.parse(JSON.stringify(o));
+function ghPadrao() {
+  const m = location.hostname.match(/^([^.]+)\.github\.io$/i);
+  const seg = location.pathname.split("/").filter(Boolean);
+  const owner = m ? m[1] : "";
+  const repo = m ? seg.length && !/\.html?$/i.test(seg[0]) ? seg[0] : `${owner}.github.io` : "";
+  return { owner, repo };
+}
+function ghCfg() {
+  try {
+    const g = JSON.parse(localStorage.getItem(GH) || "null");
+    return g && g.token ? g : null;
+  } catch {
+    return null;
+  }
+}
+const b64enc = (txt) => {
+  const b = new TextEncoder().encode(txt);
+  let s = "";
+  for (let i = 0; i < b.length; i += 32768) s += String.fromCharCode(...b.subarray(i, i + 32768));
+  return btoa(s);
+};
+const b64dec = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0)));
+async function gh(g, caminho, opt = {}) {
+  const r = await fetch(`https://api.github.com/repos/${g.owner}/${g.repo}${caminho}`, {
+    method: opt.method || "GET",
+    cache: "no-store",
+    headers: { Authorization: `Bearer ${g.token}`, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", ...opt.body ? { "Content-Type": "application/json" } : {} },
+    body: opt.body ? JSON.stringify(opt.body) : void 0
+  });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) {
+    const h = (n) => r.headers.get(n) || "";
+    const sso = h("x-github-sso");
+    const escopos = h("x-oauth-scopes");
+    const precisa = h("x-accepted-github-permissions");
+    let texto;
+    if (r.status === 401) texto = "O token \xE9 inv\xE1lido ou expirou. Gere um novo e conecte de novo.";
+    else if (r.status === 404) texto = "not_found";
+    else if (sso) texto = "A organiza\xE7\xE3o exige autoriza\xE7\xE3o SSO para este token.";
+    else if (r.status === 403 && /rate limit/i.test(j.message || "")) texto = "O GitHub limitou as tentativas por alguns minutos. Espere e tente de novo.";
+    else if (r.status === 403) texto = "O GitHub n\xE3o deixou gravar no reposit\xF3rio.";
+    else if (r.status === 409 && /rule/i.test(j.message || "")) texto = "Uma regra de prote\xE7\xE3o da branch main impede gravar direto nela.";
+    else texto = "O GitHub respondeu com erro " + r.status + ".";
+    const det = [
+      j.message && `Resposta do GitHub: \u201C${j.message}\u201D`,
+      escopos !== "" && r.headers.has("x-oauth-scopes") && `Permiss\xF5es do token cl\xE1ssico: ${escopos || "(nenhuma marcada)"}`,
+      precisa && `Permiss\xE3o exigida: ${precisa}`
+    ].filter(Boolean);
+    const e = new Error(texto);
+    e.status = r.status;
+    e.detalhes = det;
+    e.sso = (sso.match(/url=(\S+)/) || [])[1] || "";
+    e.classico = r.headers.has("x-oauth-scopes");
+    e.escopos = escopos;
+    throw e;
+  }
+  return j;
+}
+async function ghLer(g) {
+  try {
+    const j = await gh(g, `/contents/${ARQ}?ref=${encodeURIComponent(g.branch)}`);
+    const doc = JSON.parse(b64dec(j.content));
+    return { lista: doc.usuarios || [], manut: doc.manutencao || {}, sha: j.sha };
+  } catch (e) {
+    if (e.status === 404) return { lista: null, manut: {}, sha: null };
+    throw e;
+  }
+}
+async function ghGravar(g, lista, sha, mensagem, manut) {
+  const conteudo = JSON.stringify({ instalacao: INSTALACAO, atualizadoEm: (/* @__PURE__ */ new Date()).toISOString(), usuarios: lista, manutencao: manut || {} }, null, 1);
+  await gh(g, `/contents/${ARQ}`, { method: "PUT", body: { message: mensagem || "Portal: atualiza usu\xE1rios", content: b64enc(conteudo), branch: g.branch, ...sha ? { sha } : {} } });
+}
+async function carregaUsuarios() {
+  const g = NO_SITE ? null : ghCfg();
+  if (NO_SITE) {
+    try {
+      localStorage.removeItem(GH);
+    } catch {
+    }
+  }
+  let lido = false;
+  if (g) {
+    try {
+      const { lista, manut } = await ghLer(g);
+      if (lista) {
+        LISTA = lista;
+        MANUT = manut;
+        TEM_ARQUIVO = lido = true;
+      }
+    } catch (e) {
+      console.warn("GitHub:", e.message);
+    }
+  }
+  if (!lido && NO_SITE) {
+    try {
+      const ctrl = new AbortController();
+      const tm = setTimeout(() => ctrl.abort(), 5e3);
+      const r = await fetch(`${ARQ}?t=${Date.now()}`, { cache: "no-store", signal: ctrl.signal });
+      clearTimeout(tm);
+      if (r.ok) {
+        const j = await r.json();
+        if (Array.isArray(j.usuarios)) {
+          LISTA = j.usuarios;
+          MANUT = j.manutencao || {};
+          TEM_ARQUIVO = true;
+        }
+      }
+    } catch {
+    }
+  }
+  if (TEM_ARQUIVO && rasc && !g) {
+    rasc = null;
+    localStorage.removeItem(RASC);
+  }
+}
+async function alterarUsuarios(fn, mensagem) {
+  return alterarPortal(fn, null, mensagem);
+}
+async function alterarManutencao(fn, mensagem) {
+  await alterarPortal(null, fn, mensagem);
+  return MANUT;
+}
+async function alterarPortal(fn, fnManut, mensagem) {
+  const base = clone(usuarios()), m = clone(MANUT || {});
+  if (fn) await fn(base);
+  if (fnManut) await fnManut(m);
+  let token = localStorage.getItem("portal-admin-token") || "";
+  if (!token) {
+    const login = (perfil == null ? void 0 : perfil.login) || "";
+    const senhaSessao = sessionStorage.getItem("portal-admin-password") || "";
+    if (login && senhaSessao) {
+      const lr = await fetch(window.PORTAL_API_BASE + "/api/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ login, senha: senhaSessao }) });
+      const ld = await lr.json().catch(() => ({}));
+      if (lr.ok && ld.token) {
+        token = ld.token;
+        localStorage.setItem("portal-admin-token", token);
+      }
+    }
+  }
+  if (!token) throw new Error("Sessao administrativa indisponivel. Entre novamente no Portal.");
+  const r = await fetch(window.PORTAL_API_BASE + "/api/admin-state", { method: "POST", headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token }, body: JSON.stringify({ instalacao: INSTALACAO, usuarios: base, manutencao: m, mensagem: mensagem || "Portal: atualizacao administrativa" }) });
+  let d = {};
+  try {
+    d = await r.json();
+  } catch {
+  }
+  if (!r.ok) throw new Error(d.error || "Nao foi possivel salvar pelo Portal.");
+  LISTA = Array.isArray(d.usuarios) ? d.usuarios : base;
+  MANUT = d.manutencao || m;
+  TEM_ARQUIVO = true;
+  rasc = null;
+  try {
+    localStorage.removeItem(RASC);
+  } catch {
+  }
+  if (typeof avisoPublicar === "function") avisoPublicar();
+  return LISTA;
+}
+function mescla(site, locais) {
+  const l = clone(site);
+  for (const u of locais) {
+    const i = l.findIndex((x) => x.login === u.login);
+    if (i >= 0) l[i] = clone(u);
+    else l.push(clone(u));
+  }
+  return l;
+}
+function avisoPublicar() {
+  const on = false;
+  $("#avisoPublicar").classList.toggle("hidden", !on);
+  const st = $("#statusGithub");
+  if (!st) return;
+  const g = ghCfg();
+  st.innerHTML = !NO_SITE ? "Arquivo aberto no computador: as altera\xE7\xF5es ficam s\xF3 neste navegador." : g ? `Salvando automaticamente em <b>${esc(g.owner)}/${esc(g.repo)}</b>. <button class="link" id="btnDesconectar" style="font-size:14px">Desconectar este navegador</button>` : 'GitHub n\xE3o conectado neste navegador. <button class="link" id="btnConectar2" style="font-size:14px">Conectar agora</button>';
+  const d = $("#btnDesconectar");
+  if (d) d.onclick = () => {
+    if (confirm("Desconectar o GitHub deste navegador? Para alterar usu\xE1rios ser\xE1 preciso conectar de novo.")) {
+      localStorage.removeItem(GH);
+      avisoPublicar();
+    }
+  };
+  const c = $("#btnConectar2");
+  if (c) c.onclick = () => conectarGithub().then(() => desenhaUsuarios()).catch(() => {
+  });
+}
+function conectarGithub() {
+  if (perfil && perfil.papel !== "admin") return Promise.reject(new Error("Integra\xE7\xE3o administrativa indispon\xEDvel para este usu\xE1rio."));
+  return new Promise((resolve) => {
+    const p = ghPadrao();
+    $("#modalRaiz").innerHTML = `<div class="modal-fundo"><form class="modal" role="dialog" aria-modal="true" aria-labelledby="tGh" novalidate style="width:min(560px,100%)">
+      <h2 id="tGh">Conectar ao GitHub</h2>
+      <p style="color:var(--tinta-suave);line-height:1.5;margin:0 0 12px">Feito uma vez neste navegador. Depois disso, os usu\xE1rios s\xE3o salvos no site sozinhos.</p>
+      <ol class="passos">
+        <li>Abra <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a>.</li>
+        <li><b>Token name:</b> Portal do franqueado. <b>Expiration:</b> escolha a data que preferir.</li>
+        <li><b>Repository access:</b> <i>Only select repositories</i> \u2192 escolha <b>${esc(p.repo || "o reposit\xF3rio do portal")}</b>.</li>
+        <li><b>Permissions \u2192 Repository permissions \u2192 Contents:</b> <i>Read and write</i>.</li>
+        <li>Clique em <b>Generate token</b>, copie e cole abaixo.</li>
+      </ol>
+      <p style="font-size:13px;margin:-6px 0 12px;color:var(--tinta-suave)">Mais simples: <a href="https://github.com/settings/tokens/new?scopes=repo&description=Portal%20do%20franqueado" target="_blank" rel="noopener" style="color:var(--roxo)">token cl\xE1ssico</a> com a caixa <b>repo</b> marcada (j\xE1 vem marcada por este link).</p>
+      <div class="campo"><label for="ghToken">Token</label><input class="inp" id="ghToken" type="password" autocomplete="off" placeholder="github_pat_\u2026"></div>
+      <div class="two-gh">
+        <div class="campo"><label for="ghOwner">Conta</label><input class="inp" id="ghOwner" value="${esc(p.owner)}" autocapitalize="none" spellcheck="false"></div>
+        <div class="campo"><label for="ghRepo">Reposit\xF3rio</label><input class="inp" id="ghRepo" value="${esc(p.repo)}" autocapitalize="none" spellcheck="false"></div>
+      </div>
+      <p style="font-size:13px;color:var(--tinta-suave);margin:0 0 10px">O token fica guardado s\xF3 neste navegador. Ele nunca vai para o arquivo do site.</p>
+      <div class="msg erro" id="ghMsg" role="alert"></div>
+      <div style="display:flex;gap:8px;justify-content:flex-end"><button type="button" class="btn linha" id="ghCancelar">Cancelar</button><button class="btn cheio" id="ghSalvar">Conectar</button></div>
+    </form></div>`;
+    const fecha = () => {
+      $("#modalRaiz").innerHTML = "";
+      resolve();
+    };
+    $("#ghCancelar").onclick = fecha;
+    $(".modal").onkeydown = (e) => {
+      if (e.key === "Escape") fecha();
+    };
+    $("#ghToken").focus();
+    $(".modal").onsubmit = async (e) => {
+      e.preventDefault();
+      const msg = $("#ghMsg"), b = $("#ghSalvar");
+      const g = { token: $("#ghToken").value.trim(), owner: $("#ghOwner").value.trim(), repo: $("#ghRepo").value.trim() };
+      if (!g.token) {
+        msg.textContent = "Cole o token.";
+        return;
+      }
+      if (!g.owner || !g.repo) {
+        msg.textContent = "Informe a conta e o reposit\xF3rio.";
+        return;
+      }
+      b.disabled = true;
+      msg.className = "msg";
+      msg.textContent = "Conectando\u2026";
+      try {
+        let info;
+        try {
+          info = await gh(g, "");
+        } catch (err) {
+          if (err.status === 404) throw new Error(`N\xE3o encontrei ${g.owner}/${g.repo}. Confira os nomes e se o token tem acesso a esse reposit\xF3rio.`);
+          throw err;
+        }
+        g.branch = info.default_branch || "main";
+        if (info.permissions && info.permissions.push === false) throw Object.assign(new Error("A conta dona deste token n\xE3o tem permiss\xE3o de escrita em " + g.owner + "/" + g.repo + "."), { status: 403, detalhes: [] });
+        if (info.archived) throw Object.assign(new Error("O reposit\xF3rio est\xE1 arquivado (somente leitura). Desarquive em Settings \u2192 General, no fim da p\xE1gina."), { status: 403, detalhes: [] });
+        const { lista, manut, sha } = await ghLer(g);
+        let base = lista ? clone(lista) : clone(PUBLICADO.usuarios);
+        if (rasc) base = mescla(base, rasc.usuarios);
+        const m = { ...rasc && rasc.manutencao || {}, ...manut || {} };
+        if (!lista || rasc) await ghGravar(g, base, sha, "Portal: publica usu\xE1rios", m);
+        MANUT = m;
+        localStorage.setItem(GH, JSON.stringify(g));
+        LISTA = base;
+        TEM_ARQUIVO = true;
+        rasc = null;
+        localStorage.removeItem(RASC);
+        if (perfil) perfil = LISTA.find((u) => u.login === perfil.login) || perfil;
+        $("#modalRaiz").innerHTML = "";
+        avisoPublicar();
+        toast("GitHub conectado. A partir de agora os usu\xE1rios s\xE3o salvos automaticamente.");
+        resolve();
+      } catch (err) {
+        msg.className = "msg erro";
+        let dica = "";
+        if (err.sso) dica = `Abra <a href="${esc(err.sso)}" target="_blank" rel="noopener">este link</a>, clique em <b>Authorize</b> e depois em Conectar de novo.`;
+        else if (err.status === 403 && err.classico && !/\brepo\b/.test(err.escopos)) dica = "Este token cl\xE1ssico est\xE1 <b>sem a caixa \u201Crepo\u201D</b> marcada. Edite o token, marque <b>repo</b> e salve.";
+        else if (err.status === 403 && !err.classico) dica = "No token (fine-grained), confira: <b>Resource owner</b> = a conta dona do reposit\xF3rio; <b>Repository access</b> = <i>Only select repositories</i> com o reposit\xF3rio escolhido; <b>Contents</b> = <i>Read and write</i>. Ou use um token cl\xE1ssico com a caixa <b>repo</b>.";
+        else if (err.status === 403) dica = "A sua conta do GitHub precisa ter permiss\xE3o de escrita nesse reposit\xF3rio.";
+        msg.innerHTML = esc(err.message === "not_found" ? "N\xE3o encontrei o reposit\xF3rio." : err.message) + (dica ? `<br>${dica}` : "") + ((err.detalhes || []).length ? `<br><small style="color:var(--tinta-suave)">${err.detalhes.map(esc).join("<br>")}</small>` : "");
+        b.disabled = false;
+      }
+    };
+  });
+}
+$("#btnConectar").onclick = () => conectarGithub().catch(() => {
+});
+let perfil = null;
+function mostra(tela) {
+  $("#telaEntrada").classList.toggle("hidden", tela !== "entrada");
+  $("#telaPortal").classList.toggle("hidden", tela !== "portal");
+  if (tela !== "portal") $("#telaModulo").classList.add("hidden");
+}
+function formEntrada(qual) {
+  ["formLogin", "formSetup", "formRecuperar"].forEach((id) => $("#" + id).classList.toggle("hidden", id !== qual));
+  mostra("entrada");
+  const f = $("#" + qual + " input");
+  if (f) f.focus();
+}
+function aviso(txt) {
+  const a = $("#avisoEntrada");
+  a.textContent = txt || "";
+  a.classList.toggle("hidden", !txt);
+}
+async function iniciar() {
+  formEntrada("formLogin");
+  await carregaUsuarios();
+  if (!usuarios().length) return formEntrada("formSetup");
+  let s = null;
+  try {
+    s = JSON.parse(localStorage.getItem(SESS) || "null");
+  } catch {
+  }
+  if (s && s.instalacao !== INSTALACAO) s = null;
+  const u = s && usuarios().find((x) => x.login === s.login);
+  if (s) {
+    localStorage.removeItem(SESS);
+    localStorage.removeItem("portal-admin-token");
+    if (u && !u.ativo) aviso("Seu acesso est\xE1 desativado. Fale com a franqueadora.");
+  }
+  formEntrada("formLogin");
+}
+function entrarNoPortal(u) {
+  perfil = u;
+  localStorage.setItem(SESS, JSON.stringify({ instalacao: INSTALACAO, login: u.login, desde: (/* @__PURE__ */ new Date()).toISOString() }));
+  $("#nomeTopo").textContent = u.nome;
+  $("#papelTopo").textContent = u.papel === "admin" ? "Administrador" : "Franqueado";
+  $("#avTopo").textContent = iniciais(u.nome);
+  const hora = (/* @__PURE__ */ new Date()).getHours();
+  $("#ola").textContent = `${hora < 12 ? "Bom dia" : hora < 18 ? "Boa tarde" : "Boa noite"}, ${u.nome.split(" ")[0]}`;
+  const admin = u.papel === "admin";
+  document.body.dataset.portalAdmin = admin ? "1" : "0";
+  $("#abas").classList.toggle("hidden", !admin);
+  $("#btnSenha").classList.toggle("hidden", !admin);
+  configuraVisaoFranquiaAdmin(u, admin);
+  const secFranquias = document.getElementById("abaFranquias");
+  const tabFranquias = document.querySelector('[data-aba="franquias"]');
+  if (!admin) {
+    for (const id of ["abaUsuarios", "abaFranquias", "abaManutencao", "abaConteudo"]) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.add("hidden");
+        el.style.setProperty("display", "none", "important");
+      }
+    }
+    if (tabFranquias) tabFranquias.style.setProperty("display", "none", "important");
+  } else {
+    for (const id of ["abaUsuarios", "abaFranquias", "abaManutencao", "abaConteudo"]) {
+      const el = document.getElementById(id);
+      if (el) el.style.removeProperty("display");
+    }
+    if (tabFranquias) tabFranquias.style.removeProperty("display");
+  }
+  desenhaModulos();
+  $("#quemMod").textContent = u.nome;
+  $("#trocaMod").innerHTML = MODULOS.filter(podeUsar).map((m) => `<option value="${m.id}">${esc(m.nome)}</option>`).join("");
+  avisoPublicar();
+  mostra("portal");
+  if (!admin) {
+    trocaAba("modulos");
+    const atual = decodeURIComponent(location.hash.slice(1));
+    const moduloValido = MODULOS.some((m) => m.id === atual && podeUsar(m));
+    if (!moduloValido && location.hash) history.replaceState(null, "", location.pathname + location.search);
+  }
+  rota();
+}
+const SEMPRE_LIBERADOS = ["central", "migrador"];
+const podeUsar = (m) => {
+  if (!perfil) return false;
+  if (perfil.papel === "admin") return true;
+  const liberados = Array.isArray(perfil.modulos) ? perfil.modulos : [];
+  return SEMPRE_LIBERADOS.includes(m.id) || liberados.includes(m.id);
+};
+function desenhaModulos() {
+  var _a2, _b;
+  const lista = MODULOS.filter(podeUsar);
+  const admin = perfil && perfil.papel === "admin";
+  const box = $("#listaModulos");
+  if (!box) return;
+  if (!lista.length) {
+    box.innerHTML = '<div class="vazio">Nenhum m\xF3dulo liberado para o seu usu\xE1rio ainda. Fale com a franqueadora.</div>';
+  } else {
+    box.innerHTML = lista.map((m) => {
+      const mt = emManut(m.id), rec = mt && MANUT[m.id].mensagem;
+      return `<a href="#${esc(m.id)}" class="mod-lista" style="--cor:${esc(m.cor || "#5B4FE9")}" data-modulo="${esc(m.id)}">
+        <span class="ic-mini">${iconeDe(m.id)}</span>
+        <span class="mi"><b>${esc(m.nome)}</b><small>${esc(mt ? rec || "Em manuten\xE7\xE3o" : m.desc)}</small></span>
+        <span class="seta">${mt && !admin ? "!" : "\u203A"}</span>
+      </a>`;
+    }).join("");
+  }
+  const atalho = $("#atalhoAdminConteudo");
+  if (atalho) atalho.classList.toggle("hidden", !admin);
+  const acoes = $("#homeAcoesAdmin");
+  if (acoes) acoes.innerHTML = admin ? '<button class="btn cheio peq" id="btnEditarHomePrincipal">Editar p\xE1gina inicial</button>' : "";
+  if (admin) {
+    const editarHome = () => abrirEditorHome();
+    (_a2 = $("#btnEditarHomeConteudo")) == null ? void 0 : _a2.addEventListener("click", editarHome);
+    (_b = $("#btnEditarHomePrincipal")) == null ? void 0 : _b.addEventListener("click", editarHome);
+  }
+  carregarHomeCentral();
+}
+const HOME_CONFIG_PADRAO = {
+  titulo: "Portal do FRANQUEADO 2026",
+  subtitulo: "Seu ponto de apoio para gest\xE3o, crescimento e excel\xEAncia na opera\xE7\xE3o da franquia.",
+  intro: "Tudo o que voc\xEA precisa est\xE1 aqui. Use o menu ao lado ou a busca para encontrar um assunto.",
+  destaqueMes: "Agosto 2026",
+  destaques: [
+    { nome: "Avec Mato Grosso do Sul", nivel: "Destaque N\xEDvel Bronze \u2014 Agosto", imagem: "https://sites.google.com/sitesv-images-rt/AMxu72t_B1Hlaurn04yvGmZ-CwoCR1Kp-BTFufRv3JTxnggEB2uCChqufBJ2pzZ_gZ6EarltFZRokgKzi9nJhr-cxt6IZgHTCybp0jdfuBvGMlD50rJbJVsfjRnBoSEzYyWWFaSLWVNHOtZvWDSOjTmX-k9kwFnL2DvPFR3EMrGuDQNHqE5W8VjVuHeFAVu7fuEGIir-coz5bJXJyHyBVMhZqfwe6SLCd0XxN6gQ94SFYio=w1280" },
+    { nome: "Avec Barueri", nivel: "Destaque N\xEDvel Prata \u2014 Agosto", imagem: "https://sites.google.com/sitesv-images-rt/AMxu72vIEvc3S2xtIfAVw2LWG7OXs-Up7TzvIT4YMDqm_969vrk_MXq6l92Y6xcyNVx8DCcavZ4Tg59vWYSNPxY2D5MjMWEaZsLwGzBigr2CrbbnOs8ZTfbnmawpGu1h2dYpwRdvSBdrbOk6Du8-pQ9B-CgJ63uHNkA3urTSBA5JbvR5062lfQpBBqwzFe_gqhuMkkBzXWLiw0k5toE14icwxf8Ft7rRSXUtXANa9hbvAZY=w1280" },
+    { nome: "Avec S\xE3o Lu\xEDs", nivel: "Destaque N\xEDvel Ouro \u2014 Agosto", imagem: "https://sites.google.com/sitesv-images-rt/AMxu72vIc0XVcImlcRSalQwnKz1Wm_VZNNF_TfvoHTPoAx93g7eG2bqOmThMBYfiAWfpdhdZGLDtJPbykCsL4srNKjM3A7aImGfqRALvXfT2002xZEvHrzJyaN3NV3KNC_Eh8w826nsHMuU18Cun38gyrZApRE5hzcWliXkke0IR7l-yfoEQZQ5yqPOCrs1-ePbEwj1kwuyoT4x0UtPfdGxGXv8IQWd3QBPeOe_pSin-x24=w1280" },
+    { nome: "Avec S\xE3o Paulo Metropolitana", nivel: "Destaque N\xEDvel Diamante \u2014 Agosto", imagem: "https://sites.google.com/sitesv-images-rt/AMxu72vb8hfMubN4sBsm7coZZT0_br0TTkgqgUAsMV2zA4BUPyoeSbguWQz4F_6heFrM0qQOq5Ys7cwvH_kGLS5xaaopbvdH4Zysoycx5crHjVUMpI_Oe9DBT0H-P43tmIWhyQX-B728PloMhgftw073aS9mZ--8G0Dn4mhs2q--PQrC51IwIagaf0M95Y3iUACOOLGpPmqsGYvnQ2DTChcbJ0B8BpEeWYDgZAH8umFK-IQ=w1280" }
+  ],
+  novidadeTitulo: "Novidade de produto",
+  novidadePeriodo: "01/08 a 15 de setembro.",
+  novidadeTexto: "",
+  novidadeUrl: "",
+  novidadeFotos: [],
+  ajudaTitulo: "Central de ajuda",
+  ajudaTexto: "Para mais informa\xE7\xF5es, consulte nossa central de ajuda.",
+  ajudaUrl: "https://sites.google.com/hyperlocal.com.br/central-de-ajuda-avec",
+  instagram: "https://www.instagram.com/avec.negocios/",
+  facebook: "https://www.facebook.com/Avec.Negocios/",
+  linkedin: "https://www.linkedin.com/company/hyperlocalholding/posts/?feedView=all"
+};
+function mesclaHome(doc) {
+  var _a2, _b;
+  const h = { ...HOME_CONFIG_PADRAO, ...(doc == null ? void 0 : doc.home) || {} };
+  h.destaques = Array.isArray((_a2 = doc == null ? void 0 : doc.home) == null ? void 0 : _a2.destaques) && doc.home.destaques.length ? doc.home.destaques : clone(HOME_CONFIG_PADRAO.destaques);
+  h.novidadeFotos = Array.isArray((_b = doc == null ? void 0 : doc.home) == null ? void 0 : _b.novidadeFotos) ? doc.home.novidadeFotos : [];
+  return h;
+}
+async function carregarHomeCentral() {
+  const box = $("#homeCentralPrincipal");
+  if (!box) return;
+  box.innerHTML = '<div class="home-vazio">Carregando conte\xFAdo do portal...</div>';
+  try {
+    const doc = await window.portalLerCentral();
+    const home = mesclaHome(doc || {});
+    box.innerHTML = renderHomePrincipal(home);
+    box.querySelectorAll("img").forEach((img) => {
+      img.loading = "lazy";
+      img.addEventListener("error", () => {
+        img.replaceWith(Object.assign(document.createElement("div"), { className: "home-vazio", textContent: "Imagem n\xE3o dispon\xEDvel. O administrador pode substituir o endere\xE7o no editor." }));
+      }, { once: true });
+    });
+  } catch (e) {
+    box.innerHTML = `<div class="home-vazio">N\xE3o foi poss\xEDvel carregar o conte\xFAdo agora.<br><small>${esc(e.message || "Erro de carregamento")}</small></div>`;
+  }
+}
+function imagemPortal(src) {
+  if (!src) return "";
+  try {
+    return new URL(src, location.href).href;
+  } catch {
+    return src;
+  }
+}
+async function publicarHomeAtual(homeParcial) {
+  let g = ghCfg();
+  if (!g) {
+    await conectarGithub();
+    g = ghCfg();
+  }
+  if (!g) throw new Error("Conecte o GitHub para publicar a altera\xE7\xE3o.");
+  const l = await ghLerJson(g, ARQ_CENTRAL);
+  const doc = l.doc ? clone(l.doc) : {};
+  doc.home = { ...doc.home || {}, ...homeParcial };
+  await ghGravarJson(g, ARQ_CENTRAL, doc, l.sha, "Portal: atualiza p\xE1gina inicial");
+  localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(doc));
+  window.PORTAL_PENDENTE_CENTRAL = doc;
+  await carregarHomeCentral();
+  return doc;
+}
+function renderHomePrincipal(h) {
+  const cards = (h.destaques || []).map((d) => `<figure class="home-destaque"><img src="${esc(imagemPortal(d.imagem || ""))}" alt="${esc(d.nome || "")}"><figcaption class="hd-info"><b>${esc(d.nome || "")}</b><small>${esc(d.nivel || "")}</small></figcaption></figure>`).join("");
+  const novidades = (h.novidadeFotos || []).filter((x) => x && x.imagem).map((d) => `<figure class="novidade-card"><img src="${esc(imagemPortal(d.imagem))}" alt="${esc(d.titulo || "Novidade de produto")}"><figcaption class="nf-info"><b>${esc(d.titulo || "")}</b><small>${esc(d.texto || "")}</small></figcaption></figure>`).join("");
+  const ajuda = h.ajudaUrl ? `<a href="${esc(h.ajudaUrl)}" target="_blank" rel="noopener">Central de ajuda</a>` : "";
+  return `<article>
+    <h1>${esc(h.titulo)}</h1>
+    <p class="destaque"><b>${esc(h.subtitulo)}</b></p>
+    <p>${esc(h.intro)}</p>
+    <div class="home-bloco"><h2>Franqueado destaque do m\xEAs \u2014 ${esc(h.destaqueMes)}</h2><div class="home-destaques">${cards}</div></div>
+    <div class="home-bloco"><h2>${esc(h.novidadeTitulo)}</h2><p><b>${esc(h.novidadePeriodo)}</b></p>${h.novidadeTexto ? `<p>${esc(h.novidadeTexto)}</p>` : ""}${novidades ? `<div class="novidade-fotos">${novidades}</div>` : ""}${h.novidadeUrl ? `<div class="home-links"><a href="${esc(h.novidadeUrl)}" target="_blank" rel="noopener">Abrir material</a></div>` : ""}</div>
+    <div class="home-bloco"><h2>${esc(h.ajudaTitulo)}</h2><p>${esc(h.ajudaTexto)}</p><div class="home-links">${ajuda}<a href="${esc(h.instagram)}" target="_blank" rel="noopener">Instagram</a><a href="${esc(h.facebook)}" target="_blank" rel="noopener">Facebook</a><a href="${esc(h.linkedin)}" target="_blank" rel="noopener">LinkedIn</a></div></div>
+  </article>`;
+}
+function abrirEditorHome() {
+  if (!perfil || perfil.papel !== "admin") return;
+  window.portalLerCentral().then((doc) => abrirModalEditorHome(mesclaHome(doc || {}))).catch(() => abrirModalEditorHome(clone(HOME_CONFIG_PADRAO)));
+}
+const UPLOADS_PENDENTES = window.UPLOADS_PENDENTES || (window.UPLOADS_PENDENTES = {});
+const slugImg = (name, prefix = "imagem") => {
+  const safe = (name || "").replace(/\.[^.]+$/, "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 50) || prefix;
+  const ext = "jpg";
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 7)}-${safe}.${ext}`;
+};
+async function arquivoComoJpg(file) {
+  const dataUrl = await new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(String(r.result));
+    r.onerror = () => reject(new Error("N\xE3o foi poss\xEDvel ler a imagem."));
+    r.readAsDataURL(file);
+  });
+  const img = await new Promise((resolve, reject) => {
+    const el = new Image();
+    el.onload = () => resolve(el);
+    el.onerror = () => reject(new Error("N\xE3o foi poss\xEDvel preparar a imagem."));
+    el.src = dataUrl;
+  });
+  const max = 1600, maior = Math.max(img.naturalWidth || img.width, img.naturalHeight || img.height), esc2 = Math.min(1, max / maior);
+  const w = Math.max(1, Math.round((img.naturalWidth || img.width) * esc2)), h = Math.max(1, Math.round((img.naturalHeight || img.height) * esc2));
+  const c = document.createElement("canvas");
+  c.width = w;
+  c.height = h;
+  c.getContext("2d").drawImage(img, 0, 0, w, h);
+  return await new Promise((resolve) => c.toBlob(resolve, "image/jpeg", 0.82));
+}
+async function prepararFotoLocal(inputId, hiddenId, previewId, statusId, pasta) {
+  var _a2, _b;
+  const file = (_b = (_a2 = $(inputId)) == null ? void 0 : _a2.files) == null ? void 0 : _b[0];
+  if (!file) throw new Error("Escolha uma imagem primeiro.");
+  if (!file.type.startsWith("image/")) throw new Error("Selecione um arquivo de imagem.");
+  const status = $(statusId), preview = $(previewId);
+  status.textContent = "Preparando foto\u2026";
+  let g = ghCfg();
+  if (!g) {
+    await conectarGithub();
+    g = ghCfg();
+  }
+  if (!g) throw new Error("Conecte o GitHub para enviar a foto.");
+  const blob = await arquivoComoJpg(file);
+  const base64 = await blobParaBase64(blob);
+  const nome = slugImg(file.name, "imagem");
+  const caminho = `portal-assets/${pasta}/${nome}`;
+  status.textContent = "Enviando para o GitHub\u2026";
+  await gh(g, `/contents/${caminho}`, {
+    method: "PUT",
+    body: {
+      message: `Portal: envia imagem ${nome}`,
+      content: base64,
+      branch: g.branch
+    }
+  });
+  const url = imagemPortal(caminho);
+  $(hiddenId).value = caminho;
+  preview.src = url + `?v=${Date.now()}`;
+  status.textContent = "\u2713 Foto publicada no GitHub";
+  return caminho;
+}
+async function blobParaBase64(blob) {
+  return await new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(String(r.result).split(",")[1] || "");
+    r.onerror = () => reject(new Error("N\xE3o foi poss\xEDvel preparar a imagem para publica\xE7\xE3o."));
+    r.readAsDataURL(blob);
+  });
+}
+async function gerarPacoteGitHub(h) {
+  h = h || clone(HOME_CONFIG_PADRAO);
+  const files = [];
+  for (const [path, blob2] of Object.entries(UPLOADS_PENDENTES)) {
+    const base64 = await blobParaBase64(blob2);
+    files.push({ path, base64, mime: "image/jpeg" });
+  }
+  const pacote = { version: 1, createdAt: (/* @__PURE__ */ new Date()).toISOString(), central: h, files };
+  const json = JSON.stringify(pacote);
+  const blob = new Blob([json], { type: "application/json;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const now = (/* @__PURE__ */ new Date()).toISOString().replace(/[:.]/g, "-");
+  const nome = `portal-publicacao-${now}.json`;
+  return { nome, n: Object.keys(UPLOADS_PENDENTES).length, url };
+}
+function abrirModalEditorHome(h) {
+  const cards = (h.destaques || []).slice(0, 4);
+  while (cards.length < 4) cards.push({ nome: "", nivel: "", imagem: "" });
+  const fotos = Array.isArray(h.novidadeFotos) ? h.novidadeFotos.slice(0, 6) : [];
+  while (fotos.length < 6) fotos.push({ titulo: "", texto: "", imagem: "" });
+  $("#modalRaiz").innerHTML = `<div class="modal-fundo"><form class="modal home-edit" id="formEditarHome" novalidate>
+    <h2>Atualizar p\xE1gina inicial</h2>
+    <p class="sub">Edite tudo o que aparece na tela principal. As fotos s\xE3o enviadas diretamente para o GitHub. Na primeira vez, o navegador pedir\xE1 a conex\xE3o; depois disso, a administradora n\xE3o precisa repetir.</p>
+    <div class="editor-home-grid">
+      <div class="campo"><label>T\xEDtulo</label><input class="inp" id="ehTitulo" value="${esc(h.titulo)}"></div>
+      <div class="campo"><label>M\xEAs do destaque</label><input class="inp" id="ehMes" value="${esc(h.destaqueMes)}"></div>
+      <div class="campo full"><label>Subt\xEDtulo</label><input class="inp" id="ehSub" value="${esc(h.subtitulo)}"></div>
+      <div class="campo full"><label>Texto de abertura</label><textarea class="inp" id="ehIntro" rows="3">${esc(h.intro)}</textarea></div>
+    </div>
+    <div class="home-bloco"><h3>Franqueados destaque</h3><p class="sub">Selecione uma foto do computador e clique em \u201CEnviar foto\u201D. Ela ser\xE1 publicada diretamente no GitHub.<div class="upload-row" style="margin:10px 0 14px;align-items:center"><input type="file" id="ehFilesLote" accept="image/*" multiple><button type="button" class="btn cheio peq" id="ehEnviarLote">Enviar 4 fotos</button><span class="upload-status" id="ehLoteStatus">Selecione at\xE9 4 fotos, na ordem dos destaques.</span></div></p><div class="editor-home-grid">${cards.map((d, i) => `<div class="editor-destaque"><h3>${i + 1}\xBA destaque</h3><div class="campo"><label>Nome</label><input class="inp" id="ehNome${i}" value="${esc(d.nome || "")}"></div><div class="campo"><label>N\xEDvel / legenda</label><input class="inp" id="ehNivel${i}" value="${esc(d.nivel || "")}"></div><div class="upload-box"><img class="upload-preview" id="ehPrev${i}" src="${esc(d.imagem || "")}" alt="Pr\xE9via"><div class="upload-row"><input type="file" id="ehFile${i}" accept="image/*"><button type="button" class="btn peq" id="ehUp${i}">Enviar foto</button></div><input type="hidden" id="ehImg${i}" value="${esc(d.imagem || "")}"><span class="upload-status" id="ehStatus${i}">${d.imagem ? "Foto atual" : "Nenhuma foto selecionada"}</span></div></div>`).join("")}</div></div>
+    <div class="home-bloco"><h3>Novidade de produto</h3><div class="editor-home-grid">
+      <div class="campo"><label>T\xEDtulo</label><input class="inp" id="ehNT" value="${esc(h.novidadeTitulo)}"></div>
+      <div class="campo"><label>Per\xEDodo</label><input class="inp" id="ehNP" value="${esc(h.novidadePeriodo)}"></div>
+      <div class="campo full"><label>Texto</label><textarea class="inp" id="ehNX" rows="3">${esc(h.novidadeTexto || "")}</textarea></div>
+      <div class="campo full"><label>Link do material (opcional)</label><input class="inp" id="ehNU" value="${esc(h.novidadeUrl || "")}" placeholder="Link de PDF, v\xEDdeo, apresenta\xE7\xE3o etc."></div>
+    </div>
+    <div class="upload-row" style="margin:10px 0 14px;align-items:center"><input type="file" id="ehNFFilesLote" accept="image/*" multiple><button type="button" class="btn cheio peq" id="ehNFEnviarLote">Enviar fotos das novidades</button><span class="upload-status" id="ehNFLoteStatus">Selecione at\xE9 6 fotos, na ordem das novidades.</span></div><div class="editor-home-grid">${fotos.map((d, i) => `<div class="editor-destaque"><h3>Novidade ${i + 1}</h3><div class="campo"><label>Legenda</label><input class="inp" id="ehNFt${i}" value="${esc(d.titulo || "")}"></div><div class="campo"><label>Descri\xE7\xE3o curta</label><input class="inp" id="ehNFx${i}" value="${esc(d.texto || "")}"></div><div class="upload-box"><img class="upload-preview" id="ehNFp${i}" src="${esc(d.imagem || "")}" alt="Pr\xE9via"><div class="upload-row"><input type="file" id="ehNF${i}" accept="image/*"><button type="button" class="btn peq" id="ehNFUp${i}">Enviar foto</button></div><input type="hidden" id="ehNFu${i}" value="${esc(d.imagem || "")}"><span class="upload-status" id="ehNFs${i}">${d.imagem ? "Foto atual" : "Nenhuma foto selecionada"}</span></div></div>`).join("")}</div></div>
+    <div class="home-bloco"><h3>Central de ajuda</h3><div class="editor-home-grid">
+      <div class="campo"><label>T\xEDtulo</label><input class="inp" id="ehAT" value="${esc(h.ajudaTitulo)}"></div>
+      <div class="campo"><label>URL</label><input class="inp" id="ehAU" value="${esc(h.ajudaUrl)}"></div>
+      <div class="campo full"><label>Texto</label><input class="inp" id="ehAX" value="${esc(h.ajudaTexto)}"></div>
+      <div class="campo"><label>Instagram</label><input class="inp" id="ehIG" value="${esc(h.instagram)}"></div>
+      <div class="campo"><label>Facebook</label><input class="inp" id="ehFB" value="${esc(h.facebook)}"></div>
+      <div class="campo full"><label>LinkedIn</label><input class="inp" id="ehLI" value="${esc(h.linkedin)}"></div>
+    </div></div>
+    <div class="export-box hidden" id="areaDownloadPacote"></div>
+    <div class="msg" id="msgEditarHome" role="alert"></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;position:sticky;bottom:0;background:#fff;padding-top:12px"><button type="button" class="btn linha" id="fecharEditarHome">Cancelar</button><button type="button" class="btn cheio" id="salvarEditarHome">Salvar e publicar</button></div>
+  </form></div>`;
+  const previewBind = (fileInputId, previewId) => {
+    const f = $(fileInputId), p = $(previewId);
+    f == null ? void 0 : f.addEventListener("change", () => {
+      var _a2;
+      const file = (_a2 = f.files) == null ? void 0 : _a2[0];
+      if (!file) return;
+      const u = URL.createObjectURL(file);
+      p.src = u;
+    });
+  };
+  cards.forEach((_, i) => previewBind("#ehFile" + i, "#ehPrev" + i));
+  fotos.forEach((_, i) => previewBind("#ehNF" + i, "#ehNFp" + i));
+  cards.forEach((_, i) => $("#ehUp" + i).onclick = async (e) => {
+    var _a2;
+    const b = e.currentTarget;
+    b.disabled = true;
+    try {
+      const caminho = await prepararFotoLocal("#ehFile" + i, "#ehImg" + i, "#ehPrev" + i, "#ehStatus" + i, "destaques");
+      const atual = await window.portalLerCentral() || {};
+      const atuais = Array.isArray((_a2 = atual.home) == null ? void 0 : _a2.destaques) ? atual.home.destaques.slice() : cards.map((x) => ({ ...x }));
+      while (atuais.length < 4) atuais.push({ nome: "", nivel: "", imagem: "" });
+      atuais[i] = { ...atuais[i] || {}, nome: $("#ehNome" + i).value.trim(), nivel: $("#ehNivel" + i).value.trim(), imagem: caminho };
+      await publicarHomeAtual({ destaques: atuais });
+      $("#ehStatus" + i).textContent = "\u2713 Foto publicada e vinculada \xE0 p\xE1gina inicial";
+    } catch (err) {
+      $("#ehStatus" + i).textContent = "Erro: " + (err.message || "falha ao publicar a foto");
+    } finally {
+      b.disabled = false;
+    }
+  });
+  const ehLote = $("#ehFilesLote"), ehLoteBtn = $("#ehEnviarLote"), ehLoteStatus = $("#ehLoteStatus");
+  ehLoteBtn == null ? void 0 : ehLoteBtn.addEventListener("click", async () => {
+    var _a2;
+    const files = Array.from((ehLote == null ? void 0 : ehLote.files) || []).slice(0, 4);
+    if (!files.length) {
+      ehLoteStatus.textContent = "Escolha as fotos primeiro.";
+      return;
+    }
+    ehLoteBtn.disabled = true;
+    try {
+      const atual = await window.portalLerCentral() || {};
+      const atuais = Array.isArray((_a2 = atual.home) == null ? void 0 : _a2.destaques) ? atual.home.destaques.slice() : cards.map((x) => ({ ...x }));
+      while (atuais.length < 4) atuais.push({ nome: "", nivel: "", imagem: "" });
+      let ok = 0;
+      for (let i = 0; i < files.length; i++) {
+        const dt = new DataTransfer();
+        dt.items.add(files[i]);
+        const inp = $("#ehFile" + i);
+        if (inp) inp.files = dt.files;
+        const caminho = await prepararFotoLocal("#ehFile" + i, "#ehImg" + i, "#ehPrev" + i, "#ehStatus" + i, "destaques");
+        atuais[i] = { ...atuais[i] || {}, nome: $("#ehNome" + i).value.trim(), nivel: $("#ehNivel" + i).value.trim(), imagem: caminho };
+        ok++;
+        ehLoteStatus.textContent = `${ok} de ${files.length} foto(s) enviada(s)\u2026`;
+      }
+      await publicarHomeAtual({ destaques: atuais });
+      ehLoteStatus.textContent = `\u2713 ${ok} foto(s) publicadas e vinculadas \xE0 p\xE1gina inicial.`;
+    } catch (err) {
+      ehLoteStatus.textContent = "Erro: " + (err.message || "falha ao publicar as fotos");
+    } finally {
+      ehLoteBtn.disabled = false;
+    }
+  });
+  fotos.forEach((_, i) => $("#ehNFUp" + i).onclick = async (e) => {
+    var _a2;
+    const b = e.currentTarget;
+    b.disabled = true;
+    try {
+      const caminho = await prepararFotoLocal("#ehNF" + i, "#ehNFu" + i, "#ehNFp" + i, "#ehNFs" + i, "novidades");
+      const atual = await window.portalLerCentral() || {};
+      const atuais = Array.isArray((_a2 = atual.home) == null ? void 0 : _a2.novidadeFotos) ? atual.home.novidadeFotos.slice() : [];
+      while (atuais.length <= i) atuais.push({ titulo: "", texto: "", imagem: "" });
+      atuais[i] = { ...atuais[i] || {}, titulo: $("#ehNFt" + i).value.trim(), texto: $("#ehNFx" + i).value.trim(), imagem: caminho };
+      await publicarHomeAtual({ novidadeFotos: atuais });
+      $("#ehNFs" + i).textContent = "\u2713 Foto publicada e vinculada \xE0 p\xE1gina inicial";
+    } catch (err) {
+      $("#ehNFs" + i).textContent = "Erro: " + (err.message || "falha ao publicar a foto");
+    } finally {
+      b.disabled = false;
+    }
+  });
+  const ehNFLote = $("#ehNFFilesLote"), ehNFLoteBtn = $("#ehNFEnviarLote"), ehNFLoteStatus = $("#ehNFLoteStatus");
+  ehNFLoteBtn == null ? void 0 : ehNFLoteBtn.addEventListener("click", async () => {
+    var _a2;
+    const files = Array.from((ehNFLote == null ? void 0 : ehNFLote.files) || []).slice(0, 6);
+    if (!files.length) {
+      ehNFLoteStatus.textContent = "Escolha as fotos primeiro.";
+      return;
+    }
+    ehNFLoteBtn.disabled = true;
+    try {
+      const atual = await window.portalLerCentral() || {};
+      const atuais = Array.isArray((_a2 = atual.home) == null ? void 0 : _a2.novidadeFotos) ? atual.home.novidadeFotos.slice() : [];
+      while (atuais.length < 6) atuais.push({ titulo: "", texto: "", imagem: "" });
+      let ok = 0;
+      for (let i = 0; i < files.length; i++) {
+        const dt = new DataTransfer();
+        dt.items.add(files[i]);
+        const inp = $("#ehNF" + i);
+        if (inp) inp.files = dt.files;
+        const caminho = await prepararFotoLocal("#ehNF" + i, "#ehNFu" + i, "#ehNFp" + i, "#ehNFs" + i, "novidades");
+        atuais[i] = { ...atuais[i] || {}, titulo: $("#ehNFt" + i).value.trim(), texto: $("#ehNFx" + i).value.trim(), imagem: caminho };
+        ok++;
+        ehNFLoteStatus.textContent = `${ok} de ${files.length} foto(s) enviada(s)\u2026`;
+      }
+      await publicarHomeAtual({ novidadeFotos: atuais.filter((x) => x.titulo || x.texto || x.imagem) });
+      ehNFLoteStatus.textContent = `\u2713 ${ok} foto(s) publicadas e vinculadas \xE0s novidades.`;
+    } catch (err) {
+      ehNFLoteStatus.textContent = "Erro: " + (err.message || "falha ao publicar as fotos");
+    } finally {
+      ehNFLoteBtn.disabled = false;
+    }
+  });
+  $("#fecharEditarHome").onclick = () => $("#modalRaiz").innerHTML = "";
+  async function salvarHomeEGerar() {
+    const btn = $("#salvarEditarHome"), msg = $("#msgEditarHome"), area = $("#areaDownloadPacote");
+    btn.disabled = true;
+    msg.className = "msg";
+    msg.textContent = "Salvando no GitHub\u2026";
+    try {
+      let g = ghCfg();
+      if (!g) {
+        await conectarGithub();
+        g = ghCfg();
+      }
+      if (!g) throw new Error("Conecte o GitHub para publicar as altera\xE7\xF5es.");
+      const home = {
+        titulo: $("#ehTitulo").value.trim(),
+        subtitulo: $("#ehSub").value.trim(),
+        intro: $("#ehIntro").value.trim(),
+        destaqueMes: $("#ehMes").value.trim(),
+        destaques: cards.map((_, i) => ({ nome: $("#ehNome" + i).value.trim(), nivel: $("#ehNivel" + i).value.trim(), imagem: $("#ehImg" + i).value.trim() })),
+        novidadeTitulo: $("#ehNT").value.trim(),
+        novidadePeriodo: $("#ehNP").value.trim(),
+        novidadeTexto: $("#ehNX").value.trim(),
+        novidadeUrl: $("#ehNU").value.trim(),
+        novidadeFotos: fotos.map((_, i) => ({ titulo: $("#ehNFt" + i).value.trim(), texto: $("#ehNFx" + i).value.trim(), imagem: $("#ehNFu" + i).value.trim() })).filter((x) => x.titulo || x.texto || x.imagem),
+        ajudaTitulo: $("#ehAT").value.trim(),
+        ajudaTexto: $("#ehAX").value.trim(),
+        ajudaUrl: $("#ehAU").value.trim(),
+        instagram: $("#ehIG").value.trim(),
+        facebook: $("#ehFB").value.trim(),
+        linkedin: $("#ehLI").value.trim()
+      };
+      let doc = {};
+      try {
+        const l = await ghLerJson(g, ARQ_CENTRAL);
+        doc = l.doc ? clone(l.doc) : {};
+        doc.home = home;
+        await ghGravarJson(g, ARQ_CENTRAL, doc, l.sha, "Portal: atualiza p\xE1gina inicial");
+      } catch (err) {
+        throw err;
+      }
+      localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(doc));
+      window.PORTAL_PENDENTE_CENTRAL = doc;
+      if (area) area.classList.add("hidden");
+      msg.className = "msg ok";
+      msg.textContent = "\u2713 P\xE1gina inicial publicada no GitHub.";
+      toast("P\xE1gina inicial atualizada.");
+      await carregarHomeCentral();
+      setTimeout(() => $("#modalRaiz").innerHTML = "", 700);
+    } catch (err) {
+      msg.className = "msg erro";
+      msg.textContent = err.message || "N\xE3o foi poss\xEDvel publicar.";
+    } finally {
+      btn.disabled = false;
+    }
+  }
+  $("#salvarEditarHome").onclick = salvarHomeEGerar;
+}
+function abrirEditorCentral(id = "inicio") {
+  if (!perfil || perfil.papel !== "admin") return;
+  sessionStorage.setItem("central-editar-id", id);
+  location.hash = "#central";
+}
+(_a = $("#btnEditarHomeAdmin")) == null ? void 0 : _a.addEventListener("click", () => abrirEditorHome());
+$("#formLogin").onsubmit = async (e) => {
+  e.preventDefault();
+  const login = normLogin($("#usuario").value), senha = $("#senha").value, msg = $("#msgLogin");
+  msg.textContent = "";
+  if (!login) {
+    msg.textContent = "Informe seu usu\xE1rio.";
+    return $("#usuario").focus();
+  }
+  if (!senha) {
+    msg.textContent = "Informe sua senha.";
+    return $("#senha").focus();
+  }
+  const b = $("#btnEntrar");
+  b.disabled = true;
+  b.textContent = "Entrando\u2026";
+  try {
+    const r = await fetch(window.PORTAL_API_BASE + "/api/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ login, senha }) });
+    let d = {};
+    try {
+      d = await r.json();
+    } catch {
+    }
+    if (!r.ok) throw new Error(d.error || "Usu\xE1rio ou senha incorretos.");
+    const u = d.usuario;
+    if (!u || u.papel !== "admin") throw new Error("Este link é exclusivo para administradores.");
+    if (d.token) localStorage.setItem("portal-admin-token", d.token);
+    else localStorage.removeItem("portal-admin-token");
+    if (u && u.papel === "admin") sessionStorage.setItem("portal-admin-password", senha);
+    $("#senha").value = "";
+    entrarNoPortal(u);
+  } catch (err) {
+    msg.textContent = err.message || "N\xE3o foi poss\xEDvel entrar.";
+  } finally {
+    b.disabled = false;
+    b.textContent = "Entrar";
+  }
+};
+$("#lnkEsqueci").onclick = () => $("#txtEsqueci").classList.toggle("hidden");
+$("#lnkCodigo").onclick = () => {
+  $("#rcLogin").value = $("#usuario").value;
+  $("#msgRecuperar").textContent = "";
+  formEntrada("formRecuperar");
+};
+$("#lnkVoltarLogin").onclick = () => formEntrada("formLogin");
+$("#formRecuperar").onsubmit = async (e) => {
+  e.preventDefault();
+  const msg = $("#msgRecuperar");
+  const login = normLogin($("#rcLogin").value), codigo = normCodigo($("#rcCodigo").value), senha = $("#rcSenha").value;
+  if (senha.length < 8) {
+    msg.textContent = "A nova senha precisa ter pelo menos 8 caracteres.";
+    return;
+  }
+  const u = usuarios().find((x) => x.login === login && x.papel === "admin");
+  const ok = u && u.recuperacao && codigo.length === 16 && await confere(codigo, u.recuperacao);
+  if (!ok) {
+    msg.textContent = "Usu\xE1rio ou c\xF3digo de recupera\xE7\xE3o incorretos.";
+    return;
+  }
+  const novaSenha = await geraHash(senha);
+  try {
+    const l = await alterarUsuarios((l2) => {
+      const x = l2.find((y) => y.login === login);
+      x.senha = novaSenha;
+      x.ativo = true;
+    }, `Portal: ${login} redefiniu a senha`);
+    $("#rcCodigo").value = "";
+    $("#rcSenha").value = "";
+    entrarNoPortal(l.find((x) => x.login === login));
+    toast("Senha redefinida.");
+  } catch (err) {
+    msg.textContent = err.message;
+  }
+};
+$("#formSetup").onsubmit = async (e) => {
+  e.preventDefault();
+  const nome = $("#suNome").value.trim(), login = normLogin($("#suLogin").value), senha = $("#suSenha").value, msg = $("#msgSetup");
+  if (!nome) {
+    msg.textContent = "Informe seu nome.";
+    return;
+  }
+  if (!loginValido(login)) {
+    msg.textContent = "O usu\xE1rio deve ter de 3 a 40 letras, n\xFAmeros, ponto, h\xEDfen ou sublinhado, sem espa\xE7os.";
+    return;
+  }
+  if (senha.length < 8) {
+    msg.textContent = "A senha precisa ter pelo menos 8 caracteres.";
+    return;
+  }
+  try {
+    const codigo = novoCodigo();
+    const u = { login, nome, papel: "admin", ativo: true, modulos: MODULOS.map((m) => m.id), senha: await geraHash(senha), recuperacao: await geraHash(normCodigo(codigo)), criadoEm: (/* @__PURE__ */ new Date()).toISOString() };
+    const l = await alterarUsuarios((l2) => {
+      if (l2.length) throw new Error("O portal j\xE1 tem usu\xE1rios. Recarregue a p\xE1gina.");
+      l2.push(u);
+    }, "Portal: cria administrador");
+    entrarNoPortal(l.find((x) => x.login === login));
+    mostraCodigo(codigo);
+  } catch (err) {
+    msg.textContent = err.message;
+  }
+};
+async function sair() {
+  localStorage.removeItem(SESS);
+  perfil = null;
+  $("#frames").innerHTML = "";
+  if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  formEntrada("formLogin");
+}
+window.portalSair = sair;
+$("#btnSair").onclick = sair;
+$("#btnSenha").onclick = () => {
+  $("#modalRaiz").innerHTML = `<div class="modal-fundo"><form class="modal" role="dialog" aria-modal="true" aria-labelledby="tSenha" novalidate>
+    <h2 id="tSenha">Trocar minha senha</h2>
+    <div class="campo"><label for="sAtual">Senha atual</label><input class="inp" type="password" id="sAtual" autocomplete="current-password"></div>
+    <div class="campo"><label for="sNova">Nova senha</label><input class="inp" type="password" id="sNova" autocomplete="new-password" placeholder="m\xEDnimo 8 caracteres"></div>
+    <div class="msg erro" id="sMsg" role="alert"></div>
+    <div style="display:flex;gap:8px;justify-content:space-between;flex-wrap:wrap;align-items:center">
+      <button type="button" class="link" id="sCodigo">Gerar novo c\xF3digo de recupera\xE7\xE3o</button>
+      <span style="display:flex;gap:8px"><button type="button" class="btn linha" id="sCancelar">Cancelar</button><button class="btn cheio">Salvar senha</button></span>
+    </div>
+  </form></div>`;
+  $("#sCodigo").onclick = async () => {
+    if (!await confere($("#sAtual").value, perfil.senha)) {
+      $("#sMsg").textContent = "Digite sua senha atual para gerar um novo c\xF3digo.";
+      return $("#sAtual").focus();
+    }
+    const codigo = novoCodigo();
+    const h = await geraHash(normCodigo(codigo));
+    try {
+      const l = await alterarUsuarios((l2) => {
+        l2.find((x) => x.login === perfil.login).recuperacao = h;
+      }, "Portal: novo c\xF3digo de recupera\xE7\xE3o");
+      perfil = l.find((x) => x.login === perfil.login);
+    } catch (err) {
+      $("#sMsg").textContent = err.message;
+      return;
+    }
+    mostraCodigo(codigo);
+  };
+  const fecha = () => $("#modalRaiz").innerHTML = "";
+  $("#sCancelar").onclick = fecha;
+  $(".modal-fundo").onmousedown = (e) => {
+    if (e.target.classList.contains("modal-fundo")) fecha();
+  };
+  $(".modal").onkeydown = (e) => {
+    if (e.key === "Escape") fecha();
+  };
+  $("#sAtual").focus();
+  $(".modal").onsubmit = async (e) => {
+    e.preventDefault();
+    const msg = $("#sMsg"), nova = $("#sNova").value;
+    if (!await confere($("#sAtual").value, perfil.senha)) {
+      msg.textContent = "Senha atual incorreta.";
+      return;
+    }
+    if (nova.length < 8) {
+      msg.textContent = "A nova senha precisa ter pelo menos 8 caracteres.";
+      return;
+    }
+    const h = await geraHash(nova);
+    try {
+      const l = await alterarUsuarios((l2) => {
+        l2.find((x) => x.login === perfil.login).senha = h;
+      }, `Portal: ${perfil.login} trocou a senha`);
+      perfil = l.find((x) => x.login === perfil.login);
+    } catch (err) {
+      msg.textContent = err.message;
+      return;
+    }
+    fecha();
+    toast("Senha alterada.");
+  };
+};
+const SUB_ABA = { modulos: "Escolha a ferramenta que voc\xEA quer usar.", usuarios: "Crie acessos, libere m\xF3dulos e desative quem saiu.", franquias: "Cadastre franquias e vincule usu\xE1rios existentes.", manutencao: "Bloqueie temporariamente um m\xF3dulo enquanto ele \xE9 ajustado.", conteudo: "Edite p\xE1ginas, textos, imagens e materiais da Central do Franqueado." };
+function trocaAba(aba) {
+  $$("#abas button").forEach((x) => x.setAttribute("aria-selected", x.dataset.aba === aba));
+  $("#abaModulos").classList.toggle("hidden", aba !== "modulos");
+  $("#abaUsuarios").classList.toggle("hidden", aba !== "usuarios");
+  const af = $("#abaFranquias");
+  if (af) af.classList.toggle("hidden", aba !== "franquias");
+  $("#abaManutencao").classList.toggle("hidden", aba !== "manutencao");
+  $("#abaConteudo").classList.toggle("hidden", aba !== "conteudo");
+  $("#olaSub").textContent = SUB_ABA[aba];
+  if (aba === "usuarios") {
+    desenhaUsuarios();
+    carregaUsuarios().then(desenhaUsuarios);
+  }
+  if (aba === "manutencao") {
+    desenhaManutencao();
+    carregaUsuarios().then(desenhaManutencao);
+  }
+  if (aba === "conteudo") desenhaConteudoAdmin();
+  if (aba === "modulos") desenhaModulos();
+}
+$$("#abas button").forEach((b) => b.onclick = () => trocaAba(b.dataset.aba));
+function desenhaManutencao() {
+  avisoPublicar();
+  const st2 = $("#statusGithub2"), st = $("#statusGithub");
+  if (st2 && st) st2.innerHTML = st.innerHTML.replace(/id="btn(Desconectar|Conectar2)"/, 'id="btn$1M"');
+  const dM = $("#btnDesconectarM");
+  if (dM) dM.onclick = () => $("#btnDesconectar").click();
+  const cM = $("#btnConectar2M");
+  if (cM) cM.onclick = () => conectarGithub().then(desenhaManutencao).catch(() => {
+  });
+  $("#listaManut").innerHTML = MODULOS.map((m) => {
+    const x = MANUT[m.id] || {}, on = !!x.ativo;
+    return `<div class="manut-linha ${on ? "on" : ""}" data-mod="${m.id}">
+      <span class="ic" style="--cor:${esc(m.cor || "#5B4FE9")}">${iconeDe(m.id)}</span>
+      <div class="manut-info">
+        <b>${esc(m.nome)}</b>
+        <span class="selo ${on ? "manut" : "on"}">${on ? "Em manuten\xE7\xE3o" : "Liberado"}</span>
+        ${on && x.desde ? `<small>desde ${new Date(x.desde).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}${x.por ? " por " + esc(x.por) : ""}</small>` : ""}
+        <input class="inp" data-recado value="${esc(x.mensagem || "")}" maxlength="160" placeholder="Recado para os franqueados (opcional). Ex.: Voltamos hoje \xE0s 14h." aria-label="Recado do m\xF3dulo ${esc(m.nome)}">
+      </div>
+      <div class="manut-acoes">
+        <button class="btn peq ${on ? "cheio" : "linha"}" data-alterna>${on ? "Liberar m\xF3dulo" : "Colocar em manuten\xE7\xE3o"}</button>
+        ${on ? '<button class="link" data-salvarecado style="font-size:13px">Salvar recado</button>' : ""}
+      </div>
+    </div>`;
+  }).join("");
+  $$("#listaManut .manut-linha").forEach((linha) => {
+    const id = linha.dataset.mod, m = MODULOS.find((x) => x.id === id);
+    const recado = () => linha.querySelector("[data-recado]").value.trim();
+    const trava = (on) => linha.querySelectorAll("button,input").forEach((el) => el.disabled = on);
+    linha.querySelector("[data-alterna]").onclick = async () => {
+      const ligar = !emManut(id);
+      if (ligar && !confirm(`Colocar "${m.nome}" em manuten\xE7\xE3o? Os franqueados n\xE3o v\xE3o conseguir abrir at\xE9 voc\xEA liberar.`)) return;
+      trava(true);
+      try {
+        await alterarManutencao((mm) => {
+          if (ligar) mm[id] = { ativo: true, mensagem: recado(), desde: (/* @__PURE__ */ new Date()).toISOString(), por: perfil.nome };
+          else delete mm[id];
+        }, `Portal: ${ligar ? "manuten\xE7\xE3o em" : "libera"} ${id}`);
+        toast(ligar ? `${m.nome} est\xE1 em manuten\xE7\xE3o.` : `${m.nome} foi liberado.`);
+      } catch (err) {
+        toast(err.message);
+      }
+      desenhaManutencao();
+    };
+    const sr = linha.querySelector("[data-salvarecado]");
+    if (sr) sr.onclick = async () => {
+      trava(true);
+      try {
+        await alterarManutencao((mm) => {
+          if (mm[id]) mm[id].mensagem = recado();
+        }, `Portal: recado de manuten\xE7\xE3o ${id}`);
+        toast("Recado salvo.");
+      } catch (err) {
+        toast(err.message);
+      }
+      desenhaManutencao();
+    };
+  });
+}
+const chkModulos = (sel, nome) => MODULOS.filter((m) => false).map((m) => `<label class="chk"><input type="checkbox" name="${nome}" value="${m.id}" ${sel.includes(m.id) ? "checked" : ""}>${esc(m.nome)}</label>`).join("");
+let FRANQUIAS_ADMIN = [];
+let FRANQUIAS_CARREGANDO = null;
+function opcoesFranquias(valor = "") {
+  return '<option value="">Sem v\xEDnculo</option>' + FRANQUIAS_ADMIN.filter((f) => f.ativo !== false).map((f) => '<option value="' + esc(f.id) + '" ' + (f.id === valor ? "selected" : "") + ">" + esc(f.nome) + "</option>").join("");
+}
+function atualizaCampoNovaFranquia() {
+  const sel = $("#nFranquia"), campo = $("#campoNFranquia"), papel = $("#nPapel");
+  if (!sel || !campo || !papel) return;
+  const admin = papel.value === "admin";
+  campo.classList.toggle("hidden", admin);
+  if (admin) sel.value = "";
+  else {
+    const atual = sel.value;
+    sel.innerHTML = opcoesFranquias(atual);
+    if (atual && FRANQUIAS_ADMIN.some((f) => f.id === atual)) sel.value = atual;
+  }
+}
+async function garanteFranquiasAdmin() {
+  if (FRANQUIAS_ADMIN.length) return FRANQUIAS_ADMIN;
+  if (FRANQUIAS_CARREGANDO) return FRANQUIAS_CARREGANDO;
+  FRANQUIAS_CARREGANDO = (async () => {
+    const token = localStorage.getItem("portal-admin-token") || "";
+    if (!token) return [];
+    const r = await fetch((window.PORTAL_API_BASE || "") + "/api/franquias", { headers: { Authorization: "Bearer " + token }, cache: "no-store" });
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(d.error || "Falha ao carregar franquias");
+    FRANQUIAS_ADMIN = Array.isArray(d.franquias) ? d.franquias : [];
+    atualizaCampoNovaFranquia();
+    return FRANQUIAS_ADMIN;
+  })();
+  try {
+    return await FRANQUIAS_CARREGANDO;
+  } finally {
+    FRANQUIAS_CARREGANDO = null;
+  }
+}
+async function vinculaUsuarioFranquia(login, franquiaId) {
+  const token = localStorage.getItem("portal-admin-token") || "";
+  if (!token) throw new Error("Sess\xE3o administrativa indispon\xEDvel. Entre novamente no Portal.");
+  const payload = franquiaId ? { action: "link", login, franquiaId, perfil: "franqueado" } : { action: "unlink", login };
+  const r = await fetch((window.PORTAL_API_BASE || "") + "/api/franquias", { method: "POST", headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token }, body: JSON.stringify(payload) });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(d.error || "N\xE3o foi poss\xEDvel atualizar o v\xEDnculo.");
+  FRANQUIAS_ADMIN = Array.isArray(d.franquias) ? d.franquias : FRANQUIAS_ADMIN;
+  const atualizado = (d.usuarios || []).find((x) => x.login === login);
+  const local = usuarios().find((x) => x.login === login);
+  if (local && atualizado) {
+    local.franquiaId = atualizado.franquiaId || null;
+    local.perfil = atualizado.perfil || null;
+    local.modulos = Array.isArray(atualizado.modulos) ? atualizado.modulos : local.modulos;
+  }
+}
+$("#nModulos").innerHTML = chkModulos(MODULOS.map((m) => m.id), "nmod");
+$("#nPapel").onchange = atualizaCampoNovaFranquia;
+garanteFranquiasAdmin().then(() => {
+  atualizaCampoNovaFranquia();
+  desenhaUsuarios();
+}).catch((e) => console.warn("Franquias:", e.message));
+$("#formNovo").onsubmit = async (e) => {
+  var _a2;
+  e.preventDefault();
+  const msg = $("#msgNovo");
+  msg.className = "msg erro";
+  const nome = $("#nNome").value.trim(), login = normLogin($("#nLogin").value), senha = $("#nSenha").value;
+  const papel = $("#nPapel").value, franquiaId = papel === "admin" ? "" : ((_a2 = $("#nFranquia")) == null ? void 0 : _a2.value) || "", modulos = $('input[name="nmod"]:checked').map((i) => i.value);
+  if (!nome) {
+    msg.textContent = "Informe o nome.";
+    return $("#nNome").focus();
+  }
+  if (!loginValido(login)) {
+    msg.textContent = "O usu\xE1rio deve ter de 3 a 40 letras, n\xFAmeros, ponto, h\xEDfen ou sublinhado, sem espa\xE7os.";
+    return $("#nLogin").focus();
+  }
+  if (usuarios().some((u) => u.login === login)) {
+    msg.textContent = "Esse usu\xE1rio j\xE1 existe.";
+    return $("#nLogin").focus();
+  }
+  if (senha.length < 8) {
+    msg.textContent = "A senha inicial precisa ter pelo menos 8 caracteres.";
+    return $("#nSenha").focus();
+  }
+  if (papel !== "admin" && !franquiaId) {
+    msg.textContent = "Selecione a franquia que este usu\xE1rio deve enxergar.";
+    return $("#nFranquia").focus();
+  }
+  $("#btnCriar").disabled = true;
+  try {
+    const codigoNovo = papel === "admin" ? novoCodigo() : null;
+    const franquiaEscolhida = FRANQUIAS_ADMIN.find((f) => f.id === franquiaId);
+    const modsGrupo = papel === "admin" ? modulos : Array.isArray(franquiaEscolhida == null ? void 0 : franquiaEscolhida.modulos) ? franquiaEscolhida.modulos : modulos;
+    const novoU = { login, nome, papel, ativo: true, modulos: modsGrupo, ...franquiaId ? { franquiaId, perfil: "franqueado" } : {}, senha: await geraHash(senha), ...codigoNovo ? { recuperacao: await geraHash(normCodigo(codigoNovo)) } : {}, criadoEm: (/* @__PURE__ */ new Date()).toISOString() };
+    msg.className = "msg";
+    msg.textContent = "Salvando\u2026";
+    await alterarUsuarios((l) => {
+      if (l.some((u) => u.login === login)) throw new Error("Esse usu\xE1rio j\xE1 existe.");
+      l.push(novoU);
+    }, `Portal: cria ${login}`);
+    $("#formNovo").reset();
+    $("#nModulos").innerHTML = chkModulos(MODULOS.map((m) => m.id), "nmod");
+    atualizaCampoNovaFranquia();
+    msg.className = "msg ok";
+    msg.textContent = `${nome} foi criado (usu\xE1rio: ${login}). Em cerca de 1 minuto a pessoa j\xE1 consegue entrar com a senha inicial.`;
+    desenhaUsuarios();
+    if (codigoNovo) {
+      toast("Entregue este c\xF3digo ao novo administrador.");
+      mostraCodigo(codigoNovo);
+    }
+  } catch (err) {
+    msg.className = "msg erro";
+    msg.textContent = err.message;
+  } finally {
+    $("#btnCriar").disabled = false;
+  }
+};
+function desenhaUsuarios() {
+  avisoPublicar();
+  if (!FRANQUIAS_ADMIN.length && !FRANQUIAS_CARREGANDO) garanteFranquiasAdmin().then(() => desenhaUsuarios()).catch(() => {
+  });
+  const lista = usuarios();
+  $("#corpoUsuarios").innerHTML = lista.map((u) => {
+    const eu = u.login === perfil.login;
+    return `<tr class="${u.ativo ? "" : "inativo"}" data-login="${esc(u.login)}">
+      <td><div class="nome">${esc(u.nome)}${eu ? " (voc\xEA)" : ""}</div><div class="email">${esc(u.login)}</div></td>
+      <td><select data-campo="papel" ${eu ? "disabled" : ""} aria-label="Perfil de ${esc(u.nome)}">
+        <option value="franqueado" ${u.papel === "franqueado" ? "selected" : ""}>Franqueado</option>
+        <option value="admin" ${u.papel === "admin" ? "selected" : ""}>Administrador</option></select></td>
+      <td>${u.papel === "admin" ? '<span class="email">Vis\xE3o global</span>' : `<select data-campo="franquia" aria-label="Franquia de ${esc(u.nome)}">${opcoesFranquias(u.franquiaId || "")}</select>`}</td>
+      <td><span class="selo ${u.ativo ? "on" : "off"}">${u.ativo ? "Ativo" : "Desativado"}</span></td>
+      <td>${u.papel === "admin" ? '<span class="email">Todos os m\xF3dulos</span>' : `<div class="mods">${chkModulos(u.modulos || [], "m-" + u.login)}</div>`}</td>
+      <td><div class="acoes">
+        ${eu ? "" : `<button class="btn linha peq" data-acao="senha">Redefinir senha</button>
+        <button class="btn peq" data-acao="ativo">${u.ativo ? "Desativar acesso" : "Reativar acesso"}</button>
+        <button class="link" data-acao="excluir" style="font-size:13px">Excluir</button>`}
+      </div></td>
+    </tr>`;
+  }).join("");
+  $$("#corpoUsuarios tr").forEach((tr) => {
+    const login = tr.dataset.login;
+    const altera = async (fn, ok) => {
+      tr.style.opacity = 0.5;
+      try {
+        await alterarUsuarios((l) => {
+          const u = l.find((x) => x.login === login);
+          if (!u) throw new Error("Esse usu\xE1rio n\xE3o existe mais.");
+          fn(u, l);
+        }, `Portal: altera ${login}`);
+        toast(ok);
+      } catch (err) {
+        toast(err.message);
+      }
+      desenhaUsuarios();
+    };
+    const pap = tr.querySelector('[data-campo="papel"]');
+    pap.onchange = () => altera((u) => {
+      u.papel = pap.value;
+      if (pap.value === "admin") {
+        delete u.franquiaId;
+        delete u.perfil;
+      }
+    }, "Perfil atualizado.");
+    const frSel = tr.querySelector('[data-campo="franquia"]');
+    if (frSel) frSel.onchange = async () => {
+      tr.style.opacity = 0.5;
+      try {
+        await vinculaUsuarioFranquia(login, frSel.value);
+        toast(frSel.value ? "Franquia vinculada." : "V\xEDnculo removido.");
+      } catch (err) {
+        toast(err.message);
+      }
+      desenhaUsuarios();
+    };
+    tr.querySelectorAll(`input[name="m-${CSS.escape(login)}"]`).forEach((cb) => cb.onchange = () => altera((u) => u.modulos = [...tr.querySelectorAll(`input[name="m-${CSS.escape(login)}"]:checked`)].map((i) => i.value), "M\xF3dulos atualizados."));
+    const bA = tr.querySelector('[data-acao="ativo"]');
+    if (bA) bA.onclick = () => {
+      const u = usuarios().find((x) => x.login === login);
+      if (u.ativo && !confirm(`Desativar o acesso de ${u.nome}?`)) return;
+      altera((x) => x.ativo = !x.ativo, u.ativo ? "Acesso desativado." : "Acesso reativado.");
+    };
+    const bE = tr.querySelector('[data-acao="excluir"]');
+    if (bE) bE.onclick = () => {
+      const u = usuarios().find((x) => x.login === login);
+      if (!confirm(`Excluir o usu\xE1rio ${u.nome}? Os cart\xF5es da Ativa\xE7\xE3o que j\xE1 est\xE3o nos computadores continuam guardados.`)) return;
+      tr.style.opacity = 0.5;
+      alterarUsuarios((l) => {
+        const i = l.findIndex((x) => x.login === login);
+        if (i >= 0) l.splice(i, 1);
+      }, `Portal: exclui ${login}`).then(() => toast("Usu\xE1rio exclu\xEDdo."), (err) => toast(err.message)).finally(desenhaUsuarios);
+    };
+    const bS = tr.querySelector('[data-acao="senha"]');
+    if (bS) bS.onclick = () => {
+      const u = usuarios().find((x) => x.login === login);
+      $("#modalRaiz").innerHTML = `<div class="modal-fundo"><form class="modal" role="dialog" aria-modal="true" novalidate>
+        <h2>Nova senha para ${esc(u.nome)}</h2>
+        <div class="campo"><label for="rsNova">Nova senha</label><input class="inp" type="text" id="rsNova" autocomplete="off" placeholder="m\xEDnimo 8 caracteres"></div>
+        <div class="msg erro" id="rsMsg" role="alert"></div>
+        <div style="display:flex;gap:8px;justify-content:flex-end"><button type="button" class="btn linha" id="rsCancelar">Cancelar</button><button class="btn cheio">Salvar senha</button></div>
+      </form></div>`;
+      const fecha = () => $("#modalRaiz").innerHTML = "";
+      $("#rsCancelar").onclick = fecha;
+      $("#rsNova").focus();
+      $(".modal").onkeydown = (e) => {
+        if (e.key === "Escape") fecha();
+      };
+      $(".modal").onsubmit = async (e) => {
+        e.preventDefault();
+        const v = $("#rsNova").value;
+        if (v.length < 8) {
+          $("#rsMsg").textContent = "A senha precisa ter pelo menos 8 caracteres.";
+          return;
+        }
+        const h = await geraHash(v);
+        fecha();
+        altera((x) => x.senha = h, "Senha redefinida. Envie a nova senha para a pessoa.");
+      };
+    };
+  });
+}
+const ARQ_CENTRAL = "central.json", CENTRAL_LOCAL = "portal-central-local";
+async function ghLerJson(g, nome) {
+  try {
+    const j = await gh(g, `/contents/${nome}?ref=${encodeURIComponent(g.branch)}`);
+    return { doc: JSON.parse(b64dec(j.content)), sha: j.sha };
+  } catch (e) {
+    if (e.status === 404) return { doc: null, sha: null };
+    throw e;
+  }
+}
+async function ghGravarJson(g, nome, obj, sha, mensagem) {
+  await gh(g, `/contents/${nome}`, { method: "PUT", body: { message: mensagem || "Portal: atualiza conte\xFAdo", content: b64enc(JSON.stringify(obj)), branch: g.branch, ...sha ? { sha } : {} } });
+}
+window.portalPodeEditarCentral = () => !!perfil && perfil.papel === "admin";
+window.portalLerCentral = async () => {
+  if (NO_SITE) {
+    try {
+      const r = await fetch(`${ARQ_CENTRAL}?t=${Date.now()}`, { cache: "no-store" });
+      if (r.ok) return await r.json();
+    } catch {
+    }
+  }
+  const g = ghCfg();
+  if (g) {
+    try {
+      const { doc } = await ghLerJson(g, ARQ_CENTRAL);
+      if (doc) return doc;
+    } catch (e) {
+      console.warn("GitHub:", e.message);
+    }
+  }
+  try {
+    return JSON.parse(localStorage.getItem(CENTRAL_LOCAL) || "null");
+  } catch {
+    return null;
+  }
+};
+window.portalAlterarCentral = async (padrao, fn, mensagem) => {
+  if (!perfil || perfil.papel !== "admin") throw new Error("Apenas administradores podem editar.");
+  const d = await window.portalLerCentral() || clone(padrao);
+  await fn(d);
+  const g = ghCfg();
+  if (g) {
+    const l = await ghLerJson(g, ARQ_CENTRAL);
+    await ghGravarJson(g, ARQ_CENTRAL, d, l.sha, mensagem || "Portal: atualiza conte\xFAdo da Central");
+  }
+  localStorage.setItem(CENTRAL_LOCAL, JSON.stringify(d));
+  window.PORTAL_PENDENTE_CENTRAL = d;
+  return d;
+};
+window.portalEnviarArquivoCentral = async (file, pasta = "arquivos") => {
+  if (!perfil || perfil.papel !== "admin") throw new Error("Apenas administradores podem enviar arquivos.");
+  if (!file) throw new Error("Escolha um arquivo.");
+  if (file.size > 20 * 1024 * 1024) throw new Error("O arquivo \xE9 maior que 20 MB. Para v\xEDdeos grandes, use YouTube ou Google Drive e insira pelo bot\xE3o V\xEDdeo.");
+  let g = ghCfg();
+  if (!g) {
+    await conectarGithub();
+    g = ghCfg();
+  }
+  if (!g) throw new Error("Conecte o GitHub para publicar o arquivo.");
+  const nomeBase = (file.name || "arquivo").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9._-]+/g, "-").replace(/^-+|-+$/g, "").slice(-100) || "arquivo";
+  const nome = `${Date.now()}-${Math.random().toString(36).slice(2, 7)}-${nomeBase}`;
+  const caminho = `portal-assets/central/${String(pasta || "arquivos").replace(/[^a-z0-9_-]/gi, "-")}/${nome}`;
+  const base64 = await blobParaBase64(file);
+  await gh(g, `/contents/${caminho}`, { method: "PUT", body: { message: `Central: publica ${file.name || "arquivo"}`, content: base64, branch: g.branch } });
+  return caminho;
+};
+const PORTAL_API = String(window.PORTAL_API || localStorage.getItem("portal-api-url") || "").replace(/\/$/, "");
+async function portalApi(path, payload) {
+  const url = (PORTAL_API || "") + "/api/" + path;
+  const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+  let d = {};
+  try {
+    d = await r.json();
+  } catch {
+  }
+  if (!r.ok) throw new Error(d.error || "Falha na integra\xE7\xE3o (" + r.status + ")");
+  return d;
+}
+window.portalSolicitarExtracao = async ({ nicho, cidade, bairro = "", max_results = 80 }) => {
+  nicho = String(nicho || "").trim();
+  cidade = String(cidade || "").trim();
+  bairro = String(bairro || "").trim();
+  if (!nicho || !cidade) throw new Error("Escolha o nicho e a cidade.");
+  return portalApi("leads", { nicho, cidade, bairro, max_results: String(Math.max(1, Math.min(Number(max_results) || 80, 120))) });
+};
+window.portalSolicitarInstagram = async ({ nicho = "", uf = "", cidade = "", bairro = "", palavra_chave = "", limite = 100 }) => {
+  nicho = String(nicho || "").trim();
+  uf = String(uf || "").trim().toUpperCase();
+  cidade = String(cidade || "").trim();
+  bairro = String(bairro || "").trim();
+  palavra_chave = String(palavra_chave || "").trim();
+  if (!nicho && !cidade && !palavra_chave) throw new Error("Informe nicho, cidade ou palavra-chave.");
+  return portalApi("instagram", { nicho, uf, cidade, bairro, palavra_chave, limite: String(Math.max(1, Math.min(Number(limite) || 100, 200))) });
+};
+const MODULO_CACHE = /* @__PURE__ */ new Map();
+const decodifica = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
+async function carregaModulo(id) {
+  if (MODULO_CACHE.has(id)) return MODULO_CACHE.get(id);
+  const r = await fetch("/portal-assets/modulos/" + encodeURIComponent(id) + ".b64", { cache: "force-cache" });
+  if (!r.ok) throw new Error("Nao foi possivel carregar o modulo " + id + ".");
+  const html = decodifica((await r.text()).trim());
+  MODULO_CACHE.set(id, html);
+  return html;
+}
+let centralAdminFrame = null;
+async function desenhaConteudoAdmin() {
+  const box = $("#editorCentralAdmin");
+  if (!box) return;
+  if (!centralAdminFrame) {
+    const html = await carregaModulo("central");
+    centralAdminFrame = document.createElement("iframe");
+    centralAdminFrame.title = "Editor da Central do Franqueado";
+    centralAdminFrame.setAttribute("allow", "clipboard-read; clipboard-write");
+    centralAdminFrame.srcdoc = html;
+    box.innerHTML = "";
+    box.appendChild(centralAdminFrame);
+  }
+}
+window.portalUsuarioAtual = () => perfil && { login: perfil.login, nome: perfil.nome, papel: perfil.papel, franquiaId: perfil.franquiaId || null };
+window.portalUsuarios = () => {
+  const alvo = portalFranquiaAlvo();
+  return usuarios().filter((u) => u.login === (perfil == null ? void 0 : perfil.login) || !!alvo && u.franquiaId === alvo).map((u) => ({ login: u.login, nome: u.nome, papel: u.papel, franquiaId: u.franquiaId || null }));
+};
+window.portalMenu = () => {
+  location.hash = "";
+};
+const PORTAL_API_BASE = window.PORTAL_API_BASE || "";
+window.PORTAL_ADMIN_FRANQUIA = localStorage.getItem("portal-admin-franquia-view") || "";
+async function configuraVisaoFranquiaAdmin(u, admin) {
+  var _a2;
+  const sel = document.getElementById("adminFranquiaView");
+  if (!sel) return;
+  if (!admin) {
+    sel.classList.add("hidden");
+    return;
+  }
+  sel.classList.remove("hidden");
+  try {
+    const token = localStorage.getItem("portal-admin-token") || "";
+    const r = await fetch(PORTAL_API_BASE + "/api/franquias", { headers: { Authorization: "Bearer " + token }, cache: "no-store" });
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(d.error || "Falha ao carregar franquias");
+    const fr = (d.franquias || []).filter((x) => x.ativo !== false);
+    FRANQUIAS_ADMIN = Array.isArray(d.franquias) ? d.franquias : FRANQUIAS_ADMIN;
+    atualizaCampoNovaFranquia();
+    sel.innerHTML = '<option value="">Franquia: selecione</option>' + fr.map((f) => '<option value="' + esc(f.id) + '">' + esc(f.nome) + "</option>").join("");
+    let atual = window.PORTAL_ADMIN_FRANQUIA;
+    if (!fr.some((f) => f.id === atual)) atual = ((_a2 = fr[0]) == null ? void 0 : _a2.id) || "";
+    window.PORTAL_ADMIN_FRANQUIA = atual;
+    sel.value = atual;
+    if (atual) localStorage.setItem("portal-admin-franquia-view", atual);
+    sel.onchange = () => {
+      window.PORTAL_ADMIN_FRANQUIA = sel.value;
+      if (sel.value) localStorage.setItem("portal-admin-franquia-view", sel.value);
+      else localStorage.removeItem("portal-admin-franquia-view");
+      const box = document.getElementById("frames");
+      if (box) box.innerHTML = "";
+      desenhaModulos();
+      if (location.hash) rota();
+    };
+  } catch (e) {
+    console.warn("Visao de franquia:", e);
+    sel.innerHTML = '<option value="">Franquia indisponivel</option>';
+  }
+}
+function portalFranquiaAlvo() {
+  if (!perfil) return "";
+  return perfil.papel === "admin" ? window.PORTAL_ADMIN_FRANQUIA || "" : perfil.franquiaId || "";
+}
+async function portalEstadoFranquia(modulo) {
+  const franquiaId = portalFranquiaAlvo();
+  if (!franquiaId) return { ativo: false, dados: {} };
+  const token = localStorage.getItem("portal-admin-token") || "";
+  if (!token) return { ativo: false, dados: {} };
+  try {
+    const qs = new URLSearchParams({ modulo });
+    if ((perfil == null ? void 0 : perfil.papel) === "admin") qs.set("franquiaId", franquiaId);
+    const r = await fetch(PORTAL_API_BASE + "/api/franquia-data?" + qs.toString(), { headers: { Authorization: "Bearer " + token }, cache: "no-store" });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.error || "Falha ao carregar dados da franquia");
+    const dados = j.dados && typeof j.dados === "object" && "dados" in j.dados ? j.dados.dados : j.dados || {};
+    return { ativo: true, dados: dados && typeof dados === "object" ? dados : {} };
+  } catch (e) {
+    console.warn("Dados da franquia " + modulo + ":", e);
+    return { ativo: false, dados: {} };
+  }
+}
+function portalInjetaEstado(html, modulo, estado) {
+  const dados = JSON.stringify((estado == null ? void 0 : estado.dados) || {}).replace(/</g, "\\u003c");
+  const franquia = JSON.stringify(portalFranquiaAlvo());
+  const token = JSON.stringify(localStorage.getItem("portal-admin-token") || "");
+  const api = JSON.stringify(PORTAL_API_BASE);
+  const ativo = (estado == null ? void 0 : estado.ativo) && modulo !== "ativacao" ? "true" : "false";
+  const boot = `<script>(function(){
+    const REMOTE_ATIVO=${ativo};
+    const MODULO=${JSON.stringify(modulo)};
+    const FRANQUIA=${franquia};
+    const TOKEN=${token};
+    const API=${api};
+    const REMOTE=${dados};
+    const rawGet=Storage.prototype.getItem, rawSet=Storage.prototype.setItem, rawRemove=Storage.prototype.removeItem, rawClear=Storage.prototype.clear;
+    let timer=null;
+    function isLocal(self){try{return self===window.localStorage}catch{return false}}
+    function enviar(){
+      if(!REMOTE_ATIVO||!FRANQUIA||!TOKEN)return;
+      clearTimeout(timer);
+      timer=setTimeout(async()=>{
+        try{
+          const qs=new URLSearchParams({modulo:MODULO});
+          if(${(perfil == null ? void 0 : perfil.papel) === "admin" ? "true" : "false"}) qs.set('franquiaId',FRANQUIA);
+          await fetch(API+'/api/franquia-data?'+qs.toString(),{
+            method:'POST',
+            headers:{'Content-Type':'application/json','Authorization':'Bearer '+TOKEN},
+            body:JSON.stringify({modulo:MODULO,franquiaId:FRANQUIA,dados:REMOTE})
+          });
+        }catch(e){console.warn('Sincronizacao da franquia:',e)}
+      },350);
+    }
+    Storage.prototype.getItem=function(k){
+      if(!isLocal(this)||!REMOTE_ATIVO)return rawGet.call(this,k);
+      if(Object.prototype.hasOwnProperty.call(REMOTE,k))return REMOTE[k];
+      const antigo=rawGet.call(this,k);
+      if(antigo!==null){REMOTE[k]=antigo;enviar()}
+      return antigo;
+    };
+    Storage.prototype.setItem=function(k,v){
+      if(!isLocal(this)||!REMOTE_ATIVO)return rawSet.call(this,k,v);
+      REMOTE[k]=String(v); rawSet.call(this,k,v); enviar();
+    };
+    Storage.prototype.removeItem=function(k){
+      if(!isLocal(this)||!REMOTE_ATIVO)return rawRemove.call(this,k);
+      delete REMOTE[k]; rawRemove.call(this,k); enviar();
+    };
+    Storage.prototype.clear=function(){
+      if(!isLocal(this)||!REMOTE_ATIVO)return rawClear.call(this);
+      for(const k of Object.keys(REMOTE))delete REMOTE[k];
+      enviar();
+    };
+    window.addEventListener('beforeunload',()=>{if(timer){clearTimeout(timer);timer=null} enviar()});
+  })();<\/script>`;
+  if (/<head[^>]*>/i.test(html)) return html.replace(/<head[^>]*>/i, (m) => m + boot);
+  return boot + html;
+}
+function rota() {
+  if (!perfil) return;
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (perfil.papel !== "admin" && ["franquias", "usuarios", "manutencao", "conteudo"].includes(id)) {
+    history.replaceState(null, "", location.pathname + location.search);
+    trocaAba("modulos");
+    return fechaModulo();
+  }
+  const m = MODULOS.find((x) => x.id === id);
+  if (!id) return fechaModulo();
+  if (!m) {
+    history.replaceState(null, "", location.pathname + location.search);
+    return fechaModulo();
+  }
+  if (!podeUsar(m)) {
+    history.replaceState(null, "", location.pathname + location.search);
+    fechaModulo();
+    toast("Seu usu\xE1rio n\xE3o tem acesso a esse m\xF3dulo. Fale com a franqueadora.");
+    return;
+  }
+  if (emManut(m.id) && perfil.papel !== "admin") {
+    history.replaceState(null, "", location.pathname + location.search);
+    fechaModulo();
+    toast(`${m.nome} est\xE1 em manuten\xE7\xE3o. ${MANUT[m.id].mensagem || "Volte em breve."}`);
+    return;
+  }
+  abreModulo(m);
+}
+async function abreModulo(m) {
+  const box = $("#frames");
+  [...box.children].forEach((el) => el.classList.toggle("hidden", el.dataset.mod !== m.id));
+  let fr = box.querySelector(`iframe[data-mod="${m.id}"]`);
+  const editarCentral = m.id === "central" && perfil && perfil.papel === "admin" && sessionStorage.getItem("central-editar-id");
+  const abreEdit = () => {
+    var _a2, _b;
+    if (m.id !== "central" || !editarCentral) return;
+    sessionStorage.removeItem("central-editar-id");
+    try {
+      (_b = (_a2 = fr.contentDocument) == null ? void 0 : _a2.querySelector("#btnEditar")) == null ? void 0 : _b.click();
+    } catch {
+    }
+  };
+  if (!fr) {
+    const estado = await portalEstadoFranquia(m.id);
+    fr = document.createElement("iframe");
+    fr.dataset.mod = m.id;
+    fr.title = m.nome;
+    fr.setAttribute("allow", "clipboard-read; clipboard-write");
+    const html = await carregaModulo(m.id);
+    fr.srcdoc = portalInjetaEstado(html, m.id, estado);
+    fr.addEventListener("load", () => setTimeout(abreEdit, 80), { once: true });
+    box.appendChild(fr);
+  } else {
+    setTimeout(abreEdit, 80);
+  }
+  $("#nomeMod").innerHTML = esc(m.nome) + (emManut(m.id) ? ' <span class="selo manut">Em manuten\xE7\xE3o</span>' : "");
+  $("#trocaMod").value = m.id;
+  document.title = "avec \xB7 " + m.nome;
+  $("#telaModulo").classList.remove("hidden");
+  fr.focus();
+}
+function fechaModulo() {
+  $("#telaModulo").classList.add("hidden");
+  document.title = "avec \xB7 Portal do franqueado";
+}
+window.addEventListener("hashchange", rota);
+$("#btnVoltar").onclick = () => {
+  location.hash = "";
+};
+$("#trocaMod").onchange = (e) => {
+  location.hash = e.target.value;
+};
+window.addEventListener("storage", (e) => {
+  if (e.key === SESS && !e.newValue && perfil) sair();
+});
+iniciar().catch((err) => {
+  formEntrada("formLogin");
+  aviso("N\xE3o foi poss\xEDvel carregar os usu\xE1rios: " + err.message);
+});
+async function reconferir() {
+  if (!perfil || document.hidden) return;
+  await carregaUsuarios();
+  const u = usuarios().find((x) => x.login === perfil.login);
+  if (!u || !u.ativo) {
+    sair();
+    aviso("Seu acesso foi alterado. Entre novamente.");
+    return;
+  }
+  if (perfil.papel !== "admin") {
+    for (const fr of [...$("#frames").children]) {
+      const id = fr.dataset.mod;
+      if (!emManut(id)) continue;
+      fr.remove();
+      const m = MODULOS.find((x) => x.id === id);
+      if (location.hash.slice(1) === id) {
+        history.replaceState(null, "", location.pathname + location.search);
+        fechaModulo();
+      }
+      alerta(`${m ? m.nome : "Este m\xF3dulo"} entrou em manuten\xE7\xE3o`, MANUT[id].mensagem || "Volte em breve. Salve o que estiver fazendo em outro lugar, se precisar.");
+    }
+  }
+  if (!$("#telaPortal").classList.contains("hidden")) desenhaModulos();
+}
+function alerta(titulo, texto) {
+  $("#modalRaiz").innerHTML = `<div class="modal-fundo"><div class="modal" role="alertdialog" aria-modal="true" aria-labelledby="tAl">
+    <h2 id="tAl">${esc(titulo)}</h2><p style="color:var(--tinta-suave);line-height:1.5;margin:0 0 18px">${esc(texto)}</p>
+    <button class="btn cheio bloco" id="alOk">Entendi</button></div></div>`;
+  $("#alOk").onclick = () => $("#modalRaiz").innerHTML = "";
+  $("#alOk").focus();
+}
+setInterval(reconferir, 2 * 60 * 1e3);
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) reconferir();
+});
+let PORTAL_SF_FONES = null;
+async function portalCarregaTelefonesSalesforce() {
+  if (PORTAL_SF_FONES) return PORTAL_SF_FONES;
+  try {
+    const r = await fetch("clientes-salesforce/part-0.b64?t=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) return {};
+    const b64 = (await r.text()).trim();
+    const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+    const ds = new DecompressionStream("gzip");
+    const txt = await new Response(new Blob([bytes]).stream().pipeThrough(ds)).text();
+    PORTAL_SF_FONES = JSON.parse(txt) || {};
+    return PORTAL_SF_FONES;
+  } catch (e) {
+    console.warn("Base Salesforce:", e);
+    return {};
+  }
+}
+window.portalBuscarWhatsAppCliente = async ({ cliente_id, nome, documento = "" }) => {
+  const sf = await portalCarregaTelefonesSalesforce();
+  const tel = sf[String(cliente_id || "").trim()];
+  if (tel) return { ok: true, telefone: String(tel), fonte: "Salesforce" };
+  try {
+    await portalApi("whatsapp", { cliente_id: String(cliente_id || ""), nome: String(nome || ""), documento: String(documento || "") });
+    return { ok: true, fonte: "Google Maps" };
+  } catch (e) {
+    const maps = "https://www.google.com/maps/search/" + encodeURIComponent([nome, documento].filter(Boolean).join(" "));
+    return { ok: true, telefone: "", fonte: "Google Maps", maps_url: maps };
+  }
+};
+</script>
+
+</body>
+</html>
+
+<!-- Ajustes finais: imagens sem corte + tela de entrada dinâmica da Central. -->
