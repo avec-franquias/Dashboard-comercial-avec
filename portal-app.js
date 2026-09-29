@@ -686,7 +686,7 @@ async function publicarHomeAtual(homeParcial) {
 }
 function renderHomePrincipal(h) {
   const cards = (h.destaques || []).map((d) => `<figure class="home-destaque"><img src="${esc(imagemPortal(d.imagem || ""))}" alt="${esc(d.nome || "")}"><figcaption class="hd-info"><b>${esc(d.nome || "")}</b><small>${esc(d.nivel || "")}</small></figcaption></figure>`).join("");
-  const novidades = (h.novidadeFotos || []).filter((x) => x && x.imagem).map((d,i) => `<a class="novidade-link" href="${esc(imagemPortal(d.imagem))}" target="_blank" rel="noopener">Melhoria ${i+1}</a>`).join("");
+  const novidades = (h.novidadeFotos || []).filter((x) => x && x.imagem).map((d,i) => `<a class="novidade-link" href="${esc(imagemPortal(d.imagem))}" target="_blank" rel="noopener"><span class="novidade-num">${String(i+1).padStart(2,'0')}</span><span class="novidade-link-info"><b>${esc(d.titulo || `Melhoria ${i+1}`)}</b><small>${esc(d.texto || "Abrir material da melhoria")}</small></span><span class="novidade-link-seta">↗</span></a>`).join("");
   const ajuda = h.ajudaUrl ? `<a href="${esc(h.ajudaUrl)}" target="_blank" rel="noopener">Central de ajuda</a>` : "";
   return `<article>
     <h1>${esc(h.titulo)}</h1>
