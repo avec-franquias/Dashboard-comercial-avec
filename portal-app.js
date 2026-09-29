@@ -1228,11 +1228,30 @@ async function desenhaLogsAdmin(){
     const r=await fetch(PORTAL_USAGE_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
     const j=await r.json().catch(()=>({})); if(!r.ok||!j.ok)throw new Error(j.error||"Falha ao carregar logs");
     const logs=j.logs||[];
-    const uniq=a=>[...new Set(a.filter(Boolean))].sort((x,y)=>String(x).localeCompare(String(y),"pt-BR"));
     const frSel=$("#logsFranquia"),usSel=$("#logsUsuario"),moSel=$("#logsModulo");
-    if(frSel&&frSel.options.length<=1)frSel.innerHTML='<option value="">Todas as franquias</option>'+uniq(logs.map(x=>x.franquia_id)).map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join("");
-    if(usSel&&usSel.options.length<=1)usSel.innerHTML='<option value="">Todos os usuários</option>'+uniq(logs.map(x=>x.login)).map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join("");
-    if(moSel&&moSel.options.length<=1)moSel.innerHTML='<option value="">Todos os módulos</option>'+uniq(logs.map(x=>x.modulo)).map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join("");
+
+    const frAtual=frSel?.value||"";
+    const usAtual=usSel?.value||"";
+    const moAtual=moSel?.value||"";
+
+    try{ await garanteFranquiasAdmin(); }catch{}
+
+    if(frSel){
+      const frs=(FRANQUIAS_ADMIN||[]).filter(f=>f.ativo!==false);
+      frSel.innerHTML='<option value="">Todas as franquias</option>'+frs.map(f=>'<option value="'+esc(f.id)+'">'+esc(f.nome||f.id)+'</option>').join("");
+      if([...frSel.options].some(o=>o.value===frAtual)) frSel.value=frAtual;
+    }
+
+    if(usSel){
+      const us=usuarios().filter(u=>u.ativo!==false).sort((a,b)=>String(a.nome||a.login).localeCompare(String(b.nome||b.login),"pt-BR"));
+      usSel.innerHTML='<option value="">Todos os usuários</option>'+us.map(u=>'<option value="'+esc(u.login)+'">'+esc((u.nome||u.login)+' · '+u.login)+'</option>').join("");
+      if([...usSel.options].some(o=>o.value===usAtual)) usSel.value=usAtual;
+    }
+
+    if(moSel){
+      moSel.innerHTML='<option value="">Todos os módulos</option>'+MODULOS.map(m=>'<option value="'+esc(m.id)+'">'+esc(m.nome)+'</option>').join("");
+      if([...moSel.options].some(o=>o.value===moAtual)) moSel.value=moAtual;
+    }
     const total=logs.length, usuarios=new Set(logs.map(x=>x.login)).size, franquias=new Set(logs.map(x=>x.franquia_id).filter(Boolean)).size, extr=logs.filter(x=>x.evento==="extracao_leads");
     $("#logsKpis").innerHTML=[
       ["Eventos",total],["Usuários ativos",usuarios],["Franquias ativas",franquias],["Buscas no Extrator",extr.length]
