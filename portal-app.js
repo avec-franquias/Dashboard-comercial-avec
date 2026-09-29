@@ -587,7 +587,7 @@ async function carregarMelhoresMes(){
   const m=await lerMelhoresMes();
   if(!m||(!m.imagem&&!m.periodo)){ box.classList.add("hidden"); return; }
   box.classList.remove("hidden");
-  box.innerHTML=`<h2>Melhores do mês</h2>${m.periodo?`<p><b>Período analisado: ${esc(m.periodo)}</b></p>`:""}${m.imagem?`<figure style="margin:14px 0 0;border:1px solid var(--linha);border-radius:14px;overflow:hidden;background:#F7F7FB"><img src="${esc(m.imagem)}" alt="Melhores do mês" style="width:100%;height:auto;display:block"></figure>`:""}`;
+  box.innerHTML=`<h2>Melhores do mês</h2>${m.periodo?`<p><b>Período analisado: ${esc(m.periodo)}</b></p>`:""}${m.imagem?`<figure class="melhores-mes-figura"><img class="melhores-mes-imagem" src="${esc(m.imagem)}" alt="Melhores do mês"></figure>`:""}`;
 }
 async function abrirEditorMelhoresMes(){
   if(!perfil||perfil.papel!=="admin") return;
