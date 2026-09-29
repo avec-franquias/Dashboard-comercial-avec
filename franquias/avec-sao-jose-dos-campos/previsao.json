@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-sao-jose-dos-campos",
   "modulo": "previsao",
-  "atualizadoEm": "2026-09-29T22:22:03.430Z",
+  "atualizadoEm": "2026-09-29T22:26:01.481Z",
   "atualizadoPor": "leandro.alux",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"37.414,79\",\"m1\":\"38.180,57\",\"m2\":\"39.527,72\",\"m3\":\"41.284,33\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"prata\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"prata\",\"ultimaGravacao\":\"2026-09-29T22:22:00.890Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"37.414,79\",\"m1\":\"38.180,57\",\"m2\":\"39.527,72\",\"m3\":\"41.284,33\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"prata\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"prata\",\"ultimaGravacao\":\"2026-09-29T22:26:00.745Z\"}"
   }
 }
