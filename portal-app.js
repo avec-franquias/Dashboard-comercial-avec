@@ -1224,7 +1224,7 @@ function desenhaManutencao() {
     };
   });
 }
-const chkModulos = (sel, nome) => MODULOS.filter((m) => false).map((m) => `<label class="chk"><input type="checkbox" name="${nome}" value="${m.id}" ${sel.includes(m.id) ? "checked" : ""}>${esc(m.nome)}</label>`).join("");
+const chkModulos = (sel, nome) => MODULOS.map((m) => `<label class="chk"><input type="checkbox" name="${nome}" value="${m.id}" ${sel.includes(m.id) ? "checked" : ""}>${esc(m.nome)}</label>`).join("");
 let FRANQUIAS_ADMIN = [];
 let FRANQUIAS_CARREGANDO = null;
 function opcoesFranquias(valor = "") {
@@ -1313,9 +1313,8 @@ $("#formNovo").onsubmit = async (e) => {
   $("#btnCriar").disabled = true;
   try {
     const codigoNovo = papel === "admin" ? novoCodigo() : null;
-    const franquiaEscolhida = FRANQUIAS_ADMIN.find((f) => f.id === franquiaId);
-    const modsGrupo = papel === "admin" ? modulos : Array.isArray(franquiaEscolhida == null ? void 0 : franquiaEscolhida.modulos) ? franquiaEscolhida.modulos : modulos;
-    const novoU = { login, nome, papel, ativo: true, modulos: modsGrupo, ...franquiaId ? { franquiaId, perfil: "franqueado" } : {}, senha: await geraHash(senha), ...codigoNovo ? { recuperacao: await geraHash(normCodigo(codigoNovo)) } : {}, criadoEm: (/* @__PURE__ */ new Date()).toISOString() };
+    const modsUsuario = papel === "admin" ? MODULOS.map((m) => m.id) : modulos;
+    const novoU = { login, nome, papel, ativo: true, modulos: modsUsuario, ...franquiaId ? { franquiaId, perfil: "franqueado" } : {}, senha: await geraHash(senha), ...codigoNovo ? { recuperacao: await geraHash(normCodigo(codigoNovo)) } : {}, criadoEm: (/* @__PURE__ */ new Date()).toISOString() };
     msg.className = "msg";
     msg.textContent = "Salvando\u2026";
     await alterarUsuarios((l) => {
@@ -1383,6 +1382,7 @@ function desenhaUsuarios() {
       if (pap.value === "admin") {
         delete u.franquiaId;
         delete u.perfil;
+        u.modulos = MODULOS.map((m) => m.id);
       }
     }, "Perfil atualizado.");
     const frSel = tr.querySelector('[data-campo="franquia"]');
