@@ -1419,7 +1419,7 @@ window.portalEnviarArquivoCentral = async (file, pasta = "arquivos") => {
   await gh(g, `/contents/${caminho}`, { method: "PUT", body: { message: `Central: publica ${file.name || "arquivo"}`, content: base64, branch: g.branch } });
   return caminho;
 };
-const PORTAL_API = String(window.PORTAL_API || localStorage.getItem("portal-api-url") || "").replace(/\/$/, "");
+const PORTAL_API = String(window.PORTAL_API || window.PORTAL_API_BASE || localStorage.getItem("portal-api-url") || "").replace(/\/$/, "");
 async function portalApi(path, payload) {
   const url = (PORTAL_API || "") + "/api/" + path;
   const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
