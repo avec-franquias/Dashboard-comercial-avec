@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "arvore",
-  "atualizadoEm": "2026-09-29T18:46:28.718Z",
+  "atualizadoEm": "2026-09-29T18:46:41.885Z",
   "atualizadoPor": "kater.hoss",
   "dados": {
     "avec_arvore_v3": "{\"versao\":3,\"franquia\":\"\",\"niveis\":{\"Bronze\":{\"nova\":0,\"exp\":0,\"cancel\":0},\"Prata\":{\"nova\":0,\"exp\":0,\"cancel\":0},\"Ouro\":{\"nova\":0,\"exp\":0,\"cancel\":0},\"Diamante\":{\"nova\":0,\"exp\":0,\"cancel\":0}},\"mesAtual\":\"2026-09\",\"meses\":{\"2026-09\":{\"chave\":\"2026-09\",\"nivel\":\"Bronze\",\"niveis\":{\"Bronze\":{\"nova\":0,\"exp\":0,\"cancel\":0},\"Prata\":{\"nova\":0,\"exp\":0,\"cancel\":0},\"Ouro\":{\"nova\":0,\"exp\":0,\"cancel\":0},\"Diamante\":{\"nova\":0,\"exp\":0,\"cancel\":0}},\"carteira\":0,\"diasUteis\":22,\"vendedores\":1,\"p\":{\"mixProsp\":0,\"mixTerceira\":0,\"convPropFech\":0,\"convVisitaProp\":0,\"convPropFechIn\":0,\"convLeadProp\":0,\"ticketNovos\":0,\"pctEspontaneo\":0,\"ticketUpsell\":0,\"convVisitaUpsell\":0,\"downsell\":0,\"visitasPreChurn\":0,\"radarPreChurn\":0,\"reversao\":0,\"ticketCancel\":0},\"diasSemana\":[4,5,5,5,3],\"semanasConcluidas\":0,\"real\":{},\"acoes\":[{},{},{}],\"radar\":null,\"novo\":true,\"origem\":null}}}"
