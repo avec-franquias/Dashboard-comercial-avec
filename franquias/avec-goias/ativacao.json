@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-goias",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T20:12:30.714Z",
+  "atualizadoEm": "2026-09-29T20:33:32.644Z",
   "atualizadoPor": "harana.lima",
   "dados": {
     "db": {
@@ -439,6 +439,107 @@
           "updatedAt": "2026-09-29T20:12:30.312Z",
           "finishedAt": "",
           "ordem": 1790712750312
+        },
+        {
+          "id": "ffb4a7e3ebbf9de4",
+          "ownerId": "34ffe12d88555eb8",
+          "column": "acompanhamento",
+          "clientCode": "107565",
+          "title": "Studio CM Hair",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-29T17:33",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "d0a951bc2a928da3",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "93d8d25aeb03226c",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "944ecd2602b0edb6",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "4a4b08f964b30abf",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "0fc789d11be5e4a6",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "f25bdfc73937ef52",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "fa5a394ea212ba39",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "6d6324e7a99bce85",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "355b45c9caeba229",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "c2c4f0a134ab910b",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "c8ab49b214ff9c0f",
+              "type": "action",
+              "at": "2026-09-29T20:33:31.921Z",
+              "author": "Avec Goias",
+              "authorId": "34ffe12d88555eb8",
+              "text": "adicionou este cartão a Acompanhamento de uso"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-29T20:33:31.921Z",
+              "column": "acompanhamento"
+            }
+          ],
+          "createdAt": "2026-09-29T20:33:31.921Z",
+          "updatedAt": "2026-09-29T20:33:31.921Z",
+          "finishedAt": "",
+          "ordem": 1790714011921
         }
       ]
     }
