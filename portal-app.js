@@ -429,50 +429,62 @@ async function iniciar() {
 function entrarNoPortal(u) {
   perfil = u;
   localStorage.setItem(SESS, JSON.stringify({ instalacao: INSTALACAO, login: u.login, desde: (/* @__PURE__ */ new Date()).toISOString() }));
-  $("#nomeTopo").textContent = u.nome;
-  $("#papelTopo").textContent = u.papel === "admin" ? "Administrador" : "Franqueado";
-  $("#avTopo").textContent = iniciais(u.nome);
-  const hora = (/* @__PURE__ */ new Date()).getHours();
-  $("#ola").textContent = `${hora < 12 ? "Bom dia" : hora < 18 ? "Boa tarde" : "Boa noite"}, ${u.nome.split(" ")[0]}`;
-  const admin = u.papel === "admin";
-  document.body.dataset.portalAdmin = admin ? "1" : "0";
-  $("#abas").classList.toggle("hidden", !admin);
-  $("#btnSenha").classList.toggle("hidden", !admin);
-  configuraVisaoFranquiaAdmin(u, admin);
-  const secFranquias = document.getElementById("abaFranquias");
-  const tabFranquias = document.querySelector('[data-aba="franquias"]');
-  if (!admin) {
-    for (const id of ["abaUsuarios", "abaFranquias", "abaManutencao", "abaConteudo"]) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.classList.add("hidden");
-        el.style.setProperty("display", "none", "important");
-      }
-    }
-    if (tabFranquias) tabFranquias.style.setProperty("display", "none", "important");
-  } else {
-    for (const id of ["abaUsuarios", "abaFranquias", "abaManutencao", "abaConteudo"]) {
-      const el = document.getElementById(id);
-      if (el) el.style.removeProperty("display");
-    }
-    if (tabFranquias) tabFranquias.style.removeProperty("display");
-  }
-  desenhaModulos();
-  $("#quemMod").textContent = u.nome;
-  $("#trocaMod").innerHTML = MODULOS.filter(podeUsar).map((m) => `<option value="${m.id}">${esc(m.nome)}</option>`).join("");
-  avisoPublicar();
+
+  // Abre a estrutura principal primeiro. Falhas secundarias nao podem derrubar o login.
   mostra("portal");
-  setTimeout(function() {
-    if (typeof window.portalHideCoverageSafe === "function") window.portalHideCoverageSafe();
-  }, 0);
-  if (!admin) {
-    trocaAba("modulos");
-    const atual = decodeURIComponent(location.hash.slice(1));
-    const moduloValido = MODULOS.some((m) => m.id === atual && podeUsar(m));
-    if (!moduloValido && location.hash) history.replaceState(null, "", location.pathname + location.search);
+
+  const admin = u.papel === "admin";
+  try {
+    const nomeTopo = $("#nomeTopo"); if (nomeTopo) nomeTopo.textContent = u.nome;
+    const papelTopo = $("#papelTopo"); if (papelTopo) papelTopo.textContent = admin ? "Administrador" : "Franqueado";
+    const avTopo = $("#avTopo"); if (avTopo) avTopo.textContent = iniciais(u.nome);
+    const hora = (/* @__PURE__ */ new Date()).getHours();
+    const ola = $("#ola"); if (ola) ola.textContent = `${hora < 12 ? "Bom dia" : hora < 18 ? "Boa tarde" : "Boa noite"}, ${String(u.nome || u.login).split(" ")[0]}`;
+    document.body.dataset.portalAdmin = admin ? "1" : "0";
+    const abas = $("#abas"); if (abas) abas.classList.toggle("hidden", !admin);
+    const btnSenha = $("#btnSenha"); if (btnSenha) btnSenha.classList.toggle("hidden", !admin);
+
+    configuraVisaoFranquiaAdmin(u, admin).catch((e)=>console.warn("Visao administrativa:",e));
+
+    const tabFranquias = document.querySelector('[data-aba="franquias"]');
+    if (!admin) {
+      for (const id of ["abaUsuarios", "abaFranquias", "abaManutencao", "abaConteudo"]) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.add("hidden");
+          el.style.setProperty("display", "none", "important");
+        }
+      }
+      if (tabFranquias) tabFranquias.style.setProperty("display", "none", "important");
+    } else {
+      for (const id of ["abaUsuarios", "abaFranquias", "abaManutencao", "abaConteudo"]) {
+        const el = document.getElementById(id);
+        if (el) el.style.removeProperty("display");
+      }
+      if (tabFranquias) tabFranquias.style.removeProperty("display");
+    }
+
+    try { desenhaModulos(); } catch (e) { console.warn("Menu:",e); }
+    const quemMod = $("#quemMod"); if (quemMod) quemMod.textContent = u.nome;
+    const trocaMod = $("#trocaMod"); if (trocaMod) trocaMod.innerHTML = MODULOS.filter(podeUsar).map((m) => `<option value="${m.id}">${esc(m.nome)}</option>`).join("");
+    try { avisoPublicar(); } catch (e) { console.warn("Aviso:",e); }
+
+    setTimeout(function() {
+      if (typeof window.portalHideCoverageSafe === "function") window.portalHideCoverageSafe();
+    }, 0);
+
+    if (!admin) {
+      try { trocaAba("modulos"); } catch (e) { console.warn("Aba:",e); }
+      const atual = decodeURIComponent(location.hash.slice(1));
+      const moduloValido = MODULOS.some((m) => m.id === atual && podeUsar(m));
+      if (!moduloValido && location.hash) history.replaceState(null, "", location.pathname + location.search);
+    }
+    try { rota(); } catch (e) { console.warn("Rota:",e); }
+  } catch (e) {
+    console.warn("Portal abriu com carregamento parcial:", e);
   }
-  rota();
 }
+window.entrarNoPortal = entrarNoPortal;
 const SEMPRE_LIBERADOS = ["central", "migrador"];
 const podeUsar = (m) => {
   if (!perfil) return false;
