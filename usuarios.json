@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-29T18:04:38.659Z",
+ "atualizadoEm": "2026-09-29T18:04:40.529Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -709,16 +709,15 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
+    "central",
+    "clientes",
+    "migrador",
+    "extrator",
     "ativacao",
     "arvore",
     "previsao",
     "taxas",
-    "propostas",
-    "instagram",
-    "clientes",
-    "extrator",
-    "central",
-    "reunioes"
+    "propostas"
    ],
    "senha": "pbkdf2$210000$6d2e364b359edaf03f2115c85222899c$e1072a1987c3025f21d30c9b06d27c7c436a7524dc0fc78b628a76e2d8af7323",
    "criadoEm": "2026-09-23T18:57:31.583Z",
