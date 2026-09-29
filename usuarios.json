@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-29T17:59:25.199Z",
+ "atualizadoEm": "2026-09-29T17:59:28.027Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -137,6 +137,7 @@
    "modulos": [
     "central",
     "clientes",
+    "migrador",
     "extrator",
     "arvore",
     "previsao",
