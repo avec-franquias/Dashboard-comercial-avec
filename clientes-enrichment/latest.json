@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-21T14:33:36.756Z",
+  "updated_at": "2026-09-29T12:56:16.361Z",
   "clientes": {
     "25276": {
       "cliente_id": "25276",
@@ -59,6 +59,18 @@
       "maps_url": "https://www.google.com/maps/search/66.329.957%20BRUNO%20DA%20SILVA%20MENEZES%2066329957000194",
       "website": "",
       "encontrado_em": "2026-09-18T17:48:58.877Z",
+      "nome_encontrado": ""
+    },
+    "105738": {
+      "cliente_id": "105738",
+      "nome": "ALCINDA DE JESUS DA SILVA RIBEIRO",
+      "documento": "32381582000190",
+      "status": "sem_telefone",
+      "telefone": "",
+      "fonte": "Google Maps",
+      "maps_url": "https://www.google.com/maps/search/ALCINDA%20DE%20JESUS%20DA%20SILVA%20RIBEIRO%2032381582000190",
+      "website": "",
+      "encontrado_em": "2026-09-29T12:56:12.820Z",
       "nome_encontrado": ""
     }
   }
