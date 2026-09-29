@@ -5258,25 +5258,10 @@
       },
       "results": [
         {
-          "username": "salao_sandracuchi",
-          "profile_url": "https://www.instagram.com/salao_sandracuchi/",
-          "name": "Sandra Cuchi | Salão de beleza",
-          "bio": "Sandra Cuchi | Salão de beleza (@salao_sandracuchi) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Joinville",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "beleza.renovada.jlle",
-          "profile_url": "https://www.instagram.com/beleza.renovada.jlle/",
-          "name": "Beleza Renovada",
-          "bio": "Beleza Renovada (@beleza.renovada.jlle) - Instagram",
+          "username": "amakha.belezaebemestar",
+          "profile_url": "https://www.instagram.com/amakha.belezaebemestar/",
+          "name": "Perfumaria em Joinville",
+          "bio": "Perfumaria em Joinville (@amakha.belezaebemestar) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -5303,10 +5288,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "amakha.belezaebemestar",
-          "profile_url": "https://www.instagram.com/amakha.belezaebemestar/",
-          "name": "Perfumaria em Joinville",
-          "bio": "Perfumaria em Joinville (@amakha.belezaebemestar) - Instagram",
+          "username": "salao_sandracuchi",
+          "profile_url": "https://www.instagram.com/salao_sandracuchi/",
+          "name": "Sandra Cuchi | Salão de beleza",
+          "bio": "Sandra Cuchi | Salão de beleza (@salao_sandracuchi) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -5318,10 +5303,25 @@
           "source": "duckduckgo"
         },
         {
-          "username": "lumi.nelaser",
-          "profile_url": "https://www.instagram.com/lumi.nelaser/",
-          "name": "Lumine Laser | Depilação a Laser em Joinville (@lumi.nelaser ...",
-          "bio": "Lumine Laser | Depilação a Laser em Joinville (@lumi.nelaser ...",
+          "username": "gilmurarobeautystudio",
+          "profile_url": "https://www.instagram.com/gilmurarobeautystudio/",
+          "name": "Gil Muraro | Salão de beleza",
+          "bio": "Gil Muraro | Salão de beleza (@gilmurarobeautystudio) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studio_umtoquedebeleza",
+          "profile_url": "https://www.instagram.com/studio_umtoquedebeleza/",
+          "name": "Studio Um Toque de Beleza",
+          "bio": "Studio Um Toque de Beleza (@studio_umtoquedebeleza) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -5348,10 +5348,25 @@
           "source": "duckduckgo"
         },
         {
-          "username": "popular",
-          "profile_url": "https://www.instagram.com/popular/",
-          "name": "Salao De Beleza Em Joinville",
-          "bio": "Salao De Beleza Em Joinville - Instagram",
+          "username": "caarolnails_",
+          "profile_url": "https://www.instagram.com/caarolnails_/",
+          "name": "MANICURE JOINVILLE",
+          "bio": "MANICURE JOINVILLE (@caarolnails_) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studioamandajille",
+          "profile_url": "https://www.instagram.com/studioamandajille/",
+          "name": "Studio Amanda Beauty | Joinville",
+          "bio": "Studio Amanda Beauty | Joinville (@studioamandajille) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -5363,18 +5378,15 @@
           "source": "duckduckgo"
         }
       ],
-      "total": 7,
-      "new_count": 7,
+      "total": 8,
+      "new_count": 4,
       "new_usernames": [
-        "salao_sandracuchi",
-        "beleza.renovada.jlle",
-        "virtuosajoinvilleaventureiro",
-        "amakha.belezaebemestar",
-        "lumi.nelaser",
-        "studio_mairaalejandra",
-        "popular"
+        "gilmurarobeautystudio",
+        "studio_umtoquedebeleza",
+        "caarolnails_",
+        "studioamandajille"
       ],
-      "finished_at": "2026-09-29T09:48:13.119Z"
+      "finished_at": "2026-09-29T10:16:47.477Z"
     }
   ]
 }
