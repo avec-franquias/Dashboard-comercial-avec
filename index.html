@@ -205,7 +205,21 @@ textarea.inp{resize:vertical;min-height:120px}
 .painel-inicial{display:grid;grid-template-columns:280px minmax(0,1fr);gap:18px;align-items:start}
 .menu-modulos{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:10px;position:sticky;top:90px}
 .menu-modulos-titulo{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--tinta-suave);font-weight:700;padding:8px 10px 10px}
-.lista-modulos{display:flex;flex-direction:column;gap:4px}
+.lista-modulos{display:flex;flex-direction:column;gap:6px}
+.menu-central{padding-bottom:6px;margin-bottom:4px;border-bottom:1px solid var(--linha)}
+.menu-grupo{border:1px solid var(--linha);border-radius:10px;background:#fff;overflow:hidden}
+.menu-grupo summary{list-style:none;display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;font-size:13px;font-weight:700;color:var(--tinta)}
+.menu-grupo summary::-webkit-details-marker{display:none}
+.menu-grupo summary:hover{background:var(--cinza)}
+.menu-grupo-nome{flex:1}
+.menu-grupo-qtd{min-width:22px;height:22px;border-radius:999px;display:grid;place-items:center;background:var(--cinza);color:var(--tinta-suave);font-size:11px}
+.menu-grupo-seta{font-size:16px;color:var(--tinta-suave);transition:transform .15s ease}
+.menu-grupo[open] .menu-grupo-seta{transform:rotate(180deg)}
+.menu-grupo-itens{padding:2px 4px 6px}
+.menu-grupo-itens .mod-lista{padding:9px 8px}
+.menu-grupo-itens .mod-lista .ic-mini{width:34px;height:34px;border-radius:9px}
+.menu-grupo-itens .mod-lista .mi b{font-size:13px}
+.menu-grupo-itens .mod-lista .mi small{display:none}
 .mod-lista{display:flex;align-items:center;gap:10px;width:100%;border:0;background:transparent;text-align:left;border-radius:10px;padding:10px;cursor:pointer;color:var(--tinta);text-decoration:none}
 .mod-lista:hover{background:var(--cinza)}
 .mod-lista .ic-mini{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;flex:none;background:color-mix(in srgb,var(--cor) 12%,#fff);color:var(--cor)}
