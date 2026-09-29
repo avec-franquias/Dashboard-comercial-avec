@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-29T21:12:39.563Z",
+ "atualizadoEm": "2026-09-29T21:15:25.675Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1173,6 +1173,23 @@
    "perfil": "franqueado",
    "senha": "pbkdf2$210000$4646f08684e209ca1a33495fb2345f5a$1e912a98a0e3ae849de16054ad7fb263f398cdca6822ce920a9875843f959c00",
    "criadoEm": "2026-09-29T21:12:39.677Z"
+  },
+  {
+   "login": "patrick.eric",
+   "nome": "Patrick Eric Carvalho",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
+    "clientes",
+    "migrador",
+    "extrator",
+    "taxas",
+    "propostas"
+   ],
+   "franquiaId": "avec-recife",
+   "perfil": "franqueado",
+   "senha": "pbkdf2$210000$2e642c01158245ad84f8ff320f77219e$6acc5bf86dbe49dd7a336faadb3b9cdfa7de98d2a3daeda96525945c9f32a0b7",
+   "criadoEm": "2026-09-29T21:15:26.407Z"
   }
  ],
  "manutencao": {
