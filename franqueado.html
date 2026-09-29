@@ -1896,7 +1896,7 @@ window.portalEnviarArquivoCentral = async (file, pasta = "arquivos") => {
   await gh(g, `/contents/${caminho}`, { method: "PUT", body: { message: `Central: publica ${file.name || "arquivo"}`, content: base64, branch: g.branch } });
   return caminho;
 };
-const PORTAL_API = String(window.PORTAL_API || localStorage.getItem("portal-api-url") || "").replace(/\/$/, "");
+const PORTAL_API = String(window.PORTAL_API || window.PORTAL_API_BASE || localStorage.getItem("portal-api-url") || "").replace(/\/$/, "");
 async function portalApi(path, payload) {
   const url = (PORTAL_API || "") + "/api/" + path;
   const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
@@ -1928,7 +1928,7 @@ const MODULO_CACHE = /* @__PURE__ */ new Map();
 const decodifica = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
 async function carregaModulo(id) {
   if (MODULO_CACHE.has(id)) return MODULO_CACHE.get(id);
-  const r = await fetch(new URL("portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20260928-2317", location.href), { cache: "no-store" });
+  const r = await fetch(new URL("portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20260928-2342", location.href), { cache: "no-store" });
   if (!r.ok) throw new Error("Nao foi possivel carregar o modulo " + id + ".");
   const html = decodifica((await r.text()).trim());
   MODULO_CACHE.set(id, html);
