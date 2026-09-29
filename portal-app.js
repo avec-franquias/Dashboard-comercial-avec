@@ -447,7 +447,7 @@ function entrarNoPortal(u) {
   const secFranquias = document.getElementById("abaFranquias");
   const tabFranquias = document.querySelector('[data-aba="franquias"]');
   if (!admin) {
-    for (const id of ["abaUsuarios", "abaFranquias", "abaManutencao", "abaConteudo"]) {
+    for (const id of ["abaUsuarios", "abaFranquias", "abaManutencao", "abaConteudo", "abaLogs"]) {
       const el = document.getElementById(id);
       if (el) {
         el.classList.add("hidden");
@@ -456,7 +456,7 @@ function entrarNoPortal(u) {
     }
     if (tabFranquias) tabFranquias.style.setProperty("display", "none", "important");
   } else {
-    for (const id of ["abaUsuarios", "abaFranquias", "abaManutencao", "abaConteudo"]) {
+    for (const id of ["abaUsuarios", "abaFranquias", "abaManutencao", "abaConteudo", "abaLogs"]) {
       const el = document.getElementById(id);
       if (el) el.style.removeProperty("display");
     }
@@ -550,6 +550,17 @@ function desenhaModulos() {
   carregarHomeCentral();
 }
 
+const PORTAL_USAGE_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-usage";
+async function portalLog(evento, modulo="", detalhe={}) {
+  try {
+    if (!perfil || !perfil.login) return;
+    await fetch(PORTAL_USAGE_API,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({action:"log",login:perfil.login,evento,modulo,detalhe})
+    });
+  } catch(e) { console.warn("Portal log:",e); }
+}
 const MELHORES_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home";
 const MELHORES_IMG_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home-image";
 async function lerEstadoHomeSupabase(){
@@ -1183,7 +1194,7 @@ $("#btnSenha").onclick = () => {
     toast("Senha alterada.");
   };
 };
-const SUB_ABA = { modulos: "Escolha a ferramenta que voc\xEA quer usar.", usuarios: "Crie acessos, libere m\xF3dulos e desative quem saiu.", franquias: "Cadastre franquias e vincule usu\xE1rios existentes.", manutencao: "Bloqueie temporariamente um m\xF3dulo enquanto ele \xE9 ajustado.", conteudo: "Edite p\xE1ginas, textos, imagens e materiais da Central do Franqueado." };
+const SUB_ABA = { modulos: "Escolha a ferramenta que você quer usar.", usuarios: "Crie acessos, libere módulos e desative quem saiu.", franquias: "Cadastre franquias e vincule usuários existentes.", manutencao: "Bloqueie temporariamente um módulo enquanto ele é ajustado.", conteudo: "Edite páginas, textos, imagens e materiais da Central do Franqueado.", logs: "Acompanhe a utilização do Portal e do Extrator de Leads." };
 function trocaAba(aba) {
   $$("#abas button").forEach((x) => x.setAttribute("aria-selected", x.dataset.aba === aba));
   $("#abaModulos").classList.toggle("hidden", aba !== "modulos");
@@ -1192,6 +1203,7 @@ function trocaAba(aba) {
   if (af) af.classList.toggle("hidden", aba !== "franquias");
   $("#abaManutencao").classList.toggle("hidden", aba !== "manutencao");
   $("#abaConteudo").classList.toggle("hidden", aba !== "conteudo");
+  const al = $("#abaLogs"); if (al) al.classList.toggle("hidden", aba !== "logs");
   $("#olaSub").textContent = SUB_ABA[aba];
   if (aba === "usuarios") {
     desenhaUsuarios();
@@ -1202,9 +1214,44 @@ function trocaAba(aba) {
     carregaUsuarios().then(desenhaManutencao);
   }
   if (aba === "conteudo") desenhaConteudoAdmin();
+  if (aba === "logs") desenhaLogsAdmin();
   if (aba === "modulos") desenhaModulos();
 }
 $$("#abas button").forEach((b) => b.onclick = () => trocaAba(b.dataset.aba));
+async function desenhaLogsAdmin(){
+  const msg=$("#logsMsg"); if(!msg)return;
+  const senha=sessionStorage.getItem("portal-admin-password")||"";
+  if(!senha){msg.className="msg erro";msg.textContent="Entre novamente no Portal para consultar os logs.";return;}
+  msg.className="msg";msg.textContent="Carregando...";
+  try{
+    const payload={action:"query",login:perfil.login,senha,dias:Number($("#logsPeriodo")?.value||30),franquiaId:$("#logsFranquia")?.value||"",usuario:$("#logsUsuario")?.value||"",modulo:$("#logsModulo")?.value||""};
+    const r=await fetch(PORTAL_USAGE_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+    const j=await r.json().catch(()=>({})); if(!r.ok||!j.ok)throw new Error(j.error||"Falha ao carregar logs");
+    const logs=j.logs||[];
+    const uniq=a=>[...new Set(a.filter(Boolean))].sort((x,y)=>String(x).localeCompare(String(y),"pt-BR"));
+    const frSel=$("#logsFranquia"),usSel=$("#logsUsuario"),moSel=$("#logsModulo");
+    if(frSel&&frSel.options.length<=1)frSel.innerHTML='<option value="">Todas as franquias</option>'+uniq(logs.map(x=>x.franquia_id)).map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join("");
+    if(usSel&&usSel.options.length<=1)usSel.innerHTML='<option value="">Todos os usuários</option>'+uniq(logs.map(x=>x.login)).map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join("");
+    if(moSel&&moSel.options.length<=1)moSel.innerHTML='<option value="">Todos os módulos</option>'+uniq(logs.map(x=>x.modulo)).map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join("");
+    const total=logs.length, usuarios=new Set(logs.map(x=>x.login)).size, franquias=new Set(logs.map(x=>x.franquia_id).filter(Boolean)).size, extr=logs.filter(x=>x.evento==="extracao_leads");
+    $("#logsKpis").innerHTML=[
+      ["Eventos",total],["Usuários ativos",usuarios],["Franquias ativas",franquias],["Buscas no Extrator",extr.length]
+    ].map(([l,v])=>'<div class="logs-kpi"><b>'+v+'</b><span>'+l+'</span></div>').join("");
+    const countBy=(arr,key)=>{const m=new Map();for(const x of arr){const k=key(x)||"Sem informação";m.set(k,(m.get(k)||0)+1)}return [...m.entries()].sort((a,b)=>b[1]-a[1])};
+    const bars=(arr)=>{const max=Math.max(1,...arr.map(x=>x[1]));return arr.slice(0,10).map(([k,v])=>'<div class="logs-bar"><b>'+esc(k)+'</b><div class="logs-bar-track"><div class="logs-bar-fill" style="width:'+Math.round(v/max*100)+'%"></div></div><small>'+v+'</small></div>').join("")||'<div class="logs-empty">Sem dados no período.</div>'};
+    $("#logsModulos").innerHTML=bars(countBy(logs.filter(x=>x.modulo),x=>x.modulo));
+    $("#logsFranquias").innerHTML=bars(countBy(logs.filter(x=>x.franquia_id),x=>x.franquia_id));
+    $("#logsExtrator").innerHTML=extr.length?'<div style="overflow:auto"><table class="logs-table"><thead><tr><th>Data</th><th>Franquia</th><th>Usuário</th><th>Fonte</th><th>Nicho</th><th>Cidade</th><th>Bairro</th><th>Cache</th><th>Resultados</th></tr></thead><tbody>'+extr.slice(0,300).map(x=>{const d=x.detalhe||{};return '<tr><td>'+new Date(x.criado_em).toLocaleString("pt-BR")+'</td><td>'+esc(x.franquia_id||"—")+'</td><td>'+esc(x.login)+'</td><td>'+esc(d.fonte||"—")+'</td><td>'+esc(d.nicho||"—")+'</td><td>'+esc(d.cidade||"—")+'</td><td>'+esc(d.bairro||"Todos")+'</td><td>'+(d.cached?"Sim":"Não")+'</td><td>'+esc(d.total??"—")+'</td></tr>'}).join("")+'</tbody></table></div>':'<div class="logs-empty">Nenhuma extração registrada no período.</div>';
+    $("#logsTimeline").innerHTML=logs.length?'<div style="overflow:auto"><table class="logs-table"><thead><tr><th>Data</th><th>Franquia</th><th>Usuário</th><th>Evento</th><th>Módulo</th></tr></thead><tbody>'+logs.slice(0,500).map(x=>'<tr><td>'+new Date(x.criado_em).toLocaleString("pt-BR")+'</td><td>'+esc(x.franquia_id||"—")+'</td><td>'+esc(x.login)+'</td><td>'+esc(x.evento)+'</td><td>'+esc(x.modulo||"—")+'</td></tr>').join("")+'</tbody></table></div>':'<div class="logs-empty">Sem eventos no período.</div>';
+    msg.textContent="";
+  }catch(e){msg.className="msg erro";msg.textContent=e.message||"Falha ao carregar logs";}
+}
+setTimeout(()=>{
+  const ids=["logsAtualizar","logsPeriodo","logsFranquia","logsUsuario","logsModulo"];
+  ids.forEach(id=>{const el=$("#"+id);if(el)el.onchange=()=>desenhaLogsAdmin();});
+  const b=$("#logsAtualizar");if(b)b.onclick=()=>desenhaLogsAdmin();
+},0);
+
 function desenhaManutencao() {
   avisoPublicar();
   const st2 = $("#statusGithub2"), st = $("#statusGithub");
@@ -1561,7 +1608,10 @@ window.portalSolicitarExtracao = async ({ nicho, cidade, bairro = "", max_result
   cidade = String(cidade || "").trim();
   bairro = String(bairro || "").trim();
   if (!nicho || !cidade) throw new Error("Escolha o nicho e a cidade.");
-  return portalApi("leads", { nicho, cidade, bairro, max_results: String(Math.max(1, Math.min(Number(max_results) || 80, 120))) });
+  const max=String(Math.max(1, Math.min(Number(max_results) || 80, 120)));
+  const resp=await portalApi("leads", { nicho, cidade, bairro, max_results:max });
+  portalLog("extracao_leads","extrator",{fonte:"google",nicho,cidade,bairro,max_results:Number(max),cached:!!resp.cached,total:resp.run?.total??null});
+  return resp;
 };
 window.portalSolicitarInstagram = async ({ nicho = "", uf = "", cidade = "", bairro = "", palavra_chave = "", limite = 100 }) => {
   nicho = String(nicho || "").trim();
@@ -1570,7 +1620,10 @@ window.portalSolicitarInstagram = async ({ nicho = "", uf = "", cidade = "", bai
   bairro = String(bairro || "").trim();
   palavra_chave = String(palavra_chave || "").trim();
   if (!nicho && !cidade && !palavra_chave) throw new Error("Informe nicho, cidade ou palavra-chave.");
-  return portalApi("instagram", { nicho, uf, cidade, bairro, palavra_chave, limite: String(Math.max(1, Math.min(Number(limite) || 100, 200))) });
+  const lim=String(Math.max(1, Math.min(Number(limite) || 100, 200)));
+  const resp=await portalApi("instagram", { nicho, uf, cidade, bairro, palavra_chave, limite:lim });
+  portalLog("extracao_leads","extrator",{fonte:"instagram",nicho,uf,cidade,bairro,palavra_chave,limite:Number(lim),cached:!!resp.cached,total:resp.run?.total??resp.run?.results?.length??null});
+  return resp;
 };
 const MODULO_CACHE = /* @__PURE__ */ new Map();
 const decodifica = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
@@ -1823,7 +1876,7 @@ function portalInjetaEstado(html, modulo, estado) {
 function rota() {
   if (!perfil) return;
   const id = decodeURIComponent(location.hash.slice(1));
-  if (perfil.papel !== "admin" && ["franquias", "usuarios", "manutencao", "conteudo"].includes(id)) {
+  if (perfil.papel !== "admin" && ["franquias", "usuarios", "manutencao", "conteudo", "logs"].includes(id)) {
     history.replaceState(null, "", location.pathname + location.search);
     trocaAba("modulos");
     return fechaModulo();
@@ -1849,6 +1902,7 @@ function rota() {
   abreModulo(m);
 }
 async function abreModulo(m) {
+  portalLog("modulo_aberto",m.id,{nome:m.nome});
   const box = $("#frames");
   [...box.children].forEach((el) => el.classList.toggle("hidden", el.dataset.mod !== m.id));
   let fr = box.querySelector(`iframe[data-mod="${m.id}"]`);
