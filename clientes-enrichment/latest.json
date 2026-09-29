@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-29T12:56:16.361Z",
+  "updated_at": "2026-09-29T13:09:35.483Z",
   "clientes": {
     "25276": {
       "cliente_id": "25276",
@@ -71,6 +71,18 @@
       "maps_url": "https://www.google.com/maps/search/ALCINDA%20DE%20JESUS%20DA%20SILVA%20RIBEIRO%2032381582000190",
       "website": "",
       "encontrado_em": "2026-09-29T12:56:12.820Z",
+      "nome_encontrado": ""
+    },
+    "106945": {
+      "cliente_id": "106945",
+      "nome": "1502 HAIR CONCEPT",
+      "documento": "08790550307",
+      "status": "sem_telefone",
+      "telefone": "",
+      "fonte": "Google Maps",
+      "maps_url": "https://www.google.com/maps/search/1502%20HAIR%20CONCEPT%2008790550307",
+      "website": "",
+      "encontrado_em": "2026-09-29T13:09:31.980Z",
       "nome_encontrado": ""
     }
   }
