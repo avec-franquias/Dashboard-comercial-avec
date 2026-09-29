@@ -412,17 +412,22 @@ async function iniciar() {
   formEntrada("formLogin");
   await carregaUsuarios();
   if (!usuarios().length) return formEntrada("formSetup");
-  let s = null;
+  let sessao = null;
   try {
-    s = JSON.parse(localStorage.getItem(SESS) || "null");
+    sessao = JSON.parse(localStorage.getItem(SESS) || "null");
   } catch {
   }
-  if (s && s.instalacao !== INSTALACAO) s = null;
-  const u = s && usuarios().find((x) => x.login === s.login);
-  if (s) {
+  if (sessao && sessao.instalacao !== INSTALACAO) sessao = null;
+  const u = sessao && usuarios().find((x) => x.login === sessao.login);
+  const token = localStorage.getItem("portal-admin-token") || "";
+  if (sessao && u && u.ativo && token) {
+    entrarNoPortal(u);
+    return;
+  }
+  if (sessao && u && !u.ativo) aviso("Seu acesso est\xE1 desativado. Fale com a franqueadora.");
+  if (!u || !token) {
     localStorage.removeItem(SESS);
-    localStorage.removeItem("portal-admin-token");
-    if (u && !u.ativo) aviso("Seu acesso est\xE1 desativado. Fale com a franqueadora.");
+    if (!token) localStorage.removeItem("portal-admin-token");
   }
   formEntrada("formLogin");
 }
