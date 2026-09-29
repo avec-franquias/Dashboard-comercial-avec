@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-25T10:56:48.784846+00:00",
+ "atualizadoEm": "2026-09-29T12:26:30.746Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1151,6 +1151,28 @@
    "criadoEm": "2026-09-24T19:32:31.288Z",
    "franquiaId": "avec-campinas",
    "perfil": "franqueado"
+  },
+  {
+   "login": "teste.teste",
+   "nome": "teste teste",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
+    "ativacao",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes"
+   ],
+   "franquiaId": "avec-campinas",
+   "perfil": "franqueado",
+   "senha": "pbkdf2$210000$272160c970b72fa50706c3e764a5dc5b$5398a5d4e85e4bce6a41f19b4f1d691a80d01df700bdb0c7e9d1869a2c27ece9",
+   "criadoEm": "2026-09-29T12:26:29.572Z"
   }
  ],
  "manutencao": {
