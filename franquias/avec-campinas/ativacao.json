@@ -1,8 +1,8 @@
 {
   "franquiaId": "avec-campinas",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T12:35:57.497Z",
-  "atualizadoPor": "alexandre.scaquette",
+  "atualizadoEm": "2026-09-29T18:50:31.844Z",
+  "atualizadoPor": "kater.hoss",
   "dados": {
     "db": {
       "users": [
@@ -18,6 +18,13 @@
           "name": "Avec Campinas",
           "login": "alexandre.scaquette",
           "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "43534ba174bce4af",
+          "name": "kater Hoss",
+          "login": "kater.hoss",
+          "role": "admin",
           "pass": "portal"
         }
       ],
