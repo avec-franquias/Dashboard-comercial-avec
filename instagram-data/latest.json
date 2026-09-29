@@ -6820,21 +6820,6 @@
       },
       "results": [
         {
-          "username": "salao_sheilalopes",
-          "profile_url": "https://www.instagram.com/salao_sheilalopes/",
-          "name": "Salão de Beleza em Brasilia / DF",
-          "bio": "Salão de Beleza em Brasilia / DF (@salao_sheilalopes) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Brasília",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
           "username": "studioj21",
           "profile_url": "https://www.instagram.com/studioj21/",
           "name": "Salão em Brasilia-Df",
@@ -6854,6 +6839,21 @@
           "profile_url": "https://www.instagram.com/rosesalaodebelezae/",
           "name": "rosé salão de beleza|Brasilia-Df",
           "bio": "rosé salão de beleza|Brasilia-Df (@rosesalaodebelezae) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Brasília",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salao_sheilalopes",
+          "profile_url": "https://www.instagram.com/salao_sheilalopes/",
+          "name": "Salão de Beleza em Brasilia / DF",
+          "bio": "Salão de Beleza em Brasilia / DF (@salao_sheilalopes) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -6895,25 +6895,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "studio_elishair",
-          "profile_url": "https://www.instagram.com/studio_elishair/",
-          "name": "SALÃO DE BELEZA EM BRASÍLIA",
-          "bio": "SALÃO DE BELEZA EM BRASÍLIA (@studio_elishair) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Brasília",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "artedabelezabsb",
-          "profile_url": "https://www.instagram.com/artedabelezabsb/",
-          "name": "Arte da Beleza | Salão de Beleza Brasília Asa Norte (@artedabelezabsb ...",
-          "bio": "Arte da Beleza | Salão de Beleza Brasília Asa Norte (@artedabelezabsb ...",
+          "username": "tirzasaloneestetica",
+          "profile_url": "https://www.instagram.com/tirzasaloneestetica/",
+          "name": "Salão de Beleza em Brasília | Tirza Salão e Estética ...",
+          "bio": "Salão de Beleza em Brasília | Tirza Salão e Estética ... - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -6955,10 +6940,25 @@
           "source": "duckduckgo"
         },
         {
-          "username": "tirzasaloneestetica",
-          "profile_url": "https://www.instagram.com/tirzasaloneestetica/",
-          "name": "Salão de Beleza em Brasília | Tirza Salão e Estética ...",
-          "bio": "Salão de Beleza em Brasília | Tirza Salão e Estética ... - Instagram",
+          "username": "thebeautyslounge",
+          "profile_url": "https://www.instagram.com/thebeautyslounge/",
+          "name": "THE BEAUTY'S LOUNGE",
+          "bio": "THE BEAUTY'S LOUNGE (@thebeautyslounge) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Brasília",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaobeautyone",
+          "profile_url": "https://www.instagram.com/salaobeautyone/",
+          "name": "SALÃO BeautyOne | SPA - ASA SUL WINDSOR",
+          "bio": "SALÃO BeautyOne | SPA - ASA SUL WINDSOR (@salaobeautyone) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -6971,20 +6971,12 @@
         }
       ],
       "total": 10,
-      "new_count": 10,
+      "new_count": 2,
       "new_usernames": [
-        "salao_sheilalopes",
-        "studioj21",
-        "rosesalaodebelezae",
-        "belezabrasileirabsb",
-        "nelice.coiffeur",
-        "studio_elishair",
-        "artedabelezabsb",
-        "salaodiegomoreira",
-        "templodabeleza",
-        "tirzasaloneestetica"
+        "thebeautyslounge",
+        "salaobeautyone"
       ],
-      "finished_at": "2026-09-29T20:20:59.068Z"
+      "finished_at": "2026-09-29T20:22:27.466Z"
     }
   ]
 }
