@@ -1,6 +1,8 @@
-import {fail} from '../lib/github.js';
+import {cors,fail} from '../lib/github.js';
 const norm=s=>String(s||'').trim().toLocaleLowerCase('pt-BR');
 export default async function handler(req,res){
+  if(req.method==='OPTIONS'){cors(req,res);return res.status(204).end()}
+  if(!cors(req,res)) return res.status(403).json({ok:false,error:'Origem nao permitida'});
   try{
     const token=process.env.GITHUB_TOKEN;
     const repo=process.env.GITHUB_REPOSITORY||'avec-franquias/Dashboard-comercial-avec';
