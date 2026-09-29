@@ -1,3 +1,4 @@
+import {cors} from '../lib/github.js';
 import fs from 'node:fs/promises';
 
 let CACHE=null;
@@ -74,6 +75,8 @@ async function buscarOSM(nome,uf){
 }
 
 export default async function handler(req,res){
+  if(req.method==='OPTIONS'){cors(req,res);return res.status(204).end()}
+  if(!cors(req,res)) return res.status(403).json({ok:false,bairros:[],error:'Origem nao permitida'});
   try{
     const uf=String(req.query?.uf||'').trim().toUpperCase();
     const nome=cidadeLimpa(req.query?.cidade||'',uf);
