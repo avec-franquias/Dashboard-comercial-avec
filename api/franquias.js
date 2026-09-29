@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 const REPO=process.env.GITHUB_REPOSITORY||'avec-franquias/Dashboard-comercial-avec';
 const BRANCH=process.env.GITHUB_BRANCH||'main';
 const FILE='usuarios.json';
-const MODS=['ativacao','arvore','previsao','taxas','propostas','instagram','clientes','extrator','central','reunioes'];
+const MODS=['ativacao','vendas','arvore','previsao','taxas','propostas','instagram','clientes','extrator','central','reunioes'];
 
 function cors(req,res){const o=req.headers.origin||'*';res.setHeader('Access-Control-Allow-Origin',o);res.setHeader('Vary','Origin');res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS');res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');res.setHeader('Cache-Control','no-store')}
 function body(req){if(req.body&&typeof req.body==='object')return req.body;try{return JSON.parse(req.body||'{}')}catch{return {}}}
