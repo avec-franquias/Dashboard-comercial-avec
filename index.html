@@ -486,7 +486,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
     if (appLoading) return appLoading;
     appLoading = new Promise(function(resolve,reject){
       var s=document.createElement("script");
-      s.src="portal-app.js?v=20260928-2238";
+      s.src="portal-app.js?v=20260928-2317";
       s.onload=function(){ window.__PORTAL_APP_READY=true; resolve(); };
       s.onerror=function(){ reject(new Error("Nao foi possivel carregar o Portal.")); };
       document.body.appendChild(s);
