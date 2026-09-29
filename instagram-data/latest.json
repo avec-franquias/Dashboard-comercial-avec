@@ -6786,6 +6786,21 @@
         "estudiobemmaria"
       ],
       "finished_at": "2026-09-29T20:09:25.310Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "PR",
+        "cidade": "Curitiba",
+        "bairro": "Bacacheri",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-09-29T20:12:02.558Z"
     }
   ]
 }
