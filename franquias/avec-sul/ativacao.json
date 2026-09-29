@@ -1,8 +1,8 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T18:24:51.357Z",
-  "atualizadoPor": "simone.camargo",
+  "atualizadoEm": "2026-09-29T18:24:58.578Z",
+  "atualizadoPor": "claiton.camargo",
   "dados": {
     "db": {
       "users": [
@@ -49,7 +49,109 @@
           "pass": "portal"
         }
       ],
-      "cards": []
+      "cards": [
+        {
+          "id": "24cb3d691e19d128",
+          "ownerId": "1e30f5849a9a508a",
+          "column": "novo",
+          "clientCode": "rwerewrw",
+          "title": "teste",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-29T15:24",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "f19ee1e777baa9ac",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "fe3b3d8840633a39",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "1968d6ef7ce02827",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "0ec5de178847825c",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "5b677e8de08b4b38",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "acfc4a10a8eaac50",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "542f6e91eb2d0a13",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "6a9821148ca5466d",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "36600cd1e1073cf7",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "16c833d7d51005bf",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "3a3d573896fb69de",
+              "type": "action",
+              "at": "2026-09-29T18:24:57.817Z",
+              "author": "Claiton Carmargo",
+              "authorId": "1e30f5849a9a508a",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-29T18:24:57.816Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-29T18:24:57.816Z",
+          "updatedAt": "2026-09-29T18:24:57.816Z",
+          "finishedAt": "",
+          "ordem": 1790706297817
+        }
+      ]
     }
   }
 }
