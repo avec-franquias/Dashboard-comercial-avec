@@ -1567,6 +1567,18 @@ window.portalUsuarios = () => {
   return usuarios().filter((u) => u.login === (perfil == null ? void 0 : perfil.login) || !!alvo && u.franquiaId === alvo).map((u) => ({ login: u.login, nome: u.nome, papel: u.papel, franquiaId: u.franquiaId || null }));
 };
 window.portalFranquias = () => (FRANQUIAS_ADMIN || []).filter((f) => f.ativo !== false).map((f) => ({ id:f.id, nome:f.nome }));
+window.portalAtualizarFranquias = async () => {
+  const token = localStorage.getItem("portal-admin-token") || "";
+  if (!token) return window.portalFranquias();
+  try {
+    const r = await fetch((window.PORTAL_API_BASE || "") + "/api/franquias?t=" + Date.now(), { headers: { Authorization: "Bearer " + token }, cache: "no-store" });
+    const d = await r.json().catch(() => ({}));
+    if (r.ok && Array.isArray(d.franquias)) FRANQUIAS_ADMIN = d.franquias;
+  } catch (e) {
+    console.warn("Atualizacao de franquias:", e);
+  }
+  return window.portalFranquias();
+};
 window.portalSelecionarFranquia = (id) => {
   if (!perfil || perfil.papel !== "admin") return false;
   const existe = (FRANQUIAS_ADMIN || []).some((f) => f.id === id && f.ativo !== false);
