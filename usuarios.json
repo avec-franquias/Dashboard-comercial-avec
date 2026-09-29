@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-29T18:06:19.990Z",
+ "atualizadoEm": "2026-09-29T18:06:22.501Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1076,16 +1076,15 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
+    "central",
+    "clientes",
+    "migrador",
+    "extrator",
     "ativacao",
     "arvore",
     "previsao",
     "taxas",
-    "propostas",
-    "instagram",
-    "clientes",
-    "extrator",
-    "central",
-    "reunioes"
+    "propostas"
    ],
    "franquiaId": "avec-campinas",
    "perfil": "franqueado",
