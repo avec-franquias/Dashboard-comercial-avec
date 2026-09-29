@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-29T18:00:41.729Z",
+ "atualizadoEm": "2026-09-29T18:00:58.445Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -118,6 +118,7 @@
    "modulos": [
     "central",
     "clientes",
+    "migrador",
     "extrator",
     "arvore",
     "previsao",
@@ -135,13 +136,16 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "extrator",
+    "ativacao",
     "arvore",
     "previsao",
     "taxas",
-    "propostas"
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes"
    ],
    "senha": "pbkdf2$210000$097c7de40820e8d89829998a00cd99ef$f25a48fe5f981bd1b977a6324534ccd69c51e3097848cfeef60f2138e0a50e2d",
    "criadoEm": "2026-09-18T18:13:27.665Z",
@@ -228,14 +232,16 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "migrador",
-    "extrator",
+    "ativacao",
     "arvore",
     "previsao",
     "taxas",
-    "propostas"
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes"
    ],
    "senha": "pbkdf2$210000$eb313fd0555f8b7be2b890e90a7bbf0d$0a04ba7f933423a36ff0c2a31b2ef5df2e1fe8578747c5938d190ee2371edbee",
    "criadoEm": "2026-09-23T17:15:06.600Z",
@@ -248,15 +254,16 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "migrador",
-    "extrator",
     "ativacao",
     "arvore",
     "previsao",
     "taxas",
-    "propostas"
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes"
    ],
    "senha": "pbkdf2$210000$9ad9bd9a12bd3d1cb714d219396eb60b$e2b432c3edc38b09ed13443f05f3fa3c54884fe8d0c9c9838d06304dbb82725b",
    "criadoEm": "2026-09-23T17:16:20.470Z",
@@ -269,15 +276,16 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "migrador",
-    "extrator",
     "ativacao",
     "arvore",
     "previsao",
     "taxas",
-    "propostas"
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes"
    ],
    "senha": "pbkdf2$210000$7448916bcf7d1daba1e5d07e3d545f40$d8abaa8b06154387638757953560bbec50a1b5f7a9260e46978a78f751687445",
    "criadoEm": "2026-09-23T17:17:55.033Z",
@@ -312,15 +320,16 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "migrador",
-    "extrator",
     "ativacao",
     "arvore",
     "previsao",
     "taxas",
-    "propostas"
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes"
    ],
    "senha": "pbkdf2$210000$fc7d8ba4576cf6dcff1519bdbb310d19$7212572f4afb792c1cc945fe44fc0de9080f7b52295e130147546803e1119689",
    "criadoEm": "2026-09-23T17:19:56.657Z",
