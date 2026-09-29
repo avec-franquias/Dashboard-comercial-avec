@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-29T18:07:21.566Z",
+ "atualizadoEm": "2026-09-29T19:28:55.119Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -45,7 +45,7 @@
   {
    "login": "tiago.barros",
    "nome": "Tiago Barros",
-   "papel": "admin",
+   "papel": "franqueado",
    "ativo": true,
    "modulos": [
     "ativacao",
