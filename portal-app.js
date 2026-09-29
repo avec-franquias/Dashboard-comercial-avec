@@ -1615,7 +1615,9 @@ async function portalEstadoFranquia(modulo) {
     return { ativo: true, dados: dados && typeof dados === "object" ? dados : {} };
   } catch (e) {
     console.warn("Dados da franquia " + modulo + ":", e);
-    return { ativo: false, dados: {} };
+    // Mantem o isolamento por franquia mesmo se a leitura remota falhar:
+    // nunca reaproveita dados locais de outro usuario/grupo.
+    return { ativo: true, dados: {} };
   }
 }
 function portalInjetaEstado(html, modulo, estado) {
