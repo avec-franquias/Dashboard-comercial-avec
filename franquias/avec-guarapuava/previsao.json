@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-guarapuava",
   "modulo": "previsao",
-  "atualizadoEm": "2026-09-29T19:48:13.508Z",
+  "atualizadoEm": "2026-09-29T19:48:17.332Z",
   "atualizadoPor": "felipe.lopes",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"prata\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"prata\",\"ultimaGravacao\":\"2026-09-29T19:48:12.705Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"ouro\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"ouro\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"ouro\",\"ultimaGravacao\":\"2026-09-29T19:48:16.645Z\"}"
   }
 }
