@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-sao-jose-dos-campos",
   "modulo": "extrator",
-  "atualizadoEm": "2026-09-29T22:04:58.862Z",
+  "atualizadoEm": "2026-09-29T22:05:23.267Z",
   "atualizadoPor": "leandro.alux",
   "dados": {
-    "portal-wpp-leads-v1": "{\"0x94cc4b2e13bb2759:0x333b173063e1a5ec\":{\"status\":\"Contatado\",\"at\":\"2026-09-29T22:04:57.837Z\"}}"
+    "portal-wpp-leads-v1": "{\"0x94cc4b2e13bb2759:0x333b173063e1a5ec\":{\"status\":\"Contatado\",\"at\":\"2026-09-29T22:05:21.388Z\"}}"
   }
 }
