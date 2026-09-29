@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-29T12:26:30.746Z",
+ "atualizadoEm": "2026-09-29T13:49:21.115Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1111,7 +1111,7 @@
   {
    "login": "larissa.silva",
    "nome": "GT Larissa",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [
     "ativacao",
