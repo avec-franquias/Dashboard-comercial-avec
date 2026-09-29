@@ -505,16 +505,15 @@ function desenhaModulos() {
     box.innerHTML = '<div class="vazio">Nenhum módulo liberado para o seu usuário ainda. Fale com a franqueadora.</div>';
   } else {
     const porId = new Map(lista.map(m => [m.id, m]));
-    const central = porId.get("central");
     const grupos = [
+      { id:"base-conhecimento", nome:"Base de conhecimento", mods:["central"] },
       { id:"ferramentas", nome:"Ferramentas", mods:["migrador","taxas","propostas"] },
       { id:"mkt", nome:"MKT", mods:["extrator"] },
       { id:"crm", nome:"CRM", mods:["vendas","ativacao"] },
       { id:"gestao", nome:"Gestão", mods:["arvore","clientes","previsao"] }
     ];
 
-    let html = central ? '<div class="menu-central">' + itemModulo(central) + '</div>' : '';
-    html += grupos.map((g,idx) => {
+    let html = grupos.map((g,idx) => {
       const mods = g.mods.map(id => porId.get(id)).filter(Boolean);
       if (!mods.length) return "";
       return `<details class="menu-grupo" ${idx===0 ? "open" : ""}>
