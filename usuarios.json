@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-29T13:49:28.310Z",
+ "atualizadoEm": "2026-09-29T13:49:32.969Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1067,7 +1067,7 @@
   {
    "login": "camila.cristina",
    "nome": "GT Camila",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [
     "ativacao",
