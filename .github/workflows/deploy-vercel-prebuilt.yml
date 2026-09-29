@@ -2,20 +2,6 @@ name: Deploy Vercel prebuilt
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'index.html'
-      - 'portal-app.js'
-      - 'franquias-admin.js'
-      - 'usuarios.json'
-      - 'api/**'
-      - 'config/**'
-      - 'portal-assets/**'
-      - 'package.json'
-      - 'vercel.json'
-      - '.vercel-redeploy'
-      - '.github/workflows/deploy-vercel-prebuilt.yml'
 
 concurrency:
   group: vercel-prebuilt-production
