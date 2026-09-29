@@ -1209,6 +1209,7 @@ function trocaAba(aba) {
     desenhaUsuarios();
     carregaUsuarios().then(desenhaUsuarios);
   }
+  if (aba === "franquias") desenhaFranquiasAdmin();
   if (aba === "manutencao") {
     desenhaManutencao();
     carregaUsuarios().then(desenhaManutencao);
@@ -1367,6 +1368,71 @@ async function garanteFranquiasAdmin() {
     FRANQUIAS_CARREGANDO = null;
   }
 }
+async function desenhaFranquiasAdmin() {
+  const box=$("#listaFranquias");
+  if(!box)return;
+  try{
+    await garanteFranquiasAdmin();
+    const lista=(FRANQUIAS_ADMIN||[]).filter(f=>f.ativo!==false).sort((a,b)=>String(a.nome||a.id).localeCompare(String(b.nome||b.id),"pt-BR"));
+    if(!lista.length){
+      box.innerHTML='<div class="vazio">Nenhuma franquia cadastrada.</div>';
+      return;
+    }
+    box.innerHTML='<div class="tabela"><table><thead><tr><th>Franquia</th><th>ID</th><th>Usuários</th><th>Módulos</th></tr></thead><tbody>'+
+      lista.map(f=>{
+        const qtd=usuarios().filter(u=>u.franquiaId===f.id&&u.ativo!==false).length;
+        const mods=Array.isArray(f.modulos)?f.modulos:[];
+        return '<tr><td><div class="nome">'+esc(f.nome||f.id)+'</div></td><td><span class="email">'+esc(f.id)+'</span></td><td>'+qtd+'</td><td><span class="email">'+mods.length+' módulos</span></td></tr>';
+      }).join('')+'</tbody></table></div>';
+  }catch(e){
+    box.innerHTML='<div class="msg erro">'+esc(e.message||"Não foi possível carregar as franquias.")+'</div>';
+  }
+}
+
+async function criarFranquiaAdmin(nome){
+  const token=localStorage.getItem("portal-admin-token")||"";
+  if(!token)throw new Error("Sessão administrativa indisponível. Entre novamente no Portal.");
+  const r=await fetch((window.PORTAL_API_BASE||"")+"/api/franquias",{
+    method:"POST",
+    headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},
+    body:JSON.stringify({action:"create",nome})
+  });
+  const d=await r.json().catch(()=>({}));
+  if(!r.ok||!d.ok)throw new Error(d.error||"Não foi possível cadastrar a franquia.");
+  FRANQUIAS_ADMIN=Array.isArray(d.franquias)?d.franquias:FRANQUIAS_ADMIN;
+  atualizaCampoNovaFranquia();
+  return d;
+}
+
+const formFranquia=$("#formFranquia");
+if(formFranquia){
+  formFranquia.onsubmit=async(e)=>{
+    e.preventDefault();
+    const nome=String($("#fNome")?.value||"").trim();
+    const msg=$("#fMsg"),btn=$("#fCriar");
+    if(msg){msg.className="msg erro";msg.textContent="";}
+    if(!nome){
+      if(msg)msg.textContent="Informe o nome da franquia.";
+      $("#fNome")?.focus();
+      return;
+    }
+    if(btn)btn.disabled=true;
+    try{
+      if(msg){msg.className="msg";msg.textContent="Cadastrando…";}
+      const d=await criarFranquiaAdmin(nome);
+      if($("#fNome"))$("#fNome").value="";
+      if(msg){msg.className="msg ok";msg.textContent=nome+" foi cadastrada com sucesso.";}
+      await desenhaFranquiasAdmin();
+      await configuraVisaoFranquiaAdmin(perfil,true);
+      desenhaUsuarios();
+    }catch(err){
+      if(msg){msg.className="msg erro";msg.textContent=err.message||"Não foi possível cadastrar a franquia.";}
+    }finally{
+      if(btn)btn.disabled=false;
+    }
+  };
+}
+
 async function vinculaUsuarioFranquia(login, franquiaId) {
   const token = localStorage.getItem("portal-admin-token") || "";
   if (!token) throw new Error("Sess\xE3o administrativa indispon\xEDvel. Entre novamente no Portal.");
