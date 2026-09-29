@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-recife",
   "modulo": "previsao",
-  "atualizadoEm": "2026-09-29T19:45:35.351Z",
+  "atualizadoEm": "2026-09-29T19:45:37.419Z",
   "atualizadoPor": "ricardo.noblat",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"ouro\":{\"mesRef\":\"2026-09\",\"m0\":\"30.766,59\",\"m1\":\"19.895,36\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"ouro\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"ouro\",\"ultimaGravacao\":\"2026-09-29T19:45:31.348Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"ouro\":{\"mesRef\":\"2026-09\",\"m0\":\"30.766,59\",\"m1\":\"19.895,36\",\"m2\":\"20.043,05\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"ouro\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"ouro\",\"ultimaGravacao\":\"2026-09-29T19:45:33.403Z\"}"
   }
 }
