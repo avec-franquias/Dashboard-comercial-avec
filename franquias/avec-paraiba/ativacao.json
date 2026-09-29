@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-paraiba",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T19:55:51.128Z",
+  "atualizadoEm": "2026-09-29T20:09:46.423Z",
   "atualizadoPor": "christian.vieira",
   "dados": {
     "db": {
@@ -56,110 +56,7 @@
           "pass": "portal"
         }
       ],
-      "cards": [
-        {
-          "id": "1168116370247757",
-          "ownerId": "5ada30b17f2c6c5b",
-          "column": "novo",
-          "clientCode": "",
-          "title": "teste",
-          "phone": "te",
-          "labels": [],
-          "members": [],
-          "contractDate": "2026-09-29T19:42",
-          "firstContactDate": "",
-          "startDate": "",
-          "dueDate": "",
-          "painPoint": "",
-          "painValidated": false,
-          "pontosAtencao": "",
-          "oportunidades": "Venda fechada no funil: R$ 250,00",
-          "observacoes": "teste",
-          "checklists": [
-            {
-              "id": "2477571033896539",
-              "name": "BÁSICO",
-              "items": [
-                {
-                  "id": "a116811637024775",
-                  "text": "Boas-vindas",
-                  "done": false
-                },
-                {
-                  "id": "b116811637024775",
-                  "text": "Configurações gerais",
-                  "done": false
-                },
-                {
-                  "id": "c116811637024775",
-                  "text": "Agenda",
-                  "done": false
-                },
-                {
-                  "id": "d116811637024775",
-                  "text": "Caixa",
-                  "done": false
-                },
-                {
-                  "id": "e116811637024775",
-                  "text": "Comanda",
-                  "done": false
-                },
-                {
-                  "id": "f116811637024775",
-                  "text": "Fluxo básico de atendimento",
-                  "done": false
-                }
-              ]
-            }
-          ],
-          "uso": [
-            {
-              "id": "7116811637024775",
-              "dia": 7,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "1511681163702477",
-              "dia": 15,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "3011681163702477",
-              "dia": 30,
-              "status": "",
-              "nota": "",
-              "em": ""
-            }
-          ],
-          "attachments": [],
-          "activity": [
-            {
-              "id": "ac11681163702477",
-              "type": "action",
-              "at": "2026-09-29T19:42:01.979Z",
-              "author": "Christian Vieira",
-              "authorId": "5ada30b17f2c6c5b",
-              "text": "cliente enviado automaticamente pelo Funil de Vendas"
-            }
-          ],
-          "history": [
-            {
-              "at": "2026-09-29T19:42:01.979Z",
-              "column": "novo"
-            }
-          ],
-          "createdAt": "2026-09-29T19:42:01.979Z",
-          "updatedAt": "2026-09-29T19:42:01.979Z",
-          "finishedAt": "",
-          "ordem": 1790711751128,
-          "salesOpportunityId": "1168116370-2477571033-896539926"
-        }
-      ]
+      "cards": []
     }
   }
 }
