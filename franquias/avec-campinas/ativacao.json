@@ -1,19 +1,11 @@
 {
   "franquiaId": "avec-campinas",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T12:27:40.098Z",
+  "atualizadoEm": "2026-09-29T12:27:41.467Z",
   "atualizadoPor": "teste.teste",
   "dados": {
     "db": {
-      "users": [
-        {
-          "id": "c878cacfc2eb4433",
-          "name": "Avec Recife",
-          "login": "ricardo.noblat",
-          "role": "franqueado",
-          "pass": "portal"
-        }
-      ],
+      "users": [],
       "cards": []
     }
   }
