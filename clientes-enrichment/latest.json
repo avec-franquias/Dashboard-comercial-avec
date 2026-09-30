@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-29T20:59:29.512Z",
+  "updated_at": "2026-09-30T17:37:36.372Z",
   "clientes": {
     "25276": {
       "cliente_id": "25276",
@@ -60,6 +60,18 @@
       "website": "",
       "encontrado_em": "2026-09-18T17:38:17.271Z",
       "nome_encontrado": "Aldeia Studio Hair"
+    },
+    "99932": {
+      "cliente_id": "99932",
+      "nome": "7&7 SALON / 7&7BARBER",
+      "documento": "52383867000177",
+      "status": "encontrado",
+      "telefone": "+5519990122777",
+      "fonte": "Google Maps",
+      "maps_url": "https://www.google.com/maps/search/7%267%20SALON%20%2F%207%267BARBER%2052383867000177",
+      "website": "https://www.instagram.com/7e7salon?igsh=MTZsenY2ZTNuMXFqdA%3D%3D&utm_source=qr",
+      "encontrado_em": "2026-09-30T17:37:33.194Z",
+      "nome_encontrado": "7&7 SALON E 7&7 BARBER"
     },
     "105208": {
       "cliente_id": "105208",
