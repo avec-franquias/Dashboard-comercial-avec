@@ -15,6 +15,7 @@ window.PORTAL_CONFIG = {
     { id: "extrator", arquivo: "extrator-leads.html", nome: "Extrator de Leads", desc: "Encontre novos estabelecimentos por nicho e regi\xE3o, sem repetir leads j\xE1 extra\xEDdos.", cor: "#7C3AED" },
     { id: "ativacao", arquivo: "ativacao.html", nome: "Ativa\xE7\xE3o de clientes", desc: "Kanban de onboarding com SLA de 48h, checklists e registro de cada contato.", cor: "#5B4FE9" },
     { id: "vendas", arquivo: "vendas.html", nome: "Funil de Vendas", desc: "Pipeline comercial com valores, conversao, ganhos, perdas e envio automatico para Ativacao.", cor: "#2563EB" },
+    { id: "roadmap", arquivo: "roadmap.html", nome: "Sugestões de Produto", desc: "Centralize demandas de clientes, apoie sugestões e acompanhe as maiores oportunidades de produto.", cor: "#7C3AED" },
     { id: "arvore", arquivo: "arvorealavanca.html", nome: "\xC1rvore de Alavancas", desc: "Plano do m\xEAs, plano vs proje\xE7\xE3o, acompanhamento semanal e radar pr\xE9-churn.", cor: "#C2410C" },
     { id: "previsao", arquivo: "previsaoderesultados.html", nome: "Previs\xE3o de resultados", desc: "Faturamento MRR + Net Take, tier do trimestre e remunera\xE7\xE3o estimada.", cor: "#334155" },
     { id: "taxas", arquivo: "taxas.html", nome: "Simulador de taxas", desc: "Precifica\xE7\xE3o de Payments, avalia\xE7\xE3o do take e gera\xE7\xE3o de token para o BKO.", cor: "#1A56DB" },
@@ -562,7 +563,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
     if (appLoading) return appLoading;
     appLoading = new Promise(function(resolve,reject){
       var s=document.createElement("script");
-      s.src="portal-app.js?v=20260929-franquias1";
+      s.src="portal-app.js?v=20260930-roadmap1";
       s.onload=function(){ window.__PORTAL_APP_READY=true; resolve(); };
       s.onerror=function(){ reject(new Error("Nao foi possivel carregar o Portal.")); };
       document.body.appendChild(s);
