@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T20:15:41.314Z",
+  "generated_at": "2026-09-30T20:16:13.876Z",
   "runs": [
     {
       "query": {
@@ -46537,65 +46537,15 @@
     {
       "query": {
         "nicho": "Salão de beleza",
-        "cidade": "Alto Santo, CE",
-        "bairro": "",
+        "cidade": "Amparo do São Francisco, SE",
+        "bairro": "Carregando bairros...",
         "max_results": 80
       },
-      "finished_at": "2026-09-30T20:15:40.291Z",
-      "total": 4,
-      "new_count": 4,
-      "new_ids": [
-        "0x7bba18938bbda6d:0x98a930f959170b59",
-        "0x7bba1002fc78ddb:0x9e406f6b2cf94b31",
-        "0x7bba17ba29355ad:0xd94b9d7ca787f565",
-        "0x7bba100757f2d6b:0xad2db495af7a22f"
-      ],
-      "leads": [
-        {
-          "name": "Studio Janaína almeida",
-          "phone": "+5588996820928",
-          "website": "",
-          "address": "R. Frei Lamberto - Centro, Alto Santo - CE, 62970-000, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "",
-          "reviews": "",
-          "place_id": "0x7bba18938bbda6d:0x98a930f959170b59",
-          "maps_url": "https://www.google.com/maps/place/Studio+Jana%C3%ADna+almeida/data=!4m7!3m6!1s0x7bba18938bbda6d:0x98a930f959170b59!8m2!3d-5.5195795!4d-38.2697117!16s%2Fg%2F11jq5_xp4c!19sChIJbdq7OImhuwcRWQsXWfkwqZg?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Studioluanalima",
-          "phone": "",
-          "website": "",
-          "address": "R. Osório Martins - Centro, Alto Santo - CE, 62970-000, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "",
-          "reviews": "",
-          "place_id": "0x7bba1002fc78ddb:0x9e406f6b2cf94b31",
-          "maps_url": "https://www.google.com/maps/place/Studioluanalima/data=!4m7!3m6!1s0x7bba1002fc78ddb:0x9e406f6b2cf94b31!8m2!3d-5.5186051!4d-38.2691854!16s%2Fg%2F11yqbp7sg_!19sChIJ243HLwChuwcRMUv5LGtvQJ4?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Claudiene Manicure",
-          "phone": "+5588999591840",
-          "website": "",
-          "address": "R. Fausto Crispim, 190 - Centro, Alto Santo - CE, 62970-000, Brasil ",
-          "category": "Manicure",
-          "rating": "4,8",
-          "reviews": "",
-          "place_id": "0x7bba17ba29355ad:0xd94b9d7ca787f565",
-          "maps_url": "https://www.google.com/maps/place/Claudiene+Manicure/data=!4m7!3m6!1s0x7bba17ba29355ad:0xd94b9d7ca787f565!8m2!3d-5.5194298!4d-38.2693567!16s%2Fg%2F11dftsbbxp!19sChIJrVWTonuhuwcRZfWHp3ydS9k?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Núbia Cabeleleira",
-          "phone": "+5588997002797",
-          "website": "",
-          "address": "R. Frei Lamberto - Centro, Alto Santo - CE, 62970-000, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "",
-          "reviews": "",
-          "place_id": "0x7bba100757f2d6b:0xad2db495af7a22f",
-          "maps_url": "https://www.google.com/maps/place/N%C3%BAbia+Cabeleleira/data=!4m7!3m6!1s0x7bba100757f2d6b:0xad2db495af7a22f!8m2!3d-5.5197817!4d-38.2701738!16s%2Fg%2F11x6533m68!19sChIJay1_dQChuwcRL6L3Wknb0go?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
-        }
-      ]
+      "finished_at": "2026-09-30T20:16:12.848Z",
+      "total": 0,
+      "new_count": 0,
+      "new_ids": [],
+      "leads": []
     }
   ]
 }
