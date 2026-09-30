@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-petrolina",
   "modulo": "previsao",
-  "atualizadoEm": "2026-09-30T20:18:27.724Z",
+  "atualizadoEm": "2026-09-30T20:18:28.842Z",
   "atualizadoPor": "emanuel.elton",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"bronze\":{\"mesRef\":\"2026-09\",\"m0\":\"2\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"bronze\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"bronze\",\"ultimaGravacao\":\"2026-09-30T20:18:26.766Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"bronze\":{\"mesRef\":\"2026-09\",\"m0\":\"271\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"bronze\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"bronze\",\"ultimaGravacao\":\"2026-09-30T20:18:28.120Z\"}"
   }
 }
