@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-fortaleza",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-30T16:12:09.077Z",
+  "atualizadoEm": "2026-09-30T16:12:15.726Z",
   "atualizadoPor": "robert.sena",
   "dados": {
     "db": {
@@ -244,7 +244,7 @@
           "members": [],
           "contractDate": "2026-09-30T13:11",
           "firstContactDate": "",
-          "startDate": "",
+          "startDate": "2026-09-30T13:12",
           "dueDate": "",
           "painPoint": "",
           "painValidated": false,
@@ -329,6 +329,14 @@
               "author": "Avec Fortaleza",
               "authorId": "853be20b65174f5f",
               "text": "moveu este cartão de Novo cliente para Treinamento agendada"
+            },
+            {
+              "id": "1c4edb175da15604",
+              "type": "action",
+              "at": "2026-09-30T16:12:15.499Z",
+              "author": "Avec Fortaleza",
+              "authorId": "853be20b65174f5f",
+              "text": "alterou a data da treinamento deste cartão para 30 de set. de 2026 às 13:12"
             }
           ],
           "history": [
@@ -342,7 +350,7 @@
             }
           ],
           "createdAt": "2026-09-30T16:11:20.029Z",
-          "updatedAt": "2026-09-30T16:12:08.751Z",
+          "updatedAt": "2026-09-30T16:12:15.499Z",
           "finishedAt": "",
           "ordem": 1790784728752
         }
