@@ -8322,6 +8322,103 @@
         "beautyecare_"
       ],
       "finished_at": "2026-09-30T16:18:07.151Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "CE",
+        "cidade": "Acopiara",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "studio.fioseformas",
+          "profile_url": "https://www.instagram.com/studio.fioseformas/",
+          "name": "Salão de Beleza em Acopiara",
+          "bio": "Salão de Beleza em Acopiara (@studio.fioseformas) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acopiara",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "ssamorimespacodebeleza",
+          "profile_url": "https://www.instagram.com/ssamorimespacodebeleza/",
+          "name": "Espaço de Beleza Acopiara",
+          "bio": "Espaço de Beleza Acopiara (@ssamorimespacodebeleza) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acopiara",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "anasheles_estudio_de_beleza",
+          "profile_url": "https://www.instagram.com/anasheles_estudio_de_beleza/",
+          "name": "ANA SHELES / STUDIO DE BELEZA/ACOPIARA-CE (@anasheles_estudio_de_beleza ...",
+          "bio": "ANA SHELES / STUDIO DE BELEZA/ACOPIARA-CE (@anasheles_estudio_de_beleza ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acopiara",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "iranildaec",
+          "profile_url": "https://www.instagram.com/iranildaec/",
+          "name": "Iranilda Morais - profissional de beleza",
+          "bio": "Iranilda Morais - profissional de beleza (@iranildaec) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acopiara",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "biamarinhohair_",
+          "profile_url": "https://www.instagram.com/biamarinhohair_/",
+          "name": "BIA MARINHO",
+          "bio": "BIA MARINHO (@biamarinhohair_) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acopiara",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 5,
+      "new_count": 5,
+      "new_usernames": [
+        "studio.fioseformas",
+        "ssamorimespacodebeleza",
+        "anasheles_estudio_de_beleza",
+        "iranildaec",
+        "biamarinhohair_"
+      ],
+      "finished_at": "2026-09-30T16:20:35.542Z"
     }
   ]
 }
