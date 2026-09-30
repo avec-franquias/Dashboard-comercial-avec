@@ -1,5 +1,7 @@
 import {fail} from '../lib/github.js';
 
+const norm=s=>String(s||'').trim().toLocaleLowerCase('pt-BR');
+
 async function fetchText(url, headers={}){
   const r=await fetch(url,{headers,cache:'no-store'});
   if(!r.ok) throw new Error('Base indisponivel ('+r.status+')');
@@ -29,6 +31,23 @@ export default async function handler(req,res){
         'https://api.github.com/repos/'+repo+'/contents/clientes-enrichment/latest.json?ref='+encodeURIComponent(branch),
         {Authorization:'Bearer '+token,Accept:'application/vnd.github.raw+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'avec-portal-api'}
       );
+    }else if(type==='query-leads'){
+      const nicho=String(req.query?.nicho||'').trim(),cidade=String(req.query?.cidade||'').trim(),bairro=String(req.query?.bairro||'').trim();
+      const raw=await fetchText('https://raw.githubusercontent.com/'+repo+'/'+branch+'/extrator-data/latest.json',{'User-Agent':'avec-portal-api'});
+      const data=JSON.parse(raw);
+      const run=(data.runs||[]).find(x=>norm(x.query?.nicho)===norm(nicho)&&norm(x.query?.cidade)===norm(cidade)&&norm(x.query?.bairro||'')===norm(bairro||''));
+      res.setHeader('Cache-Control','no-store, max-age=0');
+      return res.status(200).json({ok:true,run:run||null,generated_at:data.generated_at||null});
+    }else if(type==='query-instagram'){
+      const nicho=String(req.query?.nicho||'').trim(),uf=String(req.query?.uf||'').trim(),cidade=String(req.query?.cidade||'').trim(),bairro=String(req.query?.bairro||'').trim(),palavra=String(req.query?.palavra_chave||'').trim();
+      const raw=await fetchText(
+        'https://api.github.com/repos/'+repo+'/contents/instagram-data/latest.json?ref='+encodeURIComponent(branch),
+        {Authorization:'Bearer '+token,Accept:'application/vnd.github.raw+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'avec-portal-api'}
+      );
+      const data=JSON.parse(raw);
+      const run=(data.runs||[]).find(x=>norm(x.query?.nicho)===norm(nicho)&&norm(x.query?.uf)===norm(uf)&&norm(x.query?.cidade)===norm(cidade)&&norm(x.query?.bairro||'')===norm(bairro||'')&&norm(x.query?.palavra_chave||'')===norm(palavra||''));
+      res.setHeader('Cache-Control','no-store, max-age=0');
+      return res.status(200).json({ok:true,run:run||null});
     }else{
       return res.status(400).json({ok:false,error:'Tipo de base invalido'});
     }
