@@ -9593,6 +9593,151 @@
         "inst_mgoes"
       ],
       "finished_at": "2026-09-30T18:21:55.006Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "CE",
+        "cidade": "Alcântaras",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "alanbarros_barbearia",
+          "profile_url": "https://www.instagram.com/alanbarros_barbearia/",
+          "name": "ALAN BARROS | BARBEIRO PROFISSIONAL (@alanbarros_barbearia ...",
+          "bio": "ALAN BARROS | BARBEIRO PROFISSIONAL (@alanbarros_barbearia ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Alcântaras",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaojamilly_jl",
+          "profile_url": "https://www.instagram.com/salaojamilly_jl/",
+          "name": "JAMILLY LUSTOSA | Beleza e Saúde Capilar | SALÃO EM ALCÂNTARAS ...",
+          "bio": "JAMILLY LUSTOSA | Beleza e Saúde Capilar | SALÃO EM ALCÂNTARAS ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Alcântaras",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "saladoempreendedordealcantaras",
+          "profile_url": "https://www.instagram.com/saladoempreendedordealcantaras/",
+          "name": "Sala do Empreendedor de Alcântaras - Ce ...",
+          "bio": "Sala do Empreendedor de Alcântaras - Ce ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Alcântaras",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "aamanda_makes",
+          "profile_url": "https://www.instagram.com/aamanda_makes/",
+          "name": "𝘼𝙢𝙖𝙣𝙙𝙖 Makeup & Designer",
+          "bio": "𝘼𝙢𝙖𝙣𝙙𝙖 Makeup & Designer (@aamanda_makes) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Alcântaras",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiobeautynat",
+          "profile_url": "https://www.instagram.com/studiobeautynat/",
+          "name": "Natália Mesquita |Designer de sobrancelhas |Henna ...",
+          "bio": "Natália Mesquita |Designer de sobrancelhas |Henna ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Alcântaras",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "alcantaras______",
+          "profile_url": "https://www.instagram.com/alcantaras______/",
+          "name": "Alcântara's",
+          "bio": "Alcântara's (@alcantaras______) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Alcântaras",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaodebelezajackyane",
+          "profile_url": "https://www.instagram.com/salaodebelezajackyane/",
+          "name": "Salão de Beleza | São Benedito-CE (@salaodebelezajackyane ...",
+          "bio": "Salão de Beleza | São Benedito-CE (@salaodebelezajackyane ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Alcântaras",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studio_mayfreitas",
+          "profile_url": "https://www.instagram.com/studio_mayfreitas/",
+          "name": "Salão de Beleza ️ Fortaleza ce",
+          "bio": "Salão de Beleza ️ Fortaleza ce (@studio_mayfreitas) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Alcântaras",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 8,
+      "new_count": 8,
+      "new_usernames": [
+        "alanbarros_barbearia",
+        "salaojamilly_jl",
+        "saladoempreendedordealcantaras",
+        "aamanda_makes",
+        "studiobeautynat",
+        "alcantaras______",
+        "salaodebelezajackyane",
+        "studio_mayfreitas"
+      ],
+      "finished_at": "2026-09-30T19:28:43.826Z"
     }
   ]
 }
