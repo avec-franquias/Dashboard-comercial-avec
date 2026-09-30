@@ -1,11 +1,19 @@
 {
   "franquiaId": "avec-novo-hamburgo",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-30T21:41:16.507Z",
+  "atualizadoEm": "2026-09-30T21:41:17.715Z",
   "atualizadoPor": "rodrigo.leao",
   "dados": {
     "db": {
-      "users": [],
+      "users": [
+        {
+          "id": "4ae559de79b515d8",
+          "name": "Avec Novo Hamburgo",
+          "login": "rodrigo.leao",
+          "role": "franqueado",
+          "pass": "portal"
+        }
+      ],
       "cards": []
     }
   }
