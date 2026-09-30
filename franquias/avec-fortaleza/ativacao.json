@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-fortaleza",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-30T16:12:20.258Z",
+  "atualizadoEm": "2026-09-30T16:12:21.732Z",
   "atualizadoPor": "robert.sena",
   "dados": {
     "db": {
@@ -264,12 +264,12 @@
                 {
                   "id": "a236eb00b7c66c16",
                   "text": "Configurações gerais",
-                  "done": false
+                  "done": true
                 },
                 {
                   "id": "4407f12dfa2cfb34",
                   "text": "Agenda",
-                  "done": false
+                  "done": true
                 },
                 {
                   "id": "42520c2d969c9210",
@@ -345,6 +345,22 @@
               "author": "Avec Fortaleza",
               "authorId": "853be20b65174f5f",
               "text": "concluiu Boas-vindas (BÁSICO) neste cartão"
+            },
+            {
+              "id": "8525d873884ab645",
+              "type": "action",
+              "at": "2026-09-30T16:12:20.429Z",
+              "author": "Avec Fortaleza",
+              "authorId": "853be20b65174f5f",
+              "text": "concluiu Configurações gerais (BÁSICO) neste cartão"
+            },
+            {
+              "id": "7d9dfd6b99a1d03b",
+              "type": "action",
+              "at": "2026-09-30T16:12:21.479Z",
+              "author": "Avec Fortaleza",
+              "authorId": "853be20b65174f5f",
+              "text": "concluiu Agenda (BÁSICO) neste cartão"
             }
           ],
           "history": [
@@ -358,7 +374,7 @@
             }
           ],
           "createdAt": "2026-09-30T16:11:20.029Z",
-          "updatedAt": "2026-09-30T16:12:19.812Z",
+          "updatedAt": "2026-09-30T16:12:21.479Z",
           "finishedAt": "",
           "ordem": 1790784728752
         }
