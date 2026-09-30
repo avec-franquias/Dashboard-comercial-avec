@@ -9943,6 +9943,135 @@
         "esmalterialarissaramalho"
       ],
       "finished_at": "2026-09-30T19:33:52.427Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "RN",
+        "cidade": "Acari",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "ateliedabeleza_as",
+          "profile_url": "https://www.instagram.com/ateliedabeleza_as/",
+          "name": "ATELIÊ DA BELEZA | Cabelo e Make",
+          "bio": "ATELIÊ DA BELEZA | Cabelo e Make (@ateliedabeleza_as) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acari",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "raissahairstudio",
+          "profile_url": "https://www.instagram.com/raissahairstudio/",
+          "name": "RAISSA HAIR STUDIO",
+          "bio": "RAISSA HAIR STUDIO (@raissahairstudio) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acari",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "aracaribeauty",
+          "profile_url": "https://www.instagram.com/aracaribeauty/",
+          "name": "Aracari Beauty",
+          "bio": "Aracari Beauty (@aracaribeauty) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acari",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "ericakeslymakeup",
+          "profile_url": "https://www.instagram.com/ericakeslymakeup/",
+          "name": "Erica | Maquiadora | Fotógrafa - Acari-RN (@ericakeslymakeup ...",
+          "bio": "Erica | Maquiadora | Fotógrafa - Acari-RN (@ericakeslymakeup ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acari",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaodebelezarn",
+          "profile_url": "https://www.instagram.com/salaodebelezarn/",
+          "name": "Salão de Beleza RN",
+          "bio": "Salão de Beleza RN (@salaodebelezarn) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acari",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salao_belissima_acari",
+          "profile_url": "https://www.instagram.com/salao_belissima_acari/",
+          "name": "salao BELÍSSIMA",
+          "bio": "salao BELÍSSIMA (@salao_belissima_acari) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acari",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "rndesignerdabeleza",
+          "profile_url": "https://www.instagram.com/rndesignerdabeleza/",
+          "name": "RN Designer da Beleza | Salão & Barbearia (@rndesignerdabeleza ...",
+          "bio": "RN Designer da Beleza | Salão & Barbearia (@rndesignerdabeleza ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acari",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 7,
+      "new_count": 7,
+      "new_usernames": [
+        "ateliedabeleza_as",
+        "raissahairstudio",
+        "aracaribeauty",
+        "ericakeslymakeup",
+        "salaodebelezarn",
+        "salao_belissima_acari",
+        "rndesignerdabeleza"
+      ],
+      "finished_at": "2026-09-30T20:10:21.934Z"
     }
   ]
 }
