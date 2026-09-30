@@ -24,7 +24,8 @@ function ideaCard(x){
   const status=admin
     ? '<select class="inp" style="padding:6px;font-size:12px" data-status="'+x.id+'">'+Object.entries(ST).map(([v,n])=>'<option value="'+v+'" '+(x.status===v?'selected':'')+'>'+n+'</option>').join("")+'</select>'
     : '<span class="pill status">'+esc(ST[x.status]||x.status)+'</span>';
-  return '<div class="idea"><div><h3>'+esc(x.titulo)+'</h3><div class="meta"><span class="pill">'+esc(x.categoria)+'</span><span class="pill">Impacto '+esc(x.impacto)+'</span>'+status+'</div><div class="desc">'+esc(x.descricao)+'</div>'+(x.cliente?'<div class="subline">Cliente citado: <b>'+esc(x.cliente)+'</b></div>':'')+'<div class="subline">Enviado por '+esc(x.criado_por_nome||x.criado_por)+' · '+date(x.criado_em)+'</div><div class="support"><button class="btn small '+(x.meu_apoio?'active':'ghost')+'" data-support="'+x.id+'">'+(x.meu_apoio?'✓ Eu também preciso':'Eu também preciso')+'</button><b>'+(x.apoios||0)+' apoios</b></div></div>'+(x.imagem_url?'<img class="photo" src="'+esc(x.imagem_url)+'" data-photo="'+esc(x.imagem_url)+'" alt="Print da solicitação">':'')+'</div>';
+  const excluir=admin?'<button class="btn small ghost" style="color:#b42318;border-color:#f0c7c3" data-delete="'+x.id+'">Excluir</button>':'';
+  return '<div class="idea"><div><h3>'+esc(x.titulo)+'</h3><div class="meta"><span class="pill">'+esc(x.categoria)+'</span><span class="pill">Impacto '+esc(x.impacto)+'</span>'+status+'</div><div class="desc">'+esc(x.descricao)+'</div>'+(x.cliente?'<div class="subline">Cliente citado: <b>'+esc(x.cliente)+'</b></div>':'')+'<div class="subline">Enviado por '+esc(x.criado_por_nome||x.criado_por)+' · '+date(x.criado_em)+'</div><div class="support"><button class="btn small '+(x.meu_apoio?'active':'ghost')+'" data-support="'+x.id+'">'+(x.meu_apoio?'✓ Eu também preciso':'Eu também preciso')+'</button><b>'+(x.apoios||0)+' apoios</b>'+excluir+'</div></div>'+(x.imagem_url?'<img class="photo" src="'+esc(x.imagem_url)+'" data-photo="'+esc(x.imagem_url)+'" alt="Print da solicitação">':'')+'</div>';
 }
 
 function render(){
@@ -59,6 +60,7 @@ function render(){
   document.querySelectorAll("[data-support]").forEach(b=>b.onclick=()=>support(b.dataset.support));
   document.querySelectorAll("[data-photo]").forEach(i=>i.onclick=()=>showPhoto(i.dataset.photo));
   document.querySelectorAll("[data-status]").forEach(s=>s.onchange=()=>changeStatus(s.dataset.status,s.value));
+  document.querySelectorAll("[data-delete]").forEach(b=>b.onclick=()=>deleteIdea(b.dataset.delete));
 }
 
 async function load(){
@@ -81,6 +83,15 @@ async function changeStatus(id,status){
     await api("status",{id,status,senha});
     await load();
   }catch(e){alert(e.message);await load()}
+}
+async function deleteIdea(id){
+  const item=items.find(x=>x.id===id);
+  if(!confirm('Excluir a sugestão "'+(item?.titulo||"selecionada")+'"?\n\nOs apoios e a imagem anexada também serão removidos.')) return;
+  try{
+    const senha=parent.sessionStorage?.getItem("portal-admin-password")||"";
+    await api("delete",{id,senha});
+    await load();
+  }catch(e){alert(e.message)}
 }
 
 function showPhoto(url){
