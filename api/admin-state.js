@@ -3,6 +3,7 @@ import crypto from 'node:crypto';
 const REPO=process.env.GITHUB_REPOSITORY||'avec-franquias/Dashboard-comercial-avec';
 const BRANCH=process.env.GITHUB_BRANCH||'main';
 const FILE='usuarios.json';
+const MODS=['ativacao','vendas','arvore','previsao','taxas','propostas','instagram','clientes','extrator','central','reunioes','roadmap'];
 
 function cors(req,res){
   const origin=req.headers.origin||'*';
@@ -45,7 +46,14 @@ export default async function handler(req,res){
     const enviados=new Map(b.usuarios.map(u=>[u.login,u]));
     const usuarios=(Array.isArray(atual.usuarios)?atual.usuarios:[]).map(u=>{
       const novo=enviados.get(u.login);
-      return novo?{...u,...novo,franquiaId:novo.franquiaId??u.franquiaId,perfil:novo.perfil??u.perfil}:u;
+      if(!novo)return u;
+      const merged={...u,...novo};
+      if(novo.papel==='admin'){
+        delete merged.franquiaId;
+        delete merged.perfil;
+        merged.modulos=[...MODS];
+      }
+      return merged;
     });
     for(const novo of b.usuarios){if(!usuarios.some(u=>u.login===novo.login))usuarios.push(novo)}
     const doc={...atual,instalacao:b.instalacao||atual.instalacao||'portal-franqueado',atualizadoEm:new Date().toISOString(),usuarios,manutencao:b.manutencao,franquias:Array.isArray(atual.franquias)?atual.franquias:[]};
