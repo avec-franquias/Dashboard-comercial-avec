@@ -1570,6 +1570,15 @@ function desenhaUsuarios() {
           u.perfil = "franqueado";
         }
       }, "Perfil atualizado.");
+      if (novoPapel === "admin") {
+        try {
+          await vinculaUsuarioFranquia(login, "");
+        } catch (e) {
+          console.warn("Limpeza de vínculo após promoção para admin:", e);
+        }
+        await carregaUsuarios();
+        desenhaUsuarios();
+      }
     };
     const frSel = tr.querySelector('[data-campo="franquia"]');
     if (frSel) frSel.onchange = async () => {
