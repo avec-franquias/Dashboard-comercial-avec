@@ -1515,7 +1515,24 @@ function desenhaUsuarios() {
   avisoPublicar();
   if (!FRANQUIAS_ADMIN.length && !FRANQUIAS_CARREGANDO) garanteFranquiasAdmin().then(() => desenhaUsuarios()).catch(() => {
   });
-  const lista = usuarios();
+  const buscaEl = $("#buscaUsuarios");
+  const termo = (buscaEl?.value || "").trim().toLowerCase();
+  const nomeFranquia = (id) => {
+    const f = (FRANQUIAS_ADMIN || []).find((x) => x.id === id);
+    return f ? String(f.nome || f.id) : String(id || "");
+  };
+  const todos = usuarios();
+  const lista = termo ? todos.filter((u) => {
+    const texto = [
+      u.nome,
+      u.login,
+      u.papel === "admin" ? "administrador admin" : "franqueado",
+      nomeFranquia(u.franquiaId)
+    ].filter(Boolean).join(" ").toLowerCase();
+    return texto.includes(termo);
+  }) : todos;
+  const qtd = $("#buscaUsuariosQtd");
+  if (qtd) qtd.textContent = termo ? lista.length + " de " + todos.length + " usuário(s)" : todos.length + " usuário(s)";
   $("#corpoUsuarios").innerHTML = lista.map((u) => {
     const eu = u.login === perfil.login;
     return `<tr class="${u.ativo ? "" : "inativo"}" data-login="${esc(u.login)}">
@@ -1533,7 +1550,11 @@ function desenhaUsuarios() {
       </div></td>
     </tr>`;
   }).join("");
-  $$("#corpoUsuarios tr").forEach((tr) => {
+  if (buscaEl && !buscaEl.dataset.buscaAtiva) {
+    buscaEl.dataset.buscaAtiva = "1";
+    buscaEl.oninput = () => desenhaUsuarios();
+  }
+    $("#corpoUsuarios tr").forEach((tr) => {
     const login = tr.dataset.login;
     const altera = async (fn, ok) => {
       tr.style.opacity = 0.5;
