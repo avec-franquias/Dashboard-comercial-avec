@@ -9449,6 +9449,151 @@
         "popular"
       ],
       "finished_at": "2026-09-30T17:34:25.469Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SP",
+        "cidade": "Rio Grande da Serra",
+        "bairro": "Carregando bairros...",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "studionubialves",
+          "profile_url": "https://www.instagram.com/studionubialves/",
+          "name": "NÚBIA ALVES | Noivas, Penteados e Cabelos em Rio Grande ...",
+          "bio": "NÚBIA ALVES | Noivas, Penteados e Cabelos em Rio Grande ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Rio Grande da Serra",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "spazioperc",
+          "profile_url": "https://www.instagram.com/spazioperc/",
+          "name": "Spazio Perc / Aldeia da Serra/SP",
+          "bio": "Spazio Perc / Aldeia da Serra/SP (@spazioperc) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Rio Grande da Serra",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "sg_salao_",
+          "profile_url": "https://www.instagram.com/sg_salao_/",
+          "name": "SG Salão de Beleza",
+          "bio": "SG Salão de Beleza (@sg_salao_) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Rio Grande da Serra",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "riograndedaserraoficial",
+          "profile_url": "https://www.instagram.com/riograndedaserraoficial/",
+          "name": "Rio Grande da Serra Oficial",
+          "bio": "Rio Grande da Serra Oficial (@riograndedaserraoficial) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Rio Grande da Serra",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "umasalaodebeleza",
+          "profile_url": "https://www.instagram.com/umasalaodebeleza/",
+          "name": "UMA Salão de Beleza",
+          "bio": "UMA Salão de Beleza (@umasalaodebeleza) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Rio Grande da Serra",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "khair_salaodebeleza",
+          "profile_url": "https://www.instagram.com/khair_salaodebeleza/",
+          "name": "Salão de beleza Fazenda rio grande",
+          "bio": "Salão de beleza Fazenda rio grande (@khair_salaodebeleza) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Rio Grande da Serra",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "valeriarodriguescabeloemake",
+          "profile_url": "https://www.instagram.com/valeriarodriguescabeloemake/",
+          "name": "Salão de Beleza Valeria Rodrigues (@valeriarodriguescabeloemake ...",
+          "bio": "Salão de Beleza Valeria Rodrigues (@valeriarodriguescabeloemake ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Rio Grande da Serra",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "elegancecentrodeestetica",
+          "profile_url": "https://www.instagram.com/elegancecentrodeestetica/",
+          "name": "Salão de Beleza",
+          "bio": "Salão de Beleza (@elegancecentrodeestetica) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Rio Grande da Serra",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 8,
+      "new_count": 8,
+      "new_usernames": [
+        "studionubialves",
+        "spazioperc",
+        "sg_salao_",
+        "riograndedaserraoficial",
+        "umasalaodebeleza",
+        "khair_salaodebeleza",
+        "valeriarodriguescabeloemake",
+        "elegancecentrodeestetica"
+      ],
+      "finished_at": "2026-09-30T17:42:36.885Z"
     }
   ]
 }
