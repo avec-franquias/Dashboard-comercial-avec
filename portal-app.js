@@ -1550,14 +1550,27 @@ function desenhaUsuarios() {
       desenhaUsuarios();
     };
     const pap = tr.querySelector('[data-campo="papel"]');
-    pap.onchange = () => altera((u) => {
-      u.papel = pap.value;
-      if (pap.value === "admin") {
-        delete u.franquiaId;
-        delete u.perfil;
-        u.modulos = MODULOS.map((m) => m.id);
+    pap.onchange = async () => {
+      const novoPapel = pap.value;
+      if (novoPapel === "franqueado") {
+        const atual = usuarios().find((x) => x.login === login);
+        if (!atual?.franquiaId) {
+          toast("Vincule uma franquia antes de tornar este usuário franqueado.");
+          pap.value = atual?.papel || "admin";
+          return;
+        }
       }
-    }, "Perfil atualizado.");
+      await altera((u) => {
+        u.papel = novoPapel;
+        if (novoPapel === "admin") {
+          delete u.franquiaId;
+          delete u.perfil;
+          u.modulos = MODULOS.map((m) => m.id);
+        } else {
+          u.perfil = "franqueado";
+        }
+      }, "Perfil atualizado.");
+    };
     const frSel = tr.querySelector('[data-campo="franquia"]');
     if (frSel) frSel.onchange = async () => {
       tr.style.opacity = 0.5;
