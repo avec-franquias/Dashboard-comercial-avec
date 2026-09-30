@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-fortaleza",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-30T16:12:21.732Z",
+  "atualizadoEm": "2026-09-30T16:12:23.805Z",
   "atualizadoPor": "robert.sena",
   "dados": {
     "db": {
@@ -274,7 +274,7 @@
                 {
                   "id": "42520c2d969c9210",
                   "text": "Caixa",
-                  "done": false
+                  "done": true
                 },
                 {
                   "id": "11f8503f50a8476d",
@@ -284,7 +284,7 @@
                 {
                   "id": "6136b665113dc3c1",
                   "text": "Fluxo básico de atendimento",
-                  "done": false
+                  "done": true
                 }
               ]
             }
@@ -361,6 +361,22 @@
               "author": "Avec Fortaleza",
               "authorId": "853be20b65174f5f",
               "text": "concluiu Agenda (BÁSICO) neste cartão"
+            },
+            {
+              "id": "0395351cffa8e172",
+              "type": "action",
+              "at": "2026-09-30T16:12:22.145Z",
+              "author": "Avec Fortaleza",
+              "authorId": "853be20b65174f5f",
+              "text": "concluiu Caixa (BÁSICO) neste cartão"
+            },
+            {
+              "id": "ff5b8ac1b4efd18a",
+              "type": "action",
+              "at": "2026-09-30T16:12:23.428Z",
+              "author": "Avec Fortaleza",
+              "authorId": "853be20b65174f5f",
+              "text": "concluiu Fluxo básico de atendimento (BÁSICO) neste cartão"
             }
           ],
           "history": [
@@ -374,7 +390,7 @@
             }
           ],
           "createdAt": "2026-09-30T16:11:20.029Z",
-          "updatedAt": "2026-09-30T16:12:21.479Z",
+          "updatedAt": "2026-09-30T16:12:23.428Z",
           "finishedAt": "",
           "ordem": 1790784728752
         }
