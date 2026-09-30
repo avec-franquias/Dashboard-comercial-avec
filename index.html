@@ -11,6 +11,7 @@ window.PORTAL_CONFIG = {
   modulos: [
     { id: "central", arquivo: "central.html", nome: "Central do franqueado", desc: "Treinamentos, produtos, m\xF3dulos e reuni\xF5es da rede em um s\xF3 lugar.", cor: "#0E7490" },
     { id: "clientes", arquivo: "clientes.html", nome: "Clientes", desc: "Carteira consolidada, MRR, produtos contratados e oportunidades por cliente.", cor: "#059669" },
+    { id: "localizar", arquivo: "localizar-cliente.html", nome: "Localizar Cliente", desc: "Localize um cliente da rede e veja qual franquia é responsável pelo atendimento.", cor: "#0F766E" },
     { id: "migrador", arquivo: "migrador-planilhas.html", nome: "Migrador de Planilhas", desc: "Converta planilhas de clientes, produtos, servi\xE7os e profissionais para o formato AVEC.", cor: "#6C47FF" },
     { id: "extrator", arquivo: "extrator-leads.html", nome: "Extrator de Leads", desc: "Encontre novos estabelecimentos por nicho e regi\xE3o, sem repetir leads j\xE1 extra\xEDdos.", cor: "#7C3AED" },
     { id: "ativacao", arquivo: "ativacao.html", nome: "Ativa\xE7\xE3o de clientes", desc: "Kanban de onboarding com SLA de 48h, checklists e registro de cada contato.", cor: "#5B4FE9" },
@@ -418,6 +419,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
         <button role="tab" aria-selected="false" data-aba="manutencao">Manutenção</button>
         <button role="tab" aria-selected="false" data-aba="conteudo">Conteúdo</button>
         <button role="tab" aria-selected="false" data-aba="logs">Logs</button>
+        <button role="tab" aria-selected="false" data-aba="base-clientes">Base de Clientes</button>
       </div>
     </div>
 
@@ -468,6 +470,30 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
         <div class="logs-card" style="margin-top:14px">
           <h3>Linha do tempo</h3>
           <div id="logsTimeline"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="abaBaseClientes" class="hidden">
+      <div class="painel">
+        <div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap">
+          <div>
+            <h2 style="margin-bottom:6px">Base de Clientes</h2>
+            <p class="sub" style="margin-bottom:0">Atualize a base completa da rede. A nova importação só substitui a anterior depois que todos os registros forem enviados com sucesso.</p>
+          </div>
+          <button class="btn linha" id="baseClientesAtualizarStatus">Atualizar status</button>
+        </div>
+        <div id="baseClientesResumo" style="margin:22px 0"></div>
+        <div style="border:1px solid var(--linha);border-radius:14px;padding:18px;background:#fff">
+          <h3 style="margin:0 0 6px">Importar nova base</h3>
+          <p class="sub">Selecione um CSV com as colunas da base de clientes. O Portal usa principalmente <b>ID</b>, <b>nome</b>, <b>documento</b> e os campos de <b>franquia</b>.</p>
+          <input class="inp" id="baseClientesArquivo" type="file" accept=".csv,text/csv" style="max-width:620px">
+          <div id="baseClientesMsg" class="msg" style="margin-top:12px"></div>
+          <div id="baseClientesProgresso" class="hidden" style="margin:10px 0 14px">
+            <div style="height:9px;border-radius:999px;background:#ececf4;overflow:hidden"><div id="baseClientesBarra" style="height:100%;width:0;background:var(--roxo);transition:width .2s"></div></div>
+            <div class="sub" id="baseClientesProgressoTxt" style="margin-top:6px"></div>
+          </div>
+          <button class="btn cheio" id="baseClientesImportar">Importar e substituir base</button>
         </div>
       </div>
     </section>
@@ -567,7 +593,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
     if (appLoading) return appLoading;
     appLoading = new Promise(function(resolve,reject){
       var s=document.createElement("script");
-      s.src="portal-app.js?v=20260930-users-search1";
+      s.src="portal-app.js?v=20260930-clientesbase1";
       s.onload=function(){ window.__PORTAL_APP_READY=true; resolve(); };
       s.onerror=function(){ reject(new Error("Nao foi possivel carregar o Portal.")); };
       document.body.appendChild(s);
