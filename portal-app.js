@@ -11,6 +11,7 @@ const ICONES = {
   arvore: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 6.5V17M12 11c-7 0-7 3-7 6M12 11c7 0 7 3 7 6"/></svg>',
   previsao: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="m4 15 5-5 4 3 7-7"/><path d="M15 6h5v5"/></svg>',
   taxas: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/><path d="m8 16 3-3M8.5 13.2h.01M10.5 16h.01"/></svg>',
+  "mapa-franqueado": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18-6 3V6l6-3 6 3 6-3v15l-6 3-6-3Z"/><path d="M9 3v15M15 6v15"/></svg>',
   propostas: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>'
 };
 const iconeDe = (id) => ICONES[id] || ICONES.propostas;
@@ -478,7 +479,7 @@ function entrarNoPortal(u) {
   }
   rota();
 }
-const SEMPRE_LIBERADOS = ["central", "migrador", "roadmap", "localizar"];
+const SEMPRE_LIBERADOS = ["central", "migrador", "roadmap", "localizar", "mapa-franqueado"];
 const podeUsar = (m) => {
   if (!perfil) return false;
   if (perfil.papel === "admin") return true;
@@ -510,7 +511,7 @@ function desenhaModulos() {
       { id:"ferramentas", nome:"Ferramentas", mods:["migrador","taxas","propostas"] },
       { id:"mkt", nome:"MKT", mods:["extrator"] },
       { id:"crm", nome:"CRM", mods:["vendas","ativacao"] },
-      { id:"gestao", nome:"Gestão", mods:["localizar","arvore","clientes","previsao"] },
+      { id:"gestao", nome:"Gestão", mods:["localizar","mapa-franqueado","arvore","clientes","previsao"] },
       { id:"roadmap-master", nome:"Sugestões", mods:["roadmap"] }
     ];
 
@@ -527,7 +528,7 @@ function desenhaModulos() {
       </details>`;
     }).join("");
 
-    const agrupados = new Set(["central","migrador","taxas","propostas","extrator","vendas","ativacao","localizar","arvore","clientes","previsao","roadmap"]);
+    const agrupados = new Set(["central","migrador","taxas","propostas","extrator","vendas","ativacao","localizar","mapa-franqueado","arvore","clientes","previsao","roadmap"]);
     const extras = lista.filter(m => !agrupados.has(m.id));
     if (extras.length) {
       html += `<details class="menu-grupo">
@@ -1873,9 +1874,9 @@ const MODULO_CACHE = /* @__PURE__ */ new Map();
 const decodifica = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
 async function carregaModulo(id) {
   if (MODULO_CACHE.has(id)) return MODULO_CACHE.get(id);
-  const plain = id === "roadmap" || id === "localizar";
+  const plain = id === "roadmap" || id === "localizar" || id === "mapa-franqueado";
   const arquivo = plain
-    ? "portal-assets/modulos/" + encodeURIComponent(id) + ".html?v=20260930-clientes1"
+    ? "portal-assets/modulos/" + encodeURIComponent(id) + ".html?v=20260930-mapafranqueado1"
     : "portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20260930-extratorstatus1";
   const r = await fetch(new URL(arquivo, location.href), { cache: "no-store" });
   if (!r.ok) throw new Error("Nao foi possivel carregar o modulo " + id + ".");
