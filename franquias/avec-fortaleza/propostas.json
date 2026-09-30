@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-fortaleza",
   "modulo": "propostas",
-  "atualizadoEm": "2026-09-30T20:09:08.112Z",
+  "atualizadoEm": "2026-09-30T20:16:29.448Z",
   "atualizadoPor": "robert.sena",
   "dados": {
-    "avec:log:v1": "[{\"quando\":\"2026-09-30T20:09:07.516Z\",\"evento\":\"Abriu a calculadora\"}]"
+    "avec:log:v1": "[{\"quando\":\"2026-09-30T20:16:28.895Z\",\"evento\":\"Abriu a calculadora\"},{\"quando\":\"2026-09-30T20:09:07.516Z\",\"evento\":\"Abriu a calculadora\"}]"
   }
 }
