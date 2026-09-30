@@ -5402,36 +5402,6 @@
       },
       "results": [
         {
-          "username": "amakha.belezaebemestar",
-          "profile_url": "https://www.instagram.com/amakha.belezaebemestar/",
-          "name": "Perfumaria em Joinville",
-          "bio": "Perfumaria em Joinville (@amakha.belezaebemestar) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Joinville",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "virtuosajoinvilleaventureiro",
-          "profile_url": "https://www.instagram.com/virtuosajoinvilleaventureiro/",
-          "name": "Virtuosa Joinville Aventureiro (@virtuosajoinvilleaventureiro ...",
-          "bio": "Virtuosa Joinville Aventureiro (@virtuosajoinvilleaventureiro ...",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Joinville",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
           "username": "salao_sandracuchi",
           "profile_url": "https://www.instagram.com/salao_sandracuchi/",
           "name": "Sandra Cuchi | Salão de beleza",
@@ -5447,10 +5417,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "gilmurarobeautystudio",
-          "profile_url": "https://www.instagram.com/gilmurarobeautystudio/",
-          "name": "Gil Muraro | Salão de beleza",
-          "bio": "Gil Muraro | Salão de beleza (@gilmurarobeautystudio) - Instagram",
+          "username": "virtuosajoinvilleaventureiro",
+          "profile_url": "https://www.instagram.com/virtuosajoinvilleaventureiro/",
+          "name": "Virtuosa Joinville Aventureiro (@virtuosajoinvilleaventureiro ...",
+          "bio": "Virtuosa Joinville Aventureiro (@virtuosajoinvilleaventureiro ...",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -5492,10 +5462,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "caarolnails_",
-          "profile_url": "https://www.instagram.com/caarolnails_/",
-          "name": "MANICURE JOINVILLE",
-          "bio": "MANICURE JOINVILLE (@caarolnails_) • Instagram photos and videos",
+          "username": "gilmurarobeautystudio",
+          "profile_url": "https://www.instagram.com/gilmurarobeautystudio/",
+          "name": "Gil Muraro | Salão de beleza",
+          "bio": "Gil Muraro | Salão de beleza (@gilmurarobeautystudio) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -5507,10 +5477,40 @@
           "source": "duckduckgo"
         },
         {
-          "username": "studioamandajille",
-          "profile_url": "https://www.instagram.com/studioamandajille/",
-          "name": "Studio Amanda Beauty | Joinville",
-          "bio": "Studio Amanda Beauty | Joinville (@studioamandajille) - Instagram",
+          "username": "amakha.belezaebemestar",
+          "profile_url": "https://www.instagram.com/amakha.belezaebemestar/",
+          "name": "Perfumaria em Joinville",
+          "bio": "Perfumaria em Joinville (@amakha.belezaebemestar) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "ciadabellezajlle",
+          "profile_url": "https://www.instagram.com/ciadabellezajlle/",
+          "name": "Cia da Belleza Salão de Beleza em Joinville (@ciadabellezajlle ...",
+          "bio": "Cia da Belleza Salão de Beleza em Joinville (@ciadabellezajlle ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Joinville",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "karin.hair",
+          "profile_url": "https://www.instagram.com/karin.hair/",
+          "name": "SALÃO DE BELEZA - JOINVILLE",
+          "bio": "SALÃO DE BELEZA - JOINVILLE (@karin.hair) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -5523,14 +5523,12 @@
         }
       ],
       "total": 8,
-      "new_count": 4,
+      "new_count": 2,
       "new_usernames": [
-        "gilmurarobeautystudio",
-        "studio_umtoquedebeleza",
-        "caarolnails_",
-        "studioamandajille"
+        "ciadabellezajlle",
+        "karin.hair"
       ],
-      "finished_at": "2026-09-29T10:16:47.477Z"
+      "finished_at": "2026-09-30T21:11:29.979Z"
     },
     {
       "query": {
