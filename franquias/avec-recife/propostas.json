@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-recife",
   "modulo": "propostas",
-  "atualizadoEm": "2026-09-30T20:20:22.143Z",
+  "atualizadoEm": "2026-09-30T20:20:43.786Z",
   "atualizadoPor": "ricardo.noblat",
   "dados": {
-    "avec:log:v1": "[{\"quando\":\"2026-09-30T20:20:21.548Z\",\"evento\":\"Começou uma proposta nova\"},{\"quando\":\"2026-09-30T20:18:01.481Z\",\"evento\":\"Abriu a calculadora\"}]"
+    "avec:log:v1": "[{\"quando\":\"2026-09-30T20:20:43.127Z\",\"evento\":\"Começou uma proposta nova\"},{\"quando\":\"2026-09-30T20:20:21.548Z\",\"evento\":\"Começou uma proposta nova\"},{\"quando\":\"2026-09-30T20:18:01.481Z\",\"evento\":\"Abriu a calculadora\"}]"
   }
 }
