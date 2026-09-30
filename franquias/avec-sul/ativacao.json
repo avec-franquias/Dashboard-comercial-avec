@@ -1,8 +1,8 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-30T19:57:28.725Z",
-  "atualizadoPor": "larissa.silva",
+  "atualizadoEm": "2026-09-30T21:34:04.611Z",
+  "atualizadoPor": "rafael.duarte",
   "dados": {
     "db": {
       "users": [
@@ -59,6 +59,13 @@
           "id": "29d25feb3d2c37bd",
           "name": "GT Larissa",
           "login": "larissa.silva",
+          "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "2779769265f2acaa",
+          "name": "Rafael Duarte",
+          "login": "rafael.duarte",
           "role": "admin",
           "pass": "portal"
         }
