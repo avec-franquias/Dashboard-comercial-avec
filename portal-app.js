@@ -554,14 +554,24 @@ function desenhaModulos() {
 const PORTAL_USAGE_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home";
 async function portalLog(evento, modulo="", detalhe={}) {
   try {
-    if (!perfil || !perfil.login) return;
-    await fetch(PORTAL_USAGE_API,{
+    if (!perfil || !perfil.login) return null;
+    const r=await fetch(PORTAL_USAGE_API,{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({action:"log",login:perfil.login,evento,modulo,detalhe})
     });
-  } catch(e) { console.warn("Portal log:",e); }
+    const j=await r.json().catch(()=>({}));
+    return r.ok&&j.ok?j:null;
+  } catch(e) { console.warn("Portal log:",e); return null; }
 }
+window.portalAtualizarLogExtracao=async(id,detalhe={})=>{
+  try{
+    if(!id||!perfil?.login)return false;
+    const r=await fetch(PORTAL_USAGE_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"log-update",login:perfil.login,id,detalhe})});
+    const j=await r.json().catch(()=>({}));
+    return !!(r.ok&&j.ok);
+  }catch(e){console.warn("Atualiza log extracao:",e);return false}
+};
 const MELHORES_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home";
 const MELHORES_IMG_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-home-image";
 async function lerEstadoHomeSupabase(){
@@ -1354,7 +1364,7 @@ async function desenhaLogsAdmin(){
     const bars=(arr)=>{const max=Math.max(1,...arr.map(x=>x[1]));return arr.slice(0,10).map(([k,v])=>'<div class="logs-bar"><b>'+esc(k)+'</b><div class="logs-bar-track"><div class="logs-bar-fill" style="width:'+Math.round(v/max*100)+'%"></div></div><small>'+v+'</small></div>').join("")||'<div class="logs-empty">Sem dados no período.</div>'};
     $("#logsModulos").innerHTML=bars(countBy(logs.filter(x=>x.modulo),x=>x.modulo));
     $("#logsFranquias").innerHTML=bars(countBy(logs.filter(x=>x.franquia_id),x=>x.franquia_id));
-    $("#logsExtrator").innerHTML=extr.length?'<div style="overflow:auto"><table class="logs-table"><thead><tr><th>Data</th><th>Franquia</th><th>Usuário</th><th>Fonte</th><th>Nicho</th><th>Cidade</th><th>Bairro</th><th>Cache</th><th>Resultados</th></tr></thead><tbody>'+extr.slice(0,300).map(x=>{const d=x.detalhe||{};return '<tr><td>'+new Date(x.criado_em).toLocaleString("pt-BR")+'</td><td>'+esc(x.franquia_id||"—")+'</td><td>'+esc(x.login)+'</td><td>'+esc(d.fonte||"—")+'</td><td>'+esc(d.nicho||"—")+'</td><td>'+esc(d.cidade||"—")+'</td><td>'+esc(d.bairro||"Todos")+'</td><td>'+(d.cached?"Sim":"Não")+'</td><td>'+esc(d.total??"—")+'</td></tr>'}).join("")+'</tbody></table></div>':'<div class="logs-empty">Nenhuma extração registrada no período.</div>';
+    $("#logsExtrator").innerHTML=extr.length?'<div style="overflow:auto"><table class="logs-table"><thead><tr><th>Data</th><th>Franquia</th><th>Usuário</th><th>Fonte</th><th>Nicho</th><th>Cidade</th><th>Bairro</th><th>Cache</th><th>Status</th><th>Resultados</th></tr></thead><tbody>'+extr.slice(0,300).map(x=>{const d=x.detalhe||{},st=d.status||(d.total!=null?"concluido":"processando"),label=st==="concluido"?"Concluído":st==="falhou"?"Falhou":"Processando";return '<tr><td>'+new Date(x.criado_em).toLocaleString("pt-BR")+'</td><td>'+esc(x.franquia_id||"—")+'</td><td>'+esc(x.login)+'</td><td>'+esc(d.fonte||"—")+'</td><td>'+esc(d.nicho||"—")+'</td><td>'+esc(d.cidade||"—")+'</td><td>'+esc(d.bairro||"Todos")+'</td><td>'+(d.cached?"Sim":"Não")+'</td><td><b>'+esc(label)+'</b>'+(d.erro?'<div class="muted">'+esc(d.erro)+'</div>':'')+'</td><td>'+esc(d.total??(st==="processando"?"Processando":"0"))+'</td></tr>'}).join("")+'</tbody></table></div>':'<div class="logs-empty">Nenhuma extração registrada no período.</div>';
     $("#logsTimeline").innerHTML=logs.length?'<div style="overflow:auto"><table class="logs-table"><thead><tr><th>Data</th><th>Franquia</th><th>Usuário</th><th>Evento</th><th>Módulo</th></tr></thead><tbody>'+logs.slice(0,500).map(x=>'<tr><td>'+new Date(x.criado_em).toLocaleString("pt-BR")+'</td><td>'+esc(x.franquia_id||"—")+'</td><td>'+esc(x.login)+'</td><td>'+esc(x.evento)+'</td><td>'+esc(x.modulo||"—")+'</td></tr>').join("")+'</tbody></table></div>':'<div class="logs-empty">Sem eventos no período.</div>';
     msg.textContent="";
   }catch(e){msg.className="msg erro";msg.textContent=e.message||"Falha ao carregar logs";}
@@ -1829,9 +1839,16 @@ window.portalSolicitarExtracao = async ({ nicho, cidade, bairro = "", max_result
   bairro = String(bairro || "").trim();
   if (!nicho || !cidade) throw new Error("Escolha o nicho e a cidade.");
   const max=String(Math.max(1, Math.min(Number(max_results) || 80, 120)));
-  const resp=await portalApi("leads", { nicho, cidade, bairro, max_results:max });
-  portalLog("extracao_leads","extrator",{fonte:"google",nicho,cidade,bairro,max_results:Number(max),cached:!!resp.cached,total:resp.run?.total??null});
-  return resp;
+  try{
+    const resp=await portalApi("leads", { nicho, cidade, bairro, max_results:max });
+    const detalhe={fonte:"google",nicho,cidade,bairro,max_results:Number(max),cached:!!resp.cached,status:resp.cached?"concluido":"processando",total:resp.run?.total??null};
+    const log=await portalLog("extracao_leads","extrator",detalhe);
+    if(log?.id) resp._log_id=log.id;
+    return resp;
+  }catch(e){
+    await portalLog("extracao_leads","extrator",{fonte:"google",nicho,cidade,bairro,max_results:Number(max),cached:false,status:"falhou",total:null,erro:e.message||"Falha ao iniciar"});
+    throw e;
+  }
 };
 window.portalSolicitarInstagram = async ({ nicho = "", uf = "", cidade = "", bairro = "", palavra_chave = "", limite = 100 }) => {
   nicho = String(nicho || "").trim();
@@ -1841,9 +1858,16 @@ window.portalSolicitarInstagram = async ({ nicho = "", uf = "", cidade = "", bai
   palavra_chave = String(palavra_chave || "").trim();
   if (!nicho && !cidade && !palavra_chave) throw new Error("Informe nicho, cidade ou palavra-chave.");
   const lim=String(Math.max(1, Math.min(Number(limite) || 100, 200)));
-  const resp=await portalApi("instagram", { nicho, uf, cidade, bairro, palavra_chave, limite:lim });
-  portalLog("extracao_leads","extrator",{fonte:"instagram",nicho,uf,cidade,bairro,palavra_chave,limite:Number(lim),cached:!!resp.cached,total:resp.run?.total??resp.run?.results?.length??null});
-  return resp;
+  try{
+    const resp=await portalApi("instagram", { nicho, uf, cidade, bairro, palavra_chave, limite:lim });
+    const detalhe={fonte:"instagram",nicho,uf,cidade,bairro,palavra_chave,limite:Number(lim),cached:!!resp.cached,status:resp.cached?"concluido":"processando",total:resp.run?.total??resp.run?.results?.length??null};
+    const log=await portalLog("extracao_leads","extrator",detalhe);
+    if(log?.id) resp._log_id=log.id;
+    return resp;
+  }catch(e){
+    await portalLog("extracao_leads","extrator",{fonte:"instagram",nicho,uf,cidade,bairro,palavra_chave,limite:Number(lim),cached:false,status:"falhou",total:null,erro:e.message||"Falha ao iniciar"});
+    throw e;
+  }
 };
 const MODULO_CACHE = /* @__PURE__ */ new Map();
 const decodifica = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
