@@ -12,6 +12,7 @@ window.PORTAL_CONFIG = {
     { id: "central", arquivo: "central.html", nome: "Central do franqueado", desc: "Treinamentos, produtos, m\xF3dulos e reuni\xF5es da rede em um s\xF3 lugar.", cor: "#0E7490" },
     { id: "clientes", arquivo: "clientes.html", nome: "Clientes", desc: "Carteira consolidada, MRR, produtos contratados e oportunidades por cliente.", cor: "#059669" },
     { id: "localizar", arquivo: "localizar-cliente.html", nome: "Localizar Cliente", desc: "Localize um cliente da rede e veja qual franquia é responsável pelo atendimento.", cor: "#0F766E" },
+    { id: "mapa-franqueado", arquivo: "mapa-franqueado.html", nome: "Mapa Franqueado", desc: "Visualize territórios, regiões e franqueados em todo o Brasil.", cor: "#5B4FE9" },
     { id: "migrador", arquivo: "migrador-planilhas.html", nome: "Migrador de Planilhas", desc: "Converta planilhas de clientes, produtos, servi\xE7os e profissionais para o formato AVEC.", cor: "#6C47FF" },
     { id: "extrator", arquivo: "extrator-leads.html", nome: "Extrator de Leads", desc: "Encontre novos estabelecimentos por nicho e regi\xE3o, sem repetir leads j\xE1 extra\xEDdos.", cor: "#7C3AED" },
     { id: "ativacao", arquivo: "ativacao.html", nome: "Ativa\xE7\xE3o de clientes", desc: "Kanban de onboarding com SLA de 48h, checklists e registro de cada contato.", cor: "#5B4FE9" },
@@ -593,7 +594,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
     if (appLoading) return appLoading;
     appLoading = new Promise(function(resolve,reject){
       var s=document.createElement("script");
-      s.src="portal-app.js?v=20260930-extratorstatus1";
+      s.src="portal-app.js?v=20260930-mapafranqueado1";
       s.onload=function(){ window.__PORTAL_APP_READY=true; resolve(); };
       s.onerror=function(){ reject(new Error("Nao foi possivel carregar o Portal.")); };
       document.body.appendChild(s);
