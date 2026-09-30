@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-fortaleza",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-30T16:11:48.073Z",
+  "atualizadoEm": "2026-09-30T16:12:09.077Z",
   "atualizadoPor": "robert.sena",
   "dados": {
     "db": {
@@ -236,7 +236,7 @@
         {
           "id": "37bd1afd67fdd61c",
           "ownerId": "853be20b65174f5f",
-          "column": "novo",
+          "column": "agendada",
           "clientCode": "107577",
           "title": "CASA ÂMBAR",
           "phone": "",
@@ -321,18 +321,30 @@
               "author": "Avec Fortaleza",
               "authorId": "853be20b65174f5f",
               "text": "adicionou este cartão a Novo cliente"
+            },
+            {
+              "id": "6cdcbd596e54ec7b",
+              "type": "action",
+              "at": "2026-09-30T16:12:08.752Z",
+              "author": "Avec Fortaleza",
+              "authorId": "853be20b65174f5f",
+              "text": "moveu este cartão de Novo cliente para Treinamento agendada"
             }
           ],
           "history": [
             {
               "at": "2026-09-30T16:11:20.029Z",
               "column": "novo"
+            },
+            {
+              "at": "2026-09-30T16:12:08.751Z",
+              "column": "agendada"
             }
           ],
           "createdAt": "2026-09-30T16:11:20.029Z",
-          "updatedAt": "2026-09-30T16:11:20.029Z",
+          "updatedAt": "2026-09-30T16:12:08.751Z",
           "finishedAt": "",
-          "ordem": 1790784680029
+          "ordem": 1790784728752
         }
       ]
     }
