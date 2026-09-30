@@ -1852,7 +1852,7 @@ async function carregaModulo(id) {
   const plain = id === "roadmap" || id === "localizar";
   const arquivo = plain
     ? "portal-assets/modulos/" + encodeURIComponent(id) + ".html?v=20260930-clientes1"
-    : "portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20260930-clientmatch1";
+    : "portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20260930-funilcentral1";
   const r = await fetch(new URL(arquivo, location.href), { cache: "no-store" });
   if (!r.ok) throw new Error("Nao foi possivel carregar o modulo " + id + ".");
   const html = plain ? await r.text() : decodifica((await r.text()).trim());
@@ -1950,6 +1950,7 @@ function portalFranquiaAlvo() {
   if (!perfil) return "";
   return perfil.papel === "admin" ? window.PORTAL_ADMIN_FRANQUIA || "" : perfil.franquiaId || "";
 }
+window.portalFranquiaAtual = () => portalFranquiaAlvo();
 async function portalEstadoFranquia(modulo) {
   const franquiaId = portalFranquiaAlvo();
   if (!franquiaId) return { ativo: false, dados: {} };
