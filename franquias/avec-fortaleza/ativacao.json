@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-fortaleza",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-30T16:11:43.159Z",
+  "atualizadoEm": "2026-09-30T16:11:48.073Z",
   "atualizadoPor": "robert.sena",
   "dados": {
     "db": {
@@ -142,7 +142,7 @@
                 {
                   "id": "cb97bb5099b15c20",
                   "text": "Boas-vindas",
-                  "done": false
+                  "done": true
                 },
                 {
                   "id": "19aefc669981630f",
@@ -212,6 +212,14 @@
               "author": "Avec Fortaleza",
               "authorId": "853be20b65174f5f",
               "text": "alterou a data da treinamento deste cartão para 29 de set. de 2026 às 13:11"
+            },
+            {
+              "id": "069ec6046b5fe349",
+              "type": "action",
+              "at": "2026-09-30T16:11:47.712Z",
+              "author": "Avec Fortaleza",
+              "authorId": "853be20b65174f5f",
+              "text": "concluiu Boas-vindas (BÁSICO) neste cartão"
             }
           ],
           "history": [
@@ -221,7 +229,7 @@
             }
           ],
           "createdAt": "2026-09-30T16:10:57.963Z",
-          "updatedAt": "2026-09-30T16:11:42.898Z",
+          "updatedAt": "2026-09-30T16:11:47.712Z",
           "finishedAt": "",
           "ordem": 1790784657963
         },
