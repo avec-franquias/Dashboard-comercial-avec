@@ -478,7 +478,7 @@ function entrarNoPortal(u) {
   }
   rota();
 }
-const SEMPRE_LIBERADOS = ["central", "migrador"];
+const SEMPRE_LIBERADOS = ["central", "migrador", "roadmap"];
 const podeUsar = (m) => {
   if (!perfil) return false;
   if (perfil.papel === "admin") return true;
@@ -510,7 +510,8 @@ function desenhaModulos() {
       { id:"ferramentas", nome:"Ferramentas", mods:["migrador","taxas","propostas"] },
       { id:"mkt", nome:"MKT", mods:["extrator"] },
       { id:"crm", nome:"CRM", mods:["vendas","ativacao"] },
-      { id:"gestao", nome:"Gestão", mods:["arvore","clientes","previsao"] }
+      { id:"gestao", nome:"Gestão", mods:["arvore","clientes","previsao"] },
+      { id:"roadmap-master", nome:"Roadmap", mods:["roadmap"] }
     ];
 
     let html = grupos.map((g,idx) => {
@@ -526,7 +527,7 @@ function desenhaModulos() {
       </details>`;
     }).join("");
 
-    const agrupados = new Set(["central","migrador","taxas","propostas","extrator","vendas","ativacao","arvore","clientes","previsao"]);
+    const agrupados = new Set(["central","migrador","taxas","propostas","extrator","vendas","ativacao","arvore","clientes","previsao","roadmap"]);
     const extras = lista.filter(m => !agrupados.has(m.id));
     if (extras.length) {
       html += `<details class="menu-grupo">
@@ -1714,9 +1715,10 @@ const MODULO_CACHE = /* @__PURE__ */ new Map();
 const decodifica = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
 async function carregaModulo(id) {
   if (MODULO_CACHE.has(id)) return MODULO_CACHE.get(id);
-  const r = await fetch(new URL("portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20260928-2354", location.href), { cache: "no-store" });
+  const arquivo = id === "roadmap" ? "portal-assets/modulos/roadmap.html?v=20260930-1" : "portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20260928-2354";
+  const r = await fetch(new URL(arquivo, location.href), { cache: "no-store" });
   if (!r.ok) throw new Error("Nao foi possivel carregar o modulo " + id + ".");
-  const html = decodifica((await r.text()).trim());
+  const html = id === "roadmap" ? await r.text() : decodifica((await r.text()).trim());
   MODULO_CACHE.set(id, html);
   return html;
 }
