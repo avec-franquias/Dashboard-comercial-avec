@@ -511,7 +511,7 @@ function desenhaModulos() {
       { id:"mkt", nome:"MKT", mods:["extrator"] },
       { id:"crm", nome:"CRM", mods:["vendas","ativacao"] },
       { id:"gestao", nome:"Gestão", mods:["arvore","clientes","previsao"] },
-      { id:"roadmap-master", nome:"Roadmap", mods:["roadmap"] }
+      { id:"roadmap-master", nome:"Sugestões", mods:["roadmap"] }
     ];
 
     let html = grupos.map((g,idx) => {
