@@ -1828,9 +1828,8 @@ async function portalEstadoFranquia(modulo) {
     return { ativo: true, dados: dados && typeof dados === "object" ? dados : {} };
   } catch (e) {
     console.warn("Dados da franquia " + modulo + ":", e);
-    // Mantem o isolamento por franquia mesmo se a leitura remota falhar:
-    // nunca reaproveita dados locais de outro usuario/grupo.
-    return { ativo: true, dados: {} };
+    // Uma falha de leitura nao equivale a uma franquia sem dados.
+    return { ativo: true, dados: {}, erro: e.message || "Falha ao carregar dados da franquia" };
   }
 }
 window.portalVendaGanhaParaAtivacao = async (lead) => {
@@ -1838,6 +1837,7 @@ window.portalVendaGanhaParaAtivacao = async (lead) => {
   const token = localStorage.getItem("portal-admin-token") || "";
   if (!franquiaId || !token) throw new Error("Franquia ou sessao indisponivel.");
   const estado = await portalEstadoFranquia("ativacao");
+  if (estado.erro) throw new Error(estado.erro);
   const dados = estado && estado.dados && typeof estado.dados === "object" ? clone(estado.dados) : {};
   const db = dados.db && typeof dados.db === "object" ? dados.db : { users: [], cards: [] };
   if (!Array.isArray(db.users)) db.users = [];
@@ -1919,22 +1919,35 @@ function portalInjetaEstado(html, modulo, estado) {
     const API=${api};
     const REMOTE=${dados};
     const rawGet=Storage.prototype.getItem, rawSet=Storage.prototype.setItem, rawRemove=Storage.prototype.removeItem, rawClear=Storage.prototype.clear;
-    let timer=null;
+    let timer=null, gravando=false, revisao=0, salva=0;
     function isLocal(self){try{return self===window.localStorage}catch{return false}}
-    function enviar(){
-      if(!REMOTE_ATIVO||!FRANQUIA||!TOKEN)return;
-      clearTimeout(timer);
-      timer=setTimeout(async()=>{
-        try{
+    async function salvar(){
+      if(gravando||revisao===salva)return;
+      clearTimeout(timer);timer=null;gravando=true;
+      try{
+        while(salva!==revisao){
+          const atual=revisao;
           const qs=new URLSearchParams({modulo:MODULO});
           if(${(perfil == null ? void 0 : perfil.papel) === "admin" ? "true" : "false"}) qs.set('franquiaId',FRANQUIA);
-          await fetch(API+'/api/franquia-data?'+qs.toString(),{
+          const r=await fetch(API+'/api/franquia-data?'+qs.toString(),{
             method:'POST',
             headers:{'Content-Type':'application/json','Authorization':'Bearer '+TOKEN},
             body:JSON.stringify({modulo:MODULO,franquiaId:FRANQUIA,dados:REMOTE})
           });
-        }catch(e){console.warn('Sincronizacao da franquia:',e)}
-      },350);
+          const j=await r.json();
+          if(!r.ok||!j.ok||!j.commit)throw new Error(j.error||'Gravacao nao confirmada');
+          salva=atual;
+        }
+      }catch(e){
+        console.warn('Sincronizacao da franquia:',e);
+        if(typeof parent.toast==='function')parent.toast('Nao foi possivel salvar os dados da franquia. Mantenha esta pagina aberta e tente novamente.');
+      }finally{gravando=false}
+    }
+    function enviar(){
+      if(!REMOTE_ATIVO||!FRANQUIA||!TOKEN)return;
+      revisao++;
+      clearTimeout(timer);
+      timer=setTimeout(salvar,350);
     }
     Storage.prototype.getItem=function(k){
       if(!isLocal(this)||!REMOTE_ATIVO)return rawGet.call(this,k);
@@ -1955,7 +1968,9 @@ function portalInjetaEstado(html, modulo, estado) {
       for(const k of Object.keys(REMOTE))delete REMOTE[k];
       enviar();
     };
-    window.addEventListener('beforeunload',()=>{if(timer){clearTimeout(timer);timer=null} enviar()});
+    window.addEventListener('beforeunload',(e)=>{
+      if(revisao!==salva){salvar();e.preventDefault();e.returnValue=''}
+    });
   })();<\/script>`;
   if (/<head[^>]*>/i.test(html)) return html.replace(/<head[^>]*>/i, (m) => m + boot);
   return boot + html;
@@ -2005,6 +2020,10 @@ async function abreModulo(m) {
   };
   if (!fr) {
     const estado = await portalEstadoFranquia(m.id);
+    if (estado.erro) {
+      toast("Nao foi possivel carregar os dados da franquia. Tente abrir o modulo novamente.");
+      return;
+    }
     fr = document.createElement("iframe");
     fr.dataset.mod = m.id;
     fr.title = m.nome;
