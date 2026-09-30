@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-30T17:04:51.961Z",
+ "atualizadoEm": "2026-09-30T17:24:53.167Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -9,12 +9,17 @@
    "ativo": true,
    "modulos": [
     "ativacao",
+    "vendas",
     "arvore",
     "previsao",
     "taxas",
     "propostas",
     "instagram",
-    "clientes"
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
    ],
    "senha": "pbkdf2$210000$b93f0866b14232541f7f0bef14775867$e65b788c604c5537888b6e1c5c21b3ad96349a4f7045729276e800574b62f563",
    "recuperacao": "pbkdf2$210000$84544035d70101546ba7832ae9c7d518$bc72a2218111a2fd91d8cb1ad8e466d5513db56dd30b0573c5e40cd716ae8da7",
@@ -49,12 +54,17 @@
    "ativo": true,
    "modulos": [
     "ativacao",
+    "vendas",
     "arvore",
     "previsao",
     "taxas",
     "propostas",
     "instagram",
-    "clientes"
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
    ],
    "senha": "pbkdf2$210000$aaddc47f36429e7bc36839c264ff4380$31194f4562c99e3c8f878b96b53101db2333d9d65b7fc3fc11421b515ad4d13a",
    "criadoEm": "2026-09-15T20:08:27.080Z"
@@ -66,12 +76,17 @@
    "ativo": true,
    "modulos": [
     "ativacao",
+    "vendas",
     "arvore",
     "previsao",
     "taxas",
     "propostas",
     "instagram",
-    "clientes"
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
    ],
    "senha": "pbkdf2$210000$dc02cea35f8ea2e542a98f797113ef7c$6d892812b29de5eb3643d73e7b8697702679f7452b9d239dbeec6b333cd0783d",
    "criadoEm": "2026-09-15T20:08:57.105Z"
@@ -83,12 +98,17 @@
    "ativo": true,
    "modulos": [
     "ativacao",
+    "vendas",
     "arvore",
     "previsao",
     "taxas",
     "propostas",
     "instagram",
-    "clientes"
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
    ],
    "senha": "pbkdf2$210000$97e87915446a1e49b7e00c8fd3ce866b$6c1786ab51c8a42922687b2e0073681d94038e932b19e823fd6842689b56b4de",
    "criadoEm": "2026-09-15T20:09:21.618Z"
@@ -100,12 +120,17 @@
    "ativo": true,
    "modulos": [
     "ativacao",
+    "vendas",
     "arvore",
     "previsao",
     "taxas",
     "propostas",
     "instagram",
-    "clientes"
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
    ],
    "senha": "pbkdf2$210000$dbdb0188686dff7a23eb54428c535ed4$779fce52617dd33754e00712d60347b8c8707b1a0fd3c42475a2eeb473a2e64d",
    "criadoEm": "2026-09-15T20:17:27.368Z"
@@ -159,7 +184,20 @@
    "nome": "Larissa Santos",
    "papel": "admin",
    "ativo": true,
-   "modulos": [],
+   "modulos": [
+    "ativacao",
+    "vendas",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
+   ],
    "senha": "pbkdf2$210000$d2a94ea42d283d4840b9c516a10f87a9$cefd082a5f39b774f2565eaf7e34c22145bd8a2a7e19a1c89402e76f077a83bc",
    "recuperacao": "pbkdf2$210000$6620ed58d478e543b577b576b80cf3c9$b7192f3cde1f4257f65b97b6613a3ab6e6aa450fa6aa22c6604a66641b8167be",
    "criadoEm": "2026-09-22T22:04:28.405Z"
@@ -169,7 +207,20 @@
    "nome": "Rafael Duarte",
    "papel": "admin",
    "ativo": true,
-   "modulos": [],
+   "modulos": [
+    "ativacao",
+    "vendas",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
+   ],
    "senha": "pbkdf2$210000$d0da45dd3169dbb2fb0ed150e4f236e8$75f8eb7a7d7e0189c4cc6c55c81741868733fd03c3d9386f997ad096ab42fd58",
    "recuperacao": "pbkdf2$210000$2f6a798503dcaa05b9fcfa0025cbcd9e$2d828eb7b13464b100406334a77a8a280a1c222296faa5fde6d8bd7ac680b05c",
    "criadoEm": "2026-09-23T14:06:08.644Z"
@@ -201,7 +252,20 @@
    "nome": "kater Hoss",
    "papel": "admin",
    "ativo": true,
-   "modulos": [],
+   "modulos": [
+    "ativacao",
+    "vendas",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
+   ],
    "senha": "pbkdf2$210000$fa1f755046cd2dfe8a73db168f48695c$006f78fc03a0adf8253bfe037ee47551b887567852977c32f03f3605e52cb990",
    "recuperacao": "pbkdf2$210000$33daf7c2c3a3ec6ed88f7cb57857ce2e$7a8ba4cb90592685b7aa8bbcff58ce446da761040fa6213259ac6d83c3cfdaeb",
    "criadoEm": "2026-09-23T14:26:00.954Z"
@@ -1070,30 +1134,8 @@
    "papel": "admin",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "migrador",
-    "extrator",
     "ativacao",
     "vendas",
-    "roadmap",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas"
-   ],
-   "senha": "pbkdf2$210000$961077f27689e5b7894b0083e7f397e5$daf2b910ed86ecba4dbd8203c822f1ef57bad0281fd0070f3b846cfa92715c2f",
-   "criadoEm": "2026-09-24T13:45:12.094Z",
-   "franquiaId": "grupo-gt",
-   "perfil": "funcionario"
-  },
-  {
-   "login": "bruna.reis",
-   "nome": "GT Bruna",
-   "papel": "franqueado",
-   "ativo": true,
-   "modulos": [
-    "ativacao",
     "arvore",
     "previsao",
     "taxas",
@@ -1102,12 +1144,33 @@
     "clientes",
     "extrator",
     "central",
-    "reunioes"
+    "reunioes",
+    "roadmap"
+   ],
+   "senha": "pbkdf2$210000$961077f27689e5b7894b0083e7f397e5$daf2b910ed86ecba4dbd8203c822f1ef57bad0281fd0070f3b846cfa92715c2f",
+   "criadoEm": "2026-09-24T13:45:12.094Z"
+  },
+  {
+   "login": "bruna.reis",
+   "nome": "GT Bruna",
+   "papel": "admin",
+   "ativo": true,
+   "modulos": [
+    "ativacao",
+    "vendas",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
    ],
    "senha": "pbkdf2$210000$00d7d6dd887ec690135ff31d6e6e83df$c52c9cebc80483032ef6215f2581be8d02fbf604e4cef687e34431af0a25a938",
-   "criadoEm": "2026-09-24T13:45:47.149Z",
-   "franquiaId": "grupo-gt",
-   "perfil": "funcionario"
+   "criadoEm": "2026-09-24T13:45:47.149Z"
   },
   {
    "login": "larissa.silva",
