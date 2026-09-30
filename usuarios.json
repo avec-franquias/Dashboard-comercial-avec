@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-29T21:35:02.800Z",
+ "atualizadoEm": "2026-09-30T12:18:42.318Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -23,7 +23,7 @@
   {
    "login": "diana.gracia",
    "nome": "Diana de Gracia",
-   "papel": "admin",
+   "papel": "franqueado",
    "ativo": true,
    "modulos": [
     "ativacao",
@@ -48,16 +48,13 @@
    "papel": "admin",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "migrador",
-    "extrator",
     "ativacao",
-    "vendas",
     "arvore",
     "previsao",
     "taxas",
-    "propostas"
+    "propostas",
+    "instagram",
+    "clientes"
    ],
    "senha": "pbkdf2$210000$aaddc47f36429e7bc36839c264ff4380$31194f4562c99e3c8f878b96b53101db2333d9d65b7fc3fc11421b515ad4d13a",
    "criadoEm": "2026-09-15T20:08:27.080Z"
@@ -65,18 +62,16 @@
   {
    "login": "luiz.gustavo",
    "nome": "luiz.gustavo",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "migrador",
-    "extrator",
     "ativacao",
     "arvore",
     "previsao",
     "taxas",
-    "propostas"
+    "propostas",
+    "instagram",
+    "clientes"
    ],
    "senha": "pbkdf2$210000$dc02cea35f8ea2e542a98f797113ef7c$6d892812b29de5eb3643d73e7b8697702679f7452b9d239dbeec6b333cd0783d",
    "criadoEm": "2026-09-15T20:08:57.105Z"
@@ -84,18 +79,16 @@
   {
    "login": "eduardo.borges",
    "nome": "Eduardo Borges",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "migrador",
-    "extrator",
     "ativacao",
     "arvore",
     "previsao",
     "taxas",
-    "propostas"
+    "propostas",
+    "instagram",
+    "clientes"
    ],
    "senha": "pbkdf2$210000$97e87915446a1e49b7e00c8fd3ce866b$6c1786ab51c8a42922687b2e0073681d94038e932b19e823fd6842689b56b4de",
    "criadoEm": "2026-09-15T20:09:21.618Z"
@@ -174,19 +167,9 @@
   {
    "login": "rafael.duarte",
    "nome": "Rafael Duarte",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
-   "modulos": [
-    "central",
-    "clientes",
-    "migrador",
-    "extrator",
-    "ativacao",
-    "arvore",
-    "previsao",
-    "taxas",
-    "propostas"
-   ],
+   "modulos": [],
    "senha": "pbkdf2$210000$d0da45dd3169dbb2fb0ed150e4f236e8$75f8eb7a7d7e0189c4cc6c55c81741868733fd03c3d9386f997ad096ab42fd58",
    "recuperacao": "pbkdf2$210000$2f6a798503dcaa05b9fcfa0025cbcd9e$2d828eb7b13464b100406334a77a8a280a1c222296faa5fde6d8bd7ac680b05c",
    "criadoEm": "2026-09-23T14:06:08.644Z"
@@ -768,7 +751,7 @@
     "central",
     "reunioes"
    ],
-   "senha": "pbkdf2$210000$155c8093aeb739ddbcca015e707119ed$9b71200c95c73669c5232beabd58f37430f4323798dec1800bf968d0755165e6",
+   "senha": "pbkdf2$210000$93a1497bd1f54ea1b4389c0804df2787$a84695297f4adbdad47c5349d7d70ac468db31ef426400a35a36c2cd8473f9f6",
    "criadoEm": "2026-09-23T18:55:20.610Z",
    "franquiaId": "avec-curitiba",
    "perfil": "franqueado"
@@ -1084,7 +1067,7 @@
   {
    "login": "camila.cristina",
    "nome": "GT Camila",
-   "papel": "admin",
+   "papel": "franqueado",
    "ativo": true,
    "modulos": [
     "ativacao",
@@ -1106,7 +1089,7 @@
   {
    "login": "bruna.reis",
    "nome": "GT Bruna",
-   "papel": "admin",
+   "papel": "franqueado",
    "ativo": true,
    "modulos": [
     "ativacao",
@@ -1128,7 +1111,7 @@
   {
    "login": "larissa.silva",
    "nome": "GT Larissa",
-   "papel": "admin",
+   "papel": "franqueado",
    "ativo": true,
    "modulos": [
     "ativacao",
@@ -1312,12 +1295,6 @@
    "ativo": true,
    "mensagem": "",
    "desde": "2026-09-23T18:21:44.221Z",
-   "por": "Christian Vieira"
-  },
-  "vendas": {
-   "ativo": true,
-   "mensagem": "",
-   "desde": "2026-09-29T19:43:56.199Z",
    "por": "Christian Vieira"
   }
  },
