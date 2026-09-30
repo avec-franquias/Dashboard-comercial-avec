@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-fortaleza",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-30T16:10:30.112Z",
+  "atualizadoEm": "2026-09-30T16:10:58.222Z",
   "atualizadoPor": "robert.sena",
   "dados": {
     "db": {
@@ -115,6 +115,107 @@
           "updatedAt": "2026-09-30T16:10:29.864Z",
           "finishedAt": "",
           "ordem": 1790784629865
+        },
+        {
+          "id": "a64026ccdc45df60",
+          "ownerId": "853be20b65174f5f",
+          "column": "novo",
+          "clientCode": "107648",
+          "title": "107648 - Raquel Melo Conceito de Beleza",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-30T13:10",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "71883e547df06800",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "cb97bb5099b15c20",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "19aefc669981630f",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "965e7044240d40f5",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "d7464ee51ef08c39",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "bccab2226fdd6092",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "76fac791040c43d0",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "ebde1d8952d1ad50",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "fd406cb6e8e32a3f",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "ef40b9f051e62a7d",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "ed5a37c5daf36def",
+              "type": "action",
+              "at": "2026-09-30T16:10:57.963Z",
+              "author": "Avec Fortaleza",
+              "authorId": "853be20b65174f5f",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-30T16:10:57.963Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-30T16:10:57.963Z",
+          "updatedAt": "2026-09-30T16:10:57.963Z",
+          "finishedAt": "",
+          "ordem": 1790784657963
         }
       ]
     }
