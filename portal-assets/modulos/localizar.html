@@ -18,8 +18,17 @@ h1{margin:0 0 6px;font-size:30px}.sub{color:var(--muted);margin:0;line-height:1.
 <div class="wrap">
   <div class="hero"><div><h1>Localizar Cliente</h1><p class="sub">Encontre um cliente da rede e veja qual franquia é responsável pelo atendimento.</p></div></div>
   <div class="box">
-    <div class="search"><input class="inp" id="q" placeholder="Digite ID, nome, CNPJ/CPF ou e-mail"><button class="btn" id="buscar">Buscar</button></div>
-    <div class="hint">Dica: o ID do cliente é a busca mais precisa.</div>
+    <div class="search">
+      <select class="inp" id="tipo" style="flex:0 0 190px;min-width:190px">
+        <option value="id">ID do cliente</option>
+        <option value="nome">Nome</option>
+        <option value="cnpj">CNPJ/CPF</option>
+        <option value="email">E-mail</option>
+      </select>
+      <input class="inp" id="q" placeholder="Digite o ID do cliente">
+      <button class="btn" id="buscar">Buscar</button>
+    </div>
+    <div class="hint" id="hintBusca">Busca exata pelo ID do cliente.</div>
     <div class="state" id="statusBase"></div>
   </div>
   <div id="res"><div class="msg">Digite pelo menos 2 caracteres para pesquisar.</div></div>
@@ -40,13 +49,24 @@ async function buscar(){
   if(q.length<2){res.innerHTML='<div class="msg">Digite pelo menos 2 caracteres para pesquisar.</div>';return}
   res.innerHTML='<div class="msg">Buscando cliente…</div>';
   try{
-    const j=await api("lookup",{q});
+    const tipo=document.getElementById("tipo").value;
+    const j=await api("lookup",{q,tipo});
     const xs=j.items||[];
     res.innerHTML=xs.length?xs.map(card).join(""):'<div class="msg">Nenhum cliente encontrado.</div>';
   }catch(e){res.innerHTML='<div class="msg">'+esc(e.message)+'</div>'}
 }
 document.getElementById("buscar").onclick=buscar;
 document.getElementById("q").onkeydown=e=>{if(e.key==="Enter")buscar()};
+document.getElementById("tipo").onchange=()=>{
+  const tipo=document.getElementById("tipo").value,q=document.getElementById("q"),h=document.getElementById("hintBusca");
+  const cfg={
+    id:["Digite o ID do cliente","Busca exata pelo ID do cliente."],
+    nome:["Digite o nome do cliente","Você pode digitar parte do nome."],
+    cnpj:["Digite o CNPJ ou CPF","Pode digitar com ou sem pontuação."],
+    email:["Digite o e-mail","Você pode digitar o e-mail completo ou parte dele."]
+  }[tipo];
+  q.placeholder=cfg[0];h.textContent=cfg[1];q.value="";q.focus();
+};
 status();
 </script>
 </body></html>
