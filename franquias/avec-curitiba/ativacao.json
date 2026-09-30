@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-curitiba",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-30T09:41:30.874Z",
+  "atualizadoEm": "2026-09-30T09:41:32.147Z",
   "atualizadoPor": "gilson.augustinhaki",
   "dados": {
     "db": {
@@ -25,6 +25,13 @@
           "name": "kater Hoss",
           "login": "kater.hoss",
           "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "1f13b1e6095ca650",
+          "name": "Avec Curitiba",
+          "login": "gilson.augustinhaki",
+          "role": "franqueado",
           "pass": "portal"
         }
       ],
