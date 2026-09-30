@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-30T17:04:18.402Z",
+ "atualizadoEm": "2026-09-30T17:04:51.961Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1112,20 +1112,19 @@
   {
    "login": "larissa.silva",
    "nome": "GT Larissa",
-   "papel": "admin",
+   "papel": "franqueado",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "migrador",
-    "extrator",
     "ativacao",
-    "vendas",
-    "roadmap",
     "arvore",
     "previsao",
     "taxas",
-    "propostas"
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes"
    ],
    "senha": "pbkdf2$210000$48f0e22594df7465265aaa654b38d8bd$2907ce37887e48aa54b4943d771dfe9d33f70e77de24e793059c103abe49a0e7",
    "criadoEm": "2026-09-24T13:46:25.052Z",
