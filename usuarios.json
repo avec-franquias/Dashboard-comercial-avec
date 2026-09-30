@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-30T14:32:21.991Z",
+ "atualizadoEm": "2026-09-30T17:04:07.565Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1089,19 +1089,20 @@
   {
    "login": "bruna.reis",
    "nome": "GT Bruna",
-   "papel": "franqueado",
+   "papel": "admin",
    "ativo": true,
    "modulos": [
+    "central",
+    "clientes",
+    "migrador",
+    "extrator",
     "ativacao",
+    "vendas",
+    "roadmap",
     "arvore",
     "previsao",
     "taxas",
-    "propostas",
-    "instagram",
-    "clientes",
-    "extrator",
-    "central",
-    "reunioes"
+    "propostas"
    ],
    "senha": "pbkdf2$210000$00d7d6dd887ec690135ff31d6e6e83df$c52c9cebc80483032ef6215f2581be8d02fbf604e4cef687e34431af0a25a938",
    "criadoEm": "2026-09-24T13:45:47.149Z",
