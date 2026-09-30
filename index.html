@@ -526,6 +526,10 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
         <h2>Usuários cadastrados</h2>
         <p class="sub">Administradores veem todos os módulos. As mudanças são salvas no site na hora e valem para os franqueados em cerca de 1 minuto.</p>
         <p class="sub" id="statusGithub" style="margin-top:-10px"></p>
+        <div style="display:flex;gap:10px;align-items:center;margin:12px 0 16px;flex-wrap:wrap">
+          <input class="inp" id="buscaUsuarios" placeholder="Pesquisar por nome, usuário, perfil ou franquia" style="max-width:520px;flex:1 1 320px">
+          <span class="sub" id="buscaUsuariosQtd" style="margin:0"></span>
+        </div>
         <div class="tabela"><table>
           <thead><tr><th>Usuário</th><th>Perfil</th><th>Franquia vinculada</th><th>Situação</th><th>Módulos</th><th></th></tr></thead>
           <tbody id="corpoUsuarios"></tbody>
@@ -563,7 +567,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
     if (appLoading) return appLoading;
     appLoading = new Promise(function(resolve,reject){
       var s=document.createElement("script");
-      s.src="portal-app.js?v=20260930-roadmap1";
+      s.src="portal-app.js?v=20260930-users-search1";
       s.onload=function(){ window.__PORTAL_APP_READY=true; resolve(); };
       s.onerror=function(){ reject(new Error("Nao foi possivel carregar o Portal.")); };
       document.body.appendChild(s);
