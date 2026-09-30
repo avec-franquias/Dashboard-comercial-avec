@@ -1,8 +1,8 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T20:56:07.186Z",
-  "atualizadoPor": "claiton.camargo",
+  "atualizadoEm": "2026-09-30T19:57:28.725Z",
+  "atualizadoPor": "larissa.silva",
   "dados": {
     "db": {
       "users": [
@@ -52,6 +52,13 @@
           "id": "62b8879ad12db66f",
           "name": "GT Bruna",
           "login": "bruna.reis",
+          "role": "admin",
+          "pass": "portal"
+        },
+        {
+          "id": "29d25feb3d2c37bd",
+          "name": "GT Larissa",
+          "login": "larissa.silva",
           "role": "admin",
           "pass": "portal"
         }
