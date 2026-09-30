@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-30T18:53:25.403Z",
+ "atualizadoEm": "2026-09-30T21:33:24.194Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1347,6 +1347,22 @@
    "perfil": "franqueado",
    "senha": "pbkdf2$210000$e1b4d746e78590703e3705846e2d1281$555aaea8e305494ca531b22dd0405426d0f392310daa1c0323f2be69afa127d0",
    "criadoEm": "2026-09-29T21:35:03.137Z"
+  },
+  {
+   "login": "hugo.mt",
+   "nome": "Hugo Brito MT",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
+    "migrador",
+    "arvore",
+    "taxas",
+    "propostas"
+   ],
+   "franquiaId": "avec-mato-grosso",
+   "perfil": "franqueado",
+   "senha": "pbkdf2$210000$c396d761d0923de2c7018e1e946e3a63$91393edf6cd014da7842b17b55c111f7b5cd1f2c74563ddc8207f40809129ce2",
+   "criadoEm": "2026-09-30T21:33:24.321Z"
   }
  ],
  "manutencao": {
