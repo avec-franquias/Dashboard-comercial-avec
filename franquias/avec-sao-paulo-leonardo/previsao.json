@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-sao-paulo-leonardo",
   "modulo": "previsao",
-  "atualizadoEm": "2026-09-30T18:59:33.539Z",
+  "atualizadoEm": "2026-09-30T18:59:35.850Z",
   "atualizadoPor": "leonardo.delachave",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"218.483,90\",\"m1\":\"221.111,34\",\"m2\":\"227\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"12\"}},\"historico\":[],\"carteira\":\"prata\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"prata\",\"ultimaGravacao\":\"2026-09-30T18:59:32.683Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"218.483,90\",\"m1\":\"221.111,34\",\"m2\":\"2273\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"12\"}},\"historico\":[],\"carteira\":\"prata\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"prata\",\"ultimaGravacao\":\"2026-09-30T18:59:35.016Z\"}"
   }
 }
