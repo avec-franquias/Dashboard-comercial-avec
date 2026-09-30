@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-fortaleza",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-30T16:12:23.805Z",
+  "atualizadoEm": "2026-09-30T16:12:24.918Z",
   "atualizadoPor": "robert.sena",
   "dados": {
     "db": {
@@ -279,7 +279,7 @@
                 {
                   "id": "11f8503f50a8476d",
                   "text": "Comanda",
-                  "done": false
+                  "done": true
                 },
                 {
                   "id": "6136b665113dc3c1",
@@ -377,6 +377,14 @@
               "author": "Avec Fortaleza",
               "authorId": "853be20b65174f5f",
               "text": "concluiu Fluxo básico de atendimento (BÁSICO) neste cartão"
+            },
+            {
+              "id": "eeb78659ad58b929",
+              "type": "action",
+              "at": "2026-09-30T16:12:24.577Z",
+              "author": "Avec Fortaleza",
+              "authorId": "853be20b65174f5f",
+              "text": "concluiu Comanda (BÁSICO) neste cartão"
             }
           ],
           "history": [
@@ -390,7 +398,7 @@
             }
           ],
           "createdAt": "2026-09-30T16:11:20.029Z",
-          "updatedAt": "2026-09-30T16:12:23.428Z",
+          "updatedAt": "2026-09-30T16:12:24.577Z",
           "finishedAt": "",
           "ordem": 1790784728752
         }
