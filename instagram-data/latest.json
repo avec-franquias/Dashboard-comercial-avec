@@ -10233,6 +10233,151 @@
         "studio_altoestima"
       ],
       "finished_at": "2026-09-30T20:15:19.473Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SE",
+        "cidade": "Amparo do São Francisco",
+        "bairro": "Carregando bairros...",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "amparodosaofrancisco",
+          "profile_url": "https://www.instagram.com/amparodosaofrancisco/",
+          "name": "Amparo de São Francisco (Oficial)",
+          "bio": "Amparo de São Francisco (Oficial) (@amparodosaofrancisco) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Amparo do São Francisco",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "thelmaelouizeoficial",
+          "profile_url": "https://www.instagram.com/thelmaelouizeoficial/",
+          "name": "Salão de Beleza Thelma & Louize",
+          "bio": "Salão de Beleza Thelma & Louize (@thelmaelouizeoficial) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Amparo do São Francisco",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "saofranciscocentrodebeleza",
+          "profile_url": "https://www.instagram.com/saofranciscocentrodebeleza/",
+          "name": "São Francisco Centro de Beleza (@saofranciscocentrodebeleza ...",
+          "bio": "São Francisco Centro de Beleza (@saofranciscocentrodebeleza ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Amparo do São Francisco",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "semasamparo",
+          "profile_url": "https://www.instagram.com/semasamparo/",
+          "name": "SEMAS| AMPARO DE SÃO FRANCISCO",
+          "bio": "SEMAS| AMPARO DE SÃO FRANCISCO (@semasamparo) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Amparo do São Francisco",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "amandaornela_",
+          "profile_url": "https://www.instagram.com/amandaornela_/",
+          "name": "AMANDA ORNELA |SALÃO DE BELEZA BARRA DE SÃO FRANCISCO (@amandaornela ...",
+          "bio": "AMANDA ORNELA |SALÃO DE BELEZA BARRA DE SÃO FRANCISCO (@amandaornela ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Amparo do São Francisco",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "vw_beautystudio",
+          "profile_url": "https://www.instagram.com/vw_beautystudio/",
+          "name": "VW Beauty Studio",
+          "bio": "VW Beauty Studio (@vw_beautystudio) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Amparo do São Francisco",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "amparo_news_",
+          "profile_url": "https://www.instagram.com/amparo_news_/",
+          "name": "Amparo do são Francisco -se",
+          "bio": "Amparo do são Francisco -se (@amparo_news_) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Amparo do São Francisco",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espacosaofranciscO",
+          "profile_url": "https://www.instagram.com/espacosaofranciscO/",
+          "name": "Espaço São Francisco",
+          "bio": "Espaço São Francisco (@espacosaofrancisco) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Amparo do São Francisco",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 8,
+      "new_count": 8,
+      "new_usernames": [
+        "amparodosaofrancisco",
+        "thelmaelouizeoficial",
+        "saofranciscocentrodebeleza",
+        "semasamparo",
+        "amandaornela_",
+        "vw_beautystudio",
+        "amparo_news_",
+        "espacosaofranciscO"
+      ],
+      "finished_at": "2026-09-30T20:16:00.468Z"
     }
   ]
 }
