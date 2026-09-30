@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-espirito-santo",
   "modulo": "previsao",
-  "atualizadoEm": "2026-09-30T18:14:59.808Z",
+  "atualizadoEm": "2026-09-30T18:15:01.101Z",
   "atualizadoPor": "rejane.silva",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"bronze\":{\"mesRef\":\"2026-09\",\"m0\":\"17.832,36\",\"m1\":\"19.928,51\",\"m2\":\"22.662,46\",\"m3\":\"21\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"bronze\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"bronze\",\"ultimaGravacao\":\"2026-09-30T18:14:59.210Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"bronze\":{\"mesRef\":\"2026-09\",\"m0\":\"17.832,36\",\"m1\":\"19.928,51\",\"m2\":\"22.662,46\",\"m3\":\"213\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"bronze\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"bronze\",\"ultimaGravacao\":\"2026-09-30T18:15:00.326Z\"}"
   }
 }
