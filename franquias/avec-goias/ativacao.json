@@ -1,8 +1,8 @@
 {
   "franquiaId": "avec-goias",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T21:17:19.002Z",
-  "atualizadoPor": "harana.lima",
+  "atualizadoEm": "2026-09-30T19:53:06.380Z",
+  "atualizadoPor": "kater.hoss",
   "dados": {
     "db": {
       "users": [
@@ -31,6 +31,20 @@
           "id": "34ffe12d88555eb8",
           "name": "Avec Goias",
           "login": "harana.lima",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "535c3155c0f9318b",
+          "name": "Hugo Brito",
+          "login": "hugo.brito",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "5defdae5824ae982",
+          "name": "Michelle Soares",
+          "login": "michelle.soares",
           "role": "franqueado",
           "pass": "portal"
         }
