@@ -1576,7 +1576,6 @@ function desenhaUsuarios() {
         } catch (e) {
           console.warn("Limpeza de vínculo após promoção para admin:", e);
         }
-        await carregaUsuarios();
         desenhaUsuarios();
       }
     };
