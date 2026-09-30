@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-mato-grosso",
   "modulo": "previsao",
-  "atualizadoEm": "2026-09-30T19:41:26.123Z",
+  "atualizadoEm": "2026-09-30T21:55:08.981Z",
   "atualizadoPor": "thiago.fernandes",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"34.205,38\",\"m1\":\"36.835,53\",\"m2\":\"39.415,36\",\"m3\":\"38.477,15\",\"b32\":\"38.784,99\",\"b33\":\"135\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"prata\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"prata\",\"ultimaGravacao\":\"2026-09-30T19:41:25.410Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"34.205,38\",\"m1\":\"36.835,53\",\"m2\":\"39.415,36\",\"m3\":\"38.477,15\",\"b32\":\"38.784,99\",\"b33\":\"135\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"prata\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"prata\",\"ultimaGravacao\":\"2026-09-30T21:55:08.214Z\"}"
   }
 }
