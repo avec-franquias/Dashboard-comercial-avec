@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--roxo:#5B4FE9;--tinta:#1f2937;--muted:#667085;--linha:#e5e7eb;--bg:#f6f7fb}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--tinta)}
+.wrap{max-width:1100px;margin:auto;padding:28px 24px 60px}.hero{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap;margin-bottom:20px}
+h1{margin:0 0 6px;font-size:30px}.sub{color:var(--muted);margin:0;line-height:1.45}.box{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:20px}
+.search{display:flex;gap:10px;flex-wrap:wrap}.inp{flex:1;min-width:260px;border:1px solid var(--linha);border-radius:10px;padding:13px 14px;font:inherit}.btn{border:0;border-radius:10px;padding:12px 18px;background:var(--roxo);color:#fff;font-weight:700;cursor:pointer}
+.hint{font-size:13px;color:var(--muted);margin-top:10px}.msg{padding:24px;text-align:center;color:var(--muted)}
+.card{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:18px;margin-top:12px;display:grid;grid-template-columns:1fr auto;gap:20px}
+.card h3{margin:0 0 6px;font-size:18px}.meta{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}.pill{background:#f1f2f7;border-radius:999px;padding:5px 9px;font-size:12px;color:#475467}.fr{min-width:250px;background:#f8f7ff;border:1px solid #e8e5ff;border-radius:12px;padding:14px}.fr small{display:block;color:var(--muted);margin-bottom:4px}.fr b{font-size:16px}.fr a{display:inline-block;margin-top:8px;color:var(--roxo);font-weight:600;text-decoration:none}.state{font-size:13px;color:var(--muted);margin-top:10px}
+@media(max-width:720px){.card{grid-template-columns:1fr}.fr{min-width:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero"><div><h1>Localizar Cliente</h1><p class="sub">Encontre um cliente da rede e veja qual franquia é responsável pelo atendimento.</p></div></div>
+  <div class="box">
+    <div class="search"><input class="inp" id="q" placeholder="Digite ID, nome, CNPJ/CPF ou e-mail"><button class="btn" id="buscar">Buscar</button></div>
+    <div class="hint">Dica: o ID do cliente é a busca mais precisa.</div>
+    <div class="state" id="statusBase"></div>
+  </div>
+  <div id="res"><div class="msg">Digite pelo menos 2 caracteres para pesquisar.</div></div>
+</div>
+<script>
+const API="https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-clientes";
+const u=parent.portalUsuarioAtual?parent.portalUsuarioAtual():null;
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+async function api(action,p={}){const r=await fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action,login:u?.login,...p})});const j=await r.json().catch(()=>({}));if(!r.ok||!j.ok)throw Error(j.error||"Não foi possível concluir.");return j}
+function fmtDate(v){if(!v)return"";try{return new Date(v).toLocaleString("pt-BR")}catch{return v}}
+async function status(){try{const j=await api("status");const s=j.state||{};document.getElementById("statusBase").textContent=s.atualizado_em?"Base atualizada em "+fmtDate(s.atualizado_em)+" · "+Number(s.total_rows||0).toLocaleString("pt-BR")+" clientes":"Base ainda não disponível."}catch{document.getElementById("statusBase").textContent=""}}
+function card(x){
+  const mail=x.franquia_email?'<a href="mailto:'+esc(x.franquia_email)+'">Falar com a franquia</a>':"";
+  return '<div class="card"><div><h3>'+esc(x.nome)+'</h3><div class="meta"><span class="pill">ID '+esc(x.id_cliente)+'</span>'+(x.documento?'<span class="pill">'+esc(x.documento)+'</span>':'')+(x.cidade||x.estado?'<span class="pill">'+esc([x.cidade,x.estado].filter(Boolean).join("/"))+'</span>':'')+'</div>'+(x.email?'<div class="sub">'+esc(x.email)+'</div>':'')+'</div><div class="fr"><small>Franquia responsável</small><b>'+esc(x.franquia||x.franchise_id||"Não identificada")+'</b>'+(x.franquia_email?'<div class="sub" style="margin-top:4px">'+esc(x.franquia_email)+'</div>':'')+mail+'</div></div>';
+}
+async function buscar(){
+  const q=document.getElementById("q").value.trim(),res=document.getElementById("res");
+  if(q.length<2){res.innerHTML='<div class="msg">Digite pelo menos 2 caracteres para pesquisar.</div>';return}
+  res.innerHTML='<div class="msg">Buscando cliente…</div>';
+  try{
+    const j=await api("lookup",{q});
+    const xs=j.items||[];
+    res.innerHTML=xs.length?xs.map(card).join(""):'<div class="msg">Nenhum cliente encontrado.</div>';
+  }catch(e){res.innerHTML='<div class="msg">'+esc(e.message)+'</div>'}
+}
+document.getElementById("buscar").onclick=buscar;
+document.getElementById("q").onkeydown=e=>{if(e.key==="Enter")buscar()};
+status();
+</script>
+</body></html>
