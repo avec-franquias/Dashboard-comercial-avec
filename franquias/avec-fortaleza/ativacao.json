@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-fortaleza",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-30T16:09:48.519Z",
+  "atualizadoEm": "2026-09-30T16:10:30.112Z",
   "atualizadoPor": "robert.sena",
   "dados": {
     "db": {
@@ -14,7 +14,109 @@
           "pass": "portal"
         }
       ],
-      "cards": []
+      "cards": [
+        {
+          "id": "2f79ee255189ff31",
+          "ownerId": "853be20b65174f5f",
+          "column": "novo",
+          "clientCode": "107669",
+          "title": "107669-JOULIE CONCEPT",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-30T13:10",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "b749c8b3531f104c",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "0715fe94df44dd86",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "61722c1c483088cc",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "98ee169f37c005b4",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "a4675b26eab1668f",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "934f23d36cda6e26",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "f3850bf4c398c1e9",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "1697683bf411e580",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "788a552a21b4af0f",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "e9cc37e51de4cad1",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "3e27b3b47024ffa4",
+              "type": "action",
+              "at": "2026-09-30T16:10:29.865Z",
+              "author": "Avec Fortaleza",
+              "authorId": "853be20b65174f5f",
+              "text": "adicionou este cartão a Novo cliente"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-30T16:10:29.864Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-09-30T16:10:29.864Z",
+          "updatedAt": "2026-09-30T16:10:29.864Z",
+          "finishedAt": "",
+          "ordem": 1790784629865
+        }
+      ]
     }
   }
 }
