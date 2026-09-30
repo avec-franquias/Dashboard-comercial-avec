@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-09-30T18:02:27.737Z",
+ "atualizadoEm": "2026-09-30T18:02:59.070Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1169,7 +1169,7 @@
     "reunioes",
     "roadmap"
    ],
-   "senha": "pbkdf2$210000$00d7d6dd887ec690135ff31d6e6e83df$c52c9cebc80483032ef6215f2581be8d02fbf604e4cef687e34431af0a25a938",
+   "senha": "pbkdf2$210000$ac56570240d6bca384786e56a90ff1d8$ba97ad68092a3ac4790530a41b78879dd21cbdd8266661e1f5f94064d704cd41",
    "criadoEm": "2026-09-24T13:45:47.149Z"
   },
   {
@@ -1360,6 +1360,12 @@
    "ativo": true,
    "mensagem": "",
    "desde": "2026-09-23T18:21:44.221Z",
+   "por": "Christian Vieira"
+  },
+  "roadmap": {
+   "ativo": true,
+   "mensagem": "",
+   "desde": "2026-09-30T14:32:20.562Z",
    "por": "Christian Vieira"
   }
  },
