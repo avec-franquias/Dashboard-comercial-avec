@@ -447,7 +447,7 @@ function entrarNoPortal(u) {
   const secFranquias = document.getElementById("abaFranquias");
   const tabFranquias = document.querySelector('[data-aba="franquias"]');
   if (!admin) {
-    for (const id of ["abaUsuarios", "abaFranquias", "abaManutencao", "abaConteudo", "abaLogs"]) {
+    for (const id of ["abaUsuarios", "abaFranquias", "abaManutencao", "abaConteudo", "abaLogs", "abaBaseClientes"]) {
       const el = document.getElementById(id);
       if (el) {
         el.classList.add("hidden");
@@ -478,7 +478,7 @@ function entrarNoPortal(u) {
   }
   rota();
 }
-const SEMPRE_LIBERADOS = ["central", "migrador", "roadmap"];
+const SEMPRE_LIBERADOS = ["central", "migrador", "roadmap", "localizar"];
 const podeUsar = (m) => {
   if (!perfil) return false;
   if (perfil.papel === "admin") return true;
@@ -510,7 +510,7 @@ function desenhaModulos() {
       { id:"ferramentas", nome:"Ferramentas", mods:["migrador","taxas","propostas"] },
       { id:"mkt", nome:"MKT", mods:["extrator"] },
       { id:"crm", nome:"CRM", mods:["vendas","ativacao"] },
-      { id:"gestao", nome:"Gestão", mods:["arvore","clientes","previsao"] },
+      { id:"gestao", nome:"Gestão", mods:["localizar","arvore","clientes","previsao"] },
       { id:"roadmap-master", nome:"Sugestões", mods:["roadmap"] }
     ];
 
@@ -527,7 +527,7 @@ function desenhaModulos() {
       </details>`;
     }).join("");
 
-    const agrupados = new Set(["central","migrador","taxas","propostas","extrator","vendas","ativacao","arvore","clientes","previsao","roadmap"]);
+    const agrupados = new Set(["central","migrador","taxas","propostas","extrator","vendas","ativacao","localizar","arvore","clientes","previsao","roadmap"]);
     const extras = lista.filter(m => !agrupados.has(m.id));
     if (extras.length) {
       html += `<details class="menu-grupo">
@@ -1195,7 +1195,7 @@ $("#btnSenha").onclick = () => {
     toast("Senha alterada.");
   };
 };
-const SUB_ABA = { modulos: "Escolha a ferramenta que você quer usar.", usuarios: "Crie acessos, libere módulos e desative quem saiu.", franquias: "Cadastre franquias e vincule usuários existentes.", manutencao: "Bloqueie temporariamente um módulo enquanto ele é ajustado.", conteudo: "Edite páginas, textos, imagens e materiais da Central do Franqueado.", logs: "Acompanhe a utilização do Portal e do Extrator de Leads." };
+const SUB_ABA = { modulos: "Escolha a ferramenta que você quer usar.", usuarios: "Crie acessos, libere módulos e desative quem saiu.", franquias: "Cadastre franquias e vincule usuários existentes.", manutencao: "Bloqueie temporariamente um módulo enquanto ele é ajustado.", conteudo: "Edite páginas, textos, imagens e materiais da Central do Franqueado.", logs: "Acompanhe a utilização do Portal e do Extrator de Leads.", "base-clientes": "Atualize a base mestre de clientes usada pelo Localizar Cliente." };
 function trocaAba(aba) {
   $$("#abas button").forEach((x) => x.setAttribute("aria-selected", x.dataset.aba === aba));
   $("#abaModulos").classList.toggle("hidden", aba !== "modulos");
@@ -1205,6 +1205,7 @@ function trocaAba(aba) {
   $("#abaManutencao").classList.toggle("hidden", aba !== "manutencao");
   $("#abaConteudo").classList.toggle("hidden", aba !== "conteudo");
   const al = $("#abaLogs"); if (al) al.classList.toggle("hidden", aba !== "logs");
+  const abc = $("#abaBaseClientes"); if (abc) abc.classList.toggle("hidden", aba !== "base-clientes");
   $("#olaSub").textContent = SUB_ABA[aba];
   if (aba === "usuarios") {
     desenhaUsuarios();
@@ -1217,9 +1218,100 @@ function trocaAba(aba) {
   }
   if (aba === "conteudo") desenhaConteudoAdmin();
   if (aba === "logs") desenhaLogsAdmin();
+  if (aba === "base-clientes") desenhaBaseClientesAdmin();
   if (aba === "modulos") desenhaModulos();
 }
 $$("#abas button").forEach((b) => b.onclick = () => trocaAba(b.dataset.aba));
+
+const PORTAL_CLIENTES_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/portal-clientes";
+function csvDetectDelimiter(line){
+  const counts=[",",";","\t"].map(d=>[d,(line.match(new RegExp(d==="\t"?"\\t":"\\\\\\"+d,"g"))||[]).length]);
+  return counts.sort((a,b)=>b[1]-a[1])[0][0];
+}
+function parseCsv(text){
+  text=String(text||"").replace(/^\uFEFF/,"");
+  const first=(text.split(/\r?\n/,1)[0]||"");
+  const d=csvDetectDelimiter(first);
+  const rows=[]; let row=[],cell="",q=false;
+  for(let i=0;i<text.length;i++){
+    const ch=text[i];
+    if(q){
+      if(ch==='"'&&text[i+1]==='"'){cell+='"';i++}
+      else if(ch==='"')q=false;
+      else cell+=ch;
+    }else{
+      if(ch==='"')q=true;
+      else if(ch===d){row.push(cell);cell=""}
+      else if(ch==="\n"){row.push(cell.replace(/\r$/,""));rows.push(row);row=[];cell=""}
+      else cell+=ch;
+    }
+  }
+  if(cell.length||row.length){row.push(cell.replace(/\r$/,""));rows.push(row)}
+  if(!rows.length)return[];
+  const h=rows.shift().map(x=>String(x||"").trim());
+  return rows.filter(r=>r.some(v=>String(v||"").trim())).map(r=>{
+    const o={}; h.forEach((k,i)=>{if(k)o[k]=r[i]??""}); return o;
+  });
+}
+async function clientesApi(action,payload={}){
+  const senha=sessionStorage.getItem("portal-admin-password")||"";
+  const body={action,login:perfil?.login,...payload};
+  if(["start-import","upload-batch","finish-import","cancel-import"].includes(action)) body.senha=senha;
+  const r=await fetch(PORTAL_CLIENTES_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok||!j.ok) throw new Error(j.error||"Não foi possível concluir.");
+  return j;
+}
+function renderBaseClientesStatus(s){
+  const box=$("#baseClientesResumo"); if(!box)return;
+  if(!s?.atualizado_em){
+    box.innerHTML='<div class="aviso">Nenhuma base foi publicada ainda.</div>'; return;
+  }
+  box.innerHTML='<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">'+
+    [['Clientes',Number(s.total_rows||0).toLocaleString("pt-BR")],['Franquias',Number(s.franquias||0).toLocaleString("pt-BR")],['Última atualização',new Date(s.atualizado_em).toLocaleString("pt-BR")],['Arquivo',s.arquivo_nome||"—"]]
+    .map(([l,v])=>'<div style="background:#fff;border:1px solid var(--linha);border-radius:12px;padding:14px"><small style="color:var(--tinta-suave)">'+esc(l)+'</small><div style="font-weight:700;font-size:17px;margin-top:5px">'+esc(v)+'</div></div>').join("")+'</div>';
+}
+async function desenhaBaseClientesAdmin(){
+  if(!perfil||perfil.papel!=="admin")return;
+  const msg=$("#baseClientesMsg"),file=$("#baseClientesArquivo"),btn=$("#baseClientesImportar");
+  try{const j=await clientesApi("status");renderBaseClientesStatus(j.state)}catch(e){if(msg){msg.className="msg erro";msg.textContent=e.message}}
+  const atualiza=$("#baseClientesAtualizarStatus");
+  if(atualiza&&!atualiza.dataset.on){atualiza.dataset.on="1";atualiza.onclick=async()=>{try{const j=await clientesApi("status");renderBaseClientesStatus(j.state)}catch(e){if(msg)msg.textContent=e.message}}}
+  if(btn&&!btn.dataset.on){
+    btn.dataset.on="1";
+    btn.onclick=async()=>{
+      const f=file?.files?.[0]; if(!f){msg.className="msg erro";msg.textContent="Selecione um arquivo CSV.";return}
+      if(!sessionStorage.getItem("portal-admin-password")){msg.className="msg erro";msg.textContent="Entre novamente no Portal para atualizar a base.";return}
+      btn.disabled=true; const prog=$("#baseClientesProgresso"),bar=$("#baseClientesBarra"),txt=$("#baseClientesProgressoTxt");
+      prog.classList.remove("hidden"); bar.style.width="0%"; txt.textContent="Lendo arquivo…"; msg.textContent="";
+      let lote="";
+      try{
+        const rows=parseCsv(await f.text());
+        if(!rows.length)throw new Error("O CSV está vazio.");
+        const headers=Object.keys(rows[0]||{});
+        if(!headers.includes("id")&&!headers.includes("id_cliente"))throw new Error("Não encontrei a coluna ID do cliente.");
+        if(!headers.includes("name")&&!headers.includes("nome"))throw new Error("Não encontrei a coluna nome do cliente.");
+        const franquias=new Set(rows.map(r=>String(r.franchise_id||"").trim()).filter(Boolean)).size;
+        txt.textContent="Preparando importação de "+rows.length.toLocaleString("pt-BR")+" clientes…";
+        const start=await clientesApi("start-import",{arquivo_nome:f.name}); lote=start.lote_id;
+        const size=400;
+        for(let i=0;i<rows.length;i+=size){
+          await clientesApi("upload-batch",{lote_id:lote,rows:rows.slice(i,i+size)});
+          const pct=Math.round(Math.min(rows.length,i+size)/rows.length*100);
+          bar.style.width=pct+"%"; txt.textContent="Enviando clientes… "+pct+"%";
+        }
+        const fin=await clientesApi("finish-import",{lote_id:lote,arquivo_nome:f.name,total:rows.length,franquias});
+        bar.style.width="100%";txt.textContent="Importação concluída.";
+        msg.className="msg ok";msg.textContent=Number(fin.total||rows.length).toLocaleString("pt-BR")+" clientes publicados com sucesso.";
+        file.value="";const st=await clientesApi("status");renderBaseClientesStatus(st.state);
+      }catch(e){
+        if(lote){try{await clientesApi("cancel-import",{lote_id:lote})}catch{}}
+        msg.className="msg erro";msg.textContent=e.message;txt.textContent="Importação interrompida.";
+      }finally{btn.disabled=false}
+    };
+  }
+}
+
 async function desenhaLogsAdmin(){
   const msg=$("#logsMsg"); if(!msg)return;
   const senha=sessionStorage.getItem("portal-admin-password")||"";
@@ -1757,10 +1849,13 @@ const MODULO_CACHE = /* @__PURE__ */ new Map();
 const decodifica = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
 async function carregaModulo(id) {
   if (MODULO_CACHE.has(id)) return MODULO_CACHE.get(id);
-  const arquivo = id === "roadmap" ? "portal-assets/modulos/roadmap.html?v=20260930-1" : "portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20260928-2354";
+  const plain = id === "roadmap" || id === "localizar";
+  const arquivo = plain
+    ? "portal-assets/modulos/" + encodeURIComponent(id) + ".html?v=20260930-clientes1"
+    : "portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20260928-2354";
   const r = await fetch(new URL(arquivo, location.href), { cache: "no-store" });
   if (!r.ok) throw new Error("Nao foi possivel carregar o modulo " + id + ".");
-  const html = id === "roadmap" ? await r.text() : decodifica((await r.text()).trim());
+  const html = plain ? await r.text() : decodifica((await r.text()).trim());
   MODULO_CACHE.set(id, html);
   return html;
 }
