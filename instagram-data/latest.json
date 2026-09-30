@@ -7308,6 +7308,151 @@
         "popular"
       ],
       "finished_at": "2026-09-30T01:54:25.003Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "PR",
+        "cidade": "Almirante Tamandaré",
+        "bairro": "Carregando bairros...",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "studioo_mulher_",
+          "profile_url": "https://www.instagram.com/studioo_mulher_/",
+          "name": "Salão de Beleza | Almirante Tamandaré (@studioo_mulher ...",
+          "bio": "Salão de Beleza | Almirante Tamandaré (@studioo_mulher ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Almirante Tamandaré",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaodebelezadamari7",
+          "profile_url": "https://www.instagram.com/salaodebelezadamari7/",
+          "name": "Salão de beleza ‍♀️",
+          "bio": "Salão de beleza ‍♀️ (@salaodebelezadamari7) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Almirante Tamandaré",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "beauty_center_josy",
+          "profile_url": "https://www.instagram.com/beauty_center_josy/",
+          "name": "Almirante Tamandaré | Salão de beleza",
+          "bio": "Almirante Tamandaré | Salão de beleza (@beauty_center_josy) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Almirante Tamandaré",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiodebeleza_glowup",
+          "profile_url": "https://www.instagram.com/studiodebeleza_glowup/",
+          "name": "Studio GlowUp/ salão de Beleza Almirante Tamandaré PR ...",
+          "bio": "Studio GlowUp/ salão de Beleza Almirante Tamandaré PR ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Almirante Tamandaré",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "meninascabeloestetica",
+          "profile_url": "https://www.instagram.com/meninascabeloestetica/",
+          "name": "Meninas Cabelo e Estética",
+          "bio": "Meninas Cabelo e Estética (@meninascabeloestetica) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Almirante Tamandaré",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espaconatiromeiro",
+          "profile_url": "https://www.instagram.com/espaconatiromeiro/",
+          "name": "Nati Romeiro",
+          "bio": "Nati Romeiro (@espaconatiromeiro) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Almirante Tamandaré",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studio_kairosmj",
+          "profile_url": "https://www.instagram.com/studio_kairosmj/",
+          "name": "stúdio de beleza |Almirante Tamandaré",
+          "bio": "stúdio de beleza |Almirante Tamandaré (@studio_kairosmj) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Almirante Tamandaré",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "lr_santosbrows",
+          "profile_url": "https://www.instagram.com/lr_santosbrows/",
+          "name": "LR_Sobrancelhas almirante Tamandaré",
+          "bio": "LR_Sobrancelhas almirante Tamandaré (@lr_santosbrows) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Almirante Tamandaré",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 8,
+      "new_count": 8,
+      "new_usernames": [
+        "studioo_mulher_",
+        "salaodebelezadamari7",
+        "beauty_center_josy",
+        "studiodebeleza_glowup",
+        "meninascabeloestetica",
+        "espaconatiromeiro",
+        "studio_kairosmj",
+        "lr_santosbrows"
+      ],
+      "finished_at": "2026-09-30T12:35:57.079Z"
     }
   ]
 }
