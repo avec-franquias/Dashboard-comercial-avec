@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-sao-paulo-harutyun",
   "modulo": "previsao",
-  "atualizadoEm": "2026-10-01T03:03:01.616Z",
+  "atualizadoEm": "2026-10-01T03:03:06.539Z",
   "atualizadoPor": "harutyun.ghazaryan",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-10\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"prata\",\"janelaAtual\":\"Ago/26 · Set/26 · Out/26\",\"ultimaCarteira\":\"prata\",\"ultimaGravacao\":\"2026-10-01T03:03:00.058Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-10\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"bronze\":{\"mesRef\":\"2026-10\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"bronze\",\"janelaAtual\":\"Ago/26 · Set/26 · Out/26\",\"ultimaCarteira\":\"bronze\",\"ultimaGravacao\":\"2026-10-01T03:03:05.040Z\"}"
   }
 }
