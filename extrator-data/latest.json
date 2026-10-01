@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T17:21:08.138Z",
+  "generated_at": "2026-10-01T17:24:48.854Z",
   "runs": [
     {
       "query": {
@@ -54067,6 +54067,19 @@
           "maps_url": "https://www.google.com/maps/place/N%C3%BAbia+Cabeleleira/data=!4m7!3m6!1s0x7bba100757f2d6b:0xad2db495af7a22f!8m2!3d-5.5197817!4d-38.2701738!16s%2Fg%2F11x6533m68!19sChIJay1_dQChuwcRL6L3Wknb0go?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
         }
       ]
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "cidade": "Água Branca, AL",
+        "bairro": "Carregando bairros...",
+        "max_results": 80
+      },
+      "finished_at": "2026-10-01T17:24:47.826Z",
+      "total": 0,
+      "new_count": 0,
+      "new_ids": [],
+      "leads": []
     }
   ]
 }
