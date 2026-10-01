@@ -8189,21 +8189,6 @@
       },
       "results": [
         {
-          "username": "studio_kelly.santos",
-          "profile_url": "https://www.instagram.com/studio_kelly.santos/",
-          "name": "Salão de Beleza (Acaraú-ce)",
-          "bio": "Salão de Beleza (Acaraú-ce) (@studio_kelly.santos) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Acaraú",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
           "username": "silmara_senna",
           "profile_url": "https://www.instagram.com/silmara_senna/",
           "name": "salão de beleza Acaraú-CE",
@@ -8219,10 +8204,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "geizarodrigues.beleza",
-          "profile_url": "https://www.instagram.com/geizarodrigues.beleza/",
-          "name": "BELEZA & AUTOCUIDADO EM ACARAÚ (@geizarodrigues.beleza ...",
-          "bio": "BELEZA & AUTOCUIDADO EM ACARAÚ (@geizarodrigues.beleza ... - Instagram",
+          "username": "studio_kelly.santos",
+          "profile_url": "https://www.instagram.com/studio_kelly.santos/",
+          "name": "Salão de Beleza (Acaraú-ce)",
+          "bio": "Salão de Beleza (Acaraú-ce) (@studio_kelly.santos) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -8234,10 +8219,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "kalucabeleireiros",
-          "profile_url": "https://www.instagram.com/kalucabeleireiros/",
-          "name": "Kalu Cabeleireiros",
-          "bio": "Kalu Cabeleireiros (@kalucabeleireiros) • Instagram photos and videos",
+          "username": "geizarodrigues.beleza",
+          "profile_url": "https://www.instagram.com/geizarodrigues.beleza/",
+          "name": "BELEZA & AUTOCUIDADO EM ACARAÚ",
+          "bio": "BELEZA & AUTOCUIDADO EM ACARAÚ (@geizarodrigues.beleza) • Instagram ...",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -8252,52 +8237,7 @@
           "username": "alinestudiodebeleza",
           "profile_url": "https://www.instagram.com/alinestudiodebeleza/",
           "name": "Aline Studio ️Acaraú",
-          "bio": "Aline Studio ️Acaraú (@alinestudiodebeleza) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Acaraú",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "espacoanagizele",
-          "profile_url": "https://www.instagram.com/espacoanagizele/",
-          "name": "Designer de sobrancelhas | Acaraú - Ce",
-          "bio": "Designer de sobrancelhas | Acaraú - Ce (@espacoanagizele) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Acaraú",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "esteticacarlaecia",
-          "profile_url": "https://www.instagram.com/esteticacarlaecia/",
-          "name": "Estética Carla | Salão de beleza",
-          "bio": "Estética Carla | Salão de beleza (@esteticacarlaecia) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Acaraú",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "beautyecare_",
-          "profile_url": "https://www.instagram.com/beautyecare_/",
-          "name": "Salão de beleza",
-          "bio": "Salão de beleza (@beautyecare_) • Instagram photos and videos",
+          "bio": "Aline Studio ️Acaraú (@alinestudiodebeleza) • Instagram photos and videos",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -8309,19 +8249,10 @@
           "source": "duckduckgo"
         }
       ],
-      "total": 8,
-      "new_count": 8,
-      "new_usernames": [
-        "studio_kelly.santos",
-        "silmara_senna",
-        "geizarodrigues.beleza",
-        "kalucabeleireiros",
-        "alinestudiodebeleza",
-        "espacoanagizele",
-        "esteticacarlaecia",
-        "beautyecare_"
-      ],
-      "finished_at": "2026-09-30T16:18:07.151Z"
+      "total": 4,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-01T12:38:50.107Z"
     },
     {
       "query": {
