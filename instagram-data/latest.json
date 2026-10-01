@@ -10929,6 +10929,151 @@
         "studio_visagee"
       ],
       "finished_at": "2026-10-01T03:01:30.842Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SP",
+        "cidade": "Barueri",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "studioandradehair_",
+          "profile_url": "https://www.instagram.com/studioandradehair_/",
+          "name": "STUDIO ANDRADE SALÃO DE BELEZA •BARUERI-SP ...",
+          "bio": "STUDIO ANDRADE SALÃO DE BELEZA •BARUERI-SP ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Barueri",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaopuramania",
+          "profile_url": "https://www.instagram.com/salaopuramania/",
+          "name": "Salão Puramania",
+          "bio": "Salão Puramania (@salaopuramania) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Barueri",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "popular",
+          "profile_url": "https://www.instagram.com/popular/",
+          "name": "Salao De Beleza Em Barueri",
+          "bio": "Salao De Beleza Em Barueri - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Barueri",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiogaoficial",
+          "profile_url": "https://www.instagram.com/studiogaoficial/",
+          "name": "Salão de Beleza | Barueri- SP",
+          "bio": "Salão de Beleza | Barueri- SP (@studiogaoficial) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Barueri",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "rodiziodabeleza",
+          "profile_url": "https://www.instagram.com/rodiziodabeleza/",
+          "name": "Rodízio da Beleza Barueri",
+          "bio": "Rodízio da Beleza Barueri (@rodiziodabeleza) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Barueri",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiodiamond_0102",
+          "profile_url": "https://www.instagram.com/studiodiamond_0102/",
+          "name": "Studio Diamond | Salão de Beleza Barueri (@studiodiamond_0102 ...",
+          "bio": "Studio Diamond | Salão de Beleza Barueri (@studiodiamond_0102 ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Barueri",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "as_salaodebeleza",
+          "profile_url": "https://www.instagram.com/as_salaodebeleza/",
+          "name": "Salão de beleza",
+          "bio": "Salão de beleza (@as_salaodebeleza) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Barueri",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "marystudio.beauty",
+          "profile_url": "https://www.instagram.com/marystudio.beauty/",
+          "name": "Mary Studio Beauty | Salão de Beleza | Barueri (@marystudio.beauty ...",
+          "bio": "Mary Studio Beauty | Salão de Beleza | Barueri (@marystudio.beauty ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Barueri",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 8,
+      "new_count": 8,
+      "new_usernames": [
+        "studioandradehair_",
+        "salaopuramania",
+        "popular",
+        "studiogaoficial",
+        "rodiziodabeleza",
+        "studiodiamond_0102",
+        "as_salaodebeleza",
+        "marystudio.beauty"
+      ],
+      "finished_at": "2026-10-01T12:23:54.871Z"
     }
   ]
 }
