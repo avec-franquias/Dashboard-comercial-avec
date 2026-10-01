@@ -1,8 +1,8 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-01T01:01:42.690Z",
-  "atualizadoPor": "claiton.camargo",
+  "atualizadoEm": "2026-10-01T12:58:27.059Z",
+  "atualizadoPor": "rafael.duarte",
   "dados": {
     "db": {
       "users": [
@@ -24,7 +24,7 @@
           "id": "be7035d0f488850d",
           "name": "Simone Camargo",
           "login": "simone.camargo",
-          "role": "historico",
+          "role": "franqueado",
           "pass": "portal"
         },
         {
