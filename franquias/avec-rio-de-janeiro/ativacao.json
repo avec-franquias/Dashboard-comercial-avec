@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-rio-de-janeiro",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-01T14:14:10.673Z",
+  "atualizadoEm": "2026-10-01T14:14:12.083Z",
   "atualizadoPor": "kater.hoss",
   "dados": {
     "db": {
@@ -31,6 +31,13 @@
           "id": "80d9af99909617ca",
           "name": "Avec São Paulo - Katia",
           "login": "katia.oliveira",
+          "role": "historico",
+          "pass": "portal"
+        },
+        {
+          "id": "7840fd2967e6c1c3",
+          "name": "Avec Rio de Janeiro",
+          "login": "henrique.lopes",
           "role": "franqueado",
           "pass": "portal"
         }
