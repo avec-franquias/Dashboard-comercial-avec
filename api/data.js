@@ -1,4 +1,5 @@
 import {fail} from '../lib/github.js';
+import resultados from '../lib/resultados.js';
 
 const norm=s=>String(s||'').trim().toLocaleLowerCase('pt-BR');
 
@@ -9,6 +10,8 @@ async function fetchText(url, headers={}){
 }
 
 export default async function handler(req,res){
+  // Metas e gaps: atendido aqui para não passar do limite de 12 funções do plano Hobby da Vercel
+  if(String(req.query?.type||'').trim().toLowerCase()==='resultados') return resultados(req,res);
   try{
     const type=String(req.query?.type||'').trim().toLowerCase();
     const repo=process.env.GITHUB_REPOSITORY||'avec-franquias/Dashboard-comercial-avec';

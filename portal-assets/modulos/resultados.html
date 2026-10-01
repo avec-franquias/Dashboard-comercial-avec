@@ -449,7 +449,7 @@ async function carregar(forcar=false){
     S.user = P.portalUsuarioAtual();
     try{ S.franquias = (P.portalAtualizarFranquias ? await P.portalAtualizarFranquias() : P.portalFranquias()) || []; }catch(e){ S.franquias = []; }
     try{
-      const d = await api("/api/resultados?ano="+S.ano+(forcar?"&atualizar=1":""));
+      const d = await api("/api/data?type=resultados&ano="+S.ano+(forcar?"&atualizar=1":""));
       S.metas = d.metas || {}; S.real = d.realizado || []; S.fonte = d.fonte;
       S.metasFonte = d.metasFonte || "portal"; S.planilha = d.planilha || null;
       S.realInfo = d.realizadoInfo || null; S.realErro = d.realizadoErro || null;
@@ -479,7 +479,7 @@ async function carregar(forcar=false){
 }
 async function recarregarRealizado(){
   try{
-    const d = await api("/api/resultados?ano="+S.ano);
+    const d = await api("/api/data?type=resultados&ano="+S.ano);
     S.real = d.realizado || []; S.carregando = !!d.carregando; S.realInfo = d.realizadoInfo || S.realInfo;
     MEMO = new Map(); desenharTudo();
     if (S.carregando && S.tentativas < 6){ S.tentativas++; setTimeout(recarregarRealizado, 4000); } else S.tentativas = 0;
@@ -816,7 +816,7 @@ function desenharMetas(){
 async function gravarMetas(metas, rotulo){
   const btn = $("#btnSalvarMetas"); btn.disabled = true; $("#estadoMetas").textContent = "Salvando…";
   try{
-    if (S.modo!=="demo") await api("/api/resultados?ano="+S.ano, { method:"PUT", body:JSON.stringify({ metas }) });
+    if (S.modo!=="demo") await api("/api/data?type=resultados&ano="+S.ano, { method:"PUT", body:JSON.stringify({ metas }) });
     Object.assign(S.metas, metas); S.gradeSuja = false; MEMO = new Map();
     S.metasInfo = { em:new Date().toISOString(), por:S.user.login };
     desenharTudo(); $("#estadoMetas").textContent = rotulo;
@@ -927,7 +927,7 @@ $("#btnDiag").addEventListener("click", async ()=>{
   if (S.modo==="demo"){ est.textContent = "Disponível só dentro do portal."; return; }
   btn.disabled = true; est.textContent = "Examinando… pode levar alguns segundos."; out.classList.add("hidden");
   try{
-    const d = await api("/api/resultados?diagnostico="+encodeURIComponent($("#dashId").value));
+    const d = await api("/api/data?type=resultados&diagnostico="+encodeURIComponent($("#dashId").value));
     delete d.ok; out.textContent = JSON.stringify(d, null, 2); out.classList.remove("hidden");
     $("#btnCopiarDiag").classList.remove("hidden"); est.textContent = `${d.cards.length} cards encontrados em "${d.dashboard.nome}".`;
   }catch(e){ est.textContent = "Não foi possível examinar: "+e.message; }

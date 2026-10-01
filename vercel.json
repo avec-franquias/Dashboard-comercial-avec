@@ -8,6 +8,10 @@
   "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':(exclude)extrator-data/**' ':(exclude)instagram-data/**' ':(exclude)clientes-enrichment/**'",
   "rewrites": [
     {
+      "source": "/api/resultados",
+      "destination": "/api/data?type=resultados"
+    },
+    {
       "source": "/index",
       "destination": "/index.html"
     },
