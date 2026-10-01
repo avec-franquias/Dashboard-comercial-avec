@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-matro-grosso-do-sul",
   "modulo": "previsao",
-  "atualizadoEm": "2026-10-01T14:06:28.093Z",
+  "atualizadoEm": "2026-10-01T14:06:29.414Z",
   "atualizadoPor": "gilson.vieira",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-10\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"bronze\":{\"mesRef\":\"2026-09\",\"m0\":\"16.588,38\",\"m1\":\"17578\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"bronze\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"bronze\",\"ultimaGravacao\":\"2026-10-01T14:06:27.452Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-10\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"bronze\":{\"mesRef\":\"2026-09\",\"m0\":\"16.588,38\",\"m1\":\"17578,8\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"bronze\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"bronze\",\"ultimaGravacao\":\"2026-10-01T14:06:28.856Z\"}"
   }
 }
