@@ -8578,21 +8578,6 @@
           "source": "duckduckgo"
         },
         {
-          "username": "geizarodrigues.beleza",
-          "profile_url": "https://www.instagram.com/geizarodrigues.beleza/",
-          "name": "BELEZA & AUTOCUIDADO EM ACARAÚ",
-          "bio": "BELEZA & AUTOCUIDADO EM ACARAÚ (@geizarodrigues.beleza) • Instagram ...",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Acaraú",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
           "username": "_isacsstromakeup",
           "profile_url": "https://www.instagram.com/_isacsstromakeup/",
           "name": "Isabel Castro || Maquiadora & Trancista || Acaraú-CE ...",
@@ -8606,14 +8591,27 @@
           "city": "Acaraú",
           "last_post": "",
           "source": "duckduckgo"
+        },
+        {
+          "username": "geizarodrigues.beleza",
+          "profile_url": "https://www.instagram.com/geizarodrigues.beleza/",
+          "name": "BELEZA & AUTOCUIDADO EM ACARAÚ (@geizarodrigues.beleza ...",
+          "bio": "BELEZA & AUTOCUIDADO EM ACARAÚ (@geizarodrigues.beleza ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Acaraú",
+          "last_post": "",
+          "source": "duckduckgo"
         }
       ],
       "total": 5,
-      "new_count": 1,
-      "new_usernames": [
-        "ac_hairsalao"
-      ],
-      "finished_at": "2026-10-01T12:54:13.059Z"
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-01T13:59:04.589Z"
     },
     {
       "query": {
