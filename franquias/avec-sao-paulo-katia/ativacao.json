@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-sao-paulo-katia",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-09-29T19:40:49.962Z",
+  "atualizadoEm": "2026-10-01T14:13:52.476Z",
   "atualizadoPor": "kater.hoss",
   "dados": {
     "db": {
@@ -17,7 +17,7 @@
           "id": "4d4a190d38cafcbf",
           "name": "Bruno Tomasi",
           "login": "bruno.tomasi",
-          "role": "franqueado",
+          "role": "historico",
           "pass": "portal"
         },
         {
