@@ -39,6 +39,8 @@ export default async function handler(req,res){
     const admin=validar(req);
     const {db:raw,sha}=await atual();
     const db=preparar(raw);
+    const operador=db.usuarios.find(u=>u.login===admin.login);
+    if(!operador?.ativo||operador.papel!=='admin')return res.status(403).json({ok:false,error:'Acesso administrativo necessário. Entre novamente.'});
     if(req.method==='GET')return res.status(200).json(saida(db));
     if(req.method!=='POST')return res.status(405).json({ok:false,error:'Metodo nao permitido'});
     const b=body(req);

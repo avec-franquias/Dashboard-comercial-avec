@@ -9,7 +9,7 @@ function cors(req,res){
   const origin=req.headers.origin||'*';
   res.setHeader('Access-Control-Allow-Origin',origin);
   res.setHeader('Vary','Origin');
-  res.setHeader('Access-Control-Allow-Methods','POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');
   res.setHeader('Cache-Control','no-store');
 }
@@ -37,17 +37,29 @@ async function gh(path,opts={}){
 }
 export default async function handler(req,res){
   cors(req,res); if(req.method==='OPTIONS')return res.status(204).end();
-  if(req.method!=='POST')return res.status(405).json({ok:false,error:'Metodo nao permitido'});
+  if(!['POST','GET'].includes(req.method))return res.status(405).json({ok:false,error:'Metodo nao permitido'});
   try{
     const admin=validar(req), b=body(req);
-    if(!Array.isArray(b.usuarios)||!b.manutencao||typeof b.manutencao!=='object') return res.status(400).json({ok:false,error:'Dados administrativos invalidos'});
     const cur=await gh('/contents/'+FILE+'?ref='+encodeURIComponent(BRANCH));
     const atual=JSON.parse(Buffer.from(cur.content,'base64').toString('utf8'));
+    const operador=(atual.usuarios||[]).find(u=>u.login===admin.login);
+    if(!operador?.ativo||operador.papel!=='admin')return res.status(403).json({ok:false,error:'Acesso administrativo necessário. Entre novamente.'});
+    if(req.method==='GET')return res.status(200).json({ok:true,usuarios:atual.usuarios,manutencao:atual.manutencao||{}});
+    if(!Array.isArray(b.usuarios)||!b.manutencao||typeof b.manutencao!=='object')return res.status(400).json({ok:false,error:'Dados administrativos invalidos'});
+
     const enviados=new Map(b.usuarios.map(u=>[u.login,u]));
     const usuarios=(Array.isArray(atual.usuarios)?atual.usuarios:[]).map(u=>{
       const novo=enviados.get(u.login);
       if(!novo)return u;
       const merged={...u,...novo};
+      if(novo.senha && novo.senha!==u.senha)delete merged.recuperacaoSolicitadaEm;
+      else if(u.recuperacaoSolicitadaEm)merged.recuperacaoSolicitadaEm=u.recuperacaoSolicitadaEm;
+      if(novo.papel==='franqueado'){
+        const f=(atual.franquias||[]).find(f=>f.id===novo.franquiaId&&f.ativo!==false);
+        if(!f)throw Object.assign(new Error('Selecione uma franquia ativa para '+novo.login),{status:400});
+        merged.perfil=novo.perfil==='funcionario'?'funcionario':'franqueado';
+        merged.modulos=[...(f.modulos||[])];
+      }
       if(novo.papel==='admin'){
         delete merged.franquiaId;
         delete merged.perfil;

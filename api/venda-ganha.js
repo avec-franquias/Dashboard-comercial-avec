@@ -1,3 +1,4 @@
+import {requireCurrentUser} from '../lib/current-user.js';
 import crypto from 'node:crypto';
 
 const REPO=process.env.GITHUB_REPOSITORY||'avec-franquias/Dashboard-comercial-avec';
@@ -65,7 +66,7 @@ export default async function handler(req,res){
   if(req.method==='OPTIONS')return res.status(204).end();
   if(req.method!=='POST')return res.status(405).json({ok:false,error:'Metodo nao permitido'});
   try{
-    const u=auth(req);
+    const u=await requireCurrentUser(auth(req));
     const lead=req.body?.lead||req.body||{};
     if(!lead.salesOpportunityId) return res.status(400).json({ok:false,error:'Oportunidade sem identificador'});
     const solicitado=safe(req.body?.franquiaId||'');

@@ -182,6 +182,15 @@ async function ghGravar(g, lista, sha, mensagem, manut) {
   await gh(g, `/contents/${ARQ}`, { method: "PUT", body: { message: mensagem || "Portal: atualiza usu\xE1rios", content: b64enc(conteudo), branch: g.branch, ...sha ? { sha } : {} } });
 }
 async function carregaUsuarios() {
+  const token = localStorage.getItem("portal-admin-token");
+  if (token && perfil?.papel === "admin") {
+    try {
+      const r = await fetch((window.PORTAL_API_BASE || "") + "/api/admin-state", {headers:{Authorization:"Bearer " + token},cache:"no-store"});
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.error || "Não foi possível atualizar os usuários.");
+      LISTA = d.usuarios; MANUT = d.manutencao || {}; TEM_ARQUIVO = true; return;
+    } catch (err) { toast(err.message); return; }
+  }
   const g = NO_SITE ? null : ghCfg();
   if (NO_SITE) {
     try {
@@ -1639,7 +1648,7 @@ function desenhaUsuarios() {
   $("#corpoUsuarios").innerHTML = lista.map((u) => {
     const eu = u.login === perfil.login;
     return `<tr class="${u.ativo ? "" : "inativo"}" data-login="${esc(u.login)}">
-      <td><div class="nome">${esc(u.nome)}${eu ? " (voc\xEA)" : ""}</div><div class="email">${esc(u.login)}</div></td>
+      <td><div class="nome">${esc(u.nome)}${u.recuperacaoSolicitadaEm ? '<div class="msg erro">Recuperação de senha solicitada</div>' : ""}${eu ? " (voc\xEA)" : ""}</div><div class="email">${esc(u.login)}</div></td>
       <td><select data-campo="papel" ${eu ? "disabled" : ""} aria-label="Perfil de ${esc(u.nome)}">
         <option value="franqueado" ${u.papel === "franqueado" ? "selected" : ""}>Franqueado</option>
         <option value="admin" ${u.papel === "admin" ? "selected" : ""}>Administrador</option></select></td>
@@ -1657,7 +1666,7 @@ function desenhaUsuarios() {
     buscaEl.dataset.buscaAtiva = "1";
     buscaEl.oninput = () => desenhaUsuarios();
   }
-    $("#corpoUsuarios tr").forEach((tr) => {
+    $$("#corpoUsuarios tr").forEach((tr) => {
     const login = tr.dataset.login;
     const altera = async (fn, ok) => {
       tr.style.opacity = 0.5;
@@ -1676,32 +1685,40 @@ function desenhaUsuarios() {
     const pap = tr.querySelector('[data-campo="papel"]');
     pap.onchange = async () => {
       const novoPapel = pap.value;
-      if (novoPapel === "franqueado") {
-        const atual = usuarios().find((x) => x.login === login);
-        if (!atual?.franquiaId) {
-          toast("Vincule uma franquia antes de tornar este usuário franqueado.");
-          pap.value = atual?.papel || "admin";
-          return;
-        }
+      const atual = usuarios().find(x => x.login === login);
+      let franquiaId = atual?.franquiaId || "";
+      if (novoPapel === "franqueado" && !franquiaId) {
+        pap.value = atual.papel;
+        await garanteFranquiasAdmin();
+        $("#modalRaiz").innerHTML = `<div class="modal-fundo"><form class="modal" novalidate role="dialog" aria-modal="true">
+          <h2>Vincular ${esc(atual.nome)}</h2><p>Selecione a franquia para salvar o perfil de franqueado.</p>
+          <select class="inp" id="perfilFranquia">${opcoesFranquias()}</select>
+          <div class="msg erro" id="perfilMsg" role="alert"></div>
+          <div class="acoes"><button type="button" class="btn linha" id="perfilCancelar">Cancelar</button><button class="btn cheio">Salvar perfil e franquia</button></div>
+        </form></div>`;
+        $("#perfilCancelar").onclick = () => $("#modalRaiz").innerHTML = "";
+        $("#modalRaiz form").onsubmit = async e => {
+          e.preventDefault();
+          const fid = $("#perfilFranquia").value;
+          if (!fid) { $("#perfilMsg").textContent = "Selecione uma franquia."; return; }
+          const btn = e.target.querySelector('button[type="submit"],button:not([type])');
+          btn.disabled = true;
+          try {
+            await alterarUsuarios(l => {
+              const u = l.find(x => x.login === login);
+              u.papel = "franqueado"; u.perfil = "franqueado"; u.franquiaId = fid;
+              u.modulos = [...(FRANQUIAS_ADMIN.find(f => f.id === fid)?.modulos || [])];
+            }, `Portal: vincula ${login} como franqueado`);
+            $("#modalRaiz").innerHTML = ""; toast("Perfil e franquia atualizados."); desenhaUsuarios();
+          } catch (err) { $("#perfilMsg").textContent = err.message; btn.disabled = false; }
+        };
+        return;
       }
-      await altera((u) => {
+      await altera(u => {
         u.papel = novoPapel;
-        if (novoPapel === "admin") {
-          delete u.franquiaId;
-          delete u.perfil;
-          u.modulos = MODULOS.map((m) => m.id);
-        } else {
-          u.perfil = "franqueado";
-        }
+        if (novoPapel === "admin") { delete u.franquiaId; delete u.perfil; u.modulos = MODULOS.map(m => m.id); }
+        else { u.perfil = "franqueado"; u.modulos = [...(FRANQUIAS_ADMIN.find(f => f.id === franquiaId)?.modulos || [])]; }
       }, "Perfil atualizado.");
-      if (novoPapel === "admin") {
-        try {
-          await vinculaUsuarioFranquia(login, "");
-        } catch (e) {
-          console.warn("Limpeza de vínculo após promoção para admin:", e);
-        }
-        desenhaUsuarios();
-      }
     };
     const frSel = tr.querySelector('[data-campo="franquia"]');
     if (frSel) frSel.onchange = async () => {
@@ -1753,9 +1770,13 @@ function desenhaUsuarios() {
           $("#rsMsg").textContent = "A senha precisa ter pelo menos 8 caracteres.";
           return;
         }
-        const h = await geraHash(v);
-        fecha();
-        altera((x) => x.senha = h, "Senha redefinida. Envie a nova senha para a pessoa.");
+        const btn = e.target.querySelector('button:not([type])');
+        btn.disabled = true;
+        try {
+          const h = await geraHash(v);
+          await alterarUsuarios(l => { l.find(x => x.login === login).senha = h; }, `Portal: redefine senha de ${login}`);
+          fecha(); desenhaUsuarios(); toast("Senha redefinida. Envie a nova senha para a pessoa.");
+        } catch (err) { $("#rsMsg").textContent = err.message || "Não foi possível salvar a senha."; btn.disabled = false; }
       };
     };
   });

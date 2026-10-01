@@ -43,6 +43,36 @@ async function carregarUsuarios(){
   }
   return carregarLocal();
 }
+async function recuperar(b,res){
+  const login=String(b.login||'').trim().toLowerCase();
+  if(!/^[a-z0-9._-]{3,40}$/.test(login))return res.status(400).json({ok:false,error:'Informe seu usuário do Portal.'});
+  const token=process.env.GITHUB_TOKEN;
+  if(!token)throw new Error('Recuperação indisponível. Procure a franqueadora.');
+  const headers={Authorization:'Bearer '+token,Accept:'application/vnd.github+json','Content-Type':'application/json','User-Agent':'avec-portal-api'};
+  const url='https://api.github.com/repos/'+REPO+'/contents/'+FILE;
+  const r=await fetch(url+'?ref='+encodeURIComponent(BRANCH),{headers,cache:'no-store'});
+  if(!r.ok)throw new Error('Não foi possível consultar os acessos. Tente novamente.');
+  const cur=await r.json(),db=JSON.parse(Buffer.from(cur.content,'base64').toString('utf8'));
+  const u=(db.usuarios||[]).find(u=>u.login===login);
+  let mudou=false;
+  if(b.action==='request-password-reset'){
+    if(u?.ativo&&!u.recuperacaoSolicitadaEm){u.recuperacaoSolicitadaEm=new Date().toISOString();mudou=true;}
+  }else{
+    const codigo=String(b.codigo||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+    if(!u?.ativo||u.papel!=='admin'||codigo.length!==16||!confere(codigo,u.recuperacao))return res.status(400).json({ok:false,error:'Usuário ou código de recuperação incorretos.'});
+    const senha=String(b.senha||'');
+    if(senha.length<8)return res.status(400).json({ok:false,error:'A senha precisa ter pelo menos 8 caracteres.'});
+    const salt=crypto.randomBytes(16).toString('hex'),iter=210000;
+    u.senha='pbkdf2$'+iter+'$'+salt+'$'+crypto.pbkdf2Sync(senha,salt,iter,32,'sha256').toString('hex');
+    delete u.recuperacaoSolicitadaEm;mudou=true;
+  }
+  if(mudou){
+    db.atualizadoEm=new Date().toISOString();
+    const w=await fetch(url,{method:'PUT',headers,body:JSON.stringify({message:'Portal: recuperação de acesso',branch:BRANCH,sha:cur.sha,content:Buffer.from(JSON.stringify(db,null,2)).toString('base64')})});
+    if(!w.ok)throw new Error('Não foi possível salvar a recuperação. Tente novamente.');
+  }
+  return res.status(200).json({ok:true,message:b.action==='request-password-reset'?'Se o usuário estiver ativo, a solicitação estará disponível para a franqueadora redefinir a senha.':'Senha redefinida. Entre com a nova senha.'});
+}
 function modsDoGrupo(db,u){
   if(u.papel==='admin')return [...MODS];
   if(!u.franquiaId)return [];
@@ -60,7 +90,9 @@ export default async function handler(req,res){
   }
   if(req.method!=='POST')return res.status(405).json({ok:false,error:'Metodo nao permitido'});
   try{
-    const b=body(req),login=String(b.login||'').trim().toLowerCase(),senha=String(b.senha||'');
+    const b=body(req);
+    if(['request-password-reset','recover-password'].includes(b.action))return await recuperar(b,res);
+    const login=String(b.login||'').trim().toLowerCase(),senha=String(b.senha||'');
     if(!login||!senha)return res.status(400).json({ok:false,error:'Informe usuario e senha'});
     const db=await carregarUsuarios();
     const u=(db.usuarios||[]).find(x=>String(x.login||'').toLowerCase()===login);
