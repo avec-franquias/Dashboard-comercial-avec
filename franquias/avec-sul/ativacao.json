@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-01T14:15:03.479Z",
+  "atualizadoEm": "2026-10-01T14:19:20.753Z",
   "atualizadoPor": "christian.vieira",
   "dados": {
     "db": {
@@ -70,7 +70,110 @@
           "pass": "portal"
         }
       ],
-      "cards": []
+      "cards": [
+        {
+          "id": "f51f4ad1cb074ae8",
+          "ownerId": "5ada30b17f2c6c5b",
+          "column": "novo",
+          "clientCode": "",
+          "title": "Urban Salão de Beleza e Estética",
+          "phone": "+554730857882",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-10-01T14:19:20.028+00:00",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "Enviado pelo Extrator de Leads",
+          "checklists": [
+            {
+              "id": "d552d5f4f18e40e3",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "c5a89c5db9004731",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "35cae269dad14e7d",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "45137be2f1e04f36",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "ff97ac1b0eb7482d",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "b4017414b2be4d1a",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "7583df3428fb4395",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "3a30ef058430495f",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "0a7ed870c74a4c43",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "b4d35a19cf704d10",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "a762ff0bff594a41",
+              "type": "action",
+              "at": "2026-10-01T14:19:20.353Z",
+              "author": "Christian Vieira",
+              "authorId": "5ada30b17f2c6c5b",
+              "text": "cliente enviado automaticamente pelo Funil de Vendas"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-10-01T14:19:20.353Z",
+              "column": "novo"
+            }
+          ],
+          "createdAt": "2026-10-01T14:19:20.353Z",
+          "updatedAt": "2026-10-01T14:19:20.353Z",
+          "finishedAt": "",
+          "ordem": 1790864360354,
+          "salesOpportunityId": "c6fb997b-b606-454e-a109-365d9ee0f408"
+        }
+      ]
     }
   }
 }
