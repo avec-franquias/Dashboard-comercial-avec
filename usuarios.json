@@ -1,6 +1,6 @@
 {
   "instalacao": "63bc96d9dc3c6c61",
-  "atualizadoEm": "2026-10-01T13:00:31.845Z",
+  "atualizadoEm": "2026-10-01T13:01:10.326Z",
   "usuarios": [
     {
       "login": "christian.vieira",
@@ -2154,6 +2154,25 @@
     {
       "id": "sao-paulo",
       "nome": "São Paulo",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "vendas",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes",
+        "extrator",
+        "central",
+        "reunioes",
+        "roadmap"
+      ]
+    },
+    {
+      "id": "avec-sao-paulo-ronald",
+      "nome": "Avec São Paulo - Ronald",
       "ativo": true,
       "modulos": [
         "ativacao",
