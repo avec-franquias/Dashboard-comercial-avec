@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-01T17:33:41.223Z",
+  "atualizadoEm": "2026-10-01T17:33:43.337Z",
   "atualizadoPor": "christian.vieira",
   "dados": {
     "db": {
@@ -74,7 +74,7 @@
         {
           "id": "e929b2b338d84f77",
           "ownerId": "5ada30b17f2c6c5b",
-          "column": "agendada",
+          "column": "finalizado",
           "clientCode": "",
           "title": "Cia da Belleza",
           "phone": "+5547996473879",
@@ -82,7 +82,7 @@
           "members": [],
           "contractDate": "2026-10-01T17:33:30.118+00:00",
           "firstContactDate": "",
-          "startDate": "",
+          "startDate": "2026-10-01T14:33",
           "dueDate": "",
           "painPoint": "",
           "painValidated": false,
@@ -167,6 +167,30 @@
               "author": "Christian Vieira",
               "authorId": "5ada30b17f2c6c5b",
               "text": "moveu este cartão de Novo cliente para Treinamento agendada"
+            },
+            {
+              "id": "6ac10c28d82ceb85",
+              "type": "action",
+              "at": "2026-10-01T17:33:41.667Z",
+              "author": "Christian Vieira",
+              "authorId": "5ada30b17f2c6c5b",
+              "text": "moveu este cartão de Treinamento agendada para Acompanhamento de uso"
+            },
+            {
+              "id": "342cf238feda9884",
+              "type": "action",
+              "at": "2026-10-01T17:33:41.667Z",
+              "author": "Christian Vieira",
+              "authorId": "5ada30b17f2c6c5b",
+              "text": "registrou a treinamento em 1 de out. de 2026 às 14:33"
+            },
+            {
+              "id": "bd2d0eda33dc1b6f",
+              "type": "action",
+              "at": "2026-10-01T17:33:42.563Z",
+              "author": "Christian Vieira",
+              "authorId": "5ada30b17f2c6c5b",
+              "text": "moveu este cartão de Acompanhamento de uso para Ativado"
             }
           ],
           "history": [
@@ -177,12 +201,20 @@
             {
               "at": "2026-10-01T17:33:40.745Z",
               "column": "agendada"
+            },
+            {
+              "at": "2026-10-01T17:33:41.666Z",
+              "column": "acompanhamento"
+            },
+            {
+              "at": "2026-10-01T17:33:42.563Z",
+              "column": "finalizado"
             }
           ],
           "createdAt": "2026-10-01T17:33:30.220Z",
-          "updatedAt": "2026-10-01T17:33:40.745Z",
-          "finishedAt": "",
-          "ordem": 1790876020745,
+          "updatedAt": "2026-10-01T17:33:42.563Z",
+          "finishedAt": "2026-10-01T17:33:42.563Z",
+          "ordem": 1790876022563,
           "salesOpportunityId": "60fb54a8-7acf-4887-9135-cff799c8f54c"
         }
       ]
