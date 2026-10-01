@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-osasco",
   "modulo": "previsao",
-  "atualizadoEm": "2026-10-01T00:05:41.740Z",
+  "atualizadoEm": "2026-10-01T00:06:44.205Z",
   "atualizadoPor": "thiago.neves",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-10\",\"m0\":\"50.045,45\",\"m1\":\"50.186,29\",\"m2\":\"50.084,14\",\"m3\":\"53.362,00\",\"b32\":\"50.084,14\",\"b33\":\"290,00\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"prata\",\"janelaAtual\":\"Ago/26 · Set/26 · Out/26\",\"ultimaCarteira\":\"prata\",\"ultimaGravacao\":\"2026-10-01T00:05:40.405Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"50.045,45\",\"m1\":\"50.186,29\",\"m2\":\"50.084,14\",\"m3\":\"53.362,00\",\"b32\":\"50.084,14\",\"b33\":\"290,00\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"prata\",\"janelaAtual\":\"Jul/26 · Ago/26 · Set/26\",\"ultimaCarteira\":\"prata\",\"ultimaGravacao\":\"2026-10-01T00:06:42.858Z\"}"
   }
 }
