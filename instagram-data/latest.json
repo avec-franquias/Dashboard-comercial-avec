@@ -12016,21 +12016,6 @@
           "source": "duckduckgo"
         },
         {
-          "username": "umasalaodebeleza",
-          "profile_url": "https://www.instagram.com/umasalaodebeleza/",
-          "name": "UMA Salão de Beleza",
-          "bio": "UMA Salão de Beleza (@umasalaodebeleza) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Amontada",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
           "username": "ohmyclub.ce",
           "profile_url": "https://www.instagram.com/ohmyclub.ce/",
           "name": "SALÃO DE BELEZA E BARBEARIA FORTALEZA/CE",
@@ -12046,10 +12031,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "gmbeauty_ce",
-          "profile_url": "https://www.instagram.com/gmbeauty_ce/",
-          "name": "GM beauty | salão de beleza",
-          "bio": "GM beauty | salão de beleza (@gmbeauty_ce) - Instagram",
+          "username": "umasalaodebeleza",
+          "profile_url": "https://www.instagram.com/umasalaodebeleza/",
+          "name": "UMA Salão de Beleza",
+          "bio": "UMA Salão de Beleza (@umasalaodebeleza) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -12061,10 +12046,25 @@
           "source": "duckduckgo"
         },
         {
-          "username": "beautyecare_",
-          "profile_url": "https://www.instagram.com/beautyecare_/",
-          "name": "Salão de beleza",
-          "bio": "Salão de beleza (@beautyecare_) • Instagram photos and videos",
+          "username": "leci_salao_de_beleza",
+          "profile_url": "https://www.instagram.com/leci_salao_de_beleza/",
+          "name": "Leci salão de beleza",
+          "bio": "Leci salão de beleza (@leci_salao_de_beleza) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Amontada",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "mon_amour_salao_de_beleza",
+          "profile_url": "https://www.instagram.com/mon_amour_salao_de_beleza/",
+          "name": "Mon Amour",
+          "bio": "Mon Amour (@mon_amour_salao_de_beleza) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -12092,19 +12092,12 @@
         }
       ],
       "total": 9,
-      "new_count": 9,
+      "new_count": 2,
       "new_usernames": [
-        "eriaoliveirabeauty",
-        "suoliverbeauty",
-        "l.p_studiodebeleza",
-        "biajacintobeauty",
-        "umasalaodebeleza",
-        "ohmyclub.ce",
-        "gmbeauty_ce",
-        "beautyecare_",
-        "ambeauty.oficial"
+        "leci_salao_de_beleza",
+        "mon_amour_salao_de_beleza"
       ],
-      "finished_at": "2026-10-01T14:52:43.196Z"
+      "finished_at": "2026-10-01T17:21:46.450Z"
     }
   ]
 }
