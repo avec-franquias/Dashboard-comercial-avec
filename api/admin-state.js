@@ -3,7 +3,7 @@ import crypto from 'node:crypto';
 const REPO=process.env.GITHUB_REPOSITORY||'avec-franquias/Dashboard-comercial-avec';
 const BRANCH=process.env.GITHUB_BRANCH||'main';
 const FILE='usuarios.json';
-const MODS=['ativacao','vendas','arvore','previsao','taxas','propostas','instagram','clientes','extrator','central','reunioes','roadmap','resultados'];
+const MODS=['ativacao','vendas','arvore','previsao','taxas','propostas','instagram','clientes','extrator','central','reunioes','roadmap'];
 
 function cors(req,res){
   const origin=req.headers.origin||'*';
