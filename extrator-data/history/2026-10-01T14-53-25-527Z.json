@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T14:52:27.195Z",
+  "generated_at": "2026-10-01T14:53:25.502Z",
   "runs": [
     {
       "query": {
@@ -47269,6 +47269,69 @@
     {
       "query": {
         "nicho": "Salão de beleza",
+        "cidade": "Alto Santo, CE",
+        "bairro": "",
+        "max_results": 80
+      },
+      "finished_at": "2026-09-30T20:44:59.228Z",
+      "total": 4,
+      "new_count": 4,
+      "new_ids": [
+        "0x7bba18938bbda6d:0x98a930f959170b59",
+        "0x7bba1002fc78ddb:0x9e406f6b2cf94b31",
+        "0x7bba17ba29355ad:0xd94b9d7ca787f565",
+        "0x7bba100757f2d6b:0xad2db495af7a22f"
+      ],
+      "leads": [
+        {
+          "name": "Studio Janaína almeida",
+          "phone": "+5588996820928",
+          "website": "",
+          "address": "R. Frei Lamberto - Centro, Alto Santo - CE, 62970-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x7bba18938bbda6d:0x98a930f959170b59",
+          "maps_url": "https://www.google.com/maps/place/Studio+Jana%C3%ADna+almeida/data=!4m7!3m6!1s0x7bba18938bbda6d:0x98a930f959170b59!8m2!3d-5.5195795!4d-38.2697117!16s%2Fg%2F11jq5_xp4c!19sChIJbdq7OImhuwcRWQsXWfkwqZg?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Studioluanalima",
+          "phone": "",
+          "website": "",
+          "address": "R. Osório Martins - Centro, Alto Santo - CE, 62970-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x7bba1002fc78ddb:0x9e406f6b2cf94b31",
+          "maps_url": "https://www.google.com/maps/place/Studioluanalima/data=!4m7!3m6!1s0x7bba1002fc78ddb:0x9e406f6b2cf94b31!8m2!3d-5.5186051!4d-38.2691854!16s%2Fg%2F11yqbp7sg_!19sChIJ243HLwChuwcRMUv5LGtvQJ4?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Claudiene Manicure",
+          "phone": "+5588999591840",
+          "website": "",
+          "address": "R. Fausto Crispim, 190 - Centro, Alto Santo - CE, 62970-000, Brasil ",
+          "category": "Manicure",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x7bba17ba29355ad:0xd94b9d7ca787f565",
+          "maps_url": "https://www.google.com/maps/place/Claudiene+Manicure/data=!4m7!3m6!1s0x7bba17ba29355ad:0xd94b9d7ca787f565!8m2!3d-5.5194298!4d-38.2693567!16s%2Fg%2F11dftsbbxp!19sChIJrVWTonuhuwcRZfWHp3ydS9k?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Núbia Cabeleleira",
+          "phone": "+5588997002797",
+          "website": "",
+          "address": "R. Frei Lamberto - Centro, Alto Santo - CE, 62970-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x7bba100757f2d6b:0xad2db495af7a22f",
+          "maps_url": "https://www.google.com/maps/place/N%C3%BAbia+Cabeleleira/data=!4m7!3m6!1s0x7bba100757f2d6b:0xad2db495af7a22f!8m2!3d-5.5197817!4d-38.2701738!16s%2Fg%2F11x6533m68!19sChIJay1_dQChuwcRL6L3Wknb0go?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
         "cidade": "Amparo do São Francisco, SE",
         "bairro": "Carregando bairros...",
         "max_results": 80
@@ -53782,58 +53845,231 @@
     {
       "query": {
         "nicho": "Salão de beleza",
-        "cidade": "Alto Santo, CE",
+        "cidade": "Amontada, CE",
         "bairro": "",
         "max_results": 80
       },
-      "finished_at": "2026-10-01T14:52:26.169Z",
-      "total": 4,
-      "new_count": 0,
-      "new_ids": [],
+      "finished_at": "2026-10-01T14:53:24.479Z",
+      "total": 18,
+      "new_count": 18,
+      "new_ids": [
+        "0x7c1f27e2a161f91:0x2306328625e1e2af",
+        "0x7c1d28c1e20123b:0xa570b443919285dc",
+        "0x7c1d2966f71cf77:0x972f2ea62bb34b",
+        "0x7c1d2bd6a49ee5f:0x123a2cfe35804678",
+        "0x7c1d38d6d7c0879:0x8140a0d009925ad3",
+        "0x7c1d3c26d032e67:0x1d0fcaa57a9a70cb",
+        "0x7c1d39e34cde95b:0x8f8645db60cf136",
+        "0x7c1d3323de8f66d:0x961c702208e699c9",
+        "0x7c1936ce504e5eb:0xc371a795095f41e2",
+        "0x7c1c7fb17355835:0x164c5566fd7888be",
+        "0x7c1d356be5ac491:0x363b0fbf478c1fe5",
+        "0x7c1d3ac86a8af6b:0xb66e4aa6e95e4de3",
+        "0x7c1d3a1bbbb2d25:0x659e345ae7663ae",
+        "0x7c1ed959bf71395:0x12168f2dbac54ba",
+        "0x7c193646008898f:0xcc2a827296080c02",
+        "0x7c19361fca0c0a7:0x535e97436ac4e1a5",
+        "0x7c1d3a34006e42d:0x3bc7a075070d7e7a",
+        "0x7c1c7dc38d703c5:0xc2f27e0612b579ff"
+      ],
       "leads": [
         {
-          "name": "Studio Janaína almeida",
-          "phone": "+5588996820928",
+          "name": "Cida cabeleireira",
+          "phone": "+5588996665555",
           "website": "",
-          "address": "R. Frei Lamberto - Centro, Alto Santo - CE, 62970-000, Brasil ",
+          "address": "R. Prof. João Manoel Pereira, 1140 - 1662, Amontada - CE, 62540-000, Brasil ",
           "category": "Salão de Beleza",
-          "rating": "",
+          "rating": "4,7",
           "reviews": "",
-          "place_id": "0x7bba18938bbda6d:0x98a930f959170b59",
-          "maps_url": "https://www.google.com/maps/place/Studio+Jana%C3%ADna+almeida/data=!4m7!3m6!1s0x7bba18938bbda6d:0x98a930f959170b59!8m2!3d-5.5195795!4d-38.2697117!16s%2Fg%2F11jq5_xp4c!19sChIJbdq7OImhuwcRWQsXWfkwqZg?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c1f27e2a161f91:0x2306328625e1e2af",
+          "maps_url": "https://www.google.com/maps/place/Cida+cabeleireira/data=!4m7!3m6!1s0x7c1f27e2a161f91:0x2306328625e1e2af!8m2!3d-3.3617763!4d-39.830855!16s%2Fg%2F11h9rxw5db!19sChIJkR8WKn7ywQcRr-LhJYYyBiM?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Studioluanalima",
+          "name": "Salão de Beleza Charlene Morais",
+          "phone": "+5588997360030",
+          "website": "",
+          "address": "R. Rafael de Oliveira, 546 - São Sebastião, Amontada - CE, 62540-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c1d28c1e20123b:0xa570b443919285dc",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+de+Beleza+Charlene+Morais/data=!4m7!3m6!1s0x7c1d28c1e20123b:0xa570b443919285dc!8m2!3d-3.3527188!4d-39.8319909!16s%2Fg%2F11clwhfms9!19sChIJOxIgHozSwQcR3IWSkUO0cKU?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "JC Cabeleireiros",
+          "phone": "+5588998080961",
+          "website": "",
+          "address": "Av. Jaime Assis Henrique, 427 - Centro, Amontada - CE, 62540-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x7c1d2966f71cf77:0x972f2ea62bb34b",
+          "maps_url": "https://www.google.com/maps/place/JC+Cabeleireiros/data=!4m7!3m6!1s0x7c1d2966f71cf77:0x972f2ea62bb34b!8m2!3d-3.3625279!4d-39.8313703!16s%2Fg%2F11fzt2lg32!19sChIJd89xb5bSwQcRS7Mrpi4vlwA?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Cris Prado Salão de Beleza",
+          "phone": "+5588996336777",
+          "website": "",
+          "address": "R. João Jacinto de Oliveira, 597 - Amontada, CE, 62540-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,4",
+          "reviews": "",
+          "place_id": "0x7c1d2bd6a49ee5f:0x123a2cfe35804678",
+          "maps_url": "https://www.google.com/maps/place/Cris+Prado+Sal%C3%A3o+de+Beleza/data=!4m7!3m6!1s0x7c1d2bd6a49ee5f:0x123a2cfe35804678!8m2!3d-3.3649272!4d-39.8284529!16s%2Fg%2F11fzzl5rsm!19sChIJX-5Jar3SwQcReEaANf4sOhI?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "SG Espaço Beleza",
           "phone": "",
           "website": "",
-          "address": "R. Osório Martins - Centro, Alto Santo - CE, 62970-000, Brasil ",
+          "address": "R. C, 41 - Amontada, CE, 62540-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c1d38d6d7c0879:0x8140a0d009925ad3",
+          "maps_url": "https://www.google.com/maps/place/SG+Espa%C3%A7o+Beleza/data=!4m7!3m6!1s0x7c1d38d6d7c0879:0x8140a0d009925ad3!8m2!3d-3.370056!4d-39.832229!16s%2Fg%2F11sd7gdwdc!19sChIJeQh8bY3TwQcR01qSCdCgQIE?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "LP Studio de Beleza",
+          "phone": "+5588981725842",
+          "website": "",
+          "address": "R. Francisco Monteiro, 1439 - Amontada, CE, 62540-000, Brasil ",
           "category": "Salão de Beleza",
           "rating": "",
           "reviews": "",
-          "place_id": "0x7bba1002fc78ddb:0x9e406f6b2cf94b31",
-          "maps_url": "https://www.google.com/maps/place/Studioluanalima/data=!4m7!3m6!1s0x7bba1002fc78ddb:0x9e406f6b2cf94b31!8m2!3d-5.5186051!4d-38.2691854!16s%2Fg%2F11yqbp7sg_!19sChIJ243HLwChuwcRMUv5LGtvQJ4?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c1d3c26d032e67:0x1d0fcaa57a9a70cb",
+          "maps_url": "https://www.google.com/maps/place/LP+Studio+de+Beleza/data=!4m7!3m6!1s0x7c1d3c26d032e67:0x1d0fcaa57a9a70cb!8m2!3d-3.35575!4d-39.8260156!16s%2Fg%2F11zb3qt9xg!19sChIJZy4DbcLTwQcRy3CaeqXKDx0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Claudiene Manicure",
-          "phone": "+5588999591840",
+          "name": "Lunea Maison",
+          "phone": "+5588981823882",
           "website": "",
-          "address": "R. Fausto Crispim, 190 - Centro, Alto Santo - CE, 62970-000, Brasil ",
+          "address": "R. Padre Pedro Vitorino, box 14 - Amontada, CE, 62540-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x7c1d39e34cde95b:0x8f8645db60cf136",
+          "maps_url": "https://www.google.com/maps/place/Lunea+Maison/data=!4m7!3m6!1s0x7c1d39e34cde95b:0x8f8645db60cf136!8m2!3d-3.360194!4d-39.8328725!16s%2Fg%2F11z61yqs4q!19sChIJW-nNNJ7TwQcRNvEMtl1k-Ag?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Albecy Melgaço Cabelo Estética & Beleza",
+          "phone": "",
+          "website": "",
+          "address": "Francisco - R. Cel. Monteiro de Oliveira, Casa - São Raimundo, Amontada - CE, 62540-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,0",
+          "reviews": "",
+          "place_id": "0x7c1d3323de8f66d:0x961c702208e699c9",
+          "maps_url": "https://www.google.com/maps/place/Albecy+Melga%C3%A7o+Cabelo+Est%C3%A9tica+%26+Beleza/data=!4m7!3m6!1s0x7c1d3323de8f66d:0x961c702208e699c9!8m2!3d-3.3556417!4d-39.829926!16s%2Fg%2F11pd691t4l!19sChIJbfboPTLTwQcRyZnmCCJwHJY?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Ateliê da beleza",
+          "phone": "+5588981534878",
+          "website": "",
+          "address": "R. Aderbal Praciano Sampaio - Icaraí, Amontada - CE, 62500-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c1936ce504e5eb:0xc371a795095f41e2",
+          "maps_url": "https://www.google.com/maps/place/Ateli%C3%AA+da+beleza/data=!4m7!3m6!1s0x7c1936ce504e5eb:0xc371a795095f41e2!8m2!3d-3.0287559!4d-39.6515465!16s%2Fg%2F11hk5p3c8z!19sChIJ6-UE5WyTwQcR4kFfCZWnccM?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "STÚDIO HAIR NAIANA, Lagoa Grande-Amontada/Ceará-Brasil",
+          "phone": "",
+          "website": "",
+          "address": "STÚDIO HAIR NAIANA - Lagoa Grande, Amontada - CE, 62540-000, Brasil ",
+          "category": "Cabeleireiro",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c1c7fb17355835:0x164c5566fd7888be",
+          "maps_url": "https://www.google.com/maps/place/ST%C3%9ADIO+HAIR+NAIANA,+Lagoa+Grande-Amontada%2FCear%C3%A1-Brasil/data=!4m7!3m6!1s0x7c1c7fb17355835:0x164c5566fd7888be!8m2!3d-3.2540415!4d-39.7397685!16s%2Fg%2F11kjl9mg7w!19sChIJNVg1F_vHwQcRvoh4_WZVTBY?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Espaço de beleza imaculada coelho",
+          "phone": "+5588988060233",
+          "website": "",
+          "address": "Amontada, CE, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x7c1d356be5ac491:0x363b0fbf478c1fe5",
+          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+de+beleza+imaculada+coelho/data=!4m7!3m6!1s0x7c1d356be5ac491:0x363b0fbf478c1fe5!8m2!3d-3.3618012!4d-39.8308597!16s%2Fg%2F11l21df6nh!19sChIJkcRavlbTwQcR5R-MR78POzY?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Kanto da beleza",
+          "phone": "+5588999330524",
+          "website": "",
+          "address": "R. Francisca Maria da Conceição - Amontada, CE, 62540-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x7c1d3ac86a8af6b:0xb66e4aa6e95e4de3",
+          "maps_url": "https://www.google.com/maps/place/Kanto+da+beleza/data=!4m7!3m6!1s0x7c1d3ac86a8af6b:0xb66e4aa6e95e4de3!8m2!3d-3.3682407!4d-39.8242644!16s%2Fg%2F11smtwtzhb!19sChIJa6-ohqzTwQcR401e6aZKbrY?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão De Beleza Luiza Melo",
+          "phone": "+5588999288926",
+          "website": "",
+          "address": "R. Joveniano de Castro - Amontada, CE, 62540-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x7c1d3a1bbbb2d25:0x659e345ae7663ae",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+De+Beleza+Luiza+Melo/data=!4m7!3m6!1s0x7c1d3a1bbbb2d25:0x659e345ae7663ae!8m2!3d-3.3498909!4d-39.8353076!16s%2Fg%2F11g0rnz0bq!19sChIJJS27u6HTwQcRrmN2rkXjWQY?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "@Studioraiane_alves",
+          "phone": "+5588981092207",
+          "website": "",
+          "address": "R. Isaque Carneiro Primo - Moitas, Amontada - CE, 62500-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c1ed959bf71395:0x12168f2dbac54ba",
+          "maps_url": "https://www.google.com/maps/place/%27@Studioraiane_alves%27/data=!4m7!3m6!1s0x7c1ed959bf71395:0x12168f2dbac54ba!8m2!3d-3.0134496!4d-39.6914758!16s%2Fg%2F11lmpcfz6n!19sChIJlRP3m5XtwQcRulSs2_JoIQE?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão Bela Dona",
+          "phone": "+5588981245464",
+          "website": "",
+          "address": "R. Antônio Marçal dos Santos, 457 - In, Amontada - CE, 62545-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,6",
+          "reviews": "",
+          "place_id": "0x7c193646008898f:0xcc2a827296080c02",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+Bela+Dona/data=!4m7!3m6!1s0x7c193646008898f:0xcc2a827296080c02!8m2!3d-3.0269542!4d-39.6429251!16s%2Fg%2F11mmlhyvp8!19sChIJj4kIYGSTwQcRAgwIlnKCKsw?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Beauty Studio Amanda Parente",
+          "phone": "+5588981679173",
+          "website": "",
+          "address": "R. Luís Alves Parente - Icaraí, Amontada - CE, 62540-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x7c19361fca0c0a7:0x535e97436ac4e1a5",
+          "maps_url": "https://www.google.com/maps/place/Beauty+Studio+Amanda+Parente/data=!4m7!3m6!1s0x7c19361fca0c0a7:0x535e97436ac4e1a5!8m2!3d-3.0279803!4d-39.6383989!16s%2Fg%2F11ymnf5wnb!19sChIJp8Cg_GGTwQcRpeHEakOXXlM?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Studio_olivya_santtos",
+          "phone": "",
+          "website": "",
+          "address": "Corrego do paulo, Amontada - CE, 62540-000, Brasil ",
           "category": "Manicure",
-          "rating": "4,8",
-          "reviews": "",
-          "place_id": "0x7bba17ba29355ad:0xd94b9d7ca787f565",
-          "maps_url": "https://www.google.com/maps/place/Claudiene+Manicure/data=!4m7!3m6!1s0x7bba17ba29355ad:0xd94b9d7ca787f565!8m2!3d-5.5194298!4d-38.2693567!16s%2Fg%2F11dftsbbxp!19sChIJrVWTonuhuwcRZfWHp3ydS9k?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Núbia Cabeleleira",
-          "phone": "+5588997002797",
-          "website": "",
-          "address": "R. Frei Lamberto - Centro, Alto Santo - CE, 62970-000, Brasil ",
-          "category": "Salão de Beleza",
           "rating": "",
           "reviews": "",
-          "place_id": "0x7bba100757f2d6b:0xad2db495af7a22f",
-          "maps_url": "https://www.google.com/maps/place/N%C3%BAbia+Cabeleleira/data=!4m7!3m6!1s0x7bba100757f2d6b:0xad2db495af7a22f!8m2!3d-5.5197817!4d-38.2701738!16s%2Fg%2F11x6533m68!19sChIJay1_dQChuwcRL6L3Wknb0go?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOC4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c1d3a34006e42d:0x3bc7a075070d7e7a",
+          "maps_url": "https://www.google.com/maps/place/Studio_olivya_santtos/data=!4m7!3m6!1s0x7c1d3a34006e42d:0x3bc7a075070d7e7a!8m2!3d-3.3617763!4d-39.830855!16s%2Fg%2F11nvblrwsb!19sChIJLeQGQKPTwQcRen4NB3Wgxzs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "ESPAÇO DE BELEZA PEDRO RODRIGUES",
+          "phone": "+5585981843277",
+          "website": "",
+          "address": "Unnamed Road, Amontada - CE, 62500-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c1c7dc38d703c5:0xc2f27e0612b579ff",
+          "maps_url": "https://www.google.com/maps/place/ESPA%C3%87O+DE+BELEZA+PEDRO+RODRIGUES/data=!4m7!3m6!1s0x7c1c7dc38d703c5:0xc2f27e0612b579ff!8m2!3d-3.2178236!4d-39.7156327!16s%2Fg%2F11llfbvjdt!19sChIJxQPXONzHwQcR_3m1EgZ-8sI?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
         }
       ]
     }
