@@ -12098,6 +12098,21 @@
         "mon_amour_salao_de_beleza"
       ],
       "finished_at": "2026-10-01T17:21:46.450Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "CE",
+        "cidade": "Antonina do Norte",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-01T17:23:13.901Z"
     }
   ]
 }
