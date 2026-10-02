@@ -521,7 +521,7 @@ function desenhaModulos() {
       { id:"base-conhecimento", nome:"Base de conhecimento", mods:["central"] },
       { id:"ferramentas", nome:"Ferramentas", mods:["migrador","taxas","propostas"] },
       { id:"mkt", nome:"MKT", mods:["extrator"] },
-      { id:"crm", nome:"CRM", mods:["vendas","ativacao"] },
+      { id:"crm", nome:"Kanban Jornada do Cliente", mods:["vendas","ativacao"] },
       { id:"gestao", nome:"Gestão", mods:["crm-avec","localizar","mapa-franqueado"] },
       { id:"roadmap-master", nome:"Sugestões", mods:["roadmap"] }
     ];
