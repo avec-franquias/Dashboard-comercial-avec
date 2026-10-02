@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T20:24:12.487Z",
+  "generated_at": "2026-10-02T13:38:44.171Z",
   "runs": [
     {
       "query": {
@@ -56781,6 +56781,93 @@
           "reviews": "",
           "place_id": "0x94c8cfe03cf40b57:0x826773f20b69ff3c",
           "maps_url": "https://www.google.com/maps/place/Fast+Escova+Campinas+-+Unid.+Cambu%C3%AD+-+Sal%C3%A3o+de+Beleza+Sem+Hora+Marcada/data=!4m7!3m6!1s0x94c8cfe03cf40b57:0x826773f20b69ff3c!8m2!3d-22.8984693!4d-47.0492856!16s%2Fg%2F11jcqr800s!19sChIJVwv0PODPyJQRPP9pC_JzZ4I?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "cidade": "Apuiarés, CE",
+        "bairro": "",
+        "max_results": 80
+      },
+      "finished_at": "2026-10-02T13:38:43.146Z",
+      "total": 6,
+      "new_count": 6,
+      "new_ids": [
+        "0x7bf874ac9f63721:0xb14b4d9af7d57eb0",
+        "0x7bf8716dd7da7b9:0x7897c2c45c593951",
+        "0x7bf87b0b0ab2b3d:0xcd878226f57d7052",
+        "0x7bf87001f58888f:0x43b55541c2e7075f",
+        "0x7bf86e37f2e49b3:0x9267ade79b3504cc",
+        "0x7bf87e5484e10d7:0xadfdafd0aa3baa34"
+      ],
+      "leads": [
+        {
+          "name": "Mauricio Cabeleireiros",
+          "phone": "+5585992021777",
+          "website": "",
+          "address": "R. Frederico Ferreira Pontes, 190 - Apuiarés, CE, 62630-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x7bf874ac9f63721:0xb14b4d9af7d57eb0",
+          "maps_url": "https://www.google.com/maps/place/Mauricio+Cabeleireiros/data=!4m7!3m6!1s0x7bf874ac9f63721:0xb14b4d9af7d57eb0!8m2!3d-3.9483322!4d-39.4321183!16s%2Fg%2F11f5l4pb82!19sChIJITf2yUqHvwcRsH7V95pNS7E?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Espaço da beleza apuiares",
+          "phone": "+5585992060155",
+          "website": "",
+          "address": "R. Padre Francisco José, 270 - Centro, Apuiarés - CE, 62630-000, Brasil ",
+          "category": "Manicure",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7bf8716dd7da7b9:0x7897c2c45c593951",
+          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+da+beleza+apuiares/data=!4m7!3m6!1s0x7bf8716dd7da7b9:0x7897c2c45c593951!8m2!3d-3.9449677!4d-39.4315852!16s%2Fg%2F11vjvnv11m!19sChIJuad93RaHvwcRUTlZXMTCl3g?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão de beleza Aninha matos",
+          "phone": "+5585992220486",
+          "website": "",
+          "address": "R. Padre Francisco José - Centro, Apuiarés - CE, 62630-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7bf87b0b0ab2b3d:0xcd878226f57d7052",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+de+beleza+Aninha+matos/data=!4m7!3m6!1s0x7bf87b0b0ab2b3d:0xcd878226f57d7052!8m2!3d-3.9452565!4d-39.4317192!16s%2Fg%2F11s57px844!19sChIJPSursLCHvwcRUnB99SaCh80?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Ponto Da Beleza",
+          "phone": "+5585992622675",
+          "website": "",
+          "address": "R. Francisco Lopes Ramalho - Apuiarés, CE, 62630-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7bf87001f58888f:0x43b55541c2e7075f",
+          "maps_url": "https://www.google.com/maps/place/Ponto+Da+Beleza/data=!4m7!3m6!1s0x7bf87001f58888f:0x43b55541c2e7075f!8m2!3d-3.9424195!4d-39.4338634!16s%2Fg%2F11ppy0yh_9!19sChIJj4hYHwCHvwcRXwfnwkFVtUM?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "salao cantinho da beleza",
+          "phone": "",
+          "website": "",
+          "address": "R. Frederico Ferreira Pontes, 210 - Apuiarés, CE, 62630-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,0",
+          "reviews": "",
+          "place_id": "0x7bf86e37f2e49b3:0x9267ade79b3504cc",
+          "maps_url": "https://www.google.com/maps/place/salao+cantinho+da+beleza/data=!4m7!3m6!1s0x7bf86e37f2e49b3:0x9267ade79b3504cc!8m2!3d-3.9481162!4d-39.4320709!16s%2Fg%2F11c32b2g5r!19sChIJs0kuf-OGvwcRzAQ1m-etZ5I?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Laysa Uchôa estética",
+          "phone": "+5585997838185",
+          "website": "",
+          "address": "R. Jose Augusto Mota Gois - Apuiarés, CE, 62630-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7bf87e5484e10d7:0xadfdafd0aa3baa34",
+          "maps_url": "https://www.google.com/maps/place/Laysa+Uch%C3%B4a+est%C3%A9tica/data=!4m7!3m6!1s0x7bf87e5484e10d7:0xadfdafd0aa3baa34!8m2!3d-3.9406891!4d-39.4272722!16s%2Fg%2F11shd60b8r!19sChIJ1xBOSOWHvwcRNKo7qtCv_a0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
         }
       ]
     }
