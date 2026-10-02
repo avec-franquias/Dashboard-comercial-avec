@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-goias",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-02T13:13:28.261Z",
+  "atualizadoEm": "2026-10-02T13:13:41.539Z",
   "atualizadoPor": "kater.hoss",
   "dados": {
     "db": {
@@ -150,107 +150,6 @@
           "updatedAt": "2026-09-29T12:35:20.744Z",
           "finishedAt": "",
           "ordem": 1790685320745
-        },
-        {
-          "id": "25512f16649da156",
-          "ownerId": "f3401ab3f7b05d2e",
-          "column": "novo",
-          "clientCode": "31231231231",
-          "title": "erwrwerwerwer",
-          "phone": "",
-          "labels": [],
-          "members": [],
-          "contractDate": "2026-09-29T09:35",
-          "firstContactDate": "",
-          "startDate": "",
-          "dueDate": "",
-          "painPoint": "",
-          "painValidated": false,
-          "pontosAtencao": "",
-          "oportunidades": "",
-          "observacoes": "",
-          "checklists": [
-            {
-              "id": "9ab1a555e15a3383",
-              "name": "BÁSICO",
-              "items": [
-                {
-                  "id": "f1060ddee0d31794",
-                  "text": "Boas-vindas",
-                  "done": false
-                },
-                {
-                  "id": "b6b10b710c3ce9ae",
-                  "text": "Configurações gerais",
-                  "done": false
-                },
-                {
-                  "id": "b470a8b7049be5d9",
-                  "text": "Agenda",
-                  "done": false
-                },
-                {
-                  "id": "82d15dddd5221765",
-                  "text": "Caixa",
-                  "done": false
-                },
-                {
-                  "id": "bf13eacd473f918f",
-                  "text": "Comanda",
-                  "done": false
-                },
-                {
-                  "id": "24d00b89509adec4",
-                  "text": "Fluxo básico de atendimento",
-                  "done": false
-                }
-              ]
-            }
-          ],
-          "uso": [
-            {
-              "id": "ade262934bf87e54",
-              "dia": 7,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "f0e4a26ef1c13d7e",
-              "dia": 15,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "ca03658df577da45",
-              "dia": 30,
-              "status": "",
-              "nota": "",
-              "em": ""
-            }
-          ],
-          "attachments": [],
-          "activity": [
-            {
-              "id": "26b119413c4bbcc9",
-              "type": "action",
-              "at": "2026-09-29T12:35:28.076Z",
-              "author": "teste teste",
-              "authorId": "f3401ab3f7b05d2e",
-              "text": "adicionou este cartão a Novo cliente"
-            }
-          ],
-          "history": [
-            {
-              "at": "2026-09-29T12:35:28.075Z",
-              "column": "novo"
-            }
-          ],
-          "createdAt": "2026-09-29T12:35:28.075Z",
-          "updatedAt": "2026-09-29T12:35:28.075Z",
-          "finishedAt": "",
-          "ordem": 1790685328076
         },
         {
           "id": "f73c49052198cc97",
