@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-guarapuava",
   "modulo": "propostas",
-  "atualizadoEm": "2026-10-01T14:02:57.528Z",
+  "atualizadoEm": "2026-10-02T19:43:54.551Z",
   "atualizadoPor": "felipe.lopes",
   "dados": {
-    "avec:log:v1": "[{\"quando\":\"2026-10-01T14:02:56.667Z\",\"evento\":\"Abriu a calculadora\"}]"
+    "avec:log:v1": "[{\"quando\":\"2026-10-02T19:43:53.638Z\",\"evento\":\"Abriu a calculadora\"},{\"quando\":\"2026-10-01T14:02:56.667Z\",\"evento\":\"Abriu a calculadora\"}]"
   }
 }
