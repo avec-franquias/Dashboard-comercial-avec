@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-sao-luis",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-02T13:15:42.083Z",
+  "atualizadoEm": "2026-10-02T13:15:43.278Z",
   "atualizadoPor": "kater.hoss",
   "dados": {
     "db": {
@@ -31,6 +31,13 @@
           "id": "80d9af99909617ca",
           "name": "Avec São Paulo - Katia",
           "login": "katia.oliveira",
+          "role": "historico",
+          "pass": "portal"
+        },
+        {
+          "id": "9e172605565ceacd",
+          "name": "Rafael Duarte",
+          "login": "rafael.duarte",
           "role": "franqueado",
           "pass": "portal"
         }
