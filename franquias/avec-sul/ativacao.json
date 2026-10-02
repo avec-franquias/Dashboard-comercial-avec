@@ -1,8 +1,8 @@
 {
   "franquiaId": "avec-sul",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-01T17:33:44.942Z",
-  "atualizadoPor": "christian.vieira",
+  "atualizadoEm": "2026-10-02T13:17:33.593Z",
+  "atualizadoPor": "diana.gracia",
   "dados": {
     "db": {
       "users": [
@@ -38,7 +38,7 @@
           "id": "b698c4f64130c64d",
           "name": "Diana de Gracia",
           "login": "diana.gracia",
-          "role": "admin",
+          "role": "franqueado",
           "pass": "portal"
         },
         {
