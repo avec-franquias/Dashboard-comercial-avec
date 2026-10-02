@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-rio-de-janeiro",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-02T13:22:32.054Z",
+  "atualizadoEm": "2026-10-02T13:22:42.398Z",
   "atualizadoPor": "kater.hoss",
   "dados": {
     "db": {
@@ -42,109 +42,7 @@
           "pass": "portal"
         }
       ],
-      "cards": [
-        {
-          "id": "dec43d794adcaec0",
-          "ownerId": "4d4a190d38cafcbf",
-          "column": "novo",
-          "clientCode": "ytfvoluvfouytfvo,fivy",
-          "title": "6trytruytrfiuyg.uyg",
-          "phone": "",
-          "labels": [],
-          "members": [],
-          "contractDate": "2026-09-24T14:14",
-          "firstContactDate": "",
-          "startDate": "",
-          "dueDate": "",
-          "painPoint": "",
-          "painValidated": false,
-          "pontosAtencao": "",
-          "oportunidades": "",
-          "observacoes": "",
-          "checklists": [
-            {
-              "id": "928d31031930162a",
-              "name": "BÁSICO",
-              "items": [
-                {
-                  "id": "afbb34701ca5e991",
-                  "text": "Boas-vindas",
-                  "done": false
-                },
-                {
-                  "id": "20bb83bb198bf254",
-                  "text": "Configurações gerais",
-                  "done": false
-                },
-                {
-                  "id": "1b6f0bdbe2fa026e",
-                  "text": "Agenda",
-                  "done": false
-                },
-                {
-                  "id": "5bd3fc3ff673ec05",
-                  "text": "Caixa",
-                  "done": false
-                },
-                {
-                  "id": "27ae70731d42bde2",
-                  "text": "Comanda",
-                  "done": false
-                },
-                {
-                  "id": "64634582044d75d9",
-                  "text": "Fluxo básico de atendimento",
-                  "done": false
-                }
-              ]
-            }
-          ],
-          "uso": [
-            {
-              "id": "035914e4a0e0ac6c",
-              "dia": 7,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "7ec9e7c7de5887d2",
-              "dia": 15,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "67ac3f11980af94a",
-              "dia": 30,
-              "status": "",
-              "nota": "",
-              "em": ""
-            }
-          ],
-          "attachments": [],
-          "activity": [
-            {
-              "id": "ea9c43b22115be7c",
-              "type": "action",
-              "at": "2026-09-24T17:14:39.128Z",
-              "author": "Bruno Tomasi",
-              "authorId": "4d4a190d38cafcbf",
-              "text": "adicionou este cartão a Novo cliente"
-            }
-          ],
-          "history": [
-            {
-              "at": "2026-09-24T17:14:39.127Z",
-              "column": "novo"
-            }
-          ],
-          "createdAt": "2026-09-24T17:14:39.127Z",
-          "updatedAt": "2026-09-24T17:14:39.127Z",
-          "finishedAt": "",
-          "ordem": 1790270079128
-        }
-      ]
+      "cards": []
     }
   }
 }
