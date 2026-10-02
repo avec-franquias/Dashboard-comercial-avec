@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T13:38:44.171Z",
+  "generated_at": "2026-10-02T13:39:59.843Z",
   "runs": [
     {
       "query": {
@@ -56787,87 +56787,111 @@
     {
       "query": {
         "nicho": "Salão de beleza",
-        "cidade": "Apuiarés, CE",
+        "cidade": "Água Branca, AL",
         "bairro": "",
         "max_results": 80
       },
-      "finished_at": "2026-10-02T13:38:43.146Z",
-      "total": 6,
-      "new_count": 6,
+      "finished_at": "2026-10-02T13:39:58.818Z",
+      "total": 8,
+      "new_count": 8,
       "new_ids": [
-        "0x7bf874ac9f63721:0xb14b4d9af7d57eb0",
-        "0x7bf8716dd7da7b9:0x7897c2c45c593951",
-        "0x7bf87b0b0ab2b3d:0xcd878226f57d7052",
-        "0x7bf87001f58888f:0x43b55541c2e7075f",
-        "0x7bf86e37f2e49b3:0x9267ade79b3504cc",
-        "0x7bf87e5484e10d7:0xadfdafd0aa3baa34"
+        "0x708e1eb36ab0957:0xc5bc062b7c432d85",
+        "0x708e13891dd3fc9:0x8d7cb673a4b4c514",
+        "0x708e05fbb980e57:0x4917b57a6e65ce0d",
+        "0x708e102ecc6ba8d:0x6983d2b70627832e",
+        "0x708e50548809a13:0x14bb807dffdfa214",
+        "0x708e5a9f71a4b7b:0x594cb9a44eabe0db",
+        "0x708e1a6e8748d27:0x79e50e19c9a176c3",
+        "0x708e1cb7ddcd6b5:0xdc0fcb28454dd5c8"
       ],
       "leads": [
         {
-          "name": "Mauricio Cabeleireiros",
-          "phone": "+5585992021777",
+          "name": "Studio sheyla rodrigues",
+          "phone": "+5582999934676",
           "website": "",
-          "address": "R. Frederico Ferreira Pontes, 190 - Apuiarés, CE, 62630-000, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "4,8",
-          "reviews": "",
-          "place_id": "0x7bf874ac9f63721:0xb14b4d9af7d57eb0",
-          "maps_url": "https://www.google.com/maps/place/Mauricio+Cabeleireiros/data=!4m7!3m6!1s0x7bf874ac9f63721:0xb14b4d9af7d57eb0!8m2!3d-3.9483322!4d-39.4321183!16s%2Fg%2F11f5l4pb82!19sChIJITf2yUqHvwcRsH7V95pNS7E?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Espaço da beleza apuiares",
-          "phone": "+5585992060155",
-          "website": "",
-          "address": "R. Padre Francisco José, 270 - Centro, Apuiarés - CE, 62630-000, Brasil ",
-          "category": "Manicure",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7bf8716dd7da7b9:0x7897c2c45c593951",
-          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+da+beleza+apuiares/data=!4m7!3m6!1s0x7bf8716dd7da7b9:0x7897c2c45c593951!8m2!3d-3.9449677!4d-39.4315852!16s%2Fg%2F11vjvnv11m!19sChIJuad93RaHvwcRUTlZXMTCl3g?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Salão de beleza Aninha matos",
-          "phone": "+5585992220486",
-          "website": "",
-          "address": "R. Padre Francisco José - Centro, Apuiarés - CE, 62630-000, Brasil ",
+          "address": "R. Muniz Falcão, 36, Água Branca - AL, 57490-000, Brasil ",
           "category": "Salão de Beleza",
           "rating": "5,0",
           "reviews": "",
-          "place_id": "0x7bf87b0b0ab2b3d:0xcd878226f57d7052",
-          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+de+beleza+Aninha+matos/data=!4m7!3m6!1s0x7bf87b0b0ab2b3d:0xcd878226f57d7052!8m2!3d-3.9452565!4d-39.4317192!16s%2Fg%2F11s57px844!19sChIJPSursLCHvwcRUnB99SaCh80?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x708e1eb36ab0957:0xc5bc062b7c432d85",
+          "maps_url": "https://www.google.com/maps/place/Studio+sheyla+rodrigues/data=!4m7!3m6!1s0x708e1eb36ab0957:0xc5bc062b7c432d85!8m2!3d-9.2623247!4d-37.936918!16s%2Fg%2F11hzw64k0t!19sChIJVwmrNuvhCAcRhS1DfCsGvMU?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Ponto Da Beleza",
-          "phone": "+5585992622675",
+          "name": "Beatriz Ismael: Salão de Beleza",
+          "phone": "+5582999341561",
           "website": "",
-          "address": "R. Francisco Lopes Ramalho - Apuiarés, CE, 62630-000, Brasil ",
+          "address": "R. Cônego Nicodemos, 16, Água Branca - AL, 57490-000, Brasil ",
           "category": "Salão de Beleza",
           "rating": "5,0",
           "reviews": "",
-          "place_id": "0x7bf87001f58888f:0x43b55541c2e7075f",
-          "maps_url": "https://www.google.com/maps/place/Ponto+Da+Beleza/data=!4m7!3m6!1s0x7bf87001f58888f:0x43b55541c2e7075f!8m2!3d-3.9424195!4d-39.4338634!16s%2Fg%2F11ppy0yh_9!19sChIJj4hYHwCHvwcRXwfnwkFVtUM?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x708e13891dd3fc9:0x8d7cb673a4b4c514",
+          "maps_url": "https://www.google.com/maps/place/Beatriz+Ismael:+Sal%C3%A3o+de+Beleza/data=!4m7!3m6!1s0x708e13891dd3fc9:0x8d7cb673a4b4c514!8m2!3d-9.2613497!4d-37.936746!16s%2Fg%2F11sc9hxzfl!19sChIJyT_dkTjhCAcRFMW0pHO2fI0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "salao cantinho da beleza",
+          "name": "Studio De Beleza Marília Alice",
           "phone": "",
           "website": "",
-          "address": "R. Frederico Ferreira Pontes, 210 - Apuiarés, CE, 62630-000, Brasil ",
+          "address": "R. Cônego Nicodemos - Centro, Água Branca - AL, 57490-000, Brasil ",
           "category": "Salão de Beleza",
-          "rating": "4,0",
+          "rating": "",
           "reviews": "",
-          "place_id": "0x7bf86e37f2e49b3:0x9267ade79b3504cc",
-          "maps_url": "https://www.google.com/maps/place/salao+cantinho+da+beleza/data=!4m7!3m6!1s0x7bf86e37f2e49b3:0x9267ade79b3504cc!8m2!3d-3.9481162!4d-39.4320709!16s%2Fg%2F11c32b2g5r!19sChIJs0kuf-OGvwcRzAQ1m-etZ5I?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x708e05fbb980e57:0x4917b57a6e65ce0d",
+          "maps_url": "https://www.google.com/maps/place/Studio+De+Beleza+Mar%C3%ADlia+Alice/data=!4m7!3m6!1s0x708e05fbb980e57:0x4917b57a6e65ce0d!8m2!3d-9.2617656!4d-37.9378124!16s%2Fg%2F11z7t0lv45!19sChIJVw6Yu1_gCAcRDc5lbnq1F0k?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Laysa Uchôa estética",
-          "phone": "+5585997838185",
+          "name": "Espaço de Beleza Heloisa Ferreira",
+          "phone": "+5582999810204",
           "website": "",
-          "address": "R. Jose Augusto Mota Gois - Apuiarés, CE, 62630-000, Brasil ",
+          "address": "R. Padre Epifânio Moura, 338-380, Água Branca - AL, 57490-000, Brasil ",
           "category": "Salão de Beleza",
           "rating": "5,0",
           "reviews": "",
-          "place_id": "0x7bf87e5484e10d7:0xadfdafd0aa3baa34",
-          "maps_url": "https://www.google.com/maps/place/Laysa+Uch%C3%B4a+est%C3%A9tica/data=!4m7!3m6!1s0x7bf87e5484e10d7:0xadfdafd0aa3baa34!8m2!3d-3.9406891!4d-39.4272722!16s%2Fg%2F11shd60b8r!19sChIJ1xBOSOWHvwcRNKo7qtCv_a0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x708e102ecc6ba8d:0x6983d2b70627832e",
+          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+de+Beleza+Heloisa+Ferreira/data=!4m7!3m6!1s0x708e102ecc6ba8d:0x6983d2b70627832e!8m2!3d-9.2607853!4d-37.9343289!16s%2Fg%2F11h22rgsbh!19sChIJjbrG7ALhCAcRLoMnBrfSg2k?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Bruna Ismael Beauty",
+          "phone": "",
+          "website": "",
+          "address": "Povoado Quixabeira, Água Branca - AL, 57490-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x708e50548809a13:0x14bb807dffdfa214",
+          "maps_url": "https://www.google.com/maps/place/Bruna+Ismael+Beauty/data=!4m7!3m6!1s0x708e50548809a13:0x14bb807dffdfa214!8m2!3d-9.1898703!4d-37.8648476!16s%2Fg%2F11fpjpcy7p!19sChIJE5qASAXlCAcRFKLf_32AuxQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Belezaria Beatriz Ismael",
+          "phone": "+5582999341561",
+          "website": "",
+          "address": "Distrito Quixabeira, Água Branca - AL, 57540-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,6",
+          "reviews": "",
+          "place_id": "0x708e5a9f71a4b7b:0x594cb9a44eabe0db",
+          "maps_url": "https://www.google.com/maps/place/Belezaria+Beatriz+Ismael/data=!4m7!3m6!1s0x708e5a9f71a4b7b:0x594cb9a44eabe0db!8m2!3d-9.1843397!4d-37.8696005!16s%2Fg%2F11f669t4p8!19sChIJe0sa96nlCAcR2-CrTqS5TFk?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "RS BARBEARIA",
+          "phone": "+5549998358460",
+          "website": "",
+          "address": "R. Osman Loureiro, 33, Água Branca - AL, 57490-000, Brasil ",
+          "category": "Barbearia",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x708e1a6e8748d27:0x79e50e19c9a176c3",
+          "maps_url": "https://www.google.com/maps/place/RS+BARBEARIA/data=!4m7!3m6!1s0x708e1a6e8748d27:0x79e50e19c9a176c3!8m2!3d-9.2639034!4d-37.9359982!16s%2Fg%2F11l1cgck9_!19sChIJJ4106KbhCAcRw3ahyRkO5Xk?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão do Lázaro",
+          "phone": "",
+          "website": "",
+          "address": "R. América Fernandes Torres, 823, Água Branca - AL, 57490-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x708e1cb7ddcd6b5:0xdc0fcb28454dd5c8",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+do+L%C3%A1zaro/data=!4m7!3m6!1s0x708e1cb7ddcd6b5:0xdc0fcb28454dd5c8!8m2!3d-9.2632721!4d-37.9391904!16s%2Fg%2F11vf5m2xt5!19sChIJtdbcfcvhCAcRyNVNRSjLD9w?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1"
         }
       ]
     }
