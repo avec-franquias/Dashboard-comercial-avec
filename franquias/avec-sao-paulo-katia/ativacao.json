@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-sao-paulo-katia",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-02T13:13:49.899Z",
+  "atualizadoEm": "2026-10-02T13:14:11.664Z",
   "atualizadoPor": "kater.hoss",
   "dados": {
     "db": {
@@ -36,107 +36,6 @@
         }
       ],
       "cards": [
-        {
-          "id": "e865b5ecea62a184",
-          "ownerId": "eae3caf9f907c1b9",
-          "column": "novo",
-          "clientCode": "tertert",
-          "title": "terter",
-          "phone": "",
-          "labels": [],
-          "members": [],
-          "contractDate": "2026-09-24T11:37",
-          "firstContactDate": "",
-          "startDate": "",
-          "dueDate": "",
-          "painPoint": "",
-          "painValidated": false,
-          "pontosAtencao": "",
-          "oportunidades": "",
-          "observacoes": "",
-          "checklists": [
-            {
-              "id": "9302ea3e77607db1",
-              "name": "BÁSICO",
-              "items": [
-                {
-                  "id": "a4c630ffd0da8bf8",
-                  "text": "Boas-vindas",
-                  "done": false
-                },
-                {
-                  "id": "da76104d2bd42481",
-                  "text": "Configurações gerais",
-                  "done": false
-                },
-                {
-                  "id": "f409ae72f1e46fff",
-                  "text": "Agenda",
-                  "done": false
-                },
-                {
-                  "id": "a114f3401ec5b40e",
-                  "text": "Caixa",
-                  "done": false
-                },
-                {
-                  "id": "35d0817acb7ffbf9",
-                  "text": "Comanda",
-                  "done": false
-                },
-                {
-                  "id": "d56f63f5109bd113",
-                  "text": "Fluxo básico de atendimento",
-                  "done": false
-                }
-              ]
-            }
-          ],
-          "uso": [
-            {
-              "id": "cc3caf1b88690f8e",
-              "dia": 7,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "07022df132506d8a",
-              "dia": 15,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "f7cbfa35e076f3cd",
-              "dia": 30,
-              "status": "",
-              "nota": "",
-              "em": ""
-            }
-          ],
-          "attachments": [],
-          "activity": [
-            {
-              "id": "dc008db09841d9bf",
-              "type": "action",
-              "at": "2026-09-24T14:37:30.769Z",
-              "author": "Diana de Gracia",
-              "authorId": "eae3caf9f907c1b9",
-              "text": "adicionou este cartão a Novo cliente"
-            }
-          ],
-          "history": [
-            {
-              "at": "2026-09-24T14:37:30.768Z",
-              "column": "novo"
-            }
-          ],
-          "createdAt": "2026-09-24T14:37:30.768Z",
-          "updatedAt": "2026-09-24T14:37:30.768Z",
-          "finishedAt": "",
-          "ordem": 1790260650769
-        },
         {
           "id": "90ab796e2fdaa586",
           "ownerId": "4d4a190d38cafcbf",
