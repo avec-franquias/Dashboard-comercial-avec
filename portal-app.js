@@ -474,7 +474,7 @@ function entrarNoPortal(u) {
   }
   desenhaModulos();
   $("#quemMod").textContent = u.nome;
-  $("#trocaMod").innerHTML = MODULOS.filter(podeUsar).map((m) => `<option value="${m.id}">${esc(m.nome)}</option>`).join("");
+  $("#trocaMod").innerHTML = MODULOS.filter((m) => podeUsar(m) && !m.urlExterna).map((m) => `<option value="${m.id}">${esc(m.nome)}</option>`).join("");
   avisoPublicar();
   mostra("portal");
   setTimeout(function() {
@@ -488,7 +488,7 @@ function entrarNoPortal(u) {
   }
   rota();
 }
-const SEMPRE_LIBERADOS = ["central", "migrador", "roadmap", "localizar", "mapa-franqueado"];
+const SEMPRE_LIBERADOS = ["central", "migrador", "roadmap", "localizar", "mapa-franqueado", "crm-avec"];
 const podeUsar = (m) => {
   if (!perfil) return false;
   if (perfil.papel === "admin") return true;
@@ -504,10 +504,12 @@ function desenhaModulos() {
 
   const itemModulo = (m) => {
     const mt = emManut(m.id), rec = mt && MANUT[m.id].mensagem;
-    return `<a href="#${esc(m.id)}" class="mod-lista" style="--cor:${esc(m.cor || "#5B4FE9")}" data-modulo="${esc(m.id)}">
+    const href = m.urlExterna ? esc(m.urlExterna) : "#"+esc(m.id);
+    const externo = m.urlExterna ? ' target="_blank" rel="noopener noreferrer"' : "";
+    return `<a href="${href}"${externo} class="mod-lista" style="--cor:${esc(m.cor || "#5B4FE9")}" data-modulo="${esc(m.id)}">
       <span class="ic-mini">${iconeDe(m.id)}</span>
       <span class="mi"><b>${esc(m.nome)}</b><small>${esc(mt ? rec || "Em manutenção" : m.desc)}</small></span>
-      <span class="seta">${mt && !admin ? "!" : "›"}</span>
+      <span class="seta">${m.urlExterna ? "↗" : (mt && !admin ? "!" : "›")}</span>
     </a>`;
   };
 
@@ -520,7 +522,7 @@ function desenhaModulos() {
       { id:"ferramentas", nome:"Ferramentas", mods:["migrador","taxas","propostas"] },
       { id:"mkt", nome:"MKT", mods:["extrator"] },
       { id:"crm", nome:"CRM", mods:["vendas","ativacao"] },
-      { id:"gestao", nome:"Gestão", mods:["localizar","mapa-franqueado","arvore","clientes","previsao"] },
+      { id:"gestao", nome:"Gestão", mods:["crm-avec","localizar","mapa-franqueado","arvore","clientes","previsao"] },
       { id:"roadmap-master", nome:"Sugestões", mods:["roadmap"] }
     ];
 
@@ -537,7 +539,7 @@ function desenhaModulos() {
       </details>`;
     }).join("");
 
-    const agrupados = new Set(["central","migrador","taxas","propostas","extrator","vendas","ativacao","localizar","mapa-franqueado","arvore","clientes","previsao","roadmap"]);
+    const agrupados = new Set(["central","migrador","taxas","propostas","extrator","vendas","ativacao","crm-avec","localizar","mapa-franqueado","arvore","clientes","previsao","roadmap"]);
     const extras = lista.filter(m => !agrupados.has(m.id));
     if (extras.length) {
       html += `<details class="menu-grupo">
