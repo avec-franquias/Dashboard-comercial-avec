@@ -521,7 +521,6 @@ function desenhaModulos() {
       { id:"base-conhecimento", nome:"Base de conhecimento", mods:["central"] },
       { id:"ferramentas", nome:"Ferramentas", mods:["migrador","taxas","propostas"] },
       { id:"mkt", nome:"MKT", mods:["extrator"] },
-      { id:"crm", nome:"Kanban Jornada do Cliente", mods:["vendas","ativacao"] },
       { id:"gestao", nome:"Gestão", mods:["crm-avec","localizar","mapa-franqueado"] },
       { id:"roadmap-master", nome:"Sugestões", mods:["roadmap"] }
     ];
@@ -539,7 +538,7 @@ function desenhaModulos() {
       </details>`;
     }).join("");
 
-    const agrupados = new Set(["central","migrador","taxas","propostas","extrator","vendas","ativacao","crm-avec","localizar","mapa-franqueado","roadmap"]);
+    const agrupados = new Set(["central","migrador","taxas","propostas","extrator","crm-avec","localizar","mapa-franqueado","roadmap"]);
     const extras = lista.filter(m => !agrupados.has(m.id));
     if (extras.length) {
       html += `<details class="menu-grupo">
