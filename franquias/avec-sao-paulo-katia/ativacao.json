@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-sao-paulo-katia",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-02T13:14:11.664Z",
+  "atualizadoEm": "2026-10-02T13:14:19.615Z",
   "atualizadoPor": "kater.hoss",
   "dados": {
     "db": {
@@ -36,107 +36,6 @@
         }
       ],
       "cards": [
-        {
-          "id": "90ab796e2fdaa586",
-          "ownerId": "4d4a190d38cafcbf",
-          "column": "novo",
-          "clientCode": "oijkjl",
-          "title": "ljlkj",
-          "phone": "",
-          "labels": [],
-          "members": [],
-          "contractDate": "2026-09-24T13:18",
-          "firstContactDate": "",
-          "startDate": "",
-          "dueDate": "",
-          "painPoint": "",
-          "painValidated": false,
-          "pontosAtencao": "",
-          "oportunidades": "",
-          "observacoes": "",
-          "checklists": [
-            {
-              "id": "f683f792e0a5227d",
-              "name": "BÁSICO",
-              "items": [
-                {
-                  "id": "9f979597c63fcbb2",
-                  "text": "Boas-vindas",
-                  "done": false
-                },
-                {
-                  "id": "287c485f3aa6e397",
-                  "text": "Configurações gerais",
-                  "done": false
-                },
-                {
-                  "id": "abaeb02c9fb4759e",
-                  "text": "Agenda",
-                  "done": false
-                },
-                {
-                  "id": "f224d7aa83d13f31",
-                  "text": "Caixa",
-                  "done": false
-                },
-                {
-                  "id": "105818bf10121fef",
-                  "text": "Comanda",
-                  "done": false
-                },
-                {
-                  "id": "6a06c3cc4a30e369",
-                  "text": "Fluxo básico de atendimento",
-                  "done": false
-                }
-              ]
-            }
-          ],
-          "uso": [
-            {
-              "id": "c0198eb839184167",
-              "dia": 7,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "ce95ee6955c35a72",
-              "dia": 15,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "ac004bb85e8f7734",
-              "dia": 30,
-              "status": "",
-              "nota": "",
-              "em": ""
-            }
-          ],
-          "attachments": [],
-          "activity": [
-            {
-              "id": "cb85e00a7693ad18",
-              "type": "action",
-              "at": "2026-09-24T16:18:36.241Z",
-              "author": "Bruno Tomasi",
-              "authorId": "4d4a190d38cafcbf",
-              "text": "adicionou este cartão a Novo cliente"
-            }
-          ],
-          "history": [
-            {
-              "at": "2026-09-24T16:18:36.240Z",
-              "column": "novo"
-            }
-          ],
-          "createdAt": "2026-09-24T16:18:36.240Z",
-          "updatedAt": "2026-09-24T16:18:36.240Z",
-          "finishedAt": "",
-          "ordem": 1790266716241
-        },
         {
           "id": "c46e371284fb1721",
           "ownerId": "eae3caf9f907c1b9",
