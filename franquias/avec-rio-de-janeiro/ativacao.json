@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-rio-de-janeiro",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-02T13:22:16.780Z",
+  "atualizadoEm": "2026-10-02T13:22:23.330Z",
   "atualizadoPor": "kater.hoss",
   "dados": {
     "db": {
@@ -43,107 +43,6 @@
         }
       ],
       "cards": [
-        {
-          "id": "c46e371284fb1721",
-          "ownerId": "eae3caf9f907c1b9",
-          "column": "novo",
-          "clientCode": "qweoiuqoieuq",
-          "title": "oijoijqwe",
-          "phone": "",
-          "labels": [],
-          "members": [],
-          "contractDate": "2026-09-24T13:18",
-          "firstContactDate": "",
-          "startDate": "",
-          "dueDate": "",
-          "painPoint": "",
-          "painValidated": false,
-          "pontosAtencao": "",
-          "oportunidades": "",
-          "observacoes": "",
-          "checklists": [
-            {
-              "id": "4c7825261ef18ab5",
-              "name": "BÁSICO",
-              "items": [
-                {
-                  "id": "7eb8f2619866cd4d",
-                  "text": "Boas-vindas",
-                  "done": false
-                },
-                {
-                  "id": "3618f1464dd445c2",
-                  "text": "Configurações gerais",
-                  "done": false
-                },
-                {
-                  "id": "68471f4e4805d993",
-                  "text": "Agenda",
-                  "done": false
-                },
-                {
-                  "id": "eda9773dd575f11d",
-                  "text": "Caixa",
-                  "done": false
-                },
-                {
-                  "id": "f28e7411f1ef4a66",
-                  "text": "Comanda",
-                  "done": false
-                },
-                {
-                  "id": "892723e2d2194577",
-                  "text": "Fluxo básico de atendimento",
-                  "done": false
-                }
-              ]
-            }
-          ],
-          "uso": [
-            {
-              "id": "9f1dc3b06c53213f",
-              "dia": 7,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "243ecc8dfced1dee",
-              "dia": 15,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "32838c33a7862adb",
-              "dia": 30,
-              "status": "",
-              "nota": "",
-              "em": ""
-            }
-          ],
-          "attachments": [],
-          "activity": [
-            {
-              "id": "32c646e0436d405a",
-              "type": "action",
-              "at": "2026-09-24T16:18:59.276Z",
-              "author": "Diana de Gracia",
-              "authorId": "eae3caf9f907c1b9",
-              "text": "adicionou este cartão a Novo cliente"
-            }
-          ],
-          "history": [
-            {
-              "at": "2026-09-24T16:18:59.276Z",
-              "column": "novo"
-            }
-          ],
-          "createdAt": "2026-09-24T16:18:59.276Z",
-          "updatedAt": "2026-09-24T16:18:59.276Z",
-          "finishedAt": "",
-          "ordem": 1790266739276
-        },
         {
           "id": "4cc0e3123f36c401",
           "ownerId": "4d4a190d38cafcbf",
