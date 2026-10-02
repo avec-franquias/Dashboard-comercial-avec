@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-sao-paulo-henrique",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-02T14:02:44.479Z",
+  "atualizadoEm": "2026-10-02T14:02:46.094Z",
   "atualizadoPor": "diana.gracia",
   "dados": {
     "db": {
@@ -31,6 +31,13 @@
           "id": "80d9af99909617ca",
           "name": "Avec São Paulo - Katia",
           "login": "katia.oliveira",
+          "role": "historico",
+          "pass": "portal"
+        },
+        {
+          "id": "bd95f53bb77e79a1",
+          "name": "Henrique Rodrigues",
+          "login": "henrique.rodrigues",
           "role": "franqueado",
           "pass": "portal"
         }
