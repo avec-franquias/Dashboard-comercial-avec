@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T13:30:46.421Z",
+  "generated_at": "2026-10-03T13:31:53.044Z",
   "runs": [
     {
       "query": {
@@ -58709,6 +58709,213 @@
           "reviews": "",
           "place_id": "0x7bf8725155239b1:0x478d100c94bab693",
           "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+da+Fran/data=!4m7!3m6!1s0x7bf8725155239b1:0x478d100c94bab693!8m2!3d-3.9445333!4d-39.4330965!16s%2Fg%2F11vf73dx8n!19sChIJsTlSFSWHvwcRk7a6lAwQjUc?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "cidade": "Aquiraz, CE",
+        "bairro": "Carregando bairros...",
+        "max_results": 80
+      },
+      "finished_at": "2026-10-03T13:31:52.023Z",
+      "total": 16,
+      "new_count": 16,
+      "new_ids": [
+        "0x7c75df1402cee1b:0x366fa57e40b80a95",
+        "0x7c75c1d6966007f:0x6c36b9d79024621d",
+        "0x7c75d90dbe55cb5:0x5f854915d5154ee0",
+        "0x7c75dfd9af95745:0xaa4d36d4f4171db1",
+        "0x7c75c02ca408a91:0x12ad7cb1bafd6ec9",
+        "0x7c75d9ce0cb333b:0x21b762558e545a3a",
+        "0x7c75ea70a8e02a5:0x78de3d35e9a34e17",
+        "0x7c75d51d5628243:0xed61b39a8707d3fb",
+        "0x7c75f140e00527f:0xc6029a2d5d68fccf",
+        "0x7c75f36fcf5d883:0xc4bf8bbc7063f36",
+        "0x7c75d87f7a9edd7:0xb6540b5bfca37f2",
+        "0x7c75f9d0faf004b:0x3a3fb6ffc95d8dcb",
+        "0x7c75b74b2efdb5b:0xe7c6b1132c6bf5e",
+        "0x7c75d87eb912e41:0x1560bb6aa26ca4ba",
+        "0x7b899aa5957488f:0x35cd4777dc6cbf02",
+        "0x7c75f7a3ab8a6dd:0x9fe75f962a60db55"
+      ],
+      "leads": [
+        {
+          "name": "Salão de Beleza | Espaço da Beleza",
+          "phone": "",
+          "website": "http://bit.ly/3iXYj3R",
+          "address": "R. Virgílio Coelho, 514 - Lot. Rota do Mar, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,7",
+          "reviews": "",
+          "place_id": "0x7c75df1402cee1b:0x366fa57e40b80a95",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+de+Beleza+%7C+Espa%C3%A7o+da+Beleza/data=!4m7!3m6!1s0x7c75df1402cee1b:0x366fa57e40b80a95!8m2!3d-3.9030745!4d-38.3894909!16s%2Fg%2F11f66bsck2!19sChIJG-4sQPFdxwcRlQq4QH6lbzY?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão D'Aline",
+          "phone": "+558533611088",
+          "website": "",
+          "address": "R. Tiburcio Targino, 14 - Lot. Rota do Mar, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,7",
+          "reviews": "",
+          "place_id": "0x7c75c1d6966007f:0x6c36b9d79024621d",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+D%27Aline/data=!4m7!3m6!1s0x7c75c1d6966007f:0x6c36b9d79024621d!8m2!3d-3.9031473!4d-38.3890861!16s%2Fg%2F11g9j32lgf!19sChIJfwBmaR1cxwcRHWIkkNe5Nmw?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão de beleza e estética Para Mulheres",
+          "phone": "+5585988553754",
+          "website": "",
+          "address": "R. Virgílio Coelho, 525 - Centro, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x7c75d90dbe55cb5:0x5f854915d5154ee0",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+de+beleza+e+est%C3%A9tica+Para+Mulheres/data=!4m7!3m6!1s0x7c75d90dbe55cb5:0x5f854915d5154ee0!8m2!3d-3.9033043!4d-38.3887126!16s%2Fg%2F11h_f82v3c!19sChIJtVzl25BdxwcR4E4V1RVJhV8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Luminous Salon | O Melhor Salão de Beleza no Aquiraz",
+          "phone": "+5585991454113",
+          "website": "https://bio.site/luminoussalon",
+          "address": "R. Pedro Brasil - Lot. Rota do Mar, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x7c75dfd9af95745:0xaa4d36d4f4171db1",
+          "maps_url": "https://www.google.com/maps/place/Luminous+Salon+%7C+O+Melhor+Sal%C3%A3o+de+Beleza+no+Aquiraz/data=!4m7!3m6!1s0x7c75dfd9af95745:0xaa4d36d4f4171db1!8m2!3d-3.9025821!4d-38.3846366!16s%2Fg%2F11h5mmdnym!19sChIJRVf5mv1dxwcRsR0X9NQ2Tao?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Estilo da Beleza",
+          "phone": "+5585988666063",
+          "website": "https://instagram.com/estilodabelezaaquiraz?utm_medium=copy_link",
+          "address": "R. Pedro Brasil, 472 - Centro, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,6",
+          "reviews": "",
+          "place_id": "0x7c75c02ca408a91:0x12ad7cb1bafd6ec9",
+          "maps_url": "https://www.google.com/maps/place/Estilo+da+Beleza/data=!4m7!3m6!1s0x7c75c02ca408a91:0x12ad7cb1bafd6ec9!8m2!3d-3.9026801!4d-38.3851679!16s%2Fg%2F11gblf3f40!19sChIJkYpAygJcxwcRyW79urF8rRI?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Jardel Gomes Beauty Hair",
+          "phone": "+5585989343328",
+          "website": "",
+          "address": "Av. Raimundo Pires Cardoso, 217 - Lot. Rota do Mar, Aquiraz - CE, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c75d9ce0cb333b:0x21b762558e545a3a",
+          "maps_url": "https://www.google.com/maps/place/Jardel+Gomes+Beauty+Hair/data=!4m7!3m6!1s0x7c75d9ce0cb333b:0x21b762558e545a3a!8m2!3d-3.9064398!4d-38.3852287!16s%2Fg%2F11fpm82d_8!19sChIJOzPL4JxdxwcROlpUjlVityE?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Lidinha",
+          "phone": "+558533623515",
+          "website": "https://www.facebook.com/lidinhasalaodebeleza/",
+          "address": "Av. Torres de Melo, 3361 - Lot. Rota do Mar, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,4",
+          "reviews": "",
+          "place_id": "0x7c75ea70a8e02a5:0x78de3d35e9a34e17",
+          "maps_url": "https://www.google.com/maps/place/Lidinha/data=!4m7!3m6!1s0x7c75ea70a8e02a5:0x78de3d35e9a34e17!8m2!3d-3.9057401!4d-38.3876173!16s%2Fg%2F11dztsn70q!19sChIJpQKOCqdexwcRF06j6TU93ng?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Essência conceito de beleza por: Nathalia Caroline - UNIDADE Aquiraz",
+          "phone": "",
+          "website": "",
+          "address": "R. Frei Marcelino - Centro, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Cabeleireiro",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c75d51d5628243:0xed61b39a8707d3fb",
+          "maps_url": "https://www.google.com/maps/place/Ess%C3%AAncia+conceito+de+beleza+por:+Nathalia+Caroline+-+UNIDADE+Aquiraz/data=!4m7!3m6!1s0x7c75d51d5628243:0xed61b39a8707d3fb!8m2!3d-3.903784!4d-38.386468!16s%2Fg%2F11q40vl2l7!19sChIJQ4Ji1VFdxwcR-9MHh5qzYe0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Gabi.beauty house",
+          "phone": "+5585986631465",
+          "website": "",
+          "address": "R. José Venâncio, N•321 - Centro, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,4",
+          "reviews": "",
+          "place_id": "0x7c75f140e00527f:0xc6029a2d5d68fccf",
+          "maps_url": "https://www.google.com/maps/place/Gabi.beauty+house/data=!4m7!3m6!1s0x7c75f140e00527f:0xc6029a2d5d68fccf!8m2!3d-3.9068407!4d-38.3877379!16s%2Fg%2F11fr78tmk0!19sChIJf1IADhRfxwcRz_xoXS2aAsY?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "SÖU BEAUTY SALÃO DE BELEZA - TAPERA AQUIRAZ",
+          "phone": "+5585981080508",
+          "website": "https://instagram.com/sou_salaodebeleza",
+          "address": "Complexo Aquiraz Riviera, Dentro do Condomínio Manhattan - Tapera, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c75f36fcf5d883:0xc4bf8bbc7063f36",
+          "maps_url": "https://www.google.com/maps/place/S%C3%96U+BEAUTY+SAL%C3%83O+DE+BELEZA+-+TAPERA+AQUIRAZ/data=!4m7!3m6!1s0x7c75f36fcf5d883:0xc4bf8bbc7063f36!8m2!3d-3.925764!4d-38.3235016!16s%2Fg%2F11vdv2dl8s!19sChIJg9j1_DZfxwcRNj8Gx7v4Sww?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Viviane Lins Salon",
+          "phone": "+5585996071919",
+          "website": "https://www.instagram.com/vivianelins.salon",
+          "address": "Centro comercial Buriti - Av. Caminho do Sol, 3783 - Porto das Dunas, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x7c75d87f7a9edd7:0xb6540b5bfca37f2",
+          "maps_url": "https://www.google.com/maps/place/Viviane+Lins+Salon/data=!4m7!3m6!1s0x7c75d87f7a9edd7:0xb6540b5bfca37f2!8m2!3d-3.8475097!4d-38.3963061!16s%2Fg%2F11lkd9nxpp!19sChIJ1-2p94ddxwcR8jfKv7VAZQs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão de beleza priscila Ferreira rainha do liso",
+          "phone": "+5585985787152",
+          "website": "",
+          "address": "R. Artemísia, 552 - Parques das Flores, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c75f9d0faf004b:0x3a3fb6ffc95d8dcb",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+de+beleza+priscila+Ferreira+rainha+do+liso/data=!4m7!3m6!1s0x7c75f9d0faf004b:0x3a3fb6ffc95d8dcb!8m2!3d-3.9114526!4d-38.3792162!16s%2Fg%2F11smkxv403!19sChIJSwCvD51fxwcRy41dyf-2Pzo?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Amis Studio de Beleza",
+          "phone": "+5585998261111",
+          "website": "",
+          "address": "Estr. Barão de Aquiraz, 3191 - Coaçu, Eusébio - CE, 60871-684, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x7c75b74b2efdb5b:0xe7c6b1132c6bf5e",
+          "maps_url": "https://www.google.com/maps/place/Amis+Studio+de+Beleza/data=!4m7!3m6!1s0x7c75b74b2efdb5b:0xe7c6b1132c6bf5e!8m2!3d-3.8535111!4d-38.4735621!16s%2Fg%2F11y26qykft!19sChIJW9vvsnRbxwcRXr_GMhFrfA4?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão",
+          "phone": "+5585994495199",
+          "website": "",
+          "address": "Av. Torres de Melo, 334 - Lot. Rota do Mar, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c75d87eb912e41:0x1560bb6aa26ca4ba",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o/data=!4m7!3m6!1s0x7c75d87eb912e41:0x1560bb6aa26ca4ba!8m2!3d-3.9033283!4d-38.3906208!16s%2Fg%2F11vlsntp86!19sChIJQS6R64ddxwcRuqRsomq7YBU?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão em Casa Débora Almeida - Atendimento à Domicílio - Unhas, Cabelos, Penteados, Sobrancelhas, Cílios e Maquiagem",
+          "phone": "+5585981444069",
+          "website": "http://www.salaoemcasa.net/",
+          "address": "",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7b899aa5957488f:0x35cd4777dc6cbf02",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+em+Casa+D%C3%A9bora+Almeida+-+Atendimento+%C3%A0+Domic%C3%ADlio+-+Unhas,+Cabelos,+Penteados,+Sobrancelhas,+C%C3%ADlios+e+Maquiagem/data=!4m7!3m6!1s0x7b899aa5957488f:0x35cd4777dc6cbf02!8m2!3d-3.9348278!4d-38.3612551!16s%2Fg%2F11v17dq7ds!19sChIJj0hXWaqZuAcRAr9s3HdHzTU?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Espaço Josi Freitas",
+          "phone": "+5585991535623",
+          "website": "https://instagram.com/espaco_josifreitas?igshid=OGQ5ZDc2ODk2ZA==",
+          "address": "R. Rouxinol, 5 - Parques das Flores, Aquiraz - CE, 61700-000, Brasil ",
+          "category": "Depilação",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x7c75f7a3ab8a6dd:0x9fe75f962a60db55",
+          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+Josi+Freitas/data=!4m7!3m6!1s0x7c75f7a3ab8a6dd:0x9fe75f962a60db55!8m2!3d-3.9107178!4d-38.3835953!16s%2Fg%2F11kr669459!19sChIJ3aa4OnpfxwcRVdtgKpZf558?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
         }
       ]
     }
