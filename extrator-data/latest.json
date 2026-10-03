@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T13:40:13.071Z",
+  "generated_at": "2026-10-03T13:44:04.146Z",
   "runs": [
     {
       "query": {
@@ -59807,6 +59807,261 @@
           "reviews": "",
           "place_id": "0x7c75f84b17bf587:0x243488bc1a1136b7",
           "maps_url": "https://www.google.com/maps/place/Alex+Mello+Barbershop/data=!4m7!3m6!1s0x7c75f84b17bf587:0x243488bc1a1136b7!8m2!3d-3.9149592!4d-38.3833792!16s%2Fg%2F11gpncndzj!19sChIJh_V7sYRfxwcRtzYRGryINCQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "cidade": "Boa Vista, RR",
+        "bairro": "Carregando bairros...",
+        "max_results": 80
+      },
+      "finished_at": "2026-10-03T13:44:03.114Z",
+      "total": 20,
+      "new_count": 20,
+      "new_ids": [
+        "0x8d9305971516fcbd:0xc47902b3b5090884",
+        "0x8d930537ec6c1f69:0x242d356b88a40576",
+        "0x8d930578395cdd09:0xf711e7b60ea1d8f",
+        "0x8d930fb8eee42f4b:0x86528a7890795d75",
+        "0x8d9305191c6adc2f:0x24897bcd64952e4e",
+        "0x8d93078e960b5d55:0xcedb53a33ff4a782",
+        "0x8d9305f593de1a03:0xc93ba9e9d7479158",
+        "0x8d93055e53ccdc8d:0xf46679d7f088f5ce",
+        "0x8d93079cdae9a5f7:0x4574ad6278047656",
+        "0x8d930573b8a13755:0x9b75af3ecedcdd1f",
+        "0x8d9305691738362f:0x753d5689a4aed7dc",
+        "0x8d9305006e04bf8d:0x116b407df8455aef",
+        "0x8d9306020862f73b:0x1ec586f6f8ef92e6",
+        "0x8d930671599e11e9:0xe657a0225af50df5",
+        "0x8d9305669ddad7d9:0x7553f79eca9ab55d",
+        "0x8d930582de8fd301:0x43990cfa0c701f1c",
+        "0x8d9305708726b651:0xaee6deb46acd9c24",
+        "0x8d9305b068e29daf:0x3c3999524687da0b",
+        "0x8d9306022ed6b9b1:0x92574d132f2b303c",
+        "0x8d93059a7704a967:0xe65f1461afc6a385"
+      ],
+      "leads": [
+        {
+          "name": "Salão Fios de Luxo Mecejana",
+          "phone": "+5595999709015",
+          "website": "https://salaofiosdeluxo.com.br/",
+          "address": "Rua: Pedro Rodrigues, 1440 - Mecejana, Boa Vista - RR, 69304-040, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,6",
+          "reviews": "",
+          "place_id": "0x8d9305971516fcbd:0xc47902b3b5090884",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+Fios+de+Luxo+Mecejana/data=!4m7!3m6!1s0x8d9305971516fcbd:0xc47902b3b5090884!8m2!3d2.8271613!4d-60.6895515!16s%2Fg%2F11f1g32qsm!19sChIJvfwWFZcFk40RhAgJtbMCecQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Lolita's Studio de Beleza",
+          "phone": "+5595991588692",
+          "website": "",
+          "address": "R. Pedro Rodrigues, 1795 - Mecejana, Boa Vista - RR, 69304-040, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x8d930537ec6c1f69:0x242d356b88a40576",
+          "maps_url": "https://www.google.com/maps/place/Lolita%27s+Studio+de+Beleza/data=!4m7!3m6!1s0x8d930537ec6c1f69:0x242d356b88a40576!8m2!3d2.8280635!4d-60.6927334!16s%2Fg%2F11n69f66jz!19sChIJaR9s7DcFk40RdgWkiGs1LSQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão Meu Cabelo Sim em Boa Vista",
+          "phone": "+5595991584565",
+          "website": "",
+          "address": "R. Juraci Peixoto, 447 - Jóquei Clube, Boa Vista - RR, 69313-148, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x8d930578395cdd09:0xf711e7b60ea1d8f",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+Meu+Cabelo+Sim+em+Boa+Vista/data=!4m7!3m6!1s0x8d930578395cdd09:0xf711e7b60ea1d8f!8m2!3d2.8067566!4d-60.716938!16s%2Fg%2F11q8jzyszr!19sChIJCd1cOXgFk40Rjx3qYHsecQ8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão Renove sua Beleza",
+          "phone": "+5595991724847",
+          "website": "https://instagram.com/salaorenovesuabeleza?igshid=YmMyMTA2M2Y=",
+          "address": "R. Cisne, 529 - Cidade Satélite, Boa Vista - RR, 69317-496, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x8d930fb8eee42f4b:0x86528a7890795d75",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+Renove+sua+Beleza/data=!4m7!3m6!1s0x8d930fb8eee42f4b:0x86528a7890795d75!8m2!3d2.8500105!4d-60.7446544!16s%2Fg%2F11t0m7mz_3!19sChIJSy_k7rgPk40RdV15kHiKUoY?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Ac Salao de belleza",
+          "phone": "+5595981211447",
+          "website": "https://instagram.com/acsalaodebelezaunisex?igshid=MmIzYWVlNDQ5Yg==",
+          "address": "R. Pedro Rodrigues, 1780 - Mecejana, Boa Vista - RR, 69304-040, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x8d9305191c6adc2f:0x24897bcd64952e4e",
+          "maps_url": "https://www.google.com/maps/place/Ac+Salao+de+belleza/data=!4m7!3m6!1s0x8d9305191c6adc2f:0x24897bcd64952e4e!8m2!3d2.8282463!4d-60.692549!16s%2Fg%2F11gmy6v853!19sChIJL9xqHBkFk40RTi6VZM17iSQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "LOS ANGELES STUDIO DE BELEZA",
+          "phone": "+5595991722253",
+          "website": "",
+          "address": "Av. Princesa Isabel, 2646 - 3 - Caimbé, Boa Vista - RR, 69312-175, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x8d93078e960b5d55:0xcedb53a33ff4a782",
+          "maps_url": "https://www.google.com/maps/place/LOS+ANGELES+STUDIO+DE+BELEZA/data=!4m7!3m6!1s0x8d93078e960b5d55:0xcedb53a33ff4a782!8m2!3d2.8290691!4d-60.7198249!16s%2Fg%2F11qnt0wczj!19sChIJVV0Llo4Hk40Rgqf0P6NT284?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão Afro N All Beauty Center",
+          "phone": "+5595991335599",
+          "website": "",
+          "address": "Av. Glaycon de Paiva, 499 - Centro, Boa Vista - RR, 69301-250, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x8d9305f593de1a03:0xc93ba9e9d7479158",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+Afro+N+All+Beauty+Center/data=!4m7!3m6!1s0x8d9305f593de1a03:0xc93ba9e9d7479158!8m2!3d2.8187258!4d-60.6778926!16s%2Fg%2F11h3c51055!19sChIJAxrek_UFk40RWJFH1-mpO8k?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Espaço KeMulherr",
+          "phone": "+5595991150872",
+          "website": "https://instagram.com/espacokemulherr?igshid=YmMyMTA2M2Y=",
+          "address": "Av. Consolação de Matos, 491 - Cidade Satélite, Boa Vista - RR, 69317-474, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,7",
+          "reviews": "",
+          "place_id": "0x8d93055e53ccdc8d:0xf46679d7f088f5ce",
+          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+KeMulherr/data=!4m7!3m6!1s0x8d93055e53ccdc8d:0xf46679d7f088f5ce!8m2!3d2.8409499!4d-60.7471348!16s%2Fg%2F11c0q0_qvb!19sChIJjdzMU14Fk40RzvWI8Nd5ZvQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Espaço Personnalité",
+          "phone": "+5595981182868",
+          "website": "https://api.whatsapp.com/send?phone=5595981182868",
+          "address": "Av. Nossa, Av. Cap. Júlio Bezerra, 2175 - Trinta e Um de Março, Boa Vista - RR, 69305-294, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,6",
+          "reviews": "",
+          "place_id": "0x8d93079cdae9a5f7:0x4574ad6278047656",
+          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+Personnalit%C3%A9/data=!4m7!3m6!1s0x8d93079cdae9a5f7:0x4574ad6278047656!8m2!3d2.8413367!4d-60.6680674!16s%2Fg%2F11flkbwz6b!19sChIJ96Xp2pwHk40RVnYEeGKtdEU?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão de Beleza Toda Bonita",
+          "phone": "+5595991501686",
+          "website": "",
+          "address": "R. Maria das Graças Paulino Cavalcante, N 851 - Cidade Satélite, Boa Vista - RR, 69317-514, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,7",
+          "reviews": "",
+          "place_id": "0x8d930573b8a13755:0x9b75af3ecedcdd1f",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+de+Beleza+Toda+Bonita/data=!4m7!3m6!1s0x8d930573b8a13755:0x9b75af3ecedcdd1f!8m2!3d2.8429685!4d-60.7538893!16s%2Fg%2F11gfjc2zsk!19sChIJVTehuHMFk40RH93czj6vdZs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Donabella - Beleza e Estética",
+          "phone": "+5595991585239",
+          "website": "https://www.instagram.com/donabella.rr?igsh=YXQ4NnZwcnBiazZz",
+          "address": "R. Ana Maria Ferreira Dantas, 834 - Cidade Satélite, Boa Vista - RR, 69317-468, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x8d9305691738362f:0x753d5689a4aed7dc",
+          "maps_url": "https://www.google.com/maps/place/Donabella+-+Beleza+e+Est%C3%A9tica/data=!4m7!3m6!1s0x8d9305691738362f:0x753d5689a4aed7dc!8m2!3d2.8386707!4d-60.7477943!16s%2Fg%2F11z0pj9jcb!19sChIJLzY4F2kFk40R3NeupIlWPXU?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Concept Studio de Beleza",
+          "phone": "+5595991577234",
+          "website": "https://www.instagram.com/_conceptstudiodebeleza/",
+          "address": "R. Centaurus, 227 - Cidade Satélite, Boa Vista - RR, 69317-442, Brasil ",
+          "category": "Lounge bar",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x8d9305006e04bf8d:0x116b407df8455aef",
+          "maps_url": "https://www.google.com/maps/place/Concept+Studio+de+Beleza/data=!4m7!3m6!1s0x8d9305006e04bf8d:0x116b407df8455aef!8m2!3d2.8415812!4d-60.7428726!16s%2Fg%2F11vpbrpr9t!19sChIJjb8EbgAFk40R71pF-H1AaxE?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salao Personalite",
+          "phone": "",
+          "website": "",
+          "address": "Rua Edmur Oliva, 149-611 - Trinta e Um de Março, Boa Vista - RR, 69306-190, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,6",
+          "reviews": "",
+          "place_id": "0x8d9306020862f73b:0x1ec586f6f8ef92e6",
+          "maps_url": "https://www.google.com/maps/place/Salao+Personalite/data=!4m7!3m6!1s0x8d9306020862f73b:0x1ec586f6f8ef92e6!8m2!3d2.8412419!4d-60.6683926!16s%2Fg%2F11c808v8r8!19sChIJO_diCAIGk40R5pLv-PaGxR4?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Portal da Beleza",
+          "phone": "+5595981171280",
+          "website": "https://instagram.com/portaldabelezarr?Igshid=sh4tx125ir7d",
+          "address": "R. José Magalhães, 300 - Centro, Boa Vista - RR, 69301-360, Brasil ",
+          "category": "Loja de cosmético",
+          "rating": "4,5",
+          "reviews": "",
+          "place_id": "0x8d930671599e11e9:0xe657a0225af50df5",
+          "maps_url": "https://www.google.com/maps/place/Portal+da+Beleza/data=!4m7!3m6!1s0x8d930671599e11e9:0xe657a0225af50df5!8m2!3d2.819216!4d-60.668254!16s%2Fg%2F11bwfmp9ht!19sChIJ6RGeWXEGk40R9Q31WiKgV-Y?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Dama Chic Studio",
+          "phone": "+5595991453860",
+          "website": "",
+          "address": "Av. Universo, 179 - Cidade Satélite, Boa Vista - RR, 69317-466, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x8d9305669ddad7d9:0x7553f79eca9ab55d",
+          "maps_url": "https://www.google.com/maps/place/Dama+Chic+Studio/data=!4m7!3m6!1s0x8d9305669ddad7d9:0x7553f79eca9ab55d!8m2!3d2.8426298!4d-60.7408651!16s%2Fg%2F11m_3c84m1!19sChIJ2dfanWYFk40RXbWayp73U3U?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão Boa Vista Beauty",
+          "phone": "+5595991598232",
+          "website": "https://www.instagram.com/boavistabeauty?igsh=dzU2M2N4aWcwZGp5",
+          "address": "",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x8d930582de8fd301:0x43990cfa0c701f1c",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+Boa+Vista+Beauty/data=!4m7!3m6!1s0x8d930582de8fd301:0x43990cfa0c701f1c!8m2!3d3.9985008!4d-59.5406366!16s%2Fg%2F11y7h54z88!19sChIJAdOP3oIFk40RHB9wDPoMmUM?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Beleza & Company",
+          "phone": "+5595981134029",
+          "website": "",
+          "address": "Av. Gen. Ataíde Teive, 1756 - 1 - Liberdade, Boa Vista - RR, 69309-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x8d9305708726b651:0xaee6deb46acd9c24",
+          "maps_url": "https://www.google.com/maps/place/Beleza+%26+Company/data=!4m7!3m6!1s0x8d9305708726b651:0xaee6deb46acd9c24!8m2!3d2.8199379!4d-60.6960547!16s%2Fg%2F11vkmc6_7q!19sChIJUbYmh3AFk40RJJzNarTe5q4?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Sali Beauty",
+          "phone": "+5595984133277",
+          "website": "",
+          "address": "Av. João Alencar, 371 - Jardim Floresta, Boa Vista - RR, 69310-065, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,5",
+          "reviews": "",
+          "place_id": "0x8d9305b068e29daf:0x3c3999524687da0b",
+          "maps_url": "https://www.google.com/maps/place/Sali+Beauty/data=!4m7!3m6!1s0x8d9305b068e29daf:0x3c3999524687da0b!8m2!3d2.8357145!4d-60.7124835!16s%2Fg%2F11xwbm2lsb!19sChIJr53iaLAFk40RC9qHRlKZOTw?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Loyal Cosméticos - Atacado e Varejo",
+          "phone": "+5595991680022",
+          "website": "https://www.bagy.com.br/loyalcosmeticos",
+          "address": "Av. Gen. Ataíde Teive, 4763 - Asa Branca, Boa Vista - RR, 69312-242, Brasil ",
+          "category": "Loja de cosmético",
+          "rating": "4,6",
+          "reviews": "",
+          "place_id": "0x8d9306022ed6b9b1:0x92574d132f2b303c",
+          "maps_url": "https://www.google.com/maps/place/Loyal+Cosm%C3%A9ticos+-+Atacado+e+Varejo/data=!4m7!3m6!1s0x8d9306022ed6b9b1:0x92574d132f2b303c!8m2!3d2.8178225!4d-60.7227563!16s%2Fg%2F11bw77tkk3!19sChIJsbnWLgIGk40RPDArLxNNV5I?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Espaço de beleza help",
+          "phone": "+5595981185071",
+          "website": "",
+          "address": "R. Maria Rodrigues dos Santos - Tancredo Neves, Boa Vista - RR, 69313-528, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x8d93059a7704a967:0xe65f1461afc6a385",
+          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+de+beleza+help/data=!4m7!3m6!1s0x8d93059a7704a967:0xe65f1461afc6a385!8m2!3d2.8297193!4d-60.7235097!16s%2Fg%2F11j8fh5bdp!19sChIJZ6kEd5oFk40RhaPGr2EUX-Y?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
         }
       ]
     }
