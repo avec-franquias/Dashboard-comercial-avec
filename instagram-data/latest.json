@@ -13744,6 +13744,119 @@
         "studiojlourenco"
       ],
       "finished_at": "2026-10-03T13:41:55.771Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "RR",
+        "cidade": "Boa Vista",
+        "bairro": "Carregando bairros...",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "boavistabeauty",
+          "profile_url": "https://www.instagram.com/boavistabeauty/",
+          "name": "Salão de beleza | Boa Vista",
+          "bio": "Salão de beleza | Boa Vista (@boavistabeauty) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Boa Vista",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "popular",
+          "profile_url": "https://www.instagram.com/popular/",
+          "name": "Salão De Beleza Boa Vista",
+          "bio": "Salão De Beleza Boa Vista - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Boa Vista",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiololitasrr",
+          "profile_url": "https://www.instagram.com/studiololitasrr/",
+          "name": "Lolita's Studio de Beleza | Boa Vista, RR (@studiololitasrr ...",
+          "bio": "Lolita's Studio de Beleza | Boa Vista, RR (@studiololitasrr ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Boa Vista",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espacodonnabeauty",
+          "profile_url": "https://www.instagram.com/espacodonnabeauty/",
+          "name": "Salão de beleza | Boa Vista - RR",
+          "bio": "Salão de beleza | Boa Vista - RR (@espacodonnabeauty) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Boa Vista",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaoboavistarr",
+          "profile_url": "https://www.instagram.com/salaoboavistarr/",
+          "name": "Salão Boa Vista RR",
+          "bio": "Salão Boa Vista RR (@salaoboavistarr) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Boa Vista",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espaco_personnalite",
+          "profile_url": "https://www.instagram.com/espaco_personnalite/",
+          "name": "Espaço Personnalité - Salão De Beleza - Boa Vista/RR (@espaco ...",
+          "bio": "Espaço Personnalité - Salão De Beleza - Boa Vista/RR (@espaco ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Boa Vista",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 6,
+      "new_count": 6,
+      "new_usernames": [
+        "boavistabeauty",
+        "popular",
+        "studiololitasrr",
+        "espacodonnabeauty",
+        "salaoboavistarr",
+        "espaco_personnalite"
+      ],
+      "finished_at": "2026-10-03T13:43:03.283Z"
     }
   ]
 }
