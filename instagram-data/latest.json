@@ -13245,6 +13245,151 @@
         "studio_semprebella26"
       ],
       "finished_at": "2026-10-02T19:47:45.244Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "CE",
+        "cidade": "Aquiraz",
+        "bairro": "Carregando bairros...",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "vitoriamacielbeutysalon",
+          "profile_url": "https://www.instagram.com/vitoriamacielbeutysalon/",
+          "name": "Salão de beleza | Aquiraz- CE (@vitoriamacielbeutysalon ...",
+          "bio": "Salão de beleza | Aquiraz- CE (@vitoriamacielbeutysalon ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Aquiraz",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espacodabelezacw",
+          "profile_url": "https://www.instagram.com/espacodabelezacw/",
+          "name": "Salão de beleza em Aquiraz",
+          "bio": "Salão de beleza em Aquiraz (@espacodabelezacw) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Aquiraz",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "popular",
+          "profile_url": "https://www.instagram.com/popular/",
+          "name": "Salao De Beleza Aquiraz",
+          "bio": "Salao De Beleza Aquiraz - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Aquiraz",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "luminousalon",
+          "profile_url": "https://www.instagram.com/luminousalon/",
+          "name": "Salão de Beleza no Aquiraz",
+          "bio": "Salão de Beleza no Aquiraz (@luminousalon) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Aquiraz",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaodaline",
+          "profile_url": "https://www.instagram.com/salaodaline/",
+          "name": "SALÃO D'ALINE AQUIRAZ",
+          "bio": "SALÃO D'ALINE AQUIRAZ (@salaodaline) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Aquiraz",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "thayanesousa.salon",
+          "profile_url": "https://www.instagram.com/thayanesousa.salon/",
+          "name": "Cabelo |Sobrancelhas |Cílios |Lábios |Unhas (@thayanesousa.salon ...",
+          "bio": "Cabelo |Sobrancelhas |Cílios |Lábios |Unhas (@thayanesousa.salon ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Aquiraz",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "estilodabelezaaquiraz",
+          "profile_url": "https://www.instagram.com/estilodabelezaaquiraz/",
+          "name": "Estilo da Beleza - Aquiraz",
+          "bio": "Estilo da Beleza - Aquiraz (@estilodabelezaaquiraz) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Aquiraz",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiov_salaodebeleza",
+          "profile_url": "https://www.instagram.com/studiov_salaodebeleza/",
+          "name": "SALÃO DE BELEZA",
+          "bio": "SALÃO DE BELEZA (@studiov_salaodebeleza) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Aquiraz",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 8,
+      "new_count": 8,
+      "new_usernames": [
+        "vitoriamacielbeutysalon",
+        "espacodabelezacw",
+        "popular",
+        "luminousalon",
+        "salaodaline",
+        "thayanesousa.salon",
+        "estilodabelezaaquiraz",
+        "studiov_salaodebeleza"
+      ],
+      "finished_at": "2026-10-03T13:31:23.082Z"
     }
   ]
 }
