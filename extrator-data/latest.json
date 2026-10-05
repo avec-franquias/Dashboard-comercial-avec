@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T12:25:44.531Z",
+  "generated_at": "2026-10-05T12:53:31.428Z",
   "runs": [
     {
       "query": {
@@ -61784,6 +61784,141 @@
           "reviews": "",
           "place_id": "0x94ce594cfab47faf:0xcf9268719a761071",
           "maps_url": "https://www.google.com/maps/place/FIQUE+LINDA/data=!4m7!3m6!1s0x94ce594cfab47faf:0xcf9268719a761071!8m2!3d-23.5544852!4d-46.6504591!16s%2Fg%2F11hzsvgnnp!19sChIJr3-0-kxZzpQRcRB2mnFoks8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "cidade": "Arroio do Sal, RS",
+        "bairro": "Carregando bairros...",
+        "max_results": 80
+      },
+      "finished_at": "2026-10-05T12:53:30.407Z",
+      "total": 10,
+      "new_count": 10,
+      "new_ids": [
+        "0x95227d947fa03629:0xfe35042c47b3726a",
+        "0xad7cbc82247103f9:0x60a44df0911131ae",
+        "0x95227d445229bd2f:0xe564f35991d0ebf3",
+        "0x95227dc726557ed9:0x9ed7fa017aa6f1e7",
+        "0x95227d8870269ad9:0xbbfc3fc47d4c45a4",
+        "0x95227d00609537ad:0xbaa9161c36ec541b",
+        "0x95227d71c2347eb7:0x248a08a7ddf16d4",
+        "0x95227d0049b568b9:0x2feee8509afcdd4d",
+        "0x95227dc48bfdc78f:0xd40cd5dc46f0beb8",
+        "0x95227cf13a3ccd19:0xe9bc8b9286205632"
+      ],
+      "leads": [
+        {
+          "name": "Leisi Pacheco Beauty",
+          "phone": "+5551994025575",
+          "website": "https://instagram.com/leisipacheco.studio?utm_medium=copy_link",
+          "address": "R. Alegrete, 667 - Centro, Arroio do Sal - RS, 95585-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x95227d947fa03629:0xfe35042c47b3726a",
+          "maps_url": "https://www.google.com/maps/place/Leisi+Pacheco+Beauty/data=!4m7!3m6!1s0x95227d947fa03629:0xfe35042c47b3726a!8m2!3d-29.5447209!4d-49.8841071!16s%2Fg%2F11pzymb3wg!19sChIJKTagf5R9IpURanKzRywENf4?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Fgs salão",
+          "phone": "+5551999380610",
+          "website": "https://www.instagram.com/marta.estilo08?igsh=MTlzNnltNzJ2M3BzNA==",
+          "address": "R. Alegrete, 594 - Centro, Arroio do Sal - RS, 95585-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0xad7cbc82247103f9:0x60a44df0911131ae",
+          "maps_url": "https://www.google.com/maps/place/Fgs+sal%C3%A3o/data=!4m7!3m6!1s0xad7cbc82247103f9:0x60a44df0911131ae!8m2!3d-29.5451146!4d-49.8841214!16s%2Fg%2F11n3ppknb5!19sChIJ-QNxJIK8fK0RrjERkfBNpGA?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Studio da Beleza",
+          "phone": "+5551980523206",
+          "website": "",
+          "address": "R. Alegrete, 34 - Lj 101 - Centro, Arroio do Sal - RS, 95585-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,7",
+          "reviews": "",
+          "place_id": "0x95227d445229bd2f:0xe564f35991d0ebf3",
+          "maps_url": "https://www.google.com/maps/place/Studio+da+Beleza/data=!4m7!3m6!1s0x95227d445229bd2f:0xe564f35991d0ebf3!8m2!3d-29.5494219!4d-49.8876068!16s%2Fg%2F11v3q5xhj6!19sChIJL70pUkR9IpUR8-vQkVnzZOU?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "S.O.S da Beleza",
+          "phone": "",
+          "website": "https://www.instagram.com/rccentroestetico/",
+          "address": "R. Uruguaiana, 45, Arroio do Sal - RS, 95585-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,7",
+          "reviews": "",
+          "place_id": "0x95227dc726557ed9:0x9ed7fa017aa6f1e7",
+          "maps_url": "https://www.google.com/maps/place/S.O.S+da+Beleza/data=!4m7!3m6!1s0x95227dc726557ed9:0x9ed7fa017aa6f1e7!8m2!3d-29.5489306!4d-49.8883983!16s%2Fg%2F11r8yd9brd!19sChIJ2X5VJsd9IpUR5_GmegH6154?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Glamour Centro Estético",
+          "phone": "+5551998765966",
+          "website": "",
+          "address": "Av. Assis Brasil, 845 - Centro, Arroio do Sal - RS, 95585-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,3",
+          "reviews": "",
+          "place_id": "0x95227d8870269ad9:0xbbfc3fc47d4c45a4",
+          "maps_url": "https://www.google.com/maps/place/Glamour+Centro+Est%C3%A9tico/data=!4m7!3m6!1s0x95227d8870269ad9:0xbbfc3fc47d4c45a4!8m2!3d-29.5465324!4d-49.8928819!16s%2Fg%2F11j4lr_9nw!19sChIJ2ZomcIh9IpURpEVMfcQ__Ls?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Glamour Centro Estético",
+          "phone": "+5551998765966",
+          "website": "",
+          "address": "Av. Assis Brasil, 845 - Centro, Arroio do Sal - RS, 95585-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x95227d00609537ad:0xbaa9161c36ec541b",
+          "maps_url": "https://www.google.com/maps/place/Glamour+Centro+Est%C3%A9tico/data=!4m7!3m6!1s0x95227d00609537ad:0xbaa9161c36ec541b!8m2!3d-29.5464259!4d-49.8928328!16s%2Fg%2F11z7q9q8t8!19sChIJrTeVYAB9IpURG1TsNhwWqbo?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Lu Centro de Beleza",
+          "phone": "+5551995050753",
+          "website": "",
+          "address": "R. Benjamin Constant, 893 - Sl 01 - Areias Brancas, Arroio do Sal - RS, 95585-000, Brasil ",
+          "category": "Centro de saúde e beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x95227d71c2347eb7:0x248a08a7ddf16d4",
+          "maps_url": "https://www.google.com/maps/place/Lu+Centro+de+Beleza/data=!4m7!3m6!1s0x95227d71c2347eb7:0x248a08a7ddf16d4!8m2!3d-29.5429531!4d-49.8826575!16s%2Fg%2F11fqm42znc!19sChIJt340wnF9IpUR1BbffYqgSAI?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão de beleza Bella Vitta",
+          "phone": "+5551986609266",
+          "website": "https://www.instagram.com/salao_bellavittas?igsh=MXcwdW10Mml4MnVwYw==",
+          "address": "R. Alegrete, 594 - Centro, Arroio do Sal - RS, 95585-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x95227d0049b568b9:0x2feee8509afcdd4d",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+de+beleza+Bella+Vitta/data=!4m7!3m6!1s0x95227d0049b568b9:0x2feee8509afcdd4d!8m2!3d-29.5451623!4d-49.8841769!16s%2Fg%2F11w8r1_1n_!19sChIJuWi1SQB9IpURTd38mlDo7i8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "DON concept - Salon",
+          "phone": "+5551993649128",
+          "website": "",
+          "address": "Av. Assis Brasil, 295, Arroio do Sal - RS, 95585-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x95227dc48bfdc78f:0xd40cd5dc46f0beb8",
+          "maps_url": "https://www.google.com/maps/place/DON+concept+-+Salon/data=!4m7!3m6!1s0x95227dc48bfdc78f:0xd40cd5dc46f0beb8!8m2!3d-29.5494157!4d-49.8882005!16s%2Fg%2F11z73p6qvy!19sChIJj8f9i8R9IpURuL7wRtzVDNQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Excellence Studio",
+          "phone": "",
+          "website": "",
+          "address": "R. Castro Alves, 367, Arroio do Sal - RS, 95585-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "2,0",
+          "reviews": "",
+          "place_id": "0x95227cf13a3ccd19:0xe9bc8b9286205632",
+          "maps_url": "https://www.google.com/maps/place/Excellence+Studio/data=!4m7!3m6!1s0x95227cf13a3ccd19:0xe9bc8b9286205632!8m2!3d-29.5530857!4d-49.8898384!16s%2Fg%2F11y4367h3f!19sChIJGc08OvF8IpURMlYghpKLvOk?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
         }
       ]
     }
