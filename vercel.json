@@ -8,6 +8,10 @@
   "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':(exclude)extrator-data/**' ':(exclude)instagram-data/**' ':(exclude)clientes-enrichment/**'",
   "rewrites": [
     {
+      "source": "/api/kanban-access",
+      "destination": "/api/portal?action=kanban-access"
+    },
+    {
       "source": "/index",
       "destination": "/index.html"
     },

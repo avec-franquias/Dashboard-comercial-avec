@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import kanbanAccess from '../lib/kanban-access.js';
 
 function patchModulos(html){
   const re=/<script type="application\/json" id="modulosEmbutidos">([\s\S]*?)<\/script>/;
@@ -105,6 +106,7 @@ function patchModulos(html){
 
 
 export default async function handler(req,res){
+  if(req.query?.action==='kanban-access')return kanbanAccess(req,res);
   try{
     let html=await fs.readFile(process.cwd()+'/index.html','utf8');
     html=patchModulos(html);
@@ -238,3 +240,4 @@ export default async function handler(req,res){
     return res.status(500).send('Falha ao carregar o Portal: '+(e.message||String(e)));
   }
 }
+
