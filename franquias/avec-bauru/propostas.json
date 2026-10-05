@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-bauru",
   "modulo": "propostas",
-  "atualizadoEm": "2026-10-01T13:21:56.213Z",
+  "atualizadoEm": "2026-10-05T22:18:07.085Z",
   "atualizadoPor": "mauricio.fudo",
   "dados": {
-    "avec:log:v1": "[{\"quando\":\"2026-10-01T13:21:55.474Z\",\"evento\":\"Abriu a calculadora\"}]"
+    "avec:log:v1": "[{\"quando\":\"2026-10-05T22:18:06.224Z\",\"evento\":\"Abriu a calculadora\"},{\"quando\":\"2026-10-01T13:21:55.474Z\",\"evento\":\"Abriu a calculadora\"}]"
   }
 }
