@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-rio-de-janeiro",
   "modulo": "previsao",
-  "atualizadoEm": "2026-10-05T20:11:28.432Z",
+  "atualizadoEm": "2026-10-05T20:11:32.587Z",
   "atualizadoPor": "henrique.lopes",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-10\",\"m0\":\"100.854,80\",\"m1\":\"105.373,70\",\"m2\":\"107.278,11\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"ouro\":{\"mesRef\":\"2026-10\",\"m0\":\"\",\"m1\":\"R$105.373,70\",\"m2\":\"107.278,11\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"ouro\",\"janelaAtual\":\"Ago/26 · Set/26 · Out/26\",\"ultimaCarteira\":\"ouro\",\"ultimaGravacao\":\"2026-10-05T20:11:40.000Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-10\",\"m0\":\"100.854,80\",\"m1\":\"105.373,70\",\"m2\":\"107.278,11\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"ouro\":{\"mesRef\":\"2026-10\",\"m0\":\"\",\"m1\":\"105.373,70\",\"m2\":\"107.278,11\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"ouro\",\"janelaAtual\":\"Ago/26 · Set/26 · Out/26\",\"ultimaCarteira\":\"ouro\",\"ultimaGravacao\":\"2026-10-05T20:11:43.435Z\"}"
   }
 }
