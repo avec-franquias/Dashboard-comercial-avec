@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-barueri",
   "modulo": "extrator",
-  "atualizadoEm": "2026-10-01T12:34:40.477Z",
+  "atualizadoEm": "2026-10-05T12:45:22.798Z",
   "atualizadoPor": "vanessa.chagas",
   "dados": {
-    "portal-wpp-leads-v1": "{\"0x94cf03ce12f3f687:0x316ad1044f8de1cc\":{\"status\":\"Contatado\",\"at\":\"2026-10-01T12:34:39.819Z\"}}"
+    "portal-wpp-leads-v1": "{\"0x94cf03ce12f3f687:0x316ad1044f8de1cc\":{\"status\":\"Contatado\",\"at\":\"2026-10-01T12:34:39.819Z\"},\"0x94ce59b9788148d3:0xfeea9789d3122d53\":{\"status\":\"Contatado\",\"at\":\"2026-10-05T12:45:21.556Z\"}}"
   }
 }
