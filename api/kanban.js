@@ -28,6 +28,15 @@ export default async function handler(req,res){
     if(u.papel!=='admin'&&!u.franquiaId)
       throw Object.assign(new Error('Franquia nao vinculada.'),{status:403});
     const body=typeof req.body==='string'?JSON.parse(req.body):req.body||{};
+    if(body.action==='validate-access'){
+      return res.status(200).json({
+        ok:true,
+        role:u.papel==='admin'?'admin':'franqueado',
+        email:u.login,
+        name:u.nome||u.login,
+        franchise_ids:u.papel==='admin'?null:(u.franquiaId?[u.franquiaId]:[])
+      });
+    }
     if(u.papel!=='admin')body.franquiaId=u.franquiaId;
     const r=await fetch(VENDAS_API,{
       method:'POST',
