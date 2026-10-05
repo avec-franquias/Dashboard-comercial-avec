@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-10-02T13:18:20.969Z",
+ "atualizadoEm": "2026-10-05T18:57:42.254Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1403,8 +1403,33 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
+    "ativacao",
+    "vendas",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
+   ],
+   "franquiaId": "avec-sao-paulo-henrique",
+   "perfil": "franqueado",
+   "senha": "pbkdf2$210000$72b868eb40bb45fb7a17f867d8b862a3$b4518d92c4c96ff8276685c1dff37edbafab261911cf2f8d6ce0a4e1b67d2a88",
+   "criadoEm": "2026-10-02T13:18:24.586Z"
+  },
+  {
+   "login": "teste.franquia",
+   "nome": "teste franquia",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
     "central",
     "clientes",
+    "crm-avec",
     "localizar",
     "mapa-franqueado",
     "migrador",
@@ -1417,10 +1442,10 @@
     "taxas",
     "propostas"
    ],
-   "franquiaId": "avec-sao-paulo-henrique",
+   "franquiaId": "avec-campinas",
    "perfil": "franqueado",
-   "senha": "pbkdf2$210000$72b868eb40bb45fb7a17f867d8b862a3$b4518d92c4c96ff8276685c1dff37edbafab261911cf2f8d6ce0a4e1b67d2a88",
-   "criadoEm": "2026-10-02T13:18:24.586Z"
+   "senha": "pbkdf2$210000$a5104c296e102867f89338c9be362bec$0ce6fda33a08cab14db658b21965c8e8d5f3e534cdda84368932cef714f0b06d",
+   "criadoEm": "2026-10-05T18:57:41.504Z"
   }
  ],
  "manutencao": {
