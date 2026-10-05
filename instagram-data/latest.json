@@ -14339,6 +14339,135 @@
         "ccentraldabeleza"
       ],
       "finished_at": "2026-10-05T12:23:45.807Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "RS",
+        "cidade": "Arroio do Sal",
+        "bairro": "Carregando bairros...",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "_excellencestudio",
+          "profile_url": "https://www.instagram.com/_excellencestudio/",
+          "name": "Salão de Beleza | Arroio do Sal RS",
+          "bio": "Salão de Beleza | Arroio do Sal RS (@_excellencestudio) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Arroio do Sal",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "renovarclinichom",
+          "profile_url": "https://www.instagram.com/renovarclinichom/",
+          "name": "Renovar Clinic Home • Salão de Beleza em Arroio do Sal ...",
+          "bio": "Renovar Clinic Home • Salão de Beleza em Arroio do Sal ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Arroio do Sal",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "lu.centro.de.beleza",
+          "profile_url": "https://www.instagram.com/lu.centro.de.beleza/",
+          "name": "Lú - Centro de Beleza",
+          "bio": "Lú - Centro de Beleza (@lu.centro.de.beleza) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Arroio do Sal",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "280.beautystudio",
+          "profile_url": "https://www.instagram.com/280.beautystudio/",
+          "name": "280 BEAUTY | Arroio do Sal",
+          "bio": "280 BEAUTY | Arroio do Sal (@280.beautystudio) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Arroio do Sal",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "serenabeuty_studio",
+          "profile_url": "https://www.instagram.com/serenabeuty_studio/",
+          "name": "Serena beauty",
+          "bio": "Serena beauty (@serenabeuty_studio) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Arroio do Sal",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "so_metodolisoreal",
+          "profile_url": "https://www.instagram.com/so_metodolisoreal/",
+          "name": "S|O Espaço de Beleza | Arroio do Sal/Canela (@so_metodolisoreal ...",
+          "bio": "S|O Espaço de Beleza | Arroio do Sal/Canela (@so_metodolisoreal ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Arroio do Sal",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "tuany_salao",
+          "profile_url": "https://www.instagram.com/tuany_salao/",
+          "name": "Tuany Ateliê da Beleza",
+          "bio": "Tuany Ateliê da Beleza (@tuany_salao) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Arroio do Sal",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 7,
+      "new_count": 7,
+      "new_usernames": [
+        "_excellencestudio",
+        "renovarclinichom",
+        "lu.centro.de.beleza",
+        "280.beautystudio",
+        "serenabeuty_studio",
+        "so_metodolisoreal",
+        "tuany_salao"
+      ],
+      "finished_at": "2026-10-05T12:53:03.186Z"
     }
   ]
 }
