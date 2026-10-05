@@ -7,7 +7,7 @@ const OPEN_STAGES=["nao_iniciado","primeira_reuniao","follow_up","sem_retorno"];
 
 function h(origin:string){
   const allow=ALLOWED.has(origin)?origin:"https://dashboard-comercial-avec.vercel.app";
-  return {"Access-Control-Allow-Origin":allow,"Access-Control-Allow-Methods":"POST,OPTIONS","Access-Control-Allow-Headers":"content-type,authorization,x-avec-source","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store","Vary":"Origin"};
+  return {"Access-Control-Allow-Origin":allow,"Access-Control-Allow-Methods":"POST,OPTIONS","Access-Control-Allow-Headers":"content-type,authorization,x-avec-source,x-avec-portal-token","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store","Vary":"Origin"};
 }
 function clean(v:any,n=500){return String(v??"").trim().slice(0,n)}
 function norm(v:any){return clean(v,500).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")}
@@ -20,8 +20,7 @@ async function user(login:string){const db=await usersDoc();const key=clean(logi
 async function sb(path:string,init:RequestInit={}){return fetch(SUPABASE_URL+"/rest/v1/"+path,{...init,headers:{"apikey":SERVICE_KEY,"Authorization":"Bearer "+SERVICE_KEY,"Content-Type":"application/json","Prefer":"return=representation",...(init.headers||{})}})}
 function stageOk(v:any){return ["nao_iniciado","primeira_reuniao","follow_up","sem_retorno","ganho","perdido"].includes(String(v))}
 async function verifyAccess(req:Request){
- const token=req.headers.get('authorization')||'';if(!token.startsWith('Bearer '))throw Object.assign(new Error('Entre novamente para acessar o Kanban.'),{status:401});
- const source=req.headers.get('x-avec-source');let url='',headers:any={};if(source==='crm'){url='https://avec-crm-carteiras.vercel.app/api/crm?action=kanban-access';headers.Cookie='__Host-crm_access='+token.slice(7);}else if(source==='portal'){url='https://dashboard-comercial-avec.vercel.app/api/kanban-access';headers.Authorization=token;}else throw Object.assign(new Error('Sessão inválida.'),{status:401});
+ const source=req.headers.get('x-avec-source');let url='',headers:any={};if(source==='crm'){const token=req.headers.get('authorization')||'';if(!token.startsWith('Bearer '))throw Object.assign(new Error('Entre novamente para acessar o Kanban.'),{status:401});url='https://avec-crm-carteiras.vercel.app/api/crm?action=kanban-access';headers.Cookie='__Host-crm_access='+token.slice(7);}else if(source==='portal'){const portalToken=req.headers.get('x-avec-portal-token')||'';if(!portalToken)throw Object.assign(new Error('Entre novamente para acessar o Kanban.'),{status:401});url='https://dashboard-comercial-avec.vercel.app/api/kanban-access';headers.Authorization='Bearer '+portalToken;}else throw Object.assign(new Error('Sessão inválida.'),{status:401});
  const r=await fetch(url,{headers,redirect:'error'});if(!r.ok)throw Object.assign(new Error('Acesso não autorizado ao Kanban.'),{status:r.status});const a=await r.json();if(!a.ok||a.role!=='admin'&&!Array.isArray(a.franchise_ids))throw Object.assign(new Error('Acesso inválido.'),{status:403});return a;
 }
 function accessQuery(a:any,target:string){if(a.role==='admin')return target?'&franquia_id=eq.'+encodeURIComponent(target):'';if(target&&!a.franchise_ids.includes(target))throw Object.assign(new Error('Franquia não disponível para este acesso.'),{status:403});const ids=target?[target]:a.franchise_ids;if(!ids.length)return '&franquia_id=eq.__none__';if(ids.some((id:string)=>!/^[-a-z0-9_]{1,100}$/.test(id)))throw new Error('Vínculo de franquia inválido.');return '&franquia_id=in.('+ids.map(encodeURIComponent).join(',')+')';}
