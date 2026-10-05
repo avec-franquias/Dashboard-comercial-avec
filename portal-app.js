@@ -1899,7 +1899,7 @@ async function carregaModulo(id) {
   const plain = id === "roadmap" || id === "localizar" || id === "mapa-franqueado";
   const arquivo = plain
     ? "portal-assets/modulos/" + encodeURIComponent(id) + ".html?v=20260930-mapafranqueado1"
-    : "portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20260930-extratorstatus1";
+    : "portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20261005-crmkanban";
   const r = await fetch(new URL(arquivo, location.href), { cache: "no-store" });
   if (!r.ok) throw new Error("Nao foi possivel carregar o modulo " + id + ".");
   const html = plain ? await r.text() : decodifica((await r.text()).trim());
@@ -2148,6 +2148,7 @@ function portalInjetaEstado(html, modulo, estado) {
 function rota() {
   if (!perfil) return;
   const id = decodeURIComponent(location.hash.slice(1));
+  if (["vendas","ativacao"].includes(id)) { location.href="https://avec-crm-carteiras.vercel.app/?view=journey"; return; }
   if (perfil.papel !== "admin" && ["franquias", "usuarios", "manutencao", "conteudo", "logs"].includes(id)) {
     history.replaceState(null, "", location.pathname + location.search);
     trocaAba("modulos");
@@ -2299,3 +2300,4 @@ window.portalBuscarWhatsAppCliente = async ({ cliente_id, nome, documento = "" }
     return { ok: true, telefone: "", fonte: "Google Maps", maps_url: maps };
   }
 };
+
