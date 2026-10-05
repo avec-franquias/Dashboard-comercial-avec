@@ -1895,15 +1895,15 @@ window.portalSolicitarInstagram = async ({ nicho = "", uf = "", cidade = "", bai
 const MODULO_CACHE = /* @__PURE__ */ new Map();
 const decodifica = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
 async function carregaModulo(id) {
-  if (MODULO_CACHE.has(id)) return MODULO_CACHE.get(id);
+  if (id !== 'extrator' && MODULO_CACHE.has(id)) return MODULO_CACHE.get(id);
   const plain = id === "roadmap" || id === "localizar" || id === "mapa-franqueado";
   const arquivo = plain
     ? "portal-assets/modulos/" + encodeURIComponent(id) + ".html?v=20260930-mapafranqueado1"
-    : "portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20261005-crmkanban";
+    : "portal-assets/modulos/" + encodeURIComponent(id) + ".b64?v=20261005-kanbanfix2";
   const r = await fetch(new URL(arquivo, location.href), { cache: "no-store" });
   if (!r.ok) throw new Error("Nao foi possivel carregar o modulo " + id + ".");
   const html = plain ? await r.text() : decodifica((await r.text()).trim());
-  MODULO_CACHE.set(id, html);
+  if (id !== 'extrator') MODULO_CACHE.set(id, html);
   return html;
 }
 let centralAdminFrame = null;
