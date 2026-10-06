@@ -1,6 +1,6 @@
 {
   "instalacao": "63bc96d9dc3c6c61",
-  "atualizadoEm": "2026-10-06T20:29:08.590Z",
+  "atualizadoEm": "2026-10-06T20:29:24.461Z",
   "usuarios": [
     {
       "login": "christian.vieira",
@@ -2322,6 +2322,25 @@
     {
       "id": "avec-florianopolis",
       "nome": "Avec Florianópolis",
+      "ativo": true,
+      "modulos": [
+        "ativacao",
+        "vendas",
+        "arvore",
+        "previsao",
+        "taxas",
+        "propostas",
+        "instagram",
+        "clientes",
+        "extrator",
+        "central",
+        "reunioes",
+        "roadmap"
+      ]
+    },
+    {
+      "id": "avec-niteroi",
+      "nome": "Avec Niteroi",
       "ativo": true,
       "modulos": [
         "ativacao",
