@@ -1,8 +1,8 @@
 {
   "franquiaId": "avec-goias",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-02T13:13:41.539Z",
-  "atualizadoPor": "kater.hoss",
+  "atualizadoEm": "2026-10-06T13:40:18.528Z",
+  "atualizadoPor": "goiania@franquias.hyperlocal.com.br",
   "dados": {
     "db": {
       "users": [
@@ -45,6 +45,13 @@
           "id": "5defdae5824ae982",
           "name": "Michelle Soares",
           "login": "michelle.soares",
+          "role": "franqueado",
+          "pass": "portal"
+        },
+        {
+          "id": "100538770fc010aa",
+          "name": "goiania@franquias.hyperlocal.com.br",
+          "login": "goiania@franquias.hyperlocal.com.br",
           "role": "franqueado",
           "pass": "portal"
         }
