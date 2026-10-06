@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-goias",
   "modulo": "previsao",
-  "atualizadoEm": "2026-10-05T13:18:13.200Z",
+  "atualizadoEm": "2026-10-06T13:28:04.632Z",
   "atualizadoPor": "harana.lima",
   "dados": {
-    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"ouro\":{\"mesRef\":\"2026-10\",\"m0\":\"130.227,09\",\"m1\":\"131.714,59\",\"m2\":\"134.026,90\",\"m3\":\"132.309,76\",\"b32\":\"131.989,66\",\"b33\":\"403,00\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"ouro\",\"janelaAtual\":\"Ago/26 · Set/26 · Out/26\",\"ultimaCarteira\":\"ouro\",\"ultimaGravacao\":\"2026-10-05T13:18:12.349Z\"}"
+    "kater_business_plan_v1": "{\"campos\":{\"prata\":{\"mesRef\":\"2026-09\",\"m0\":\"\",\"m1\":\"\",\"m2\":\"\",\"m3\":\"\",\"b32\":\"\",\"b33\":\"\",\"b36\":\"9\"},\"ouro\":{\"mesRef\":\"2026-10\",\"m0\":\"130.227,09\",\"m1\":\"131.714,59\",\"m2\":\"134.026,90\",\"m3\":\"132.309,76\",\"b32\":\"131.989,66\",\"b33\":\"403,00\",\"b36\":\"9\"}},\"historico\":[],\"carteira\":\"ouro\",\"janelaAtual\":\"Ago/26 · Set/26 · Out/26\",\"ultimaCarteira\":\"ouro\",\"ultimaGravacao\":\"2026-10-06T13:28:03.806Z\"}"
   }
 }
