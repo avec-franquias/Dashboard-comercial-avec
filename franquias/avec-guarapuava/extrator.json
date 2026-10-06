@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-guarapuava",
   "modulo": "extrator",
-  "atualizadoEm": "2026-10-06T19:28:34.540Z",
+  "atualizadoEm": "2026-10-06T19:28:52.710Z",
   "atualizadoPor": "felipe.lopes",
   "dados": {
-    "portal-wpp-leads-v1": "{\"0x92325cb2b878bff5:0x6e25333c5f87a15d\":{\"status\":\"Contatado\",\"at\":\"2026-10-02T20:27:00.005Z\"},\"0x92a48e8561d4f683:0xc4209ea47ff5acc7\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:16:21.274Z\"},\"0x8d930676f0e9d855:0x1f7c56d2f013368\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:24:51.073Z\"},\"0x8d9305971516fcbd:0xc47902b3b5090884\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:25:13.513Z\"},\"0x8d9304575171a5dd:0x452af3cfecf602c0\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:27:04.233Z\"},\"0x8d930578395cdd09:0xf711e7b60ea1d8f\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:27:26.537Z\"},\"0x8d9305221b8c70ff:0xfc1cd6a0a66f1d78\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:27:49.169Z\"},\"0x8d930537ec6c1f69:0x242d356b88a40576\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:28:11.409Z\"},\"0x8d9307001fcc81e9:0x464febb0e072cc19\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:28:29.136Z\"}}"
+    "portal-wpp-leads-v1": "{\"0x92325cb2b878bff5:0x6e25333c5f87a15d\":{\"status\":\"Contatado\",\"at\":\"2026-10-02T20:27:00.005Z\"},\"0x92a48e8561d4f683:0xc4209ea47ff5acc7\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:16:21.274Z\"},\"0x8d930676f0e9d855:0x1f7c56d2f013368\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:24:51.073Z\"},\"0x8d9305971516fcbd:0xc47902b3b5090884\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:25:13.513Z\"},\"0x8d9304575171a5dd:0x452af3cfecf602c0\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:27:04.233Z\"},\"0x8d930578395cdd09:0xf711e7b60ea1d8f\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:27:26.537Z\"},\"0x8d9305221b8c70ff:0xfc1cd6a0a66f1d78\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:27:49.169Z\"},\"0x8d930537ec6c1f69:0x242d356b88a40576\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:28:11.409Z\"},\"0x8d9307001fcc81e9:0x464febb0e072cc19\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:28:29.136Z\"},\"0x8d93099819d71941:0xe05013dc53daa826\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:28:47.209Z\"}}"
   }
 }
