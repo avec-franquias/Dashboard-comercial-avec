@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-10-06T20:30:39.555Z",
+ "atualizadoEm": "2026-10-06T20:31:03.468Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1473,20 +1473,18 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "crm-avec",
-    "localizar",
-    "mapa-franqueado",
-    "migrador",
-    "extrator",
     "ativacao",
     "vendas",
-    "roadmap",
     "arvore",
     "previsao",
     "taxas",
-    "propostas"
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
    ],
    "franquiaId": "avec-florianopolis",
    "perfil": "franqueado",
