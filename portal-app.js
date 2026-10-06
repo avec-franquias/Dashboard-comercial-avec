@@ -2148,7 +2148,7 @@ function portalInjetaEstado(html, modulo, estado) {
 function rota() {
   if (!perfil) return;
   const id = decodeURIComponent(location.hash.slice(1));
-  if (["vendas","ativacao"].includes(id)) { location.href="https://avec-crm-carteiras.vercel.app/?view=journey"; return; }
+  if (["vendas","ativacao"].includes(id)) { location.href="https://crm.avec.app/?view=journey"; return; }
   if (perfil.papel !== "admin" && ["franquias", "usuarios", "manutencao", "conteudo", "logs"].includes(id)) {
     history.replaceState(null, "", location.pathname + location.search);
     trocaAba("modulos");
