@@ -1,6 +1,6 @@
 {
   "instalacao": "63bc96d9dc3c6c61",
-  "atualizadoEm": "2026-10-06T23:21:44.082Z",
+  "atualizadoEm": "2026-10-06T23:21:45.774Z",
   "usuarios": [
     {
       "login": "christian.vieira",
@@ -21,7 +21,7 @@
         "reunioes",
         "roadmap"
       ],
-      "senha": "pbkdf2$210000$7fb9709225081b82768ba0d6e76c9f98$25d7f66520a1c11561309acb95792d27e7131904defccc49ab7c6c4a5c973325",
+      "senha": "pbkdf2$210000$afb7b392c41dc6fcabc5f05add6d6fae$9e5120b4fc9f742613f426df32a3b3248b92d2fc20e102d53f6aa8987bcf9179",
       "recuperacao": "pbkdf2$210000$84544035d70101546ba7832ae9c7d518$bc72a2218111a2fd91d8cb1ad8e466d5513db56dd30b0573c5e40cd716ae8da7",
       "criadoEm": "2026-09-15T19:03:52.553Z"
     },
