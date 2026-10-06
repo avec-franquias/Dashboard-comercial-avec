@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-guarapuava",
   "modulo": "extrator",
-  "atualizadoEm": "2026-10-06T19:25:18.530Z",
+  "atualizadoEm": "2026-10-06T19:27:09.691Z",
   "atualizadoPor": "felipe.lopes",
   "dados": {
-    "portal-wpp-leads-v1": "{\"0x92325cb2b878bff5:0x6e25333c5f87a15d\":{\"status\":\"Contatado\",\"at\":\"2026-10-02T20:27:00.005Z\"},\"0x92a48e8561d4f683:0xc4209ea47ff5acc7\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:16:21.274Z\"},\"0x8d930676f0e9d855:0x1f7c56d2f013368\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:24:51.073Z\"},\"0x8d9305971516fcbd:0xc47902b3b5090884\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:25:13.513Z\"}}"
+    "portal-wpp-leads-v1": "{\"0x92325cb2b878bff5:0x6e25333c5f87a15d\":{\"status\":\"Contatado\",\"at\":\"2026-10-02T20:27:00.005Z\"},\"0x92a48e8561d4f683:0xc4209ea47ff5acc7\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:16:21.274Z\"},\"0x8d930676f0e9d855:0x1f7c56d2f013368\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:24:51.073Z\"},\"0x8d9305971516fcbd:0xc47902b3b5090884\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:25:13.513Z\"},\"0x8d9304575171a5dd:0x452af3cfecf602c0\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:27:04.233Z\"}}"
   }
 }
