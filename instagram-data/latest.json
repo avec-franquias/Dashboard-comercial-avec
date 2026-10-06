@@ -15177,6 +15177,151 @@
         "browbar.boavista"
       ],
       "finished_at": "2026-10-06T19:21:16.554Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "RN",
+        "cidade": "Apodi",
+        "bairro": "Carregando bairros...",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "belezafashionsol",
+          "profile_url": "https://www.instagram.com/belezafashionsol/",
+          "name": "Salão Beleza Fashion",
+          "bio": "Salão Beleza Fashion (@belezafashionsol) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Apodi",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "iolandapaiva_",
+          "profile_url": "https://www.instagram.com/iolandapaiva_/",
+          "name": "Espaço de beleza - Apodi/RN",
+          "bio": "Espaço de beleza - Apodi/RN (@iolandapaiva_) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Apodi",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaodebelezarn",
+          "profile_url": "https://www.instagram.com/salaodebelezarn/",
+          "name": "Salão de Beleza RN",
+          "bio": "Salão de Beleza RN (@salaodebelezarn) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Apodi",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studio.3_",
+          "profile_url": "https://www.instagram.com/studio.3_/",
+          "name": "STUDIO 3 | SALÃO DE BELEZA | APODI-RN",
+          "bio": "STUDIO 3 | SALÃO DE BELEZA | APODI-RN (@studio.3_) • Instagram photos ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Apodi",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "phoenixcabelos",
+          "profile_url": "https://www.instagram.com/phoenixcabelos/",
+          "name": "Phoenix Cabelos | Salão de beleza",
+          "bio": "Phoenix Cabelos | Salão de beleza (@phoenixcabelos) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Apodi",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "flaviocabelos_",
+          "profile_url": "https://www.instagram.com/flaviocabelos_/",
+          "name": "Salão Flávio Cabelos",
+          "bio": "Salão Flávio Cabelos (@flaviocabelos_) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Apodi",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "janeteatelier_",
+          "profile_url": "https://www.instagram.com/janeteatelier_/",
+          "name": "SALÃO DE BELEZA JANETE ATELIER | APODI RN (@janeteatelier ...",
+          "bio": "SALÃO DE BELEZA JANETE ATELIER | APODI RN (@janeteatelier ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Apodi",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salao_naiaracamilla",
+          "profile_url": "https://www.instagram.com/salao_naiaracamilla/",
+          "name": "Salão de Beleza",
+          "bio": "Salão de Beleza (@salao_naiaracamilla) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Apodi",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 8,
+      "new_count": 8,
+      "new_usernames": [
+        "belezafashionsol",
+        "iolandapaiva_",
+        "salaodebelezarn",
+        "studio.3_",
+        "phoenixcabelos",
+        "flaviocabelos_",
+        "janeteatelier_",
+        "salao_naiaracamilla"
+      ],
+      "finished_at": "2026-10-06T20:39:18.613Z"
     }
   ]
 }
