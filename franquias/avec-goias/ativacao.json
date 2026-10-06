@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-goias",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-06T13:53:26.431Z",
+  "atualizadoEm": "2026-10-06T13:53:52.523Z",
   "atualizadoPor": "goiania@franquias.hyperlocal.com.br",
   "dados": {
     "db": {
@@ -57,107 +57,6 @@
         }
       ],
       "cards": [
-        {
-          "id": "1911067e600891c6",
-          "ownerId": "f3401ab3f7b05d2e",
-          "column": "novo",
-          "clientCode": "321313",
-          "title": "teste teste",
-          "phone": "",
-          "labels": [],
-          "members": [],
-          "contractDate": "2026-09-29T09:35",
-          "firstContactDate": "",
-          "startDate": "",
-          "dueDate": "",
-          "painPoint": "",
-          "painValidated": false,
-          "pontosAtencao": "",
-          "oportunidades": "",
-          "observacoes": "",
-          "checklists": [
-            {
-              "id": "83a0ed99990c5672",
-              "name": "BÁSICO",
-              "items": [
-                {
-                  "id": "c5a13aeebda65591",
-                  "text": "Boas-vindas",
-                  "done": false
-                },
-                {
-                  "id": "2614f05fe5d8059c",
-                  "text": "Configurações gerais",
-                  "done": false
-                },
-                {
-                  "id": "2ffe6048a4483ece",
-                  "text": "Agenda",
-                  "done": false
-                },
-                {
-                  "id": "fde82520852907e1",
-                  "text": "Caixa",
-                  "done": false
-                },
-                {
-                  "id": "5456ee01676eb518",
-                  "text": "Comanda",
-                  "done": false
-                },
-                {
-                  "id": "21b110f9e285f9a4",
-                  "text": "Fluxo básico de atendimento",
-                  "done": false
-                }
-              ]
-            }
-          ],
-          "uso": [
-            {
-              "id": "339c22a0361fbe09",
-              "dia": 7,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "ad0de8670c21ac95",
-              "dia": 15,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "348af519b881d38e",
-              "dia": 30,
-              "status": "",
-              "nota": "",
-              "em": ""
-            }
-          ],
-          "attachments": [],
-          "activity": [
-            {
-              "id": "fed02785da8eb36d",
-              "type": "action",
-              "at": "2026-09-29T12:35:20.745Z",
-              "author": "teste teste",
-              "authorId": "f3401ab3f7b05d2e",
-              "text": "adicionou este cartão a Novo cliente"
-            }
-          ],
-          "history": [
-            {
-              "at": "2026-09-29T12:35:20.744Z",
-              "column": "novo"
-            }
-          ],
-          "createdAt": "2026-09-29T12:35:20.744Z",
-          "updatedAt": "2026-09-29T12:35:20.744Z",
-          "finishedAt": "",
-          "ordem": 1790685320745
-        },
         {
           "id": "f73c49052198cc97",
           "ownerId": "34ffe12d88555eb8",
