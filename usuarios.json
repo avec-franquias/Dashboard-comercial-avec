@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-10-06T21:03:12.171Z",
+ "atualizadoEm": "2026-10-06T21:03:23.948Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -861,7 +861,7 @@
     "central",
     "reunioes"
    ],
-   "senha": "pbkdf2$210000$caeacddd076dc559ea78c689ec6262ae$dfaec0dce52d00caf21ad4fac4054bc01a20d652c1033c341bfed95b854a4fd2",
+   "senha": "pbkdf2$210000$43b58ae6b94726f293fcd3af9bf49ab5$1cbd6844d013d98fa677589b576cf70e3b90b7c8e1bc884a95d6745b8ea3f34c",
    "criadoEm": "2026-09-23T18:59:41.748Z",
    "franquiaId": "avec-sao-paulo-leonardo",
    "perfil": "franqueado"
@@ -1156,7 +1156,7 @@
    "login": "bruna.reis",
    "nome": "GT Bruna",
    "papel": "admin",
-   "ativo": true,
+   "ativo": false,
    "modulos": [
     "ativacao",
     "vendas",
