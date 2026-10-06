@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-guarapuava",
   "modulo": "extrator",
-  "atualizadoEm": "2026-10-02T20:27:02.431Z",
+  "atualizadoEm": "2026-10-06T19:16:04.586Z",
   "atualizadoPor": "felipe.lopes",
   "dados": {
-    "portal-wpp-leads-v1": "{\"0x92325cb2b878bff5:0x6e25333c5f87a15d\":{\"status\":\"Contatado\",\"at\":\"2026-10-02T20:27:00.005Z\"}}"
+    "portal-wpp-leads-v1": "{\"0x92325cb2b878bff5:0x6e25333c5f87a15d\":{\"status\":\"Contatado\",\"at\":\"2026-10-02T20:27:00.005Z\"},\"0x92a48e8561d4f683:0xc4209ea47ff5acc7\":{\"status\":\"Contatado\",\"at\":\"2026-10-06T19:15:58.986Z\"}}"
   }
 }
