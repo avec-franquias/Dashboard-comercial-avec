@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T21:26:01.620Z",
+  "generated_at": "2026-10-06T13:29:23.528Z",
   "runs": [
     {
       "query": {
@@ -50384,19 +50384,6 @@
     },
     {
       "query": {
-        "nicho": "Salão de beleza",
-        "cidade": "Água Branca, AL",
-        "bairro": "Carregando bairros...",
-        "max_results": 80
-      },
-      "finished_at": "2026-10-01T17:24:47.826Z",
-      "total": 0,
-      "new_count": 0,
-      "new_ids": [],
-      "leads": []
-    },
-    {
-      "query": {
         "nicho": "Barbearia",
         "cidade": "São José dos Campos, SP",
         "bairro": "",
@@ -62027,6 +62014,57 @@
           "reviews": "",
           "place_id": "0x94ce598549e3f8a7:0x535fc4fe5fc563e3",
           "maps_url": "https://www.google.com/maps/place/Nivea+Dias+Instituto+de+Beleza/data=!4m7!3m6!1s0x94ce598549e3f8a7:0x535fc4fe5fc563e3!8m2!3d-23.5801179!4d-46.6401822!16s%2Fg%2F1q6n2mr9m!19sChIJp_jjSYVZzpQR42PFX_7EX1M?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "cidade": "Água Branca, AL",
+        "bairro": "Carregando bairros...",
+        "max_results": 80
+      },
+      "finished_at": "2026-10-06T13:29:22.507Z",
+      "total": 3,
+      "new_count": 3,
+      "new_ids": [
+        "0x708e50548809a13:0x14bb807dffdfa214",
+        "0x708e102ecc6ba8d:0x6983d2b70627832e",
+        "0x708e1cb7ddcd6b5:0xdc0fcb28454dd5c8"
+      ],
+      "leads": [
+        {
+          "name": "Bruna Ismael Beauty",
+          "phone": "",
+          "website": "",
+          "address": "Povoado Quixabeira, Água Branca - AL, 57490-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x708e50548809a13:0x14bb807dffdfa214",
+          "maps_url": "https://www.google.com/maps/place/Bruna+Ismael+Beauty/data=!4m7!3m6!1s0x708e50548809a13:0x14bb807dffdfa214!8m2!3d-9.1898703!4d-37.8648476!16s%2Fg%2F11fpjpcy7p!19sChIJE5qASAXlCAcRFKLf_32AuxQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Espaço de Beleza Heloisa Ferreira",
+          "phone": "+5582999810204",
+          "website": "",
+          "address": "R. Padre Epifânio Moura, 338-380, Água Branca - AL, 57490-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x708e102ecc6ba8d:0x6983d2b70627832e",
+          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+de+Beleza+Heloisa+Ferreira/data=!4m7!3m6!1s0x708e102ecc6ba8d:0x6983d2b70627832e!8m2!3d-9.2607853!4d-37.9343289!16s%2Fg%2F11h22rgsbh!19sChIJjbrG7ALhCAcRLoMnBrfSg2k?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Salão do Lázaro",
+          "phone": "",
+          "website": "",
+          "address": "R. América Fernandes Torres, 823, Água Branca - AL, 57490-000, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "",
+          "reviews": "",
+          "place_id": "0x708e1cb7ddcd6b5:0xdc0fcb28454dd5c8",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+do+L%C3%A1zaro/data=!4m7!3m6!1s0x708e1cb7ddcd6b5:0xdc0fcb28454dd5c8!8m2!3d-9.2632721!4d-37.9391904!16s%2Fg%2F11vf5m2xt5!19sChIJtdbcfcvhCAcRyNVNRSjLD9w?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkzMC4wIJJjKgBIAVAD&rclk=1"
         }
       ]
     }
