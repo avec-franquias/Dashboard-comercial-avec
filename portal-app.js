@@ -452,7 +452,7 @@ function entrarNoPortal(u) {
   const admin = u.papel === "admin";
   document.body.dataset.portalAdmin = admin ? "1" : "0";
   $("#abas").classList.toggle("hidden", !admin);
-  $("#btnSenha").classList.toggle("hidden", !admin);
+  $("#btnSenha").classList.remove("hidden");
   configuraVisaoFranquiaAdmin(u, admin);
   const secFranquias = document.getElementById("abaFranquias");
   const tabFranquias = document.querySelector('[data-aba="franquias"]');
@@ -1164,7 +1164,9 @@ $("#btnSenha").onclick = () => {
       <span style="display:flex;gap:8px"><button type="button" class="btn linha" id="sCancelar">Cancelar</button><button class="btn cheio">Salvar senha</button></span>
     </div>
   </form></div>`;
+  $("#sCodigo").classList.toggle("hidden", perfil.papel !== "admin");
   $("#sCodigo").onclick = async () => {
+    if (perfil.papel !== "admin") return;
     if (!await confere($("#sAtual").value, perfil.senha)) {
       $("#sMsg").textContent = "Digite sua senha atual para gerar um novo c\xF3digo.";
       return $("#sAtual").focus();
@@ -1193,21 +1195,23 @@ $("#btnSenha").onclick = () => {
   $("#sAtual").focus();
   $(".modal").onsubmit = async (e) => {
     e.preventDefault();
-    const msg = $("#sMsg"), nova = $("#sNova").value;
-    if (!await confere($("#sAtual").value, perfil.senha)) {
-      msg.textContent = "Senha atual incorreta.";
-      return;
-    }
+    const msg = $("#sMsg"), atual = $("#sAtual").value, nova = $("#sNova").value;
     if (nova.length < 8) {
       msg.textContent = "A nova senha precisa ter pelo menos 8 caracteres.";
       return;
     }
-    const h = await geraHash(nova);
     try {
-      const l = await alterarUsuarios((l2) => {
-        l2.find((x) => x.login === perfil.login).senha = h;
-      }, `Portal: ${perfil.login} trocou a senha`);
-      perfil = l.find((x) => x.login === perfil.login);
+      const token = localStorage.getItem("portal-admin-token") || "";
+      if (!token) throw new Error("Sua sessão expirou. Entre novamente no Portal.");
+      const r = await fetch((window.PORTAL_API_BASE || "") + "/api/login", {
+        method: "POST",
+        headers: {"Content-Type":"application/json","Authorization":"Bearer " + token},
+        body: JSON.stringify({action:"change-password",senhaAtual:atual,senhaNova:nova})
+      });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok || !d.ok) throw new Error(d.error || "Não foi possível alterar a senha.");
+      await carregaUsuarios();
+      perfil = usuarios().find((x) => x.login === perfil.login) || perfil;
     } catch (err) {
       msg.textContent = err.message;
       return;
