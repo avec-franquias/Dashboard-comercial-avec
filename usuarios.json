@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-10-06T20:30:02.438Z",
+ "atualizadoEm": "2026-10-06T20:30:39.555Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1449,6 +1449,30 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
+    "ativacao",
+    "vendas",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
+   ],
+   "franquiaId": "avec-niteroi",
+   "perfil": "franqueado",
+   "senha": "pbkdf2$210000$0231c8868d8d77260e6c7bd63f58532b$21ffdcb17dc749052276c3eea59a79f52acc561ac0ff234fddacd58fdae31c2b",
+   "criadoEm": "2026-10-06T20:30:12.237Z"
+  },
+  {
+   "login": "lucas.schlichting",
+   "nome": "Avec Florianópolis",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
     "central",
     "clientes",
     "crm-avec",
@@ -1464,10 +1488,10 @@
     "taxas",
     "propostas"
    ],
-   "franquiaId": "avec-niteroi",
+   "franquiaId": "avec-florianopolis",
    "perfil": "franqueado",
-   "senha": "pbkdf2$210000$0231c8868d8d77260e6c7bd63f58532b$21ffdcb17dc749052276c3eea59a79f52acc561ac0ff234fddacd58fdae31c2b",
-   "criadoEm": "2026-10-06T20:30:12.237Z"
+   "senha": "pbkdf2$210000$21c9e4198093313eaf74aef133e4a3fd$c0db205c72bf488cdb089a199758007a4e209935266071853fa54137ea7dbb30",
+   "criadoEm": "2026-10-06T20:30:49.303Z"
   }
  ],
  "manutencao": {
