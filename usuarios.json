@@ -1,6 +1,6 @@
 {
   "instalacao": "63bc96d9dc3c6c61",
-  "atualizadoEm": "2026-10-06T23:21:03.526Z",
+  "atualizadoEm": "2026-10-06T23:21:44.082Z",
   "usuarios": [
     {
       "login": "christian.vieira",
@@ -21,10 +21,9 @@
         "reunioes",
         "roadmap"
       ],
-      "senha": "pbkdf2$210000$b93f0866b14232541f7f0bef14775867$e65b788c604c5537888b6e1c5c21b3ad96349a4f7045729276e800574b62f563",
+      "senha": "pbkdf2$210000$7fb9709225081b82768ba0d6e76c9f98$25d7f66520a1c11561309acb95792d27e7131904defccc49ab7c6c4a5c973325",
       "recuperacao": "pbkdf2$210000$84544035d70101546ba7832ae9c7d518$bc72a2218111a2fd91d8cb1ad8e466d5513db56dd30b0573c5e40cd716ae8da7",
-      "criadoEm": "2026-09-15T19:03:52.553Z",
-      "recuperacaoSolicitadaEm": "2026-10-06T23:21:03.526Z"
+      "criadoEm": "2026-09-15T19:03:52.553Z"
     },
     {
       "login": "diana.gracia",
