@@ -13652,10 +13652,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "narabeautystudioo",
-          "profile_url": "https://www.instagram.com/narabeautystudioo/",
-          "name": "Nara Beauty Studio",
-          "bio": "Nara Beauty Studio (@narabeautystudioo) - Instagram",
+          "username": "ericasouza.beautystudio",
+          "profile_url": "https://www.instagram.com/ericasouza.beautystudio/",
+          "name": "Erica Souza | Especialista em Alisamentos (@ericasouza ...",
+          "bio": "Erica Souza | Especialista em Alisamentos (@ericasouza ... - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -13667,10 +13667,25 @@
           "source": "duckduckgo"
         },
         {
-          "username": "salao_adrianaehelo",
-          "profile_url": "https://www.instagram.com/salao_adrianaehelo/",
-          "name": "Salão Adriana & Helo",
-          "bio": "Salão Adriana & Helo (@salao_adrianaehelo) - Instagram",
+          "username": "caroluchoabeauty",
+          "profile_url": "https://www.instagram.com/caroluchoabeauty/",
+          "name": "Sobrancelhas | Aracati-CE",
+          "bio": "Sobrancelhas | Aracati-CE (@caroluchoabeauty) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Aracati",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "narabeautystudioo",
+          "profile_url": "https://www.instagram.com/narabeautystudioo/",
+          "name": "Nara Beauty Studio",
+          "bio": "Nara Beauty Studio (@narabeautystudioo) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -13710,53 +13725,14 @@
           "city": "Aracati",
           "last_post": "",
           "source": "duckduckgo"
-        },
-        {
-          "username": "ericasouza.beautystudio",
-          "profile_url": "https://www.instagram.com/ericasouza.beautystudio/",
-          "name": "Erica Souza | Especialista em Alisamentos (@ericasouza ...",
-          "bio": "Erica Souza | Especialista em Alisamentos (@ericasouza ... - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Aracati",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "studiojlourenco",
-          "profile_url": "https://www.instagram.com/studiojlourenco/",
-          "name": "Jéssica Lourenço | Beauty Studio",
-          "bio": "Jéssica Lourenço | Beauty Studio (@studiojlourenco) - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Aracati",
-          "last_post": "",
-          "source": "duckduckgo"
         }
       ],
-      "total": 10,
-      "new_count": 10,
+      "total": 9,
+      "new_count": 1,
       "new_usernames": [
-        "ozias_cabelos",
-        "iraci_salao",
-        "linabarretobeauty",
-        "lusoaresstudio",
-        "narabeautystudioo",
-        "salao_adrianaehelo",
-        "taysalvesbelezaeestetica",
-        "studiodebeleza_sandra",
-        "ericasouza.beautystudio",
-        "studiojlourenco"
+        "caroluchoabeauty"
       ],
-      "finished_at": "2026-10-03T13:41:55.771Z"
+      "finished_at": "2026-10-06T13:32:35.988Z"
     },
     {
       "query": {
