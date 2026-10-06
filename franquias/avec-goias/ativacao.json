@@ -1,7 +1,7 @@
 {
   "franquiaId": "avec-goias",
   "modulo": "ativacao",
-  "atualizadoEm": "2026-10-06T13:52:42.957Z",
+  "atualizadoEm": "2026-10-06T13:53:01.593Z",
   "atualizadoPor": "goiania@franquias.hyperlocal.com.br",
   "dados": {
     "db": {
@@ -159,115 +159,6 @@
           "ordem": 1790685320745
         },
         {
-          "id": "ffb4a7e3ebbf9de4",
-          "ownerId": "34ffe12d88555eb8",
-          "column": "acompanhamento",
-          "clientCode": "107565",
-          "title": "Studio CM Hair",
-          "phone": "",
-          "labels": [],
-          "members": [],
-          "contractDate": "2026-09-29T17:33",
-          "firstContactDate": "",
-          "startDate": "",
-          "dueDate": "",
-          "painPoint": "",
-          "painValidated": false,
-          "pontosAtencao": "",
-          "oportunidades": "",
-          "observacoes": "",
-          "checklists": [
-            {
-              "id": "d0a951bc2a928da3",
-              "name": "BÁSICO",
-              "items": [
-                {
-                  "id": "93d8d25aeb03226c",
-                  "text": "Boas-vindas",
-                  "done": false
-                },
-                {
-                  "id": "944ecd2602b0edb6",
-                  "text": "Configurações gerais",
-                  "done": false
-                },
-                {
-                  "id": "4a4b08f964b30abf",
-                  "text": "Agenda",
-                  "done": false
-                },
-                {
-                  "id": "0fc789d11be5e4a6",
-                  "text": "Caixa",
-                  "done": false
-                },
-                {
-                  "id": "f25bdfc73937ef52",
-                  "text": "Comanda",
-                  "done": false
-                },
-                {
-                  "id": "fa5a394ea212ba39",
-                  "text": "Fluxo básico de atendimento",
-                  "done": false
-                }
-              ]
-            }
-          ],
-          "uso": [
-            {
-              "id": "6d6324e7a99bce85",
-              "dia": 7,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "355b45c9caeba229",
-              "dia": 15,
-              "status": "",
-              "nota": "",
-              "em": ""
-            },
-            {
-              "id": "c2c4f0a134ab910b",
-              "dia": 30,
-              "status": "",
-              "nota": "",
-              "em": ""
-            }
-          ],
-          "attachments": [],
-          "activity": [
-            {
-              "id": "c8ab49b214ff9c0f",
-              "type": "action",
-              "at": "2026-09-29T20:33:31.921Z",
-              "author": "Avec Goias",
-              "authorId": "34ffe12d88555eb8",
-              "text": "adicionou este cartão a Acompanhamento de uso"
-            },
-            {
-              "id": "3809fa22f4cd9912",
-              "type": "comment",
-              "at": "2026-10-06T13:52:40.844Z",
-              "author": "goiania@franquias.hyperlocal.com.br",
-              "authorId": "100538770fc010aa",
-              "text": "Cliente solicitou o cancelamento"
-            }
-          ],
-          "history": [
-            {
-              "at": "2026-09-29T20:33:31.921Z",
-              "column": "acompanhamento"
-            }
-          ],
-          "createdAt": "2026-09-29T20:33:31.921Z",
-          "updatedAt": "2026-10-06T13:52:40.844Z",
-          "finishedAt": "",
-          "ordem": 1790714011921
-        },
-        {
           "id": "f73c49052198cc97",
           "ownerId": "34ffe12d88555eb8",
           "column": "finalizado",
@@ -387,6 +278,127 @@
           "updatedAt": "2026-10-06T13:52:05.618Z",
           "finishedAt": "2026-10-06T13:52:05.618Z",
           "ordem": 1791294725619
+        },
+        {
+          "id": "ffb4a7e3ebbf9de4",
+          "ownerId": "34ffe12d88555eb8",
+          "column": "sem_retorno",
+          "clientCode": "107565",
+          "title": "Studio CM Hair",
+          "phone": "",
+          "labels": [],
+          "members": [],
+          "contractDate": "2026-09-29T17:33",
+          "firstContactDate": "",
+          "startDate": "",
+          "dueDate": "",
+          "painPoint": "",
+          "painValidated": false,
+          "pontosAtencao": "",
+          "oportunidades": "",
+          "observacoes": "",
+          "checklists": [
+            {
+              "id": "d0a951bc2a928da3",
+              "name": "BÁSICO",
+              "items": [
+                {
+                  "id": "93d8d25aeb03226c",
+                  "text": "Boas-vindas",
+                  "done": false
+                },
+                {
+                  "id": "944ecd2602b0edb6",
+                  "text": "Configurações gerais",
+                  "done": false
+                },
+                {
+                  "id": "4a4b08f964b30abf",
+                  "text": "Agenda",
+                  "done": false
+                },
+                {
+                  "id": "0fc789d11be5e4a6",
+                  "text": "Caixa",
+                  "done": false
+                },
+                {
+                  "id": "f25bdfc73937ef52",
+                  "text": "Comanda",
+                  "done": false
+                },
+                {
+                  "id": "fa5a394ea212ba39",
+                  "text": "Fluxo básico de atendimento",
+                  "done": false
+                }
+              ]
+            }
+          ],
+          "uso": [
+            {
+              "id": "6d6324e7a99bce85",
+              "dia": 7,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "355b45c9caeba229",
+              "dia": 15,
+              "status": "",
+              "nota": "",
+              "em": ""
+            },
+            {
+              "id": "c2c4f0a134ab910b",
+              "dia": 30,
+              "status": "",
+              "nota": "",
+              "em": ""
+            }
+          ],
+          "attachments": [],
+          "activity": [
+            {
+              "id": "c8ab49b214ff9c0f",
+              "type": "action",
+              "at": "2026-09-29T20:33:31.921Z",
+              "author": "Avec Goias",
+              "authorId": "34ffe12d88555eb8",
+              "text": "adicionou este cartão a Acompanhamento de uso"
+            },
+            {
+              "id": "3809fa22f4cd9912",
+              "type": "comment",
+              "at": "2026-10-06T13:52:40.844Z",
+              "author": "goiania@franquias.hyperlocal.com.br",
+              "authorId": "100538770fc010aa",
+              "text": "Cliente solicitou o cancelamento"
+            },
+            {
+              "id": "93c5cf9ada50b153",
+              "type": "action",
+              "at": "2026-10-06T13:53:00.095Z",
+              "author": "goiania@franquias.hyperlocal.com.br",
+              "authorId": "100538770fc010aa",
+              "text": "moveu este cartão de Acompanhamento de uso para Sem retorno"
+            }
+          ],
+          "history": [
+            {
+              "at": "2026-09-29T20:33:31.921Z",
+              "column": "acompanhamento"
+            },
+            {
+              "at": "2026-10-06T13:53:00.095Z",
+              "column": "sem_retorno"
+            }
+          ],
+          "createdAt": "2026-09-29T20:33:31.921Z",
+          "updatedAt": "2026-10-06T13:53:00.095Z",
+          "finishedAt": "",
+          "ordem": 1791294780095
         }
       ]
     }
