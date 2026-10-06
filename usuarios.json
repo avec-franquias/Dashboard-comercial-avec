@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-10-06T20:32:51.471Z",
+ "atualizadoEm": "2026-10-06T20:57:36.872Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1171,7 +1171,7 @@
     "reunioes",
     "roadmap"
    ],
-   "senha": "pbkdf2$210000$ac56570240d6bca384786e56a90ff1d8$ba97ad68092a3ac4790530a41b78879dd21cbdd8266661e1f5f94064d704cd41",
+   "senha": "pbkdf2$210000$c27128bab4bdb80116891b683cc5aeee$9a69a5c1625aa9948a7483517c199d11bb91ad72a9f78237d6616588ffd2f4cf",
    "criadoEm": "2026-09-24T13:45:47.149Z"
   },
   {
@@ -1497,20 +1497,18 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "crm-avec",
-    "localizar",
-    "mapa-franqueado",
-    "migrador",
-    "extrator",
     "ativacao",
     "vendas",
-    "roadmap",
     "arvore",
     "previsao",
     "taxas",
-    "propostas"
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes",
+    "roadmap"
    ],
    "franquiaId": "avec-pocos-de-caldas",
    "perfil": "franqueado",
