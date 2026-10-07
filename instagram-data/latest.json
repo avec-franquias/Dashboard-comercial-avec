@@ -16676,6 +16676,151 @@
         "claudiacabeleireiraumbelina"
       ],
       "finished_at": "2026-10-07T19:31:58.924Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "PR",
+        "cidade": "Londrina",
+        "bairro": "Costa e Silva",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "popular",
+          "profile_url": "https://www.instagram.com/popular/",
+          "name": "Salao De Beleza Costa E Silva",
+          "bio": "Salao De Beleza Costa E Silva - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Londrina",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "centrodeesteticags",
+          "profile_url": "https://www.instagram.com/centrodeesteticags/",
+          "name": "GS Estética Facial e Corporal | LONDRINA (@centrodeesteticags ...",
+          "bio": "GS Estética Facial e Corporal | LONDRINA (@centrodeesteticags ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Londrina",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "sr.e.sra_costa",
+          "profile_url": "https://www.instagram.com/sr.e.sra_costa/",
+          "name": "Salão de Beleza",
+          "bio": "Salão de Beleza (@sr.e.sra_costa) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Londrina",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studioalondrina_",
+          "profile_url": "https://www.instagram.com/studioalondrina_/",
+          "name": "Studio A - Salão de Beleza (@studioalondrina ...",
+          "bio": "Studio A - Salão de Beleza (@studioalondrina ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Londrina",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "morsalon.londrina",
+          "profile_url": "https://www.instagram.com/morsalon.londrina/",
+          "name": "MŌR salon",
+          "bio": "MŌR salon (@morsalon.londrina) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Londrina",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "lbeautylondrina",
+          "profile_url": "https://www.instagram.com/lbeautylondrina/",
+          "name": "LB beauty",
+          "bio": "LB beauty (@lbeautylondrina) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Londrina",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "soulbeauty.londrina",
+          "profile_url": "https://www.instagram.com/soulbeauty.londrina/",
+          "name": "Salão de Beleza Soul Beauty",
+          "bio": "Salão de Beleza Soul Beauty (@soulbeauty.londrina) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Londrina",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaostatuslondrina",
+          "profile_url": "https://www.instagram.com/salaostatuslondrina/",
+          "name": "Salão de beleza | Londrina",
+          "bio": "Salão de beleza | Londrina (@salaostatuslondrina) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Londrina",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 8,
+      "new_count": 8,
+      "new_usernames": [
+        "popular",
+        "centrodeesteticags",
+        "sr.e.sra_costa",
+        "studioalondrina_",
+        "morsalon.londrina",
+        "lbeautylondrina",
+        "soulbeauty.londrina",
+        "salaostatuslondrina"
+      ],
+      "finished_at": "2026-10-07T19:40:15.633Z"
     }
   ]
 }
