@@ -1382,12 +1382,47 @@ async function desenhaLogsAdmin(){
     $("#logsExtrator").innerHTML=extr.length?'<div style="overflow:auto"><table class="logs-table"><thead><tr><th>Data</th><th>Franquia</th><th>Usuário</th><th>Fonte</th><th>Nicho</th><th>Cidade</th><th>Bairro</th><th>Cache</th><th>Status</th><th>Resultados</th></tr></thead><tbody>'+extr.slice(0,300).map(x=>{const d=x.detalhe||{},st=d.status||(d.total!=null?"concluido":"processando"),label=st==="concluido"?"Concluído":st==="falhou"?"Falhou":"Processando";return '<tr><td>'+new Date(x.criado_em).toLocaleString("pt-BR")+'</td><td>'+esc(x.franquia_id||"—")+'</td><td>'+esc(x.login)+'</td><td>'+esc(d.fonte||"—")+'</td><td>'+esc(d.nicho||"—")+'</td><td>'+esc(d.cidade||"—")+'</td><td>'+esc(d.bairro||"Todos")+'</td><td>'+(d.cached?"Sim":"Não")+'</td><td><b>'+esc(label)+'</b>'+(d.erro?'<div class="muted">'+esc(d.erro)+'</div>':'')+'</td><td>'+esc(d.total??(st==="processando"?"Processando":"0"))+'</td></tr>'}).join("")+'</tbody></table></div>':'<div class="logs-empty">Nenhuma extração registrada no período.</div>';
     $("#logsTimeline").innerHTML=logs.length?'<div style="overflow:auto"><table class="logs-table"><thead><tr><th>Data</th><th>Franquia</th><th>Usuário</th><th>Evento</th><th>Módulo</th></tr></thead><tbody>'+logs.slice(0,500).map(x=>'<tr><td>'+new Date(x.criado_em).toLocaleString("pt-BR")+'</td><td>'+esc(x.franquia_id||"—")+'</td><td>'+esc(x.login)+'</td><td>'+esc(x.evento)+'</td><td>'+esc(x.modulo||"—")+'</td></tr>').join("")+'</tbody></table></div>':'<div class="logs-empty">Sem eventos no período.</div>';
     msg.textContent="";
+    desenhaBaseLeadsAdmin();
   }catch(e){msg.className="msg erro";msg.textContent=e.message||"Falha ao carregar logs";}
+}
+
+async function desenhaBaseLeadsAdmin(){
+  const box=$("#baseLeadsResumo"),hist=$("#baseLeadsHistorico"),msg=$("#baseLeadsMsg");
+  if(!box||!hist||!perfil||perfil.papel!=="admin"||!window.portalLogsBaseLeads)return;
+  if(msg){msg.className="msg";msg.textContent="Carregando base de leads...";}
+  try{
+    const [stats,logs]=await Promise.all([
+      portalExtratorBase("stats"),
+      window.portalLogsBaseLeads()
+    ]);
+    box.innerHTML=[
+      ["Leads na base",Number(stats.total||0).toLocaleString("pt-BR")],
+      ["Google Maps",Number(stats.google||0).toLocaleString("pt-BR")],
+      ["Instagram",Number(stats.instagram||0).toLocaleString("pt-BR")],
+      ["Novos 24h",Number(stats.novos24h||0).toLocaleString("pt-BR")]
+    ].map(([l,v])=>'<div class="logs-kpi"><b>'+esc(v)+'</b><span>'+esc(l)+'</span></div>').join("");
+    const items=logs.items||[];
+    hist.innerHTML=items.length?'<div style="overflow:auto"><table class="logs-table"><thead><tr><th>Data</th><th>Tipo</th><th>Status</th><th>Encontrados</th><th>Novos</th><th>Atualizados</th><th>Mensagem</th></tr></thead><tbody>'+items.slice(0,100).map(x=>'<tr><td>'+new Date(x.criado_em).toLocaleString("pt-BR")+'</td><td>'+esc(x.tipo||"—")+'</td><td><b>'+esc(x.status||"—")+'</b></td><td>'+esc(x.total_encontrados??0)+'</td><td>'+esc(x.novos??0)+'</td><td>'+esc(x.atualizados??0)+'</td><td>'+esc(x.mensagem||"—")+'</td></tr>').join("")+'</tbody></table></div>':'<div class="logs-empty">Nenhuma sincronização registrada ainda.</div>';
+    if(msg)msg.textContent=stats.ultima?'Última verificação da base: '+new Date(stats.ultima).toLocaleString("pt-BR"):"";
+  }catch(e){
+    if(msg){msg.className="msg erro";msg.textContent=e.message||"Falha ao consultar a base de leads.";}
+  }
 }
 setTimeout(()=>{
   const ids=["logsAtualizar","logsPeriodo","logsFranquia","logsUsuario","logsModulo"];
   ids.forEach(id=>{const el=$("#"+id);if(el)el.onchange=()=>desenhaLogsAdmin();});
   const b=$("#logsAtualizar");if(b)b.onclick=()=>desenhaLogsAdmin();
+  const s=$("#baseLeadsSincronizar");
+  if(s)s.onclick=async()=>{
+    s.disabled=true;const old=s.textContent;s.textContent="Sincronizando...";
+    const m=$("#baseLeadsMsg");if(m){m.className="msg";m.textContent="Sincronizando a base atual...";}
+    try{
+      const r=await window.portalSincronizarBaseLeads();
+      if(m){m.className="msg ok";m.textContent="Sincronização concluída: "+Number(r.total||0).toLocaleString("pt-BR")+" leads · "+Number(r.novos||0).toLocaleString("pt-BR")+" novos.";}
+      await desenhaBaseLeadsAdmin();
+    }catch(e){if(m){m.className="msg erro";m.textContent=e.message||"Falha ao sincronizar.";}}
+    finally{s.disabled=false;s.textContent=old}
+  };
 },0);
 
 function desenhaManutencao() {
@@ -1939,6 +1974,7 @@ window.portalSincronizarBaseLeads = async () => {
   return portalExtratorBase("sync-current");
 };
 window.portalLogsBaseLeads = async () => portalExtratorBase("logs");
+window.portalStatsBaseLeads = async () => portalExtratorBase("stats");
 window.portalRegioesBaseLeads = async () => portalExtratorBase("regions");
 window.portalSalvarRegiaoBaseLeads = async (dados = {}) => {
   if (!perfil || perfil.papel !== "admin") throw new Error("Apenas administradores podem alterar a fila de atualizacao.");
