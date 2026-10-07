@@ -1860,6 +1860,21 @@ async function portalApi(path, payload) {
   if (!r.ok) throw new Error(d.error || "Falha na integra\xE7\xE3o (" + r.status + ")");
   return d;
 }
+async function portalApiGet(path, params = {}) {
+  const qs = new URLSearchParams();
+  Object.entries(params || {}).forEach(([k, v]) => {
+    if (v !== void 0 && v !== null) qs.set(k, String(v));
+  });
+  const url = (PORTAL_API || "") + "/api/" + path + (qs.toString() ? "?" + qs.toString() : "");
+  const r = await fetch(url, { method: "GET", cache: "no-store" });
+  let d = {};
+  try {
+    d = await r.json();
+  } catch {
+  }
+  if (!r.ok) throw new Error(d.error || "Falha na integra\xE7\xE3o (" + r.status + ")");
+  return d;
+}
 window.portalSolicitarExtracao = async ({ nicho, cidade, bairro = "", max_results = 80 }) => {
   nicho = String(nicho || "").trim();
   cidade = String(cidade || "").trim();
@@ -1895,6 +1910,12 @@ window.portalSolicitarInstagram = async ({ nicho = "", uf = "", cidade = "", bai
     await portalLog("extracao_leads","extrator",{fonte:"instagram",nicho,uf,cidade,bairro,palavra_chave,limite:Number(lim),cached:false,status:"falhou",total:null,erro:e.message||"Falha ao iniciar"});
     throw e;
   }
+};
+window.portalConsultarExtracao = async ({ nicho = "", cidade = "", bairro = "", since = 0 }) => {
+  return portalApiGet("leads", { nicho, cidade, bairro, since });
+};
+window.portalConsultarInstagram = async ({ nicho = "", uf = "", cidade = "", bairro = "", palavra_chave = "", since = 0 }) => {
+  return portalApiGet("instagram", { nicho, uf, cidade, bairro, palavra_chave, since });
 };
 const MODULO_CACHE = /* @__PURE__ */ new Map();
 const decodifica = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
