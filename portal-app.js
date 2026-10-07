@@ -1917,6 +1917,33 @@ window.portalConsultarExtracao = async ({ nicho = "", cidade = "", bairro = "", 
 window.portalConsultarInstagram = async ({ nicho = "", uf = "", cidade = "", bairro = "", palavra_chave = "", since = 0 }) => {
   return portalApiGet("instagram", { nicho, uf, cidade, bairro, palavra_chave, since });
 };
+const EXTRATOR_BASE_API = "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/extrator-base-v2";
+async function portalExtratorBase(action, payload = {}) {
+  const token = localStorage.getItem("portal-admin-token") || "";
+  if (!token) throw new Error("Sessao indisponivel. Entre novamente no Portal.");
+  const r = await fetch(EXTRATOR_BASE_API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
+    body: JSON.stringify({ action, ...payload }),
+    cache: "no-store"
+  });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok || !d.ok) throw new Error(d.error || "Falha ao consultar a base do Extrator.");
+  return d;
+}
+window.portalBuscarBaseLeads = async ({ estado = "", cidade = "", bairro = "", nicho = "", novos_desde = "", limit = 500 } = {}) => {
+  return portalExtratorBase("search", { estado, cidade, bairro, nicho, novos_desde, limit, bootstrap: 1 });
+};
+window.portalSincronizarBaseLeads = async () => {
+  if (!perfil || perfil.papel !== "admin") throw new Error("Apenas administradores podem atualizar a base.");
+  return portalExtratorBase("sync-current");
+};
+window.portalLogsBaseLeads = async () => portalExtratorBase("logs");
+window.portalRegioesBaseLeads = async () => portalExtratorBase("regions");
+window.portalSalvarRegiaoBaseLeads = async (dados = {}) => {
+  if (!perfil || perfil.papel !== "admin") throw new Error("Apenas administradores podem alterar a fila de atualizacao.");
+  return portalExtratorBase("save-region", dados);
+};
 const MODULO_CACHE = /* @__PURE__ */ new Map();
 const decodifica = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
 async function carregaModulo(id) {
