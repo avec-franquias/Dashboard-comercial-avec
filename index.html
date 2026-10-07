@@ -421,6 +421,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
         <button role="tab" aria-selected="false" data-aba="manutencao">Manutenção</button>
         <button role="tab" aria-selected="false" data-aba="conteudo">Conteúdo</button>
         <button role="tab" aria-selected="false" data-aba="logs">Logs</button>
+        <button role="tab" aria-selected="false" data-aba="regioes">Regiões</button>
         <button role="tab" aria-selected="false" data-aba="base-clientes">Base de Clientes</button>
       </div>
     </div>
@@ -482,6 +483,22 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
           <h3>Linha do tempo</h3>
           <div id="logsTimeline"></div>
         </div>
+      </div>
+    </section>
+
+    <section id="abaRegioes" class="hidden">
+      <div class="painel">
+        <div class="logs-card-head">
+          <div><h2>Regiões do Extrator</h2><p class="sub">Estados, cidades e bairros existentes na base de leads.</p></div>
+          <button class="btn cheio" id="regioesAtualizarTodas">Atualizar todas as regiões</button>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:16px 0">
+          <select class="inp" id="regioesEstado" style="max-width:190px"><option value="">Todos os estados</option></select>
+          <input class="inp" id="regioesBusca" placeholder="Buscar cidade, bairro ou nicho" style="max-width:430px">
+          <span class="sub" id="regioesQtd"></span>
+        </div>
+        <div id="regioesMsg" class="msg"></div>
+        <div id="regioesLista"></div>
       </div>
     </section>
 
