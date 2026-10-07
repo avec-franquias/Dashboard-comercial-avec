@@ -652,10 +652,25 @@
           "source": "duckduckgo"
         },
         {
-          "username": "meusalaofloripa",
-          "profile_url": "https://www.instagram.com/meusalaofloripa/",
-          "name": "Salão de Beleza em Florianópolis",
-          "bio": "Salão de Beleza em Florianópolis (@meusalaofloripa) - Instagram",
+          "username": "floripacosmeticos",
+          "profile_url": "https://www.instagram.com/floripacosmeticos/",
+          "name": "Beleza Pura Cosméticos",
+          "bio": "Beleza Pura Cosméticos (@floripacosmeticos) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Florianópolis",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espacofemininofloripa",
+          "profile_url": "https://www.instagram.com/espacofemininofloripa/",
+          "name": "Espaço Feminino | Florianópolis (@espacofemininofloripa ...",
+          "bio": "Espaço Feminino | Florianópolis (@espacofemininofloripa ... - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -682,6 +697,21 @@
           "source": "duckduckgo"
         },
         {
+          "username": "fernandacostabeauty_",
+          "profile_url": "https://www.instagram.com/fernandacostabeauty_/",
+          "name": "Fernanda Costa | Estúdio de Beleza & Estilo ...",
+          "bio": "Fernanda Costa | Estúdio de Beleza & Estilo ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Florianópolis",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
           "username": "espacohairaddress",
           "profile_url": "https://www.instagram.com/espacohairaddress/",
           "name": "SALÃO DE BELEZA",
@@ -697,55 +727,10 @@
           "source": "duckduckgo"
         },
         {
-          "username": "cortacorter",
-          "profile_url": "https://www.instagram.com/cortacorter/",
-          "name": "Cort à Corter | Centro",
-          "bio": "Cort à Corter | Centro (@cortacorter) • Instagram photos and videos",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Florianópolis",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "fiori.centrodeestetica",
-          "profile_url": "https://www.instagram.com/fiori.centrodeestetica/",
-          "name": "CENTRO DE ESTÉTICA & SALÃO DE BELEZA | INGLESES (@fiori ...",
-          "bio": "CENTRO DE ESTÉTICA & SALÃO DE BELEZA | INGLESES (@fiori ... - Instagram",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Florianópolis",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "vivabelezaebemestar",
-          "profile_url": "https://www.instagram.com/vivabelezaebemestar/",
-          "name": "Vivá | Salão de Beleza - Florianópolis (@vivabelezaebemestar ...",
-          "bio": "Vivá | Salão de Beleza - Florianópolis (@vivabelezaebemestar ...",
-          "followers": null,
-          "type": "Não identificado",
-          "whatsapp": "",
-          "phone": "",
-          "email": "",
-          "website": "",
-          "city": "Florianópolis",
-          "last_post": "",
-          "source": "duckduckgo"
-        },
-        {
-          "username": "bellacosmeticosfloripa",
-          "profile_url": "https://www.instagram.com/bellacosmeticosfloripa/",
-          "name": "Bella Cosmeticos",
-          "bio": "Bella Cosmeticos (@bellacosmeticosfloripa) - Instagram",
+          "username": "meusalaofloripa",
+          "profile_url": "https://www.instagram.com/meusalaofloripa/",
+          "name": "Salão de Beleza em Florianópolis",
+          "bio": "Salão de Beleza em Florianópolis (@meusalaofloripa) - Instagram",
           "followers": null,
           "type": "Não identificado",
           "whatsapp": "",
@@ -772,17 +757,14 @@
           "source": "duckduckgo"
         }
       ],
-      "total": 10,
-      "new_count": 6,
+      "total": 9,
+      "new_count": 3,
       "new_usernames": [
-        "espacohairaddress",
-        "cortacorter",
-        "fiori.centrodeestetica",
-        "vivabelezaebemestar",
-        "bellacosmeticosfloripa",
-        "beleza.marbellasfr"
+        "floripacosmeticos",
+        "espacofemininofloripa",
+        "fernandacostabeauty_"
       ],
-      "finished_at": "2026-10-07T18:34:25.763Z"
+      "finished_at": "2026-10-07T18:42:25.790Z"
     },
     {
       "query": {
