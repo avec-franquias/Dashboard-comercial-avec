@@ -1,9 +1,9 @@
 {
   "franquiaId": "avec-campinas",
   "modulo": "propostas",
-  "atualizadoEm": "2026-10-06T14:16:01.641Z",
-  "atualizadoPor": "alexandre.scaquette",
+  "atualizadoEm": "2026-10-07T20:48:21.579Z",
+  "atualizadoPor": "kater.hoss",
   "dados": {
-    "avec:log:v1": "[{\"quando\":\"2026-10-06T14:16:03.205Z\",\"evento\":\"Abriu a calculadora\"}]"
+    "avec:log:v1": "[{\"quando\":\"2026-10-07T20:48:20.502Z\",\"evento\":\"Abriu a calculadora\"}]"
   }
 }
