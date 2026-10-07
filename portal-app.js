@@ -1391,29 +1391,62 @@ async function desenhaLogsAdmin(){
 async function desenhaRegioesAdmin(){
   const lista=$("#regioesLista"),msg=$("#regioesMsg"),sel=$("#regioesEstado"),busca=$("#regioesBusca"),qtd=$("#regioesQtd");
   if(!lista||!window.portalRegioesBaseLeads)return;
-  if(msg){msg.className="msg";msg.textContent="Carregando regiões...";}
+  if(msg){msg.className="msg";msg.textContent="Carregando catálogo nacional e cobertura da base...";}
   try{
-    const j=await window.portalRegioesBaseLeads();
-    const all=j.items||[];
-    const estados=[...new Set(all.map(x=>x.estado).filter(Boolean))].sort();
-    if(sel&&sel.options.length<=1) estados.forEach(e=>sel.add(new Option(e,e)));
+    const [j,geoResp]=await Promise.all([
+      window.portalRegioesBaseLeads(),
+      fetch(new URL("geo/bairros-br.json",location.href),{cache:"force-cache"})
+    ]);
+    const coletadas=j.items||[];
+    const geo=geoResp.ok?await geoResp.json():{};
+    const cobertura=new Map();
+    for(const x of coletadas){
+      const k=[x.estado||"",String(x.cidade||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(),String(x.bairro||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()].join("|");
+      const old=cobertura.get(k)||{leads:0,ultima_atualizacao:null,nichos:new Set()};
+      old.leads+=Number(x.leads||0);
+      if(x.nicho)old.nichos.add(x.nicho);
+      if(!old.ultima_atualizacao||String(x.ultima_atualizacao||"")>String(old.ultima_atualizacao||""))old.ultima_atualizacao=x.ultima_atualizacao;
+      cobertura.set(k,old);
+    }
+    const all=[];
+    for(const [uf,cidades] of Object.entries(geo)){
+      for(const [cidadeKey,bairros] of Object.entries(cidades||{})){
+        const cidadeNome=String(cidadeKey||"").replace(/\b\w/g,m=>m.toUpperCase());
+        const bairrosLista=Array.isArray(bairros)&&bairros.length?bairros:[""];
+        for(const bairro of bairrosLista){
+          const k=[uf,String(cidadeKey||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(),String(bairro||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()].join("|");
+          const cov=cobertura.get(k);
+          all.push({estado:uf,cidade:cidadeNome,bairro:bairro||"",leads:cov?.leads||0,ultima_atualizacao:cov?.ultima_atualizacao||null,nichos:cov?[...cov.nichos].join(", "):"",coletada:!!cov});
+        }
+      }
+    }
+    const estados=Object.keys(geo).sort();
+    if(sel){
+      const atual=sel.value;
+      sel.innerHTML='<option value="">Todos os estados</option>'+estados.map(e=>'<option value="'+esc(e)+'">'+esc(e)+'</option>').join("");
+      if(estados.includes(atual))sel.value=atual;
+    }
     const render=()=>{
       const uf=sel?.value||"",term=(busca?.value||"").toLowerCase().trim();
-      const rows=all.filter(x=>(!uf||x.estado===uf)&&(!term||[x.estado,x.cidade,x.bairro,x.nicho].join(" ").toLowerCase().includes(term)));
-      if(qtd)qtd.textContent=rows.length.toLocaleString("pt-BR")+" regiões/bairros";
-      lista.innerHTML=rows.length?'<div style="overflow:auto"><table class="logs-table"><thead><tr><th>Estado</th><th>Cidade</th><th>Bairro</th><th>Nicho</th><th>Leads</th><th>Última atualização</th></tr></thead><tbody>'+rows.map(x=>'<tr><td>'+esc(x.estado||"—")+'</td><td>'+esc(x.cidade||"—")+'</td><td>'+esc(x.bairro||"Todos os bairros")+'</td><td>'+esc(x.nicho||"—")+'</td><td><b>'+Number(x.leads||0).toLocaleString("pt-BR")+'</b></td><td>'+esc(x.ultima_atualizacao?new Date(x.ultima_atualizacao).toLocaleString("pt-BR"):"—")+'</td></tr>').join("")+'</tbody></table></div>':'<div class="logs-empty">Nenhuma região encontrada.</div>';
+      const rows=all.filter(x=>(!uf||x.estado===uf)&&(!term||[x.estado,x.cidade,x.bairro,x.nichos].join(" ").toLowerCase().includes(term)));
+      const cidades=new Set(rows.map(x=>x.estado+"|"+x.cidade)).size;
+      const coletadasQtd=rows.filter(x=>x.coletada).length;
+      if(qtd)qtd.textContent=estados.length+" estados · "+cidades.toLocaleString("pt-BR")+" cidades · "+rows.length.toLocaleString("pt-BR")+" regiões/bairros";
+      lista.innerHTML=rows.length?'<div style="overflow:auto"><table class="logs-table"><thead><tr><th>Estado</th><th>Cidade</th><th>Bairro</th><th>Status</th><th>Leads</th><th>Última atualização</th></tr></thead><tbody>'+rows.slice(0,5000).map(x=>'<tr><td>'+esc(x.estado)+'</td><td>'+esc(x.cidade)+'</td><td>'+esc(x.bairro||"Todos os bairros")+'</td><td>'+(x.coletada?'<b style="color:#16803d">Coletada</b>':'<span class="muted">Pendente</span>')+'</td><td><b>'+Number(x.leads||0).toLocaleString("pt-BR")+'</b></td><td>'+esc(x.ultima_atualizacao?new Date(x.ultima_atualizacao).toLocaleString("pt-BR"):"—")+'</td></tr>').join("")+'</tbody></table></div>':'<div class="logs-empty">Nenhuma região encontrada.</div>';
+      if(msg){msg.className="msg";msg.textContent="Cobertura atual: "+coletadasQtd.toLocaleString("pt-BR")+" regiões/bairros com dados na base. As demais aparecem como pendentes para atualização.";}
     };
-    if(sel)sel.onchange=render;if(busca)busca.oninput=render;render();
-    if(msg)msg.textContent="";
+    if(sel)sel.onchange=render;
+    if(busca)busca.oninput=render;
+    render();
     const btn=$("#regioesAtualizarTodas");
     if(btn)btn.onclick=async()=>{
-      btn.disabled=true;const old=btn.textContent;btn.textContent="Atualizando...";
-      if(msg){msg.className="msg";msg.textContent="Atualizando a base de todas as regiões já coletadas...";}
+      btn.disabled=true;const old=btn.textContent;btn.textContent="Preparando atualização...";
+      if(msg){msg.className="msg";msg.textContent="Sincronizando agora a base já coletada. A atualização nacional completa será processada em fila, sem travar o Extrator.";}
       try{
         const r=await window.portalSincronizarBaseLeads();
-        if(msg){msg.className="msg ok";msg.textContent="Base sincronizada: "+Number(r.total||0).toLocaleString("pt-BR")+" leads, "+Number(r.novos||0).toLocaleString("pt-BR")+" novos.";}
-        setTimeout(()=>desenhaRegioesAdmin(),500);
-      }catch(e){if(msg){msg.className="msg erro";msg.textContent=e.message||"Falha ao atualizar regiões.";}}
+        if(msg){msg.className="msg ok";msg.textContent="Base atual sincronizada: "+Number(r.total||0).toLocaleString("pt-BR")+" leads. Regiões sem coleta continuam marcadas como pendentes.";}
+        setTimeout(()=>desenhaRegioesAdmin(),700);
+      }catch(e){if(msg){msg.className="msg erro";msg.textContent=e.message||"Falha ao atualizar a base.";}}
       finally{btn.disabled=false;btn.textContent=old}
     };
   }catch(e){if(msg){msg.className="msg erro";msg.textContent=e.message||"Falha ao carregar regiões.";}}
