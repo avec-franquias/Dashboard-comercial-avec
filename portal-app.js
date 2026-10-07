@@ -1231,6 +1231,7 @@ function trocaAba(aba) {
   $("#abaConteudo").classList.toggle("hidden", aba !== "conteudo");
   const al = $("#abaLogs"); if (al) al.classList.toggle("hidden", aba !== "logs");
   const abc = $("#abaBaseClientes"); if (abc) abc.classList.toggle("hidden", aba !== "base-clientes");
+  const ar = $("#abaRegioes"); if (ar) ar.classList.toggle("hidden", aba !== "regioes");
   $("#olaSub").textContent = SUB_ABA[aba];
   if (aba === "usuarios") {
     desenhaUsuarios();
@@ -1243,6 +1244,7 @@ function trocaAba(aba) {
   }
   if (aba === "conteudo") desenhaConteudoAdmin();
   if (aba === "logs") desenhaLogsAdmin();
+  if (aba === "regioes") desenhaRegioesAdmin();
   if (aba === "base-clientes") desenhaBaseClientesAdmin();
   if (aba === "modulos") desenhaModulos();
 }
@@ -1384,6 +1386,37 @@ async function desenhaLogsAdmin(){
     msg.textContent="";
     desenhaBaseLeadsAdmin();
   }catch(e){msg.className="msg erro";msg.textContent=e.message||"Falha ao carregar logs";}
+}
+
+async function desenhaRegioesAdmin(){
+  const lista=$("#regioesLista"),msg=$("#regioesMsg"),sel=$("#regioesEstado"),busca=$("#regioesBusca"),qtd=$("#regioesQtd");
+  if(!lista||!window.portalRegioesBaseLeads)return;
+  if(msg){msg.className="msg";msg.textContent="Carregando regiões...";}
+  try{
+    const j=await window.portalRegioesBaseLeads();
+    const all=j.items||[];
+    const estados=[...new Set(all.map(x=>x.estado).filter(Boolean))].sort();
+    if(sel&&sel.options.length<=1) estados.forEach(e=>sel.add(new Option(e,e)));
+    const render=()=>{
+      const uf=sel?.value||"",term=(busca?.value||"").toLowerCase().trim();
+      const rows=all.filter(x=>(!uf||x.estado===uf)&&(!term||[x.estado,x.cidade,x.bairro,x.nicho].join(" ").toLowerCase().includes(term)));
+      if(qtd)qtd.textContent=rows.length.toLocaleString("pt-BR")+" regiões/bairros";
+      lista.innerHTML=rows.length?'<div style="overflow:auto"><table class="logs-table"><thead><tr><th>Estado</th><th>Cidade</th><th>Bairro</th><th>Nicho</th><th>Leads</th><th>Última atualização</th></tr></thead><tbody>'+rows.map(x=>'<tr><td>'+esc(x.estado||"—")+'</td><td>'+esc(x.cidade||"—")+'</td><td>'+esc(x.bairro||"Todos os bairros")+'</td><td>'+esc(x.nicho||"—")+'</td><td><b>'+Number(x.leads||0).toLocaleString("pt-BR")+'</b></td><td>'+esc(x.ultima_atualizacao?new Date(x.ultima_atualizacao).toLocaleString("pt-BR"):"—")+'</td></tr>').join("")+'</tbody></table></div>':'<div class="logs-empty">Nenhuma região encontrada.</div>';
+    };
+    if(sel)sel.onchange=render;if(busca)busca.oninput=render;render();
+    if(msg)msg.textContent="";
+    const btn=$("#regioesAtualizarTodas");
+    if(btn)btn.onclick=async()=>{
+      btn.disabled=true;const old=btn.textContent;btn.textContent="Atualizando...";
+      if(msg){msg.className="msg";msg.textContent="Atualizando a base de todas as regiões já coletadas...";}
+      try{
+        const r=await window.portalSincronizarBaseLeads();
+        if(msg){msg.className="msg ok";msg.textContent="Base sincronizada: "+Number(r.total||0).toLocaleString("pt-BR")+" leads, "+Number(r.novos||0).toLocaleString("pt-BR")+" novos.";}
+        setTimeout(()=>desenhaRegioesAdmin(),500);
+      }catch(e){if(msg){msg.className="msg erro";msg.textContent=e.message||"Falha ao atualizar regiões.";}}
+      finally{btn.disabled=false;btn.textContent=old}
+    };
+  }catch(e){if(msg){msg.className="msg erro";msg.textContent=e.message||"Falha ao carregar regiões.";}}
 }
 
 async function desenhaBaseLeadsAdmin(){
