@@ -15685,6 +15685,119 @@
         "imagehairbeautystudio"
       ],
       "finished_at": "2026-10-07T18:23:43.772Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "PR",
+        "cidade": "Curitiba",
+        "bairro": "Campo Comprido",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "ciadocabelo2000",
+          "profile_url": "https://www.instagram.com/ciadocabelo2000/",
+          "name": "Neuza Castro | Salão de Beleza Campo Comprido (@ciadocabelo2000 ...",
+          "bio": "Neuza Castro | Salão de Beleza Campo Comprido (@ciadocabelo2000 ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Curitiba",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "dgbeautyhair_",
+          "profile_url": "https://www.instagram.com/dgbeautyhair_/",
+          "name": "DG Beauty & Hair | Salão de Beleza no Campo Comprido ...",
+          "bio": "DG Beauty & Hair | Salão de Beleza no Campo Comprido ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Curitiba",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "pereirasbarbearia",
+          "profile_url": "https://www.instagram.com/pereirasbarbearia/",
+          "name": "PEREIRA'S BARBEARIA",
+          "bio": "PEREIRA'S BARBEARIA (@pereirasbarbearia) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Curitiba",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "phoenixcabelos",
+          "profile_url": "https://www.instagram.com/phoenixcabelos/",
+          "name": "Phoenix Cabelos | Salão de beleza",
+          "bio": "Phoenix Cabelos | Salão de beleza (@phoenixcabelos) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Curitiba",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "reflexosdabeleza_",
+          "profile_url": "https://www.instagram.com/reflexosdabeleza_/",
+          "name": "Reflexos da Beleza | Salão de Beleza | Curitiba (@reflexosdabeleza ...",
+          "bio": "Reflexos da Beleza | Salão de Beleza | Curitiba (@reflexosdabeleza ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Curitiba",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "cobannibeauty",
+          "profile_url": "https://www.instagram.com/cobannibeauty/",
+          "name": "Cobanni | Salão de Beleza | Head Spa | Curitiba (@cobannibeauty ...",
+          "bio": "Cobanni | Salão de Beleza | Head Spa | Curitiba (@cobannibeauty ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "Curitiba",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 6,
+      "new_count": 6,
+      "new_usernames": [
+        "ciadocabelo2000",
+        "dgbeautyhair_",
+        "pereirasbarbearia",
+        "phoenixcabelos",
+        "reflexosdabeleza_",
+        "cobannibeauty"
+      ],
+      "finished_at": "2026-10-07T18:32:05.566Z"
     }
   ]
 }
