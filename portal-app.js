@@ -1440,13 +1440,20 @@ async function desenhaRegioesAdmin(){
     render();
     const btn=$("#regioesAtualizarTodas");
     if(btn)btn.onclick=async()=>{
-      btn.disabled=true;const old=btn.textContent;btn.textContent="Preparando atualização...";
-      if(msg){msg.className="msg";msg.textContent="Sincronizando agora a base já coletada. A atualização nacional completa será processada em fila, sem travar o Extrator.";}
+      btn.disabled=true;const old=btn.textContent;btn.textContent="Iniciando fila...";
+      if(msg){msg.className="msg";msg.textContent="Iniciando a atualização nacional em fila. O Extrator continua disponível durante o processamento.";}
       try{
-        const r=await window.portalSincronizarBaseLeads();
-        if(msg){msg.className="msg ok";msg.textContent="Base atual sincronizada: "+Number(r.total||0).toLocaleString("pt-BR")+" leads. Regiões sem coleta continuam marcadas como pendentes.";}
-        setTimeout(()=>desenhaRegioesAdmin(),700);
-      }catch(e){if(msg){msg.className="msg erro";msg.textContent=e.message||"Falha ao atualizar a base.";}}
+        const token=localStorage.getItem("portal-admin-token")||"";
+        const r=await fetch("/api/regions-update",{
+          method:"POST",
+          headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},
+          body:"{}",
+          cache:"no-store"
+        });
+        const j=await r.json().catch(()=>({}));
+        if(!r.ok||j.ok===false)throw new Error(j.error||"Falha ao iniciar a fila.");
+        if(msg){msg.className="msg ok";msg.textContent="Fila nacional iniciada. O sistema processará as regiões em pequenos lotes e continuará automaticamente a cada hora.";}
+      }catch(e){if(msg){msg.className="msg erro";msg.textContent=e.message||"Falha ao iniciar a atualização nacional.";}}
       finally{btn.disabled=false;btn.textContent=old}
     };
   }catch(e){if(msg){msg.className="msg erro";msg.textContent=e.message||"Falha ao carregar regiões.";}}
