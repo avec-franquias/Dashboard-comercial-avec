@@ -489,12 +489,12 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
     <section id="abaRegioes" class="hidden">
       <div class="painel">
         <div class="logs-card-head">
-          <div><h2>Regiões do Extrator</h2><p class="sub">Estados, cidades e bairros existentes na base de leads.</p></div>
+          <div><h2>Regiões do Extrator</h2><p class="sub">Estados e cidades existentes na base de leads.</p></div>
           <button class="btn cheio" id="regioesAtualizarTodas">Atualizar todas as regiões</button>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin:16px 0">
           <select class="inp" id="regioesEstado" style="max-width:190px"><option value="">Todos os estados</option></select>
-          <input class="inp" id="regioesBusca" placeholder="Buscar cidade, bairro ou nicho" style="max-width:430px">
+          <input class="inp" id="regioesBusca" placeholder="Buscar cidade" style="max-width:430px">
           <span class="sub" id="regioesQtd"></span>
         </div>
         <div id="regioesMsg" class="msg"></div>
@@ -727,6 +727,7 @@ body[data-portal-admin="0"] [data-aba="franquias"]{display:none!important}
 </script>
 
 <!-- franquias-admin.js removido: a lógica já está incorporada no index e não deve bloquear DOMContentLoaded -->
+<script src="portal-regioes.js?v=20261008-cidades"></script>
 <script src="recuperar-senha.js?v=20261001-acessos1"></script>
 </body>
 </html>
