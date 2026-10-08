@@ -33,6 +33,15 @@ if(!chosen&&infos.length){
   chosen={uf:oldest.uf,cidade,fase:"renovacao"};
 }
 if(!chosen)process.exit(0);
-const lines=["uf="+chosen.uf,"cidade="+chosen.cidade,"cidade_com_uf="+chosen.cidade+", "+chosen.uf,"bairro=","nicho="+nicho,"fase="+chosen.fase,"has_task=true"].join("\n")+"\n";
+const sh=s=>"'" + String(s??"").replace(/'/g,"'\\''") + "'";
+const lines=[
+  "uf="+sh(chosen.uf),
+  "cidade="+sh(chosen.cidade),
+  "cidade_com_uf="+sh(chosen.cidade+", "+chosen.uf),
+  "bairro="+sh(""),
+  "nicho="+sh(nicho),
+  "fase="+sh(chosen.fase),
+  "has_task=true"
+].join("\n")+"\n";
 if(process.env.GITHUB_OUTPUT)await fs.appendFile(process.env.GITHUB_OUTPUT,lines);
 console.log(JSON.stringify({...chosen,nicho}));
