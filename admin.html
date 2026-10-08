@@ -1695,7 +1695,21 @@ $("#nPapel").onchange = atualizaCampoNovaFranquia;
 garanteFranquiasAdmin().then(() => {
   atualizaCampoNovaFranquia();
   desenhaUsuarios();
-}).catch((e) => console.warn("Franquias:", e.message));
+}).catch((e) => {
+  console.warn("Franquias:", e.message);
+  const sel = $("#nFranquia");
+  if (sel) {
+    sel.innerHTML = '<option value="">Falha ao carregar franquias - clique para tentar novamente</option>';
+    sel.title = e.message;
+  }
+  const msg = $("#msgNovo");
+  if (msg) { msg.className = "msg erro"; msg.textContent = "Não foi possível carregar as franquias: " + e.message; }
+});
+$("#nFranquia").addEventListener("focus", async () => {
+  if (FRANQUIAS_ADMIN.length || FRANQUIAS_CARREGANDO) return;
+  try { await garanteFranquiasAdmin(); atualizaCampoNovaFranquia(); $("#msgNovo").textContent = ""; }
+  catch (e) { $("#msgNovo").className = "msg erro"; $("#msgNovo").textContent = "Falha ao carregar franquias: " + e.message; }
+});
 $("#formNovo").onsubmit = async (e) => {
   var _a2;
   e.preventDefault();
