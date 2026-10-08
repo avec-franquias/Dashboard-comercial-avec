@@ -16961,6 +16961,197 @@
         "mirajoinville"
       ],
       "finished_at": "2026-10-07T22:15:22.509Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "MG",
+        "cidade": "belo horizonte",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "unicasalaodebeleza",
+          "profile_url": "https://www.instagram.com/unicasalaodebeleza/",
+          "name": "Unica Salão de Beleza",
+          "bio": "Unica Salão de Beleza (@unicasalaodebeleza) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "belo horizonte",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "soumaislotus",
+          "profile_url": "https://www.instagram.com/soumaislotus/",
+          "name": "Salão de Beleza BH - LOTUS",
+          "bio": "Salão de Beleza BH - LOTUS (@soumaislotus) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "belo horizonte",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaocamilabatista",
+          "profile_url": "https://www.instagram.com/salaocamilabatista/",
+          "name": "Instagram",
+          "bio": "Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "belo horizonte",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "bellaestudio",
+          "profile_url": "https://www.instagram.com/bellaestudio/",
+          "name": "Salão de Beleza Bella Estúdio",
+          "bio": "Salão de Beleza Bella Estúdio (@bellaestudio) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "belo horizonte",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaopeaoficial",
+          "profile_url": "https://www.instagram.com/salaopeaoficial/",
+          "name": "Salão P&A | Salão de Beleza em Belo Horizonte (@salaopeaoficial ...",
+          "bio": "Salão P&A | Salão de Beleza em Belo Horizonte (@salaopeaoficial ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "belo horizonte",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salao.luxus",
+          "profile_url": "https://www.instagram.com/salao.luxus/",
+          "name": "Salão Luxus",
+          "bio": "Salão Luxus (@salao.luxus) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "belo horizonte",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "elegancesalonbh",
+          "profile_url": "https://www.instagram.com/elegancesalonbh/",
+          "name": "Elegance | Salão de Beleza BH",
+          "bio": "Elegance | Salão de Beleza BH (@elegancesalonbh) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "belo horizonte",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "belezaecompanhia",
+          "profile_url": "https://www.instagram.com/belezaecompanhia/",
+          "name": "Studio Beleza & Companhia",
+          "bio": "Studio Beleza & Companhia (@belezaecompanhia) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "belo horizonte",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "adstudiobh",
+          "profile_url": "https://www.instagram.com/adstudiobh/",
+          "name": "Salão de Beleza",
+          "bio": "Salão de Beleza (@adstudiobh) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "belo horizonte",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 9,
+      "new_count": 9,
+      "new_usernames": [
+        "unicasalaodebeleza",
+        "soumaislotus",
+        "salaocamilabatista",
+        "bellaestudio",
+        "salaopeaoficial",
+        "salao.luxus",
+        "elegancesalonbh",
+        "belezaecompanhia",
+        "adstudiobh"
+      ],
+      "finished_at": "2026-10-08T02:07:41.774Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "MT",
+        "cidade": "rondonopolis",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-08T02:10:33.608Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "BA",
+        "cidade": "salvador",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-08T02:12:32.379Z"
     }
   ]
 }
