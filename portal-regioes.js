@@ -3,7 +3,7 @@
   function norm(s){return String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim()}
   async function renderRegioes(){
     var $=function(s){return document.querySelector(s)};
-    var lista=$("#regioesLista"),msg=$("#regioesMsg"),sel=$("#regioesEstado"),busca=$("#regioesBusca"),qtd=$("#regioesQtd");
+    var lista=$("#regioesLista"),msg=$("#regioesMsg"),sel=$("#regioesEstado"),filtro=$("#regioesFiltro"),busca=$("#regioesBusca"),qtd=$("#regioesQtd");
     if(!lista||!window.portalRegioesBaseLeads)return;
     if(msg){msg.className="msg";msg.textContent="Carregando cobertura nacional por cidade..."}
     try{
@@ -37,8 +37,18 @@
         if(estados.indexOf(atual)>=0)sel.value=atual;
       }
       function draw(){
-        var uf=sel?sel.value:"",term=(busca?busca.value:"").toLowerCase().trim();
-        var rows=all.filter(function(x){return (!uf||x.estado===uf)&&(!term||(x.estado+" "+x.cidade).toLowerCase().includes(term))});
+        var uf=sel?sel.value:"",modo=filtro?filtro.value:"com_dados",term=(busca?busca.value:"").toLowerCase().trim();
+        var rows=all.filter(function(x){
+          if(uf&&x.estado!==uf)return false;
+          if(term&&!(x.estado+" "+x.cidade).toLowerCase().includes(term))return false;
+          if(modo==="com_dados"&&x.total<=0)return false;
+          if(modo==="cnpj"&&x.cnpj<=0)return false;
+          if(modo==="google"&&x.google<=0)return false;
+          if(modo==="instagram"&&x.instagram<=0)return false;
+          if(modo==="enriquecidos"&&x.enriquecidos<=0)return false;
+          if(modo==="pendentes"&&x.total>0)return false;
+          return true;
+        });
         var total=rows.reduce(function(n,x){return n+x.total},0);
         var cnpj=rows.reduce(function(n,x){return n+x.cnpj},0);
         var google=rows.reduce(function(n,x){return n+x.google},0);
@@ -58,6 +68,7 @@
         if(msg){msg.className="msg";msg.textContent="Atualização por cidade. CNPJ, Google e Instagram aparecem separados, e o total acompanha o filtro aplicado."}
       }
       if(sel)sel.onchange=draw;
+      if(filtro)filtro.onchange=draw;
       if(busca)busca.oninput=draw;
       draw();
       var btn=$("#regioesAtualizarTodas");
