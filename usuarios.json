@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-10-08T20:17:56.865Z",
+ "atualizadoEm": "2026-10-08T20:22:38.149Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1587,14 +1587,36 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
+    "ativacao",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes"
+   ],
+   "franquiaId": "avec-sul",
+   "perfil": "franqueado",
+   "senha": "pbkdf2$210000$fb101a3a921cf06d1107d16c67614202$157b41acfac2cfa6267b8173494973423496aa45938a2ada1353b0a4bfc22075",
+   "criadoEm": "2026-10-08T20:17:57.374Z"
+  },
+  {
+   "login": "caroline.silveira",
+   "nome": "Caroline Silveira",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
     "central",
     "taxas",
     "propostas"
    ],
    "franquiaId": "avec-sul",
    "perfil": "franqueado",
-   "senha": "pbkdf2$210000$fb101a3a921cf06d1107d16c67614202$157b41acfac2cfa6267b8173494973423496aa45938a2ada1353b0a4bfc22075",
-   "criadoEm": "2026-10-08T20:17:57.374Z"
+   "senha": "pbkdf2$210000$04f3e7837942d35f6898bc44d42dc334$09a2fb03bd87d7d04efe69b6a4cd6c311f040afacfb1815c43c1e598fb280574",
+   "criadoEm": "2026-10-08T20:22:38.523Z"
   }
  ],
  "manutencao": {
