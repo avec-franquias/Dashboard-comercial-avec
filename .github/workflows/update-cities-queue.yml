@@ -1,0 +1,78 @@
+name: Atualizar cidades em fila
+
+on:
+  workflow_dispatch:
+    inputs:
+      lote:
+        required: false
+        default: "3"
+        type: string
+      nicho:
+        required: false
+        default: "Salão de beleza"
+        type: string
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: extrator-cidades-fila
+  cancel-in-progress: false
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install chromium
+      - name: Processar cidades
+        env:
+          REGION_BATCH: ${{ inputs.lote || '3' }}
+          REGION_NICHO: ${{ inputs.nicho || 'Salão de beleza' }}
+        run: |
+          set -e
+          BATCH="$REGION_BATCH"
+          if ! [[ "$BATCH" =~ ^[0-9]+$ ]]; then BATCH=3; fi
+          if [ "$BATCH" -lt 1 ]; then BATCH=1; fi
+          if [ "$BATCH" -gt 5 ]; then BATCH=5; fi
+          i=1
+          while [ "$i" -le "$BATCH" ]; do
+            rm -f /tmp/region-output
+            GITHUB_OUTPUT=/tmp/region-output REGION_NICHO="$REGION_NICHO" node collector/select-city-task.mjs
+            if [ ! -f /tmp/region-output ]; then break; fi
+            set -a
+            . /tmp/region-output
+            set +a
+            if [ "${has_task:-}" != "true" ]; then break; fi
+            LEADS_NICHO="$nicho" LEADS_CIDADE="$cidade_com_uf" LEADS_BAIRRO="" LEADS_MAX_RESULTS="80" node collector/collect-leads.mjs
+            INSTAGRAM_NICHO="$nicho" INSTAGRAM_UF="$uf" INSTAGRAM_CIDADE="$cidade" INSTAGRAM_BAIRRO="" INSTAGRAM_LIMITE="100" node collector/collect-instagram.mjs || true
+            i=$((i+1))
+          done
+      - name: Salvar bases
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -rf /tmp/extrator-data /tmp/instagram-data
+          cp -a extrator-data /tmp/extrator-data
+          if [ -d instagram-data ]; then cp -a instagram-data /tmp/instagram-data; fi
+          git fetch origin main
+          git reset --hard origin/main
+          rm -rf extrator-data
+          cp -a /tmp/extrator-data extrator-data
+          if [ -d /tmp/instagram-data ]; then rm -rf instagram-data; cp -a /tmp/instagram-data instagram-data; fi
+          git add extrator-data instagram-data
+          if ! git diff --cached --quiet; then
+            git commit -m "Atualiza cidades da base em fila"
+            git push origin main
+          fi
+      - name: Sincronizar Supabase
+        run: |
+          curl --fail --silent --show-error -X POST -H "Content-Type: application/json" -d '{"action":"cron-sync"}' "https://nvehnztcxwcykhkoygbe.supabase.co/functions/v1/extrator-base-v2"
