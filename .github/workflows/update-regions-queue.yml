@@ -53,6 +53,7 @@ jobs:
             if [ "${has_task:-}" != "true" ]; then break; fi
             LEADS_NICHO="$nicho" LEADS_CIDADE="$cidade_com_uf" LEADS_BAIRRO="" LEADS_MAX_RESULTS="80" node collector/collect-leads.mjs
             INSTAGRAM_NICHO="$nicho" INSTAGRAM_UF="$uf" INSTAGRAM_CIDADE="$cidade" INSTAGRAM_BAIRRO="" INSTAGRAM_LIMITE="100" node collector/collect-instagram.mjs || true
+            CNPJ_NICHO="$nicho" CNPJ_UF="$uf" CNPJ_CIDADE="$cidade" node collector/collect-cnpj.mjs || true
             i=$((i+1))
           done
       - name: Salvar bases
@@ -60,15 +61,17 @@ jobs:
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          rm -rf /tmp/extrator-data /tmp/instagram-data
+          rm -rf /tmp/extrator-data /tmp/instagram-data /tmp/cnpj-data
           cp -a extrator-data /tmp/extrator-data
           if [ -d instagram-data ]; then cp -a instagram-data /tmp/instagram-data; fi
+          if [ -d cnpj-data ]; then cp -a cnpj-data /tmp/cnpj-data; fi
           git fetch origin main
           git reset --hard origin/main
           rm -rf extrator-data
           cp -a /tmp/extrator-data extrator-data
           if [ -d /tmp/instagram-data ]; then rm -rf instagram-data; cp -a /tmp/instagram-data instagram-data; fi
-          git add extrator-data instagram-data
+          if [ -d /tmp/cnpj-data ]; then rm -rf cnpj-data; cp -a /tmp/cnpj-data cnpj-data; fi
+          git add extrator-data instagram-data cnpj-data
           if ! git diff --cached --quiet; then
             git commit -m "Atualiza cidades da base em fila"
             git push origin main
