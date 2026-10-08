@@ -19024,6 +19024,181 @@
       "new_count": 0,
       "new_usernames": [],
       "finished_at": "2026-10-08T15:44:56.998Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "RJ",
+        "cidade": "barra mansa",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "salaodebelezaadrianaabrahao",
+          "profile_url": "https://www.instagram.com/salaodebelezaadrianaabrahao/",
+          "name": "SALÃO DE BELEZA - BARRA MANSA (@salaodebelezaadrianaabrahao ...",
+          "bio": "SALÃO DE BELEZA - BARRA MANSA (@salaodebelezaadrianaabrahao ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "barra mansa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "popular",
+          "profile_url": "https://www.instagram.com/popular/",
+          "name": "Salao De Beleza Barra Mansa",
+          "bio": "Salao De Beleza Barra Mansa - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "barra mansa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaodazete_",
+          "profile_url": "https://www.instagram.com/salaodazete_/",
+          "name": "Zeth Rodrigues | Salão de Beleza (@salaodazete ...",
+          "bio": "Zeth Rodrigues | Salão de Beleza (@salaodazete ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "barra mansa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "cidinhaformasefios",
+          "profile_url": "https://www.instagram.com/cidinhaformasefios/",
+          "name": "Cidinha Varela / Cabeleireira",
+          "bio": "Cidinha Varela / Cabeleireira (@cidinhaformasefios) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "barra mansa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "serenitybs_",
+          "profile_url": "https://www.instagram.com/serenitybs_/",
+          "name": "Serenity Beauty & SPA",
+          "bio": "Serenity Beauty & SPA (@serenitybs_) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "barra mansa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "alphabeautystudiobm",
+          "profile_url": "https://www.instagram.com/alphabeautystudiobm/",
+          "name": "Studio de Beleza e Estética | Barra Mansa - RJ ...",
+          "bio": "Studio de Beleza e Estética | Barra Mansa - RJ ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "barra mansa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "_salao_polianaalves_",
+          "profile_url": "https://www.instagram.com/_salao_polianaalves_/",
+          "name": "Poliana Alves | Salão de Beleza em Barra Mansa (@_salao_polianaalves ...",
+          "bio": "Poliana Alves | Salão de Beleza em Barra Mansa (@_salao_polianaalves ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "barra mansa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "larissamaiabeauty",
+          "profile_url": "https://www.instagram.com/larissamaiabeauty/",
+          "name": "REFERÊNCIA EM BELEZA E ESTÉTICA | BARRA MANSA - RJ ...",
+          "bio": "REFERÊNCIA EM BELEZA E ESTÉTICA | BARRA MANSA - RJ ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "barra mansa",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 8,
+      "new_count": 8,
+      "new_usernames": [
+        "salaodebelezaadrianaabrahao",
+        "popular",
+        "salaodazete_",
+        "cidinhaformasefios",
+        "serenitybs_",
+        "alphabeautystudiobm",
+        "_salao_polianaalves_",
+        "larissamaiabeauty"
+      ],
+      "finished_at": "2026-10-08T20:01:56.000Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SP",
+        "cidade": "tatui",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-08T20:05:08.861Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SP",
+        "cidade": "botucatu",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-08T20:08:03.905Z"
     }
   ]
 }
