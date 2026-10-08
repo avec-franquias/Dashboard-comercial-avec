@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-10-08T11:36:11.151Z",
+ "atualizadoEm": "2026-10-08T11:36:31.421Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1543,20 +1543,16 @@
    "papel": "franqueado",
    "ativo": true,
    "modulos": [
-    "central",
-    "clientes",
-    "crm-avec",
-    "localizar",
-    "mapa-franqueado",
-    "migrador",
-    "extrator",
     "ativacao",
-    "vendas",
-    "roadmap",
     "arvore",
     "previsao",
     "taxas",
-    "propostas"
+    "propostas",
+    "instagram",
+    "clientes",
+    "extrator",
+    "central",
+    "reunioes"
    ],
    "franquiaId": "avec-itu",
    "perfil": "franqueado",
