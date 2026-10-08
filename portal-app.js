@@ -1393,7 +1393,7 @@ async function desenhaRegioesAdmin(){
   if(!lista||!window.portalRegioesBaseLeads)return;
   if(msg){msg.className="msg";msg.textContent="Carregando cobertura nacional por cidade...";}
   try{
-    const [j,geoResp,stats]=await Promise.all([
+    const [j,geoResp]=await Promise.all([
       window.portalRegioesBaseLeads(),
       fetch(new URL("geo/bairros-br.json",location.href),{cache:"force-cache"}),
       portalExtratorBase("stats").catch(()=>({}))
