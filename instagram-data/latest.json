@@ -18440,6 +18440,165 @@
         "lkbeautyoficial"
       ],
       "finished_at": "2026-10-08T13:14:53.421Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "RJ",
+        "cidade": "angra dos reis",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "espacomulher.angra",
+          "profile_url": "https://www.instagram.com/espacomulher.angra/",
+          "name": "Espaço Mulher Salão de Beleza",
+          "bio": "Espaço Mulher Salão de Beleza (@espacomulher.angra) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "angra dos reis",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "bnstudio.concept",
+          "profile_url": "https://www.instagram.com/bnstudio.concept/",
+          "name": "Salão de beleza | Angra dos Reis",
+          "bio": "Salão de beleza | Angra dos Reis (@bnstudio.concept) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "angra dos reis",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "popular",
+          "profile_url": "https://www.instagram.com/popular/",
+          "name": "Salao De Beleza Angra Dos Reis",
+          "bio": "Salao De Beleza Angra Dos Reis - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "angra dos reis",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "byessencia_beuaty",
+          "profile_url": "https://www.instagram.com/byessencia_beuaty/",
+          "name": "Studio de Estética",
+          "bio": "Studio de Estética (@byessencia_beuaty) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "angra dos reis",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "creativesalon.angra",
+          "profile_url": "https://www.instagram.com/creativesalon.angra/",
+          "name": "Angra dos Reis - RJ",
+          "bio": "Angra dos Reis - RJ (@creativesalon.angra) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "angra dos reis",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiobeauty.angra",
+          "profile_url": "https://www.instagram.com/studiobeauty.angra/",
+          "name": "Studio Beauty",
+          "bio": "Studio Beauty (@studiobeauty.angra) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "angra dos reis",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salao_de_beleza_ics",
+          "profile_url": "https://www.instagram.com/salao_de_beleza_ics/",
+          "name": "Salão de beleza Iate Club de Santos- Angra dos Reis-RJ (@salao_de ...",
+          "bio": "Salão de beleza Iate Club de Santos- Angra dos Reis-RJ (@salao_de ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "angra dos reis",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 7,
+      "new_count": 7,
+      "new_usernames": [
+        "espacomulher.angra",
+        "bnstudio.concept",
+        "popular",
+        "byessencia_beuaty",
+        "creativesalon.angra",
+        "studiobeauty.angra",
+        "salao_de_beleza_ics"
+      ],
+      "finished_at": "2026-10-08T13:44:17.224Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "MT",
+        "cidade": "cuiaba",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-08T13:46:14.929Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SP",
+        "cidade": "catanduva",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-08T13:48:42.726Z"
     }
   ]
 }
