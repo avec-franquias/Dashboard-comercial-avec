@@ -17152,6 +17152,149 @@
       "new_count": 0,
       "new_usernames": [],
       "finished_at": "2026-10-08T02:12:32.379Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "TO",
+        "cidade": "araguaina",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "salvabeautyy",
+          "profile_url": "https://www.instagram.com/salvabeautyy/",
+          "name": "Salão de Beleza•Araguaína To",
+          "bio": "Salão de Beleza•Araguaína To (@salvabeautyy) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "araguaina",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaodebelezasplendore",
+          "profile_url": "https://www.instagram.com/salaodebelezasplendore/",
+          "name": "SPLENDORE Salao De Beleza",
+          "bio": "SPLENDORE Salao De Beleza (@salaodebelezasplendore) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "araguaina",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "joycemelobeauty",
+          "profile_url": "https://www.instagram.com/joycemelobeauty/",
+          "name": "JOYCE MELO | ESPAÇO DE BELEZA EM ARAGUAÍNA -TO (@joycemelobeauty ...",
+          "bio": "JOYCE MELO | ESPAÇO DE BELEZA EM ARAGUAÍNA -TO (@joycemelobeauty ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "araguaina",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espaco_margo",
+          "profile_url": "https://www.instagram.com/espaco_margo/",
+          "name": "Salão de beleza | Araguaína - TO",
+          "bio": "Salão de beleza | Araguaína - TO (@espaco_margo) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "araguaina",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "turquesa_araguaina",
+          "profile_url": "https://www.instagram.com/turquesa_araguaina/",
+          "name": "Turquesa Beleza & Bem-Estar | Araguaina (@turquesa_araguaina ...",
+          "bio": "Turquesa Beleza & Bem-Estar | Araguaina (@turquesa_araguaina ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "araguaina",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espaco_mulher67",
+          "profile_url": "https://www.instagram.com/espaco_mulher67/",
+          "name": "Salão de Beleza ‍♀️ ‍♀️Espaço Mulher ...",
+          "bio": "Salão de Beleza ‍♀️ ‍♀️Espaço Mulher ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "araguaina",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 6,
+      "new_count": 6,
+      "new_usernames": [
+        "salvabeautyy",
+        "salaodebelezasplendore",
+        "joycemelobeauty",
+        "espaco_margo",
+        "turquesa_araguaina",
+        "espaco_mulher67"
+      ],
+      "finished_at": "2026-10-08T03:04:48.303Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "ES",
+        "cidade": "serra",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-08T03:07:28.977Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SP",
+        "cidade": "santo andre",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-08T03:09:48.555Z"
     }
   ]
 }
