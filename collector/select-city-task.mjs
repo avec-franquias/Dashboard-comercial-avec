@@ -10,11 +10,22 @@ const infos=runs.map(r=>{
   return {uf:(m?.[1]||"").toUpperCase(),cidade:norm(raw.replace(/,\s*[A-Z]{2}$/i,"")),nicho:norm(r.query?.nicho||""),finished:new Date(r.finished_at||0).getTime()};
 }).filter(x=>x.nicho===norm(nicho));
 let chosen=null;
-for(const uf of Object.keys(geo).sort()){
-  for(const cidade of Object.keys(geo[uf]||{})){
-    if(!infos.some(x=>x.uf===uf&&x.cidade===norm(cidade))){chosen={uf,cidade,fase:"cidade"};break}
+const pendentes=[];
+for(const uf of Object.keys(geo)){
+  for(const [cidade,bairros] of Object.entries(geo[uf]||{})){
+    if(!infos.some(x=>x.uf===uf&&x.cidade===norm(cidade))){
+      pendentes.push({
+        uf,
+        cidade,
+        prioridade:Array.isArray(bairros)?bairros.length:0
+      });
+    }
   }
-  if(chosen)break;
+}
+pendentes.sort((a,b)=>b.prioridade-a.prioridade||a.uf.localeCompare(b.uf)||a.cidade.localeCompare(b.cidade,"pt-BR"));
+if(pendentes.length){
+  const p=pendentes[0];
+  chosen={uf:p.uf,cidade:p.cidade,fase:"cidade-prioritaria",prioridade:p.prioridade};
 }
 if(!chosen&&infos.length){
   const oldest=[...infos].sort((a,b)=>a.finished-b.finished)[0];
