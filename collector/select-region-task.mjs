@@ -34,7 +34,7 @@ for(const uf of ufs){
   if(chosen)break;
 }
 
-// Fase 2: depois de cobrir as cidades, preencher bairros catalogados.
+// Depois de cobrir todas as cidades, renova a coleta mais antiga por cidade.
 if(!chosen){
   outer: for(const uf of ufs){
     const cities=geo[uf]||{};
@@ -52,7 +52,7 @@ if(!chosen&&infos.length){
   const oldest=[...infos].sort((a,b)=>a.finished-b.finished)[0];
   if(oldest?.uf&&oldest?.cidade){
     const cityKey=Object.keys(geo[oldest.uf]||{}).find(x=>norm(x)===oldest.cidade)||oldest.cidade;
-    chosen={uf:oldest.uf,cidade:cityKey,bairro:oldest.bairro||"",fase:"renovacao"};
+    chosen={uf:oldest.uf,cidade:cityKey,bairro:"",fase:"renovacao"};
   }
 }
 
