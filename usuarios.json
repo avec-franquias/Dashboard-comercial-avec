@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-10-08T11:36:31.421Z",
+ "atualizadoEm": "2026-10-08T20:16:11.253Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1558,6 +1558,24 @@
    "perfil": "franqueado",
    "senha": "pbkdf2$210000$54a064580a366d3fd9770d1a694eb5e6$74dbec963b6cd8824d7a9c8db0957943527c6589b678957fb672cea5c63e3c33",
    "criadoEm": "2026-10-08T11:36:11.454Z"
+  },
+  {
+   "login": "michelle.mt",
+   "nome": "Michelle Soares MT",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
+    "central",
+    "clientes",
+    "migrador",
+    "arvore",
+    "taxas",
+    "propostas"
+   ],
+   "franquiaId": "avec-mato-grosso",
+   "perfil": "franqueado",
+   "senha": "pbkdf2$210000$35ce8ea14f826b52213157ff4a03b52b$e40a523c34c6d410699d3202036262287a9f41b3bfb23e97399e7525eef66b6c",
+   "criadoEm": "2026-10-08T20:16:11.836Z"
   }
  ],
  "manutencao": {
