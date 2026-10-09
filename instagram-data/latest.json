@@ -19629,6 +19629,101 @@
       "new_count": 0,
       "new_usernames": [],
       "finished_at": "2026-10-09T00:34:58.189Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "MG",
+        "cidade": "coronel fabriciano",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "cherieestetica",
+          "profile_url": "https://www.instagram.com/cherieestetica/",
+          "name": "Cherie Salão de Beleza - Coronel Fabriciano (@cherieestetica ...",
+          "bio": "Cherie Salão de Beleza - Coronel Fabriciano (@cherieestetica ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "coronel fabriciano",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salao_.da_ju",
+          "profile_url": "https://www.instagram.com/salao_.da_ju/",
+          "name": "Salão de beleza Juliana",
+          "bio": "Salão de beleza Juliana (@salao_.da_ju) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "coronel fabriciano",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "hamonircoronelfabriciano",
+          "profile_url": "https://www.instagram.com/hamonircoronelfabriciano/",
+          "name": "Coronel Fabriciano",
+          "bio": "Coronel Fabriciano (@hamonircoronelfabriciano) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "coronel fabriciano",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 3,
+      "new_count": 3,
+      "new_usernames": [
+        "cherieestetica",
+        "salao_.da_ju",
+        "hamonircoronelfabriciano"
+      ],
+      "finished_at": "2026-10-09T02:13:43.291Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "MA",
+        "cidade": "sao jose de ribamar",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-09T02:15:36.879Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "RJ",
+        "cidade": "valenca",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-09T02:17:26.399Z"
     }
   ]
 }
