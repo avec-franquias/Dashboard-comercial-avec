@@ -1,6 +1,6 @@
 {
  "instalacao": "63bc96d9dc3c6c61",
- "atualizadoEm": "2026-10-09T19:49:12.396Z",
+ "atualizadoEm": "2026-10-09T19:49:34.839Z",
  "usuarios": [
   {
    "login": "christian.vieira",
@@ -1646,6 +1646,29 @@
    "perfil": "franqueado",
    "senha": "pbkdf2$210000$1878ad97ad9f8962facefc1eba46f745$ec3878ee977b170b145913b7ba60cc3bcef04284660231f6d36a01ff664bd654",
    "criadoEm": "2026-10-08T20:23:59.153Z"
+  },
+  {
+   "login": "lucas.prudente",
+   "nome": "Lucas Souza",
+   "papel": "franqueado",
+   "ativo": true,
+   "modulos": [
+    "central",
+    "localizar",
+    "mapa-franqueado",
+    "migrador",
+    "ativacao",
+    "vendas",
+    "roadmap",
+    "arvore",
+    "previsao",
+    "taxas",
+    "propostas"
+   ],
+   "franquiaId": "avec-presidente-prudente",
+   "perfil": "franqueado",
+   "senha": "pbkdf2$210000$6df2072aa2754bdb28e0a2618a6fe655$0566c52cad6872b198922c44ef407c524ad040847cecb0f81a44d0d33cca79a5",
+   "criadoEm": "2026-10-09T19:49:37.086Z"
   }
  ],
  "manutencao": {
