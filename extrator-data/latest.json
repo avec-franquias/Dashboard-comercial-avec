@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T12:22:14.563Z",
+  "generated_at": "2026-10-09T14:13:46.517Z",
   "runs": [
     {
       "query": {
@@ -103160,28 +103160,26 @@
         "bairro": "",
         "max_results": 80
       },
-      "finished_at": "2026-10-09T12:22:13.538Z",
+      "finished_at": "2026-10-09T14:13:45.486Z",
       "total": 80,
-      "new_count": 18,
+      "new_count": 16,
       "new_ids": [
-        "0x7c7497222293763:0x96bbad5815f82327",
-        "0x7c74c7fc3574371:0xd77d28031b641c01",
-        "0x7c7492431a8e245:0x39b48adb6d609c26",
-        "0x7c74d7a1a699fab:0x3cd501dfc4782634",
-        "0x7c7488669456fa9:0x1461a471eb4c51e4",
-        "0x7c74b2464603923:0x8690b9eac5a7738d",
-        "0x7c74b115ad3d93f:0x693c6a4df48c0b8b",
-        "0x7c747ea68cabe27:0x644014bb2a1bffc5",
-        "0x7c74b3d8d8f02a1:0x1b2bbfd1b4b8fd31",
-        "0x7c74d5b2fada549:0xad40093e96562ef4",
-        "0x7c7463b3adab017:0x83e9918ddcef4730",
-        "0x7c74bc2b0848793:0x4e6bbb125fe3ec9d",
-        "0x7c74b71c56786cd:0xeb0a6c3e2a5b3207",
-        "0x7c7497d200270a7:0xa455c30af17bd734",
-        "0x7c74fc9b64d3a59:0x44af43e5f7a35c42",
-        "0x7c74b931452d6cf:0x78a91f32510d71dc",
-        "0x7c74b541c7f0ca9:0xd8359fe900e459dd",
-        "0x7c748f93d930c4b:0xbfa169872f1c49f5"
+        "0x7c751121afc48c5:0xdf6327a8e6557cab",
+        "0x7c74863bc4c0f8d:0xeb1bb9e375897fc0",
+        "0x7c74888efb69aeb:0x45320d87f418037d",
+        "0x7c7500211e8a417:0x9bf98135262c1823",
+        "0x7c751d289a571eb:0x2e5cc5eb4cd6c21d",
+        "0x7c74f33e88dd417:0xe8ea3aac9d1adfba",
+        "0x7c7518e6c3a4adf:0xfc5bcd780503d8bb",
+        "0x7c751bb28638853:0x7f0ee5df0ff2e9cd",
+        "0x7c74931aac52b45:0xfd8b150326a24e08",
+        "0x7c749dc6fd5ac0b:0x523ba65cfd2b471c",
+        "0x7c7455ddead26bb:0x6e4411d2e233580a",
+        "0x7c749703e6e46c7:0x9fbd98120087eaf9",
+        "0x7c74db69fa32f47:0xafd3a7aa4622f7f1",
+        "0x7c74f0f953bfda7:0x7d98d98053195655",
+        "0x7c751eb1e5dc8d5:0x2f3b69889d54c2ed",
+        "0x7c74fe174bc0e1d:0x5fb31f522e8614d3"
       ],
       "leads": [
         {
@@ -103273,17 +103271,6 @@
           "maps_url": "https://www.google.com/maps/place/Depil+Bellas/data=!4m7!3m6!1s0x7c74a6b8c1854f1:0x47730af1d42e839a!8m2!3d-3.71203!4d-38.5920918!16s%2Fg%2F11bx2g3pgf!19sChIJ8VQYjGtKxwcRmoMu1PEKc0c?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Estúdio Luana Santos Depilação e Beleza",
-          "phone": "+5585997185850",
-          "website": "",
-          "address": "R. Interna, 63 - Barra do Ceará, Fortaleza - CE, 60331-495, Brasil ",
-          "category": "Serviço de depilação a cera",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74a0a602379c1:0xdad5803d17dfe1bc",
-          "maps_url": "https://www.google.com/maps/place/Est%C3%BAdio+Luana+Santos+Depila%C3%A7%C3%A3o+e+Beleza/data=!4m7!3m6!1s0x7c74a0a602379c1:0xdad5803d17dfe1bc!8m2!3d-3.6996908!4d-38.587368!16s%2Fg%2F11f5dgks7k!19sChIJwXkjYApKxwcRvOHfFz2A1do?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
           "name": "Karina Lopes depilação",
           "phone": "+5585987231582",
           "website": "",
@@ -103295,15 +103282,15 @@
           "maps_url": "https://www.google.com/maps/place/Karina+Lopes+depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74b1d352d4585:0x5ab86d2f613a93e2!8m2!3d-3.7320659!4d-38.5898615!16s%2Fg%2F11k31x9dbn!19sChIJhUUtNR1LxwcR4pM6YS9tuFo?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Jacqueline Teixeira DEPILAÇÃO ESPECIALISTA VIRILHA",
-          "phone": "+5585989593430",
+          "name": "Estúdio Luana Santos Depilação e Beleza",
+          "phone": "+5585997185850",
           "website": "",
-          "address": "Conjunto Esperança, Fortaleza - CE, 60763-677, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "4,9",
+          "address": "R. Interna, 63 - Barra do Ceará, Fortaleza - CE, 60331-495, Brasil ",
+          "category": "Serviço de depilação a cera",
+          "rating": "5,0",
           "reviews": "",
-          "place_id": "0x7c74df3b43da155:0xf538254d1ece3815",
-          "maps_url": "https://www.google.com/maps/place/Jacqueline+Teixeira+DEPILA%C3%87%C3%83O+ESPECIALISTA+VIRILHA/data=!4m7!3m6!1s0x7c74df3b43da155:0xf538254d1ece3815!8m2!3d-3.8170209!4d-38.5906824!16s%2Fg%2F11jgdq5s9y!19sChIJVaE9tPNNxwcRFTjOHk0lOPU?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c74a0a602379c1:0xdad5803d17dfe1bc",
+          "maps_url": "https://www.google.com/maps/place/Est%C3%BAdio+Luana+Santos+Depila%C3%A7%C3%A3o+e+Beleza/data=!4m7!3m6!1s0x7c74a0a602379c1:0xdad5803d17dfe1bc!8m2!3d-3.6996908!4d-38.587368!16s%2Fg%2F11f5dgks7k!19sChIJwXkjYApKxwcRvOHfFz2A1do?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
           "name": "Depyl Action Fortaleza",
@@ -103317,6 +103304,17 @@
           "maps_url": "https://www.google.com/maps/place/Depyl+Action+Fortaleza/data=!4m7!3m6!1s0x7c7487d2769a165:0x766911e32ec38200!8m2!3d-3.7338882!4d-38.4945541!16s%2Fg%2F1ptw03vq_!19sChIJZaFpJ31IxwcRAILDLuMRaXY?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
+          "name": "Jacqueline Teixeira DEPILAÇÃO ESPECIALISTA VIRILHA",
+          "phone": "+5585989593430",
+          "website": "",
+          "address": "Conjunto Esperança, Fortaleza - CE, 60763-677, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x7c74df3b43da155:0xf538254d1ece3815",
+          "maps_url": "https://www.google.com/maps/place/Jacqueline+Teixeira+DEPILA%C3%87%C3%83O+ESPECIALISTA+VIRILHA/data=!4m7!3m6!1s0x7c74df3b43da155:0xf538254d1ece3815!8m2!3d-3.8170209!4d-38.5906824!16s%2Fg%2F11jgdq5s9y!19sChIJVaE9tPNNxwcRFTjOHk0lOPU?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
           "name": "Espaço Thainá Gomes",
           "phone": "+5585989523532",
           "website": "https://www.instagram.com/espacothainagomes?igsh=MTc0eWVnNjFkbmdxNw==&utm_source=qr",
@@ -103326,105 +103324,6 @@
           "reviews": "",
           "place_id": "0x4a485f98de131c43:0x4e53f17bf71f75e7",
           "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+Thain%C3%A1+Gomes/data=!4m7!3m6!1s0x4a485f98de131c43:0x4e53f17bf71f75e7!8m2!3d-3.6983531!4d-38.577694!16s%2Fg%2F11nhh4bd1c!19sChIJQxwT3phfSEoR53Uf93vxU04?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Miidepil depilação & epilação",
-          "phone": "+5585991245507",
-          "website": "https://www.instagram.com/miidepil/",
-          "address": "R. Dragão do Mar - Centro, Fortaleza - CE, 60060-390, Brasil ",
-          "category": "Depilação",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c749936654917f:0xae2d7da6b34b01a2",
-          "maps_url": "https://www.google.com/maps/place/Miidepil+depila%C3%A7%C3%A3o+%26+epila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c749936654917f:0xae2d7da6b34b01a2!8m2!3d-3.7217642!4d-38.5164422!16s%2Fg%2F11nk0phyv8!19sChIJf5FUZpNJxwcRogFLs6Z9La4?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Socorro Fonseca epilação profissional",
-          "phone": "+5585987211435",
-          "website": "",
-          "address": "Rua Frei Orlando, 309 - Bom Futuro, Fortaleza - CE, 60425-290, Brasil ",
-          "category": "Serviço de depilação a cera",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c749beb180f615:0xf89568069828c807",
-          "maps_url": "https://www.google.com/maps/place/Socorro+Fonseca+epila%C3%A7%C3%A3o+profissional/data=!4m7!3m6!1s0x7c749beb180f615:0xf89568069828c807!8m2!3d-3.7565325!4d-38.5470649!16s%2Fg%2F11r3d1btn1!19sChIJFfaAsb5JxwcRB8gomAZolfg?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Lea Depilação",
-          "phone": "+5585986894562",
-          "website": "",
-          "address": "Tv. Coração de Jesus, 32 - Cristo Redentor, Fortaleza - CE, 60312-270, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c749ee30ad368d:0xc4a04afc91d842b6",
-          "maps_url": "https://www.google.com/maps/place/Lea+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c749ee30ad368d:0xc4a04afc91d842b6!8m2!3d-3.7111144!4d-38.5572759!16s%2Fg%2F11gbk51gm5!19sChIJjTatMO5JxwcRtkLYkfxKoMQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Não Mais Pelo Bezerra",
-          "phone": "+5585989960598",
-          "website": "https://naomaispelobezerra.com.br/cadastro/",
-          "address": "Av. Bezerra de Menezes, 1985 - São Gerardo, Fortaleza - CE, 60325-004, Brasil ",
-          "category": "Serviço de depilação a laser",
-          "rating": "4,8",
-          "reviews": "",
-          "place_id": "0x7c7497915782afb:0xeb603f85982c7a01",
-          "maps_url": "https://www.google.com/maps/place/N%C3%A3o+Mais+Pelo+Bezerra/data=!4m7!3m6!1s0x7c7497915782afb:0xeb603f85982c7a01!8m2!3d-3.7354307!4d-38.5623446!16s%2Fg%2F1ptvvzfl6!19sChIJ-yp4FXlJxwcRAXosmIU_YOs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Camylle Mota – Depilação Feminina no Ellery, Fortaleza Ce",
-          "phone": "+5585920069372",
-          "website": "https://www.cmtoquesuave.com.br/",
-          "address": "Rua Dr. Atualpa, 536 - Ellery, Fortaleza - CE, 60321-070, Brasil ",
-          "category": "Serviço de depilação a cera",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74957cd8c37f7:0x13a4f3955f0bcf10",
-          "maps_url": "https://www.google.com/maps/place/Camylle+Mota+%E2%80%93+Depila%C3%A7%C3%A3o+Feminina+no+Ellery,+Fortaleza+Ce/data=!4m7!3m6!1s0x7c74957cd8c37f7:0x13a4f3955f0bcf10!8m2!3d-3.7239674!4d-38.5606438!16s%2Fg%2F11yg81yysb!19sChIJ9zeMzVdJxwcREM8LX5XzpBM?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Não Mais Pelo Fátima",
-          "phone": "+5585997139021",
-          "website": "https://wa.me/5585997139021",
-          "address": "R. Paula Rodrigues, 23 - Fátima, Fortaleza - CE, 60411-270, Brasil ",
-          "category": "Depilação",
-          "rating": "4,9",
-          "reviews": "",
-          "place_id": "0x7c7491aeccf133b:0x409067e347cba0d2",
-          "maps_url": "https://www.google.com/maps/place/N%C3%A3o+Mais+Pelo+F%C3%A1tima/data=!4m7!3m6!1s0x7c7491aeccf133b:0x409067e347cba0d2!8m2!3d-3.7525978!4d-38.5260129!16s%2Fg%2F11g_xmnb1!19sChIJOxPP7BpJxwcR0qDLR-NnkEA?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Daiana Garcia Epilação e Estética.",
-          "phone": "",
-          "website": "https://www.instagram.com/p/CRbj1yQoRFr/?utm_medium=copy_link",
-          "address": "Rua Itapuã 1392 - Siqueira, Alameda das Verbenas, 207 - quadra 12 - Cidade 2000, Fortaleza - CE, 60190-330, Brasil ",
-          "category": "Serviço de depilação a cera",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74f9f9b3f57c9:0xddca979988ca72fc",
-          "maps_url": "https://www.google.com/maps/place/Daiana+Garcia+Epila%C3%A7%C3%A3o+e+Est%C3%A9tica./data=!4m7!3m6!1s0x7c74f9f9b3f57c9:0xddca979988ca72fc!8m2!3d-3.7519689!4d-38.470341!16s%2Fg%2F11rsc010p5!19sChIJyVc_m59PxwcR_HLKiJmXyt0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Amanda Reis sobrancelha , Micropigmentação e Depilação",
-          "phone": "+5585986220746",
-          "website": "",
-          "address": "Rua 24 de Outubro, 490 - Parque Genibaú, Fortaleza - CE, 60534-130, Brasil ",
-          "category": "Depilação",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74b77eda15189:0x115d9812f41461c0",
-          "maps_url": "https://www.google.com/maps/place/Amanda+Reis+sobrancelha+,+Micropigmenta%C3%A7%C3%A3o+e+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74b77eda15189:0x115d9812f41461c0!8m2!3d-3.7537937!4d-38.6031774!16s%2Fg%2F11qt424c4v!19sChIJiVGh7XdLxwcRwGEU9BKYXRE?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "L&D Depilação",
-          "phone": "+55 30870565",
-          "website": "",
-          "address": "Rua General Bernardo Figueiredo, 619 - Amadeu Furtado, Fortaleza - CE, 60455-475, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "4,9",
-          "reviews": "",
-          "place_id": "0x7c7497222293763:0x96bbad5815f82327",
-          "maps_url": "https://www.google.com/maps/place/L%26D+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c7497222293763:0x96bbad5815f82327!8m2!3d-3.739981!4d-38.5529457!16s%2Fg%2F11g9nwmr5c!19sChIJYzcpInJJxwcRJyP4FVitu5Y?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
           "name": "Cursos de Depilação Profissional",
@@ -103438,6 +103337,138 @@
           "maps_url": "https://www.google.com/maps/place/Cursos+de+Depila%C3%A7%C3%A3o+Profissional/data=!4m7!3m6!1s0x7c74dddde37b6f7:0x3d2bc2261fd37068!8m2!3d-3.8032805!4d-38.5323578!16s%2Fg%2F11c55txgrc!19sChIJ97Y33t1NxwcRaHDTHybCKz0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
+          "name": "Miidepil depilação & epilação",
+          "phone": "+5585991245507",
+          "website": "https://www.instagram.com/miidepil/",
+          "address": "R. Dragão do Mar - Centro, Fortaleza - CE, 60060-390, Brasil ",
+          "category": "Depilação",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c749936654917f:0xae2d7da6b34b01a2",
+          "maps_url": "https://www.google.com/maps/place/Miidepil+depila%C3%A7%C3%A3o+%26+epila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c749936654917f:0xae2d7da6b34b01a2!8m2!3d-3.7217642!4d-38.5164422!16s%2Fg%2F11nk0phyv8!19sChIJf5FUZpNJxwcRogFLs6Z9La4?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Não Mais Pelo Bezerra",
+          "phone": "+5585989960598",
+          "website": "https://naomaispelobezerra.com.br/cadastro/",
+          "address": "Av. Bezerra de Menezes, 1985 - São Gerardo, Fortaleza - CE, 60325-004, Brasil ",
+          "category": "Serviço de depilação a laser",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x7c7497915782afb:0xeb603f85982c7a01",
+          "maps_url": "https://www.google.com/maps/place/N%C3%A3o+Mais+Pelo+Bezerra/data=!4m7!3m6!1s0x7c7497915782afb:0xeb603f85982c7a01!8m2!3d-3.7354307!4d-38.5623446!16s%2Fg%2F1ptvvzfl6!19sChIJ-yp4FXlJxwcRAXosmIU_YOs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Lea Depilação",
+          "phone": "+5585986894562",
+          "website": "",
+          "address": "Tv. Coração de Jesus, 32 - Cristo Redentor, Fortaleza - CE, 60312-270, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c749ee30ad368d:0xc4a04afc91d842b6",
+          "maps_url": "https://www.google.com/maps/place/Lea+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c749ee30ad368d:0xc4a04afc91d842b6!8m2!3d-3.7111144!4d-38.5572759!16s%2Fg%2F11gbk51gm5!19sChIJjTatMO5JxwcRtkLYkfxKoMQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Socorro Fonseca epilação profissional",
+          "phone": "+5585987211435",
+          "website": "",
+          "address": "Rua Frei Orlando, 309 - Bom Futuro, Fortaleza - CE, 60425-290, Brasil ",
+          "category": "Serviço de depilação a cera",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c749beb180f615:0xf89568069828c807",
+          "maps_url": "https://www.google.com/maps/place/Socorro+Fonseca+epila%C3%A7%C3%A3o+profissional/data=!4m7!3m6!1s0x7c749beb180f615:0xf89568069828c807!8m2!3d-3.7565325!4d-38.5470649!16s%2Fg%2F11r3d1btn1!19sChIJFfaAsb5JxwcRB8gomAZolfg?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Não Mais Pelo Fátima",
+          "phone": "+5585997139021",
+          "website": "https://wa.me/5585997139021",
+          "address": "R. Paula Rodrigues, 23 - Fátima, Fortaleza - CE, 60411-270, Brasil ",
+          "category": "Depilação",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x7c7491aeccf133b:0x409067e347cba0d2",
+          "maps_url": "https://www.google.com/maps/place/N%C3%A3o+Mais+Pelo+F%C3%A1tima/data=!4m7!3m6!1s0x7c7491aeccf133b:0x409067e347cba0d2!8m2!3d-3.7525978!4d-38.5260129!16s%2Fg%2F11g_xmnb1!19sChIJOxPP7BpJxwcR0qDLR-NnkEA?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Rose Depilação",
+          "phone": "",
+          "website": "https://www.facebook.com/rosedepilacoes2020/",
+          "address": "R. Verde 44, 402 - Sítio São João, Fortaleza - CE, 60876-470, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x7c751121afc48c5:0xdf6327a8e6557cab",
+          "maps_url": "https://www.google.com/maps/place/Rose+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c751121afc48c5:0xdf6327a8e6557cab!8m2!3d-3.8527936!4d-38.5130882!16s%2Fg%2F11ghzt13q7!19sChIJxUj8GhJRxwcRq3xV5qgnY98?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Não+Pelo Aldeota 1",
+          "phone": "+5585999921989",
+          "website": "http://www.naomaispelo.com.br/",
+          "address": "R. Tibúrcio Cavalcante, 1885 - Lj 03 - Aldeota, Fortaleza - CE, 60125-045, Brasil ",
+          "category": "Depilação",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x7c74863bc4c0f8d:0xeb1bb9e375897fc0",
+          "maps_url": "https://www.google.com/maps/place/N%C3%A3o%2BPelo+Aldeota+1/data=!4m7!3m6!1s0x7c74863bc4c0f8d:0xeb1bb9e375897fc0!8m2!3d-3.7411765!4d-38.5041531!16s%2Fg%2F1q62m0fr3!19sChIJjQ9MvGNIxwcRwH-JdeO5G-s?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Amanda Reis sobrancelha , Micropigmentação e Depilação",
+          "phone": "+5585986220746",
+          "website": "",
+          "address": "Rua 24 de Outubro, 490 - Parque Genibaú, Fortaleza - CE, 60534-130, Brasil ",
+          "category": "Depilação",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c74b77eda15189:0x115d9812f41461c0",
+          "maps_url": "https://www.google.com/maps/place/Amanda+Reis+sobrancelha+,+Micropigmenta%C3%A7%C3%A3o+e+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74b77eda15189:0x115d9812f41461c0!8m2!3d-3.7537937!4d-38.6031774!16s%2Fg%2F11qt424c4v!19sChIJiVGh7XdLxwcRwGEU9BKYXRE?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Vanité Depil",
+          "phone": "+5585998531960",
+          "website": "https://instagram.com/vanitedepil?igshid=YmMyMTA2M2Y=",
+          "address": "Harbour Village - R. Des. Leite Albuquerque, 832 - sala 202 Ed - Aldeota, Fortaleza - CE, 60150-150, Brasil ",
+          "category": "Depilação",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x7c74888efb69aeb:0x45320d87f418037d",
+          "maps_url": "https://www.google.com/maps/place/Vanit%C3%A9+Depil/data=!4m7!3m6!1s0x7c74888efb69aeb:0x45320d87f418037d!8m2!3d-3.7379101!4d-38.4969647!16s%2Fg%2F11g6x6l96k!19sChIJ65q274hIxwcRfQMY9IcNMkU?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Daiana Garcia Epilação e Estética.",
+          "phone": "",
+          "website": "https://www.instagram.com/p/CRbj1yQoRFr/?utm_medium=copy_link",
+          "address": "Rua Itapuã 1392 - Siqueira, Alameda das Verbenas, 207 - quadra 12 - Cidade 2000, Fortaleza - CE, 60190-330, Brasil ",
+          "category": "Serviço de depilação a cera",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c74f9f9b3f57c9:0xddca979988ca72fc",
+          "maps_url": "https://www.google.com/maps/place/Daiana+Garcia+Epila%C3%A7%C3%A3o+e+Est%C3%A9tica./data=!4m7!3m6!1s0x7c74f9f9b3f57c9:0xddca979988ca72fc!8m2!3d-3.7519689!4d-38.470341!16s%2Fg%2F11rsc010p5!19sChIJyVc_m59PxwcR_HLKiJmXyt0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Claudia Depilação",
+          "phone": "+5585991583039",
+          "website": "https://walterqf.wixsite.com/website",
+          "address": "Rua Pe Severiano, 200 A - Messejana, Fortaleza - CE, 60871-565, Brasil ",
+          "category": "Serviço de depilação a cera",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c7500211e8a417:0x9bf98135262c1823",
+          "maps_url": "https://www.google.com/maps/place/Claudia+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c7500211e8a417:0x9bf98135262c1823!8m2!3d-3.834752!4d-38.4909517!16s%2Fg%2F11fqs5kmwl!19sChIJF6ToEQJQxwcRIxgsJjWB-Zs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Clínica Rosi - Depilação Masculina e Feminina, massagens integrativas",
+          "phone": "+5585991644377",
+          "website": "",
+          "address": "R. Estudante Jucá, 594 - Serrinha, Fortaleza - CE, 60742-125, Brasil ",
+          "category": "Serviço de depilação a cera",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c74f5844c654cd:0x5f71681ecf5924c3",
+          "maps_url": "https://www.google.com/maps/place/Cl%C3%ADnica+Rosi+-+Depila%C3%A7%C3%A3o+Masculina+e+Feminina,+massagens+integrativas/data=!4m7!3m6!1s0x7c74f5844c654cd:0x5f71681ecf5924c3!8m2!3d-3.7887425!4d-38.5438558!16s%2Fg%2F11z6nky_kg!19sChIJzVTGRFhPxwcRwyRZzx5ocV8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
           "name": "STUDIO MICHELLE DEPIL",
           "phone": "",
           "website": "",
@@ -103449,15 +103480,15 @@
           "maps_url": "https://www.google.com/maps/place/STUDIO+MICHELLE+DEPIL/data=!4m7!3m6!1s0x7c74c7fc3574371:0xd77d28031b641c01!8m2!3d-3.7696459!4d-38.5986179!16s%2Fg%2F11g9qggfft!19sChIJcUNXw39MxwcRARxkGwMofdc?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Glow Depil Estética ✨",
-          "phone": "+5585991897797",
-          "website": "https://www.instagram.com/glowdepil_estetica?igsh=ZmF6cmc4NHByaHN0",
-          "address": "R. Dragão do Mar, 966 - Centro, Fortaleza - CE, 60060-390, Brasil ",
-          "category": "Manicure",
+          "name": "Valquiria Costa Depilação",
+          "phone": "+5585988436776",
+          "website": "",
+          "address": "R. Dr. Humberto Rodrigues, 230 - Mondubim, Fortaleza - CE, 60752-570, Brasil ",
+          "category": "Serviço de depilação a cera",
           "rating": "5,0",
           "reviews": "",
-          "place_id": "0x7c7492431a8e245:0x39b48adb6d609c26",
-          "maps_url": "https://www.google.com/maps/place/Glow+Depil+Est%C3%A9tica+%E2%9C%A8/data=!4m7!3m6!1s0x7c7492431a8e245:0x39b48adb6d609c26!8m2!3d-3.7218269!4d-38.5135654!16s%2Fg%2F11yqrrw7hn!19sChIJReKoMSRJxwcRJpxgbduKtDk?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c74dcd15b997f9:0x8bcb593e313e473a",
+          "maps_url": "https://www.google.com/maps/place/Valquiria+Costa+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74dcd15b997f9:0x8bcb593e313e473a!8m2!3d-3.8204004!4d-38.5749454!16s%2Fg%2F11k3jffmgb!19sChIJ-Ze5Fc1NxwcROkc-MT5Zy4s?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
           "name": "Renata Lino Depilação",
@@ -103471,15 +103502,26 @@
           "maps_url": "https://www.google.com/maps/place/Renata+Lino+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x225b32f9840e60e9:0x55a7613a9f8f4e8e!8m2!3d-3.7204627!4d-38.5889061!16s%2Fg%2F11s_phh7g3!19sChIJ6WAOhPkyWyIRjk6Pnzphp1U?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Rânyla Sampaio | Epilação Profissional",
-          "phone": "+5585986497649",
-          "website": "https://drive.google.com/file/d/1xHpv2CnHd-wz_ifXVdfzdllJxMdBp-5I/view?fbclid=PAAaZGCUMJR09GaLgkKStAJBef0iof6WbiyfuoPYjfMi-ik3M5C5TpdrlxoXU",
-          "address": "R. F, 198 - Canindezinho, Fortaleza - CE, 60734-060, Brasil ",
-          "category": "Serviço de depilação a cera",
+          "name": "Glow Depil Estética ✨",
+          "phone": "+5585991897797",
+          "website": "https://www.instagram.com/glowdepil_estetica?igsh=ZmF6cmc4NHByaHN0",
+          "address": "R. Dragão do Mar, 966 - Centro, Fortaleza - CE, 60060-390, Brasil ",
+          "category": "Manicure",
           "rating": "5,0",
           "reviews": "",
-          "place_id": "0x7c74d7a1a699fab:0x3cd501dfc4782634",
-          "maps_url": "https://www.google.com/maps/place/R%C3%A2nyla+Sampaio+%7C+Epila%C3%A7%C3%A3o+Profissional/data=!4m7!3m6!1s0x7c74d7a1a699fab:0x3cd501dfc4782634!8m2!3d-3.8163881!4d-38.6041023!16s%2Fg%2F11q8t5t44m!19sChIJq59pGnpNxwcRNCZ4xN8B1Tw?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c7492431a8e245:0x39b48adb6d609c26",
+          "maps_url": "https://www.google.com/maps/place/Glow+Depil+Est%C3%A9tica+%E2%9C%A8/data=!4m7!3m6!1s0x7c7492431a8e245:0x39b48adb6d609c26!8m2!3d-3.7218269!4d-38.5135654!16s%2Fg%2F11yqrrw7hn!19sChIJReKoMSRJxwcRJpxgbduKtDk?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "L&D Depilação",
+          "phone": "+55 30870565",
+          "website": "",
+          "address": "Rua General Bernardo Figueiredo, 619 - Amadeu Furtado, Fortaleza - CE, 60455-475, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x7c7497222293763:0x96bbad5815f82327",
+          "maps_url": "https://www.google.com/maps/place/L%26D+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c7497222293763:0x96bbad5815f82327!8m2!3d-3.739981!4d-38.5529457!16s%2Fg%2F11g9nwmr5c!19sChIJYzcpInJJxwcRJyP4FVitu5Y?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
           "name": "OROlaser Cidade 2000",
@@ -103493,26 +103535,15 @@
           "maps_url": "https://www.google.com/maps/place/OROlaser+Cidade+2000/data=!4m7!3m6!1s0x7c74ca3a7f921f1:0x3c5ec90325ab4aa0!8m2!3d-3.7499038!4d-38.4717472!16s%2Fg%2F11c0pqtrkk!19sChIJ8SH5p6NMxwcRoEqrJQPJXjw?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Depil Men",
-          "phone": "+5585988855556",
+          "name": "Vitória Cali Beauty",
+          "phone": "+5585999192162",
           "website": "",
-          "address": "R. Maria Luíza, 27 C - Jacarecanga, Fortaleza - CE, 60010-390, Brasil ",
+          "address": "R. Serra Azul, 198 - Cj palmeiras, Fortaleza - CE, 60870-190, Brasil ",
           "category": "Serviço de depilação a cera",
-          "rating": "4,8",
+          "rating": "5,0",
           "reviews": "",
-          "place_id": "0x7c74949b239c5fd:0xa934328fbdc9886f",
-          "maps_url": "https://www.google.com/maps/place/Depil+Men/data=!4m7!3m6!1s0x7c74949b239c5fd:0xa934328fbdc9886f!8m2!3d-3.7188057!4d-38.545652!16s%2Fg%2F11gxzd8hj3!19sChIJ_cU5sklJxwcRb4jJvY8yNKk?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "GiOlaser Aldeota - Clínica de Estética e Depilação a Laser",
-          "phone": "+558530851559",
-          "website": "https://www.gioesteticaavancada.com.br/unidade/aldeota/",
-          "address": "R. Leonardo Mota, 1423 - Aldeota, Fortaleza - CE, 60170-041, Brasil ",
-          "category": "Serviço de depilação a laser",
-          "rating": "4,8",
-          "reviews": "",
-          "place_id": "0x7c7493a9d6b1e03:0x2f2f585a659ea0ba",
-          "maps_url": "https://www.google.com/maps/place/GiOlaser+Aldeota+-+Cl%C3%ADnica+de+Est%C3%A9tica+e+Depila%C3%A7%C3%A3o+a+Laser/data=!4m7!3m6!1s0x7c7493a9d6b1e03:0x2f2f585a659ea0ba!8m2!3d-3.7386964!4d-38.4968388!16s%2Fg%2F11t6_5xdvp!19sChIJAx5rnTpJxwcRuqCeZVpYLy8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c751d289a571eb:0x2e5cc5eb4cd6c21d",
+          "maps_url": "https://www.google.com/maps/place/Vit%C3%B3ria+Cali+Beauty/data=!4m7!3m6!1s0x7c751d289a571eb:0x2e5cc5eb4cd6c21d!8m2!3d-3.8451884!4d-38.526057!16s%2Fg%2F11tfytvr6h!19sChIJ63GlidJRxwcRHcLWTOvFXC4?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
           "name": "Não Mais Pêlo",
@@ -103526,26 +103557,37 @@
           "maps_url": "https://www.google.com/maps/place/N%C3%A3o+Mais+P%C3%AAlo/data=!4m7!3m6!1s0x7c7488669456fa9:0x1461a471eb4c51e4!8m2!3d-3.7392895!4d-38.4937936!16s%2Fg%2F1ptz6pdd2!19sChIJqW9FaYZIxwcR5FFM63GkYRQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Ice Laser Fortaleza - Depilação a Laser em Fortaleza",
-          "phone": "+5585997841411",
-          "website": "https://criativivo.com.br/redirect/f3ecce19-9f05-4efc-b116-c2688d9f33dd",
-          "address": "Av. Heráclito Graça, 1574 - Aldeota, Fortaleza - CE, 60140-032, Brasil ",
+          "name": "GiOlaser Aldeota - Clínica de Estética e Depilação a Laser",
+          "phone": "+558530851559",
+          "website": "https://www.gioesteticaavancada.com.br/unidade/aldeota/",
+          "address": "R. Leonardo Mota, 1423 - Aldeota, Fortaleza - CE, 60170-041, Brasil ",
           "category": "Serviço de depilação a laser",
-          "rating": "4,3",
+          "rating": "4,8",
           "reviews": "",
-          "place_id": "0x7c749a94b37f9fb:0x71229db8affdece",
-          "maps_url": "https://www.google.com/maps/place/Ice+Laser+Fortaleza+-+Depila%C3%A7%C3%A3o+a+Laser+em+Fortaleza/data=!4m7!3m6!1s0x7c749a94b37f9fb:0x71229db8affdece!8m2!3d-3.7383038!4d-38.5108719!16s%2Fg%2F11nfvzsx_t!19sChIJ-_k3S6lJxwcRzt7_itspEgc?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c7493a9d6b1e03:0x2f2f585a659ea0ba",
+          "maps_url": "https://www.google.com/maps/place/GiOlaser+Aldeota+-+Cl%C3%ADnica+de+Est%C3%A9tica+e+Depila%C3%A7%C3%A3o+a+Laser/data=!4m7!3m6!1s0x7c7493a9d6b1e03:0x2f2f585a659ea0ba!8m2!3d-3.7386964!4d-38.4968388!16s%2Fg%2F11t6_5xdvp!19sChIJAx5rnTpJxwcRuqCeZVpYLy8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "E O Depil - Serviços de Beleza",
-          "phone": "+5585988995136",
-          "website": "https://www.salao99.com.br/75937/7d1cf44289e7",
-          "address": "Rua Desembargador - R. Waldemar Alves Pereira, 591 - Engenheiro Luciano Cavalcante, Fortaleza - CE, 60810-700, Brasil ",
-          "category": "Salão de Beleza",
+          "name": "Isabelly Brandão - Limpeza de pele, Limpedema, Microagulhamento, Detox Corporal, Massagem relaxante em Fortaleza",
+          "phone": "+5585998003276",
+          "website": "https://wa.me/c/558598003276",
+          "address": "R. Manoel Monteiro, 728 - Cidade dos Funcionários, Fortaleza - CE, 60822-080, Brasil ",
+          "category": "Centro de saúde e beleza",
           "rating": "5,0",
           "reviews": "",
-          "place_id": "0x7c74f1d8f4ffd65:0xc93864643dd71a4f",
-          "maps_url": "https://www.google.com/maps/place/E+O+Depil+-+Servi%C3%A7os+de+Beleza/data=!4m7!3m6!1s0x7c74f1d8f4ffd65:0xc93864643dd71a4f!8m2!3d-3.7709872!4d-38.4962524!16s%2Fg%2F11tjlcycgy!19sChIJZf1Pjx1PxwcRTxrXPWRkOMk?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c74f33e88dd417:0xe8ea3aac9d1adfba",
+          "maps_url": "https://www.google.com/maps/place/Isabelly+Brand%C3%A3o+-+Limpeza+de+pele,+Limpedema,+Microagulhamento,+Detox+Corporal,+Massagem+relaxante+em+Fortaleza/data=!4m7!3m6!1s0x7c74f33e88dd417:0xe8ea3aac9d1adfba!8m2!3d-3.7931536!4d-38.4943327!16s%2Fg%2F11gjp7f8ph!19sChIJF9SN6DNPxwcRut8anaw66ug?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Lyandra Farias Epil | Studio de Epilação",
+          "phone": "+5585997954004",
+          "website": "",
+          "address": "R. Luiz Alves Tomaz, 166 - Ancuri, Fortaleza - CE, 60873-025, Brasil ",
+          "category": "Depilação",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c7518e6c3a4adf:0xfc5bcd780503d8bb",
+          "maps_url": "https://www.google.com/maps/place/Lyandra+Farias+Epil+%7C+Studio+de+Epila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c7518e6c3a4adf:0xfc5bcd780503d8bb!8m2!3d-3.8442279!4d-38.4962327!16s%2Fg%2F11smm1m893!19sChIJ30o6bI5RxwcRu9gDBXjNW_w?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
           "name": "Espaço Glamour",
@@ -103570,235 +103612,15 @@
           "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+MIDepila/data=!4m7!3m6!1s0x7c74d00b17f1fb9:0xfb8caac7973580db!8m2!3d-3.7843428!4d-38.5770322!16s%2Fg%2F11l6hn40_m!19sChIJuR9_sQBNxwcR24A1l8eqjPs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Salão de Beleza e Estética em Fortaleza | Adoria Beleza",
-          "phone": "+5585985706366",
-          "website": "https://www.instagram.com/adoriaoficial/",
-          "address": "R. República do Líbano, 418 - Meireles, Fortaleza - CE, 60160-140, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "4,7",
-          "reviews": "",
-          "place_id": "0x7c749f3e2a79c33:0x8a5c455cbb08192c",
-          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+de+Beleza+e+Est%C3%A9tica+em+Fortaleza+%7C+Adoria+Beleza/data=!4m7!3m6!1s0x7c749f3e2a79c33:0x8a5c455cbb08192c!8m2!3d-3.7315089!4d-38.4963238!16s%2Fg%2F11l8lq9bss!19sChIJM5yn4vNJxwcRLBkIu1xFXIo?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Lucimar Depilação (studio De Beleza)",
-          "phone": "+558532447645",
-          "website": "",
-          "address": "R. Nunes Valente, 798 - Meireles, Fortaleza - CE, 60125-070, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "4,5",
-          "reviews": "",
-          "place_id": "0x7c74866c787a77b:0xf97940ff748c132e",
-          "maps_url": "https://www.google.com/maps/place/Lucimar+Depila%C3%A7%C3%A3o+%28studio+De+Beleza%29/data=!4m7!3m6!1s0x7c74866c787a77b:0xf97940ff748c132e!8m2!3d-3.7313275!4d-38.5022027!16s%2Fg%2F11c48_dq3m!19sChIJe6eHx2ZIxwcRLhOMdP9Aefk?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Dr. Laser Fortaleza - Depilação a laser | Estética | Skincare",
-          "phone": "+558530859225",
-          "website": "http://www.drlaser.com.br/",
-          "address": "Av. Senador Virgílio Távora, 665 - Lj 3 - Meireles, Fortaleza - CE, 60170-250, Brasil ",
-          "category": "Serviço de depilação a laser",
-          "rating": "4,8",
-          "reviews": "",
-          "place_id": "0x7c74916163d72cd:0x4cdeb2496d62bfee",
-          "maps_url": "https://www.google.com/maps/place/Dr.+Laser+Fortaleza+-+Depila%C3%A7%C3%A3o+a+laser+%7C+Est%C3%A9tica+%7C+Skincare/data=!4m7!3m6!1s0x7c74916163d72cd:0x4cdeb2496d62bfee!8m2!3d-3.7337395!4d-38.4918512!16s%2Fg%2F11gmyvth7b!19sChIJzXI9FhZJxwcR7r9ibUmy3kw?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Valquiria Costa Depilação",
-          "phone": "+5585988436776",
-          "website": "",
-          "address": "R. Dr. Humberto Rodrigues, 230 - Mondubim, Fortaleza - CE, 60752-570, Brasil ",
-          "category": "Serviço de depilação a cera",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74dcd15b997f9:0x8bcb593e313e473a",
-          "maps_url": "https://www.google.com/maps/place/Valquiria+Costa+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74dcd15b997f9:0x8bcb593e313e473a!8m2!3d-3.8204004!4d-38.5749454!16s%2Fg%2F11k3jffmgb!19sChIJ-Ze5Fc1NxwcROkc-MT5Zy4s?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "OROlaser Buena Vista Jóquei - Depilação a Laser e Estética",
-          "phone": "+5585982212423",
-          "website": "https://orolaser.com.br/",
-          "address": "R. Prof. Manoel Lourenço, 820 - Jóquei Clube, Fortaleza - CE, 60510-101, Brasil ",
-          "category": "Esteticista",
-          "rating": "4,8",
-          "reviews": "",
-          "place_id": "0x7c74be65d195731:0x93030ff55ce7674c",
-          "maps_url": "https://www.google.com/maps/place/OROlaser+Buena+Vista+J%C3%B3quei+-+Depila%C3%A7%C3%A3o+a+Laser+e+Est%C3%A9tica/data=!4m7!3m6!1s0x7c74be65d195731:0x93030ff55ce7674c!8m2!3d-3.7653224!4d-38.5737474!16s%2Fg%2F11q4cklrxg!19sChIJMVcZXeZLxwcRTGfnXPUPA5M?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Raquel Sousa – Depilação Natural & Cuidado com a Pele",
-          "phone": "+5585985327252",
-          "website": "",
-          "address": "R. Oscar França, 2499 - Granja Lisboa, Fortaleza - CE, 60540-375, Brasil ",
-          "category": "Serviço de depilação a cera",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74da2f80d25d1:0x7d13c6c31d8a8695",
-          "maps_url": "https://www.google.com/maps/place/Raquel+Sousa+%E2%80%93+Depila%C3%A7%C3%A3o+Natural+%26+Cuidado+com+a+Pele/data=!4m7!3m6!1s0x7c74da2f80d25d1:0x7d13c6c31d8a8695!8m2!3d-3.7878632!4d-38.6125936!16s%2Fg%2F11kqbx2bg9!19sChIJ0SUN-KJNxwcRlYaKHcPGE30?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "OROlaser Maraponga",
-          "phone": "+5585981612423",
-          "website": "https://orolaser.com.br/",
-          "address": "Av. Godofredo Maciel, 2540 - Maraponga, Fortaleza - CE, 60710-684, Brasil ",
-          "category": "Serviço de depilação a laser",
-          "rating": "4,8",
-          "reviews": "",
-          "place_id": "0x7c74d43c9bbfcf1:0x11350be972ba3b69",
-          "maps_url": "https://www.google.com/maps/place/OROlaser+Maraponga/data=!4m7!3m6!1s0x7c74d43c9bbfcf1:0x11350be972ba3b69!8m2!3d-3.7974335!4d-38.5706506!16s%2Fg%2F11rq1xgzhs!19sChIJ8fy7yUNNxwcRaTu6cukLNRE?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Clínica Rosi - Depilação Masculina e Feminina, massagens integrativas",
-          "phone": "+5585991644377",
-          "website": "",
-          "address": "R. Estudante Jucá, 594 - Serrinha, Fortaleza - CE, 60742-125, Brasil ",
-          "category": "Serviço de depilação a cera",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74f5844c654cd:0x5f71681ecf5924c3",
-          "maps_url": "https://www.google.com/maps/place/Cl%C3%ADnica+Rosi+-+Depila%C3%A7%C3%A3o+Masculina+e+Feminina,+massagens+integrativas/data=!4m7!3m6!1s0x7c74f5844c654cd:0x5f71681ecf5924c3!8m2!3d-3.7887425!4d-38.5438558!16s%2Fg%2F11z6nky_kg!19sChIJzVTGRFhPxwcRwyRZzx5ocV8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Depilação a Laser e Estética - Dom Luís - YESlaser",
-          "phone": "+5585984608409",
-          "website": "https://yeslaserbrasil.com/",
-          "address": "Av. Dom Luís, 1009 - Aldeota, Fortaleza - CE, 60160-230, Brasil ",
-          "category": "Depilação",
-          "rating": "4,0",
-          "reviews": "",
-          "place_id": "0x7c749d4066f4fbf:0x5b6b131e7fff8bb9",
-          "maps_url": "https://www.google.com/maps/place/Depila%C3%A7%C3%A3o+a+Laser+e+Est%C3%A9tica+-+Dom+Lu%C3%ADs+-+YESlaser/data=!4m7!3m6!1s0x7c749d4066f4fbf:0x5b6b131e7fff8bb9!8m2!3d-3.7347101!4d-38.4922811!16s%2Fg%2F11rcmzrrlt!19sChIJv09vBtRJxwcRuYv_fx4Ta1s?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Afonso Barros - Depilador",
-          "phone": "+5585992783214",
-          "website": "",
-          "address": "Rua Padre Antonino, 32 - Joaquim Távora, Fortaleza - CE, 60110-480, Brasil ",
-          "category": "Depilação",
-          "rating": "4,3",
-          "reviews": "",
-          "place_id": "0x7c749e2125f720d:0xb8938552dfb6668",
-          "maps_url": "https://www.google.com/maps/place/Afonso+Barros+-+Depilador/data=!4m7!3m6!1s0x7c749e2125f720d:0xb8938552dfb6668!8m2!3d-3.7402419!4d-38.5198529!16s%2Fg%2F11ll9_zz4h!19sChIJDXJfEuJJxwcRaGb7LVU4iQs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Laser Fast | Fortaleza/CE - Aldeota",
-          "phone": "+5585981372070",
-          "website": "https://laserfast.com.br/",
-          "address": "Shopping Aldeota - Av. Dom Luís, 500 - Sala 1703, 17º andar - Aldeota, Fortaleza - CE, 60160-230, Brasil ",
-          "category": "Serviço de depilação a laser",
-          "rating": "3,0",
-          "reviews": "",
-          "place_id": "0x7c749b5362f5fcd:0x4ee71b754c3f9db7",
-          "maps_url": "https://www.google.com/maps/place/Laser+Fast+%7C+Fortaleza%2FCE+-+Aldeota/data=!4m7!3m6!1s0x7c749b5362f5fcd:0x4ee71b754c3f9db7!8m2!3d-3.7340637!4d-38.4969648!16s%2Fg%2F11y3xrljd8!19sChIJzV8vNrVJxwcRt50_THUb504?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Clínica de Estética Iasmim Alexsandra",
-          "phone": "+5585985228799",
-          "website": "https://www.instagram.com/invites/contact/?i=k1xb7vw840mm&utm_content=5yqwjie",
-          "address": "R. Carnaubal, 1060 - Jardim Guanabara, Fortaleza - CE, 60346-264, Brasil ",
-          "category": "Serviço de depilação a laser",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74b2464603923:0x8690b9eac5a7738d",
-          "maps_url": "https://www.google.com/maps/place/Cl%C3%ADnica+de+Est%C3%A9tica+Iasmim+Alexsandra/data=!4m7!3m6!1s0x7c74b2464603923:0x8690b9eac5a7738d!8m2!3d-3.7220456!4d-38.5877535!16s%2Fg%2F11fnszw09b!19sChIJIzlgZCRLxwcRjXOnxeq5kIY?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Espaço de Estética e Depilação - Samia Caroline",
-          "phone": "+5585991271414",
-          "website": "https://www.instagram.com/samiacarolineestetica?igsh=MTJxc2o3ajB2NDVkMQ==&utm_source=qr",
-          "address": "R. Rio Araguaia, 705 - Jardim Iracema, Fortaleza - CE, 60340-000, Brasil ",
-          "category": "Esteticista",
-          "rating": "4,9",
-          "reviews": "",
-          "place_id": "0x7c74b115ad3d93f:0x693c6a4df48c0b8b",
-          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+de+Est%C3%A9tica+e+Depila%C3%A7%C3%A3o+-+Samia+Caroline/data=!4m7!3m6!1s0x7c74b115ad3d93f:0x693c6a4df48c0b8b!8m2!3d-3.7224282!4d-38.5816669!16s%2Fg%2F11w9qmx_1x!19sChIJP9nTWhFLxwcRiwuM9E1qPGk?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Santa Depilação",
-          "phone": "+5585985583652",
-          "website": "https://instagram.com/rosanafontes52?igshid=MzRlODBiNWFlZA==",
-          "address": "Rua Tenente Eliezer Costa, 147 D - Vila Velha, Fortaleza - CE, 60347-345, Brasil ",
+          "name": "E O Depil - Serviços de Beleza",
+          "phone": "+5585988995136",
+          "website": "https://www.salao99.com.br/75937/7d1cf44289e7",
+          "address": "Rua Desembargador - R. Waldemar Alves Pereira, 591 - Engenheiro Luciano Cavalcante, Fortaleza - CE, 60810-700, Brasil ",
           "category": "Salão de Beleza",
           "rating": "5,0",
           "reviews": "",
-          "place_id": "0x7c74be8382edc19:0x2264851b340ece0d",
-          "maps_url": "https://www.google.com/maps/place/Santa+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74be8382edc19:0x2264851b340ece0d!8m2!3d-3.710425!4d-38.5909605!16s%2Fg%2F11l24g6bn6!19sChIJGdwuOOhLxwcRDc4ONBuFZCI?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Ciclos Depil Sul (Unidade Lago Jacarey, Cambeba)",
-          "phone": "+5585982039099",
-          "website": "",
-          "address": "Av. Pedro Lazar, 633 - Lj 04 - Cambeba, Fortaleza - CE, 60822-170, Brasil ",
-          "category": "Serviço de depilação a laser",
-          "rating": "4,3",
-          "reviews": "",
-          "place_id": "0x7c74f5f37246fd3:0x409a19d333de692f",
-          "maps_url": "https://www.google.com/maps/place/Ciclos+Depil+Sul+%28Unidade+Lago+Jacarey,+Cambeba%29/data=!4m7!3m6!1s0x7c74f5f37246fd3:0x409a19d333de692f!8m2!3d-3.8016628!4d-38.488498!16s%2Fg%2F11rcmzkmt6!19sChIJ028kN19PxwcRL2neM9MZmkA?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "DioEstética Cambeba Fortaleza",
-          "phone": "+5585991511149",
-          "website": "https://cambeba.dioestetica.com.br/",
-          "address": "Av. Washington Soares, 6180 - Lj 05 - Cambeba, Fortaleza - CE, 60822-142, Brasil ",
-          "category": "Serviço de depilação a laser",
-          "rating": "4,6",
-          "reviews": "",
-          "place_id": "0x7c7452d3ed8eb4d:0x273c81fb4411c77d",
-          "maps_url": "https://www.google.com/maps/place/DioEst%C3%A9tica+Cambeba+Fortaleza/data=!4m7!3m6!1s0x7c7452d3ed8eb4d:0x273c81fb4411c77d!8m2!3d-3.8131597!4d-38.4803094!16s%2Fg%2F11j8l86zvh!19sChIJTevYPi1FxwcRfccRRPuBPCc?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "YESlaser Centro - Depilação a laser e estética",
-          "phone": "+5585984608409",
-          "website": "https://yeslaserbrasil.com/",
-          "address": "R. Barão do Rio Branco, 1224 - Centro, Fortaleza - CE, 60025-060, Brasil ",
-          "category": "Centro de saúde e beleza",
-          "rating": "3,9",
-          "reviews": "",
-          "place_id": "0x7c7493260a1d823:0xd14ebe03fb95ec44",
-          "maps_url": "https://www.google.com/maps/place/YESlaser+Centro+-+Depila%C3%A7%C3%A3o+a+laser+e+est%C3%A9tica/data=!4m7!3m6!1s0x7c7493260a1d823:0xd14ebe03fb95ec44!8m2!3d-3.7290225!4d-38.5291432!16s%2Fg%2F11r70syft_!19sChIJI9ihYDJJxwcRROyV-wO-TtE?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Renata Carloto Depilação",
-          "phone": "+5585991261916",
-          "website": "https://www.instagram.com/renatacarlotodepilacao?igsh=bjFqOHZ2bnM4bjNl",
-          "address": "R. Maria Júlia, 1959 - Parque São Vicente, Fortaleza - CE, 60731-734, Brasil ",
-          "category": "Serviço de depilação a cera",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74d9229fd58cb:0x890ec1ccbdc3c449",
-          "maps_url": "https://www.google.com/maps/place/Renata+Carloto+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74d9229fd58cb:0x890ec1ccbdc3c449!8m2!3d-3.8025987!4d-38.6035035!16s%2Fg%2F11ylkvdh1l!19sChIJy1j9KZJNxwcRScTDvczBDok?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Espaçolaser",
-          "phone": "+5585989755537",
-          "website": "https://www.espacolaser.com.br/",
-          "address": "Av. Carapinima, 2200 - Lj109 - Benfica, Fortaleza - CE, 60015-290, Brasil ",
-          "category": "Serviço de depilação a laser",
-          "rating": "4,6",
-          "reviews": "",
-          "place_id": "0x7c7492dc303286d:0x5423f19254408b10",
-          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7olaser/data=!4m7!3m6!1s0x7c7492dc303286d:0x5423f19254408b10!8m2!3d-3.739102!4d-38.540176!16s%2Fg%2F11qg083t9j!19sChIJbSgDwy1JxwcREItAVJLxI1Q?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "OROlaser Reserva",
-          "phone": "+5585988112423",
-          "website": "http://www.orolaser.com.br/",
-          "address": "Reserva Open Mall, Av. Washington Soares, 3000, Fortaleza - CE, 60810-350, Brasil ",
-          "category": "Serviço de depilação a laser",
-          "rating": "4,7",
-          "reviews": "",
-          "place_id": "0x7c7457c1684b1cb:0xe342cff768db8d62",
-          "maps_url": "https://www.google.com/maps/place/OROlaser+Reserva/data=!4m7!3m6!1s0x7c7457c1684b1cb:0xe342cff768db8d62!8m2!3d-3.78361!4d-38.4819533!16s%2Fg%2F11j4trjxlm!19sChIJy7GEFnxFxwcRYo3baPfPQuM?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Julia Massagens - Depilação Fortaleza",
-          "phone": "+5585997385868",
-          "website": "https://wa.me/5585997385868",
-          "address": "Av. Santos Dumont, 01 - Aldeota, Fortaleza - CE, 60175-047, Brasil ",
-          "category": "Massagem erótica",
-          "rating": "5,0",
-          "reviews": "4",
-          "place_id": "0x7c74992838de919:0x4dd59e0b2f5608c1",
-          "maps_url": "https://www.google.com/maps/place/Julia+Massagens+-+Depila%C3%A7%C3%A3o+Fortaleza/data=!4m7!3m6!1s0x7c74992838de919:0x4dd59e0b2f5608c1!8m2!3d-3.7362932!4d-38.4983508!16s%2Fg%2F11z23324dv!19sChIJGemNg5JJxwcRwQhWLwue1U0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c74f1d8f4ffd65:0xc93864643dd71a4f",
+          "maps_url": "https://www.google.com/maps/place/E+O+Depil+-+Servi%C3%A7os+de+Beleza/data=!4m7!3m6!1s0x7c74f1d8f4ffd65:0xc93864643dd71a4f!8m2!3d-3.7709872!4d-38.4962524!16s%2Fg%2F11tjlcycgy!19sChIJZf1Pjx1PxwcRTxrXPWRkOMk?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
           "name": "Studio de Depilação Vanessa Sousa",
@@ -103812,48 +103634,81 @@
           "maps_url": "https://www.google.com/maps/place/Studio+de+Depila%C3%A7%C3%A3o+Vanessa+Sousa/data=!4m7!3m6!1s0x7c74dfcfa89f4bd:0x4ed6656422441989!8m2!3d-3.7632891!4d-38.5942029!16s%2Fg%2F11xcfqkf50!19sChIJvfSJ-vxNxwcRiRlEImRl1k4?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Fabiane Pereira depilação",
-          "phone": "+5585988315692",
-          "website": "",
-          "address": "R. Albano Amaral, 994 - Manoel Sátiro, Fortaleza - CE, 60713-200, Brasil ",
-          "category": "Serviço de depilação a cera",
-          "rating": "5,0",
+          "name": "Espaçolaser",
+          "phone": "+5585989755537",
+          "website": "https://www.espacolaser.com.br/",
+          "address": "Av. Carapinima, 2200 - Lj109 - Benfica, Fortaleza - CE, 60015-290, Brasil ",
+          "category": "Serviço de depilação a laser",
+          "rating": "4,6",
           "reviews": "",
-          "place_id": "0x7c74d87ac119eff:0x2cf3354920f63324",
-          "maps_url": "https://www.google.com/maps/place/Fabiane+Pereira+depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74d87ac119eff:0x2cf3354920f63324!8m2!3d-3.7977075!4d-38.5834504!16s%2Fg%2F11s7tw5lzf!19sChIJ_54RrIdNxwcRJDP2IEk18yw?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c7492dc303286d:0x5423f19254408b10",
+          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7olaser/data=!4m7!3m6!1s0x7c7492dc303286d:0x5423f19254408b10!8m2!3d-3.739102!4d-38.540176!16s%2Fg%2F11qg083t9j!19sChIJbSgDwy1JxwcREItAVJLxI1Q?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Amanda Rodrigues Conceito - Depilação e Sobrancelhas",
-          "phone": "+5585986044310",
-          "website": "https://l.instagram.com/?u=https%3A%2F%2Flinktr.ee%2Famandarodriguesconceito%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAaelTT366pin2ctu3G8SmZJ_LQ3O5Q8zjzqDQBEdjWQWPDyALVWRlnsSesv-vw_aem_6495PqkH3mszksthC6it6w&e=AT1PU6yL0RlrAFmJ9-Ir-t3WJEJF6fR21IqLIH4XLAn7uwHCo6o9_l__C2YqMTy55GFSrdnnnF4vtC6vx0OZzIYipMpjMcsArWasHy4eFdRvEJuOvXAT6g",
-          "address": "Rua do Manzuá, 124 - Vicente Pinzón, Fortaleza - CE, 60181-180, Brasil ",
-          "category": "Serviço de depilação a cera",
+          "name": "Julia Massagens - Depilação Fortaleza",
+          "phone": "+5585997385868",
+          "website": "https://wa.me/5585997385868",
+          "address": "Av. Santos Dumont, 01 - Aldeota, Fortaleza - CE, 60175-047, Brasil ",
+          "category": "Massagem erótica",
           "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c747ea68cabe27:0x644014bb2a1bffc5",
-          "maps_url": "https://www.google.com/maps/place/Amanda+Rodrigues+Conceito+-+Depila%C3%A7%C3%A3o+e+Sobrancelhas/data=!4m7!3m6!1s0x7c747ea68cabe27:0x644014bb2a1bffc5!8m2!3d-3.7277534!4d-38.473997!16s%2Fg%2F11mcm9d1gy!19sChIJJ77KaOpHxwcRxf8bKrsUQGQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "reviews": "4",
+          "place_id": "0x7c74992838de919:0x4dd59e0b2f5608c1",
+          "maps_url": "https://www.google.com/maps/place/Julia+Massagens+-+Depila%C3%A7%C3%A3o+Fortaleza/data=!4m7!3m6!1s0x7c74992838de919:0x4dd59e0b2f5608c1!8m2!3d-3.7362932!4d-38.4983508!16s%2Fg%2F11z23324dv!19sChIJGemNg5JJxwcRwQhWLwue1U0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Elânia Depilação e Design de Sobrancelhas",
-          "phone": "+5585989636857",
+          "name": "Dr. Laser Fortaleza - Depilação a laser | Estética | Skincare",
+          "phone": "+558530859225",
+          "website": "http://www.drlaser.com.br/",
+          "address": "Av. Senador Virgílio Távora, 665 - Lj 3 - Meireles, Fortaleza - CE, 60170-250, Brasil ",
+          "category": "Serviço de depilação a laser",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x7c74916163d72cd:0x4cdeb2496d62bfee",
+          "maps_url": "https://www.google.com/maps/place/Dr.+Laser+Fortaleza+-+Depila%C3%A7%C3%A3o+a+laser+%7C+Est%C3%A9tica+%7C+Skincare/data=!4m7!3m6!1s0x7c74916163d72cd:0x4cdeb2496d62bfee!8m2!3d-3.7337395!4d-38.4918512!16s%2Fg%2F11gmyvth7b!19sChIJzXI9FhZJxwcR7r9ibUmy3kw?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "OROlaser Buena Vista Jóquei - Depilação a Laser e Estética",
+          "phone": "+5585982212423",
+          "website": "https://orolaser.com.br/",
+          "address": "R. Prof. Manoel Lourenço, 820 - Jóquei Clube, Fortaleza - CE, 60510-101, Brasil ",
+          "category": "Esteticista",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x7c74be65d195731:0x93030ff55ce7674c",
+          "maps_url": "https://www.google.com/maps/place/OROlaser+Buena+Vista+J%C3%B3quei+-+Depila%C3%A7%C3%A3o+a+Laser+e+Est%C3%A9tica/data=!4m7!3m6!1s0x7c74be65d195731:0x93030ff55ce7674c!8m2!3d-3.7653224!4d-38.5737474!16s%2Fg%2F11q4cklrxg!19sChIJMVcZXeZLxwcRTGfnXPUPA5M?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Ice Laser Fortaleza - Depilação a Laser em Fortaleza",
+          "phone": "+5585997841411",
+          "website": "https://criativivo.com.br/redirect/f3ecce19-9f05-4efc-b116-c2688d9f33dd",
+          "address": "Av. Heráclito Graça, 1574 - Aldeota, Fortaleza - CE, 60140-032, Brasil ",
+          "category": "Serviço de depilação a laser",
+          "rating": "4,3",
+          "reviews": "",
+          "place_id": "0x7c749a94b37f9fb:0x71229db8affdece",
+          "maps_url": "https://www.google.com/maps/place/Ice+Laser+Fortaleza+-+Depila%C3%A7%C3%A3o+a+Laser+em+Fortaleza/data=!4m7!3m6!1s0x7c749a94b37f9fb:0x71229db8affdece!8m2!3d-3.7383038!4d-38.5108719!16s%2Fg%2F11nfvzsx_t!19sChIJ-_k3S6lJxwcRzt7_itspEgc?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Lucimar Depilação (studio De Beleza)",
+          "phone": "+558532447645",
           "website": "",
-          "address": "Av. João Pessoa, 3980 - Damas, Fortaleza - CE, 60425-810, Brasil ",
+          "address": "R. Nunes Valente, 798 - Meireles, Fortaleza - CE, 60125-070, Brasil ",
           "category": "Salão de Beleza",
-          "rating": "5,0",
+          "rating": "4,5",
           "reviews": "",
-          "place_id": "0x7c749b2373ed6cb:0xb9279c8d91e240d6",
-          "maps_url": "https://www.google.com/maps/place/El%C3%A2nia+Depila%C3%A7%C3%A3o+e+Design+de+Sobrancelhas/data=!4m7!3m6!1s0x7c749b2373ed6cb:0xb9279c8d91e240d6!8m2!3d-3.7487669!4d-38.5464164!16s%2Fg%2F11g4df_lz7!19sChIJy9Y-N7JJxwcR1kDikY2cJ7k?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c74866c787a77b:0xf97940ff748c132e",
+          "maps_url": "https://www.google.com/maps/place/Lucimar+Depila%C3%A7%C3%A3o+%28studio+De+Beleza%29/data=!4m7!3m6!1s0x7c74866c787a77b:0xf97940ff748c132e!8m2!3d-3.7313275!4d-38.5022027!16s%2Fg%2F11c48_dq3m!19sChIJe6eHx2ZIxwcRLhOMdP9Aefk?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Depilação Beautys",
-          "phone": "+5585987443544",
-          "website": "https://www.instagram.com/epilacaobeautys_?igsh=MWJ5dHE0cWRlNjY1bQ==&utm_source=qr",
-          "address": "Av. Luciano Carneiro, 2365 - apt 104 - Vila União, Fortaleza - CE, 60410-691, Brasil ",
-          "category": "Depilação",
-          "rating": "5,0",
+          "name": "Salão de Beleza e Estética em Fortaleza | Adoria Beleza",
+          "phone": "+5585985706366",
+          "website": "https://www.instagram.com/adoriaoficial/",
+          "address": "R. República do Líbano, 418 - Meireles, Fortaleza - CE, 60160-140, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,7",
           "reviews": "",
-          "place_id": "0x7c74f169266858f:0xacbbec665cabf4ee",
-          "maps_url": "https://www.google.com/maps/place/Depila%C3%A7%C3%A3o+Beautys/data=!4m7!3m6!1s0x7c74f169266858f:0xacbbec665cabf4ee!8m2!3d-3.7689455!4d-38.5377877!16s%2Fg%2F11zjvjjkd7!19sChIJj4VmkhZPxwcR7vSrXGbsu6w?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c749f3e2a79c33:0x8a5c455cbb08192c",
+          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+de+Beleza+e+Est%C3%A9tica+em+Fortaleza+%7C+Adoria+Beleza/data=!4m7!3m6!1s0x7c749f3e2a79c33:0x8a5c455cbb08192c!8m2!3d-3.7315089!4d-38.4963238!16s%2Fg%2F11l8lq9bss!19sChIJM5yn4vNJxwcRLBkIu1xFXIo?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
           "name": "Tosa masculina espaço para homens( Depilação Corte E Massagem )",
@@ -103867,169 +103722,70 @@
           "maps_url": "https://www.google.com/maps/place/Tosa+masculina+espa%C3%A7o+para+homens%28+Depila%C3%A7%C3%A3o+Corte+E+Massagem+%29/data=!4m7!3m6!1s0x7c74f02237dde23:0xc7415bb45a8cd383!8m2!3d-3.8121251!4d-38.5190953!16s%2Fg%2F11g1pp_j5r!19sChIJI959IwJPxwcRg9OMWrRbQcc?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Depilação Ruth Maraponga",
-          "phone": "+5585999996092",
+          "name": "Afonso Barros - Depilador",
+          "phone": "+5585992783214",
           "website": "",
-          "address": "R. Júlio Alcídes, 362 - Maraponga, Fortaleza - CE, 60710-680, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "5,0",
+          "address": "Rua Padre Antonino, 32 - Joaquim Távora, Fortaleza - CE, 60110-480, Brasil ",
+          "category": "Depilação",
+          "rating": "4,3",
           "reviews": "",
-          "place_id": "0x7c74f07bf7a60c5:0x4f516eeec1415d60",
-          "maps_url": "https://www.google.com/maps/place/Depila%C3%A7%C3%A3o+Ruth+Maraponga/data=!4m7!3m6!1s0x7c74f07bf7a60c5:0x4f516eeec1415d60!8m2!3d-3.7890601!4d-38.563198!16s%2Fg%2F11h53x5b7z!19sChIJxWB6vwdPxwcRYF1Bwe5uUU8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c749e2125f720d:0xb8938552dfb6668",
+          "maps_url": "https://www.google.com/maps/place/Afonso+Barros+-+Depilador/data=!4m7!3m6!1s0x7c749e2125f720d:0xb8938552dfb6668!8m2!3d-3.7402419!4d-38.5198529!16s%2Fg%2F11ll9_zz4h!19sChIJDXJfEuJJxwcRaGb7LVU4iQs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Karolina Barbosa estética (limpeza de pele, Depilação, design de sobrancelhas, banho de lua, Parquelandia Fortaleza )",
-          "phone": "+5585981027840",
-          "website": "https://canva.link/2j3i3jqh2u0n9m6",
-          "address": "R. Nelson Machado, 637 - Parquelândia, Fortaleza - CE, 60455-515, Brasil ",
-          "category": "Esteticista",
-          "rating": "5,0",
+          "name": "OROlaser Maraponga",
+          "phone": "+5585981612423",
+          "website": "https://orolaser.com.br/",
+          "address": "Av. Godofredo Maciel, 2540 - Maraponga, Fortaleza - CE, 60710-684, Brasil ",
+          "category": "Serviço de depilação a laser",
+          "rating": "4,8",
           "reviews": "",
-          "place_id": "0x7c74b3d8d8f02a1:0x1b2bbfd1b4b8fd31",
-          "maps_url": "https://www.google.com/maps/place/Karolina+Barbosa+est%C3%A9tica+%28limpeza+de+pele,+Depila%C3%A7%C3%A3o,+design+de+sobrancelhas,+banho+de+lua,+Parquelandia+Fortaleza+%29/data=!4m7!3m6!1s0x7c74b3d8d8f02a1:0x1b2bbfd1b4b8fd31!8m2!3d-3.7436668!4d-38.5600127!16s%2Fg%2F11vkjb1899!19sChIJoQKPjT1LxwcRMf24tNG_Kxs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c74d43c9bbfcf1:0x11350be972ba3b69",
+          "maps_url": "https://www.google.com/maps/place/OROlaser+Maraponga/data=!4m7!3m6!1s0x7c74d43c9bbfcf1:0x11350be972ba3b69!8m2!3d-3.7974335!4d-38.5706506!16s%2Fg%2F11rq1xgzhs!19sChIJ8fy7yUNNxwcRaTu6cukLNRE?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Depilação/epilacao.Leila Ferreira Studio",
-          "phone": "+5585984330045",
-          "website": "https://www.instagram.com/leilaferreirastudio?igsh=azBucnJkeXNwNTk=",
-          "address": "R. Seixos, 91 - Barra do Ceará, Fortaleza - CE, 60332-560, Brasil ",
+          "name": "Raquel Sousa – Depilação Natural & Cuidado com a Pele",
+          "phone": "+5585985327252",
+          "website": "",
+          "address": "R. Oscar França, 2499 - Granja Lisboa, Fortaleza - CE, 60540-375, Brasil ",
           "category": "Serviço de depilação a cera",
           "rating": "5,0",
           "reviews": "",
-          "place_id": "0x7c73500f70b5663:0x62ea2da1bcdbfed6",
-          "maps_url": "https://www.google.com/maps/place/Depila%C3%A7%C3%A3o%2Fepilacao.Leila+Ferreira+Studio/data=!4m7!3m6!1s0x7c73500f70b5663:0x62ea2da1bcdbfed6!8m2!3d-3.6975569!4d-38.5783581!16s%2Fg%2F11p0zcg8tc!19sChIJY1YL9wA1xwcR1v7bvKEt6mI?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c74da2f80d25d1:0x7d13c6c31d8a8695",
+          "maps_url": "https://www.google.com/maps/place/Raquel+Sousa+%E2%80%93+Depila%C3%A7%C3%A3o+Natural+%26+Cuidado+com+a+Pele/data=!4m7!3m6!1s0x7c74da2f80d25d1:0x7d13c6c31d8a8695!8m2!3d-3.7878632!4d-38.6125936!16s%2Fg%2F11kqbx2bg9!19sChIJ0SUN-KJNxwcRlYaKHcPGE30?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Salão de Beleza Specchio Studio | Washington Soares",
-          "phone": "+558532781235",
-          "website": "",
-          "address": "Av. Washington Soares, 4040 - Sl 12 e 13 - Parque Manibura, Fortaleza - CE, 60821-750, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "4,7",
-          "reviews": "",
-          "place_id": "0x7c74588a4b5958d:0xd13651c9a836842",
-          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+de+Beleza+Specchio+Studio+%7C+Washington+Soares/data=!4m7!3m6!1s0x7c74588a4b5958d:0xd13651c9a836842!8m2!3d-3.7931265!4d-38.4805573!16s%2Fg%2F1ptwvf6bq!19sChIJjZW1pIhFxwcRQmiDmhxlEw0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "NATHIELLY FELIX Studio Depilacao e Design de Sobrancelhas!",
-          "phone": "+5585988099341",
-          "website": "",
-          "address": "Tv. Ceres, 35 - Bonsucesso, Fortaleza - CE, 60542-100, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74d5b2fada549:0xad40093e96562ef4",
-          "maps_url": "https://www.google.com/maps/place/NATHIELLY+FELIX+Studio+Depilacao+e+Design+de+Sobrancelhas!/data=!4m7!3m6!1s0x7c74d5b2fada549:0xad40093e96562ef4!8m2!3d-3.7784239!4d-38.5854993!16s%2Fg%2F11qn5pyfl_!19sChIJSaWtL1tNxwcR9C5Wlj4JQK0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Salão Cabelos e Ton's",
-          "phone": "+5585996050366",
-          "website": "",
-          "address": "R. Andrade Furtado, 1600 - Lj 05 - Cocó, Fortaleza - CE, 60190-090, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "4,9",
-          "reviews": "",
-          "place_id": "0x7c7463b3adab017:0x83e9918ddcef4730",
-          "maps_url": "https://www.google.com/maps/place/Sal%C3%A3o+Cabelos+e+Ton%27s/data=!4m7!3m6!1s0x7c7463b3adab017:0x83e9918ddcef4730!8m2!3d-3.7474629!4d-38.4750827!16s%2Fg%2F1ptw9ckhj!19sChIJF7DaOjtGxwcRMEfv3I2R6YM?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Kelly Freitas Estética depilação",
-          "phone": "+5585997392283",
-          "website": "",
-          "address": "Rua Creuza Roque, 303 - Manoel Sátiro, Fortaleza - CE, 60713-330, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "4,8",
-          "reviews": "",
-          "place_id": "0x7c74df1d7d26f47:0x9f80388821315dba",
-          "maps_url": "https://www.google.com/maps/place/Kelly+Freitas+Est%C3%A9tica+depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74df1d7d26f47:0x9f80388821315dba!8m2!3d-3.8011186!4d-38.577665!16s%2Fg%2F11jrhrcnvz!19sChIJR2_S1_FNxwcRul0xIYg4gJ8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Depilação Leninha Pascoal",
-          "phone": "+5585986090546",
-          "website": "",
-          "address": "R. Sao Vicente de Paulo, 120 - Quintino Cunha, Fortaleza - CE, 60353-180, Brasil ",
+          "name": "Depilação a Laser e Estética - Dom Luís - YESlaser",
+          "phone": "+5585984608409",
+          "website": "https://yeslaserbrasil.com/",
+          "address": "Av. Dom Luís, 1009 - Aldeota, Fortaleza - CE, 60160-230, Brasil ",
           "category": "Depilação",
-          "rating": "5,0",
+          "rating": "4,0",
           "reviews": "",
-          "place_id": "0x7c74bf2e28beb4f:0xceff63c529bcea5",
-          "maps_url": "https://www.google.com/maps/place/Depila%C3%A7%C3%A3o+Leninha+Pascoal/data=!4m7!3m6!1s0x7c74bf2e28beb4f:0xceff63c529bcea5!8m2!3d-3.7248329!4d-38.6030641!16s%2Fg%2F11s41cnsxc!19sChIJT-uL4vJLxwcRpc6bUjz27ww?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c749d4066f4fbf:0x5b6b131e7fff8bb9",
+          "maps_url": "https://www.google.com/maps/place/Depila%C3%A7%C3%A3o+a+Laser+e+Est%C3%A9tica+-+Dom+Lu%C3%ADs+-+YESlaser/data=!4m7!3m6!1s0x7c749d4066f4fbf:0x5b6b131e7fff8bb9!8m2!3d-3.7347101!4d-38.4922811!16s%2Fg%2F11rcmzrrlt!19sChIJv09vBtRJxwcRuYv_fx4Ta1s?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Studio Depilação",
-          "phone": "+5585984660026",
-          "website": "",
-          "address": "Av. Dep. Paulino Rocha, 277 - Cajazeiras, Fortaleza - CE, 60864-311, Brasil ",
-          "category": "Depilação",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74fae6f0cf06f:0xa6f639141c3079f7",
-          "maps_url": "https://www.google.com/maps/place/Studio+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74fae6f0cf06f:0xa6f639141c3079f7!8m2!3d-3.8043869!4d-38.5078085!16s%2Fg%2F11kk5hf2xd!19sChIJb_AMb65PxwcR93kwHBQ59qY?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Mavy - Studio de Beleza | Cílios | Depilação | Sobrancelhas | Brow Lamination",
-          "phone": "+5585987507929",
-          "website": "https://www.instagram.com/mavy.studio?igsh=M2w5bDBobzY3MHNq&utm_source=qr",
-          "address": "R. Alberto Ferreira, 289 - Jardim Iracema, Fortaleza - CE, 60341-140, Brasil ",
-          "category": "Salão de Beleza",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74bc2b0848793:0x4e6bbb125fe3ec9d",
-          "maps_url": "https://www.google.com/maps/place/Mavy+-+Studio+de+Beleza+%7C+C%C3%ADlios+%7C+Depila%C3%A7%C3%A3o+%7C+Sobrancelhas+%7C+Brow+Lamination/data=!4m7!3m6!1s0x7c74bc2b0848793:0x4e6bbb125fe3ec9d!8m2!3d-3.7204312!4d-38.5829989!16s%2Fg%2F11nxp576ws!19sChIJk4eEsMJLxwcRnezjXxK7a04?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Depilação Paula Silva",
-          "phone": "+5585996248344",
-          "website": "",
-          "address": "R. Alberto Ferreira, 875 - Jardim Iracema, Fortaleza - CE, 60341-140, Brasil ",
-          "category": "Depilação",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74b71c56786cd:0xeb0a6c3e2a5b3207",
-          "maps_url": "https://www.google.com/maps/place/Depila%C3%A7%C3%A3o+Paula+Silva/data=!4m7!3m6!1s0x7c74b71c56786cd:0xeb0a6c3e2a5b3207!8m2!3d-3.7248122!4d-38.5834089!16s%2Fg%2F11mcq3w5hf!19sChIJzYZnxXFLxwcRBzJbKj5sCus?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "OROlaser Santos Dumont",
-          "phone": "+5585981912423",
-          "website": "http://www.orolaser.com.br/",
-          "address": "Av. Santos Dumont, 3701 - Aldeota, Fortaleza - CE, 60150-165, Brasil ",
+          "name": "Laser Fast | Fortaleza/CE - Aldeota",
+          "phone": "+5585981372070",
+          "website": "https://laserfast.com.br/",
+          "address": "Shopping Aldeota - Av. Dom Luís, 500 - Sala 1703, 17º andar - Aldeota, Fortaleza - CE, 60160-230, Brasil ",
           "category": "Serviço de depilação a laser",
-          "rating": "4,5",
+          "rating": "3,0",
           "reviews": "",
-          "place_id": "0x7c7497d200270a7:0xa455c30af17bd734",
-          "maps_url": "https://www.google.com/maps/place/OROlaser+Santos+Dumont/data=!4m7!3m6!1s0x7c7497d200270a7:0xa455c30af17bd734!8m2!3d-3.738671!4d-38.4903533!16s%2Fg%2F11twcvchn2!19sChIJp3ACIH1JxwcRNNd78QrDVaQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c749b5362f5fcd:0x4ee71b754c3f9db7",
+          "maps_url": "https://www.google.com/maps/place/Laser+Fast+%7C+Fortaleza%2FCE+-+Aldeota/data=!4m7!3m6!1s0x7c749b5362f5fcd:0x4ee71b754c3f9db7!8m2!3d-3.7340637!4d-38.4969648!16s%2Fg%2F11y3xrljd8!19sChIJzV8vNrVJxwcRt50_THUb504?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Aurélia Depilação",
-          "phone": "",
-          "website": "",
-          "address": "R. Sousa Pinto, 252 - Alto da Balança, Fortaleza - CE, 60851-190, Brasil ",
-          "category": "Depilação",
+          "name": "Santa Depilação",
+          "phone": "+5585985583652",
+          "website": "https://instagram.com/rosanafontes52?igshid=MzRlODBiNWFlZA==",
+          "address": "Rua Tenente Eliezer Costa, 147 D - Vila Velha, Fortaleza - CE, 60347-345, Brasil ",
+          "category": "Salão de Beleza",
           "rating": "5,0",
           "reviews": "",
-          "place_id": "0x7c748d1dddf124b:0x943daf5453161ee6",
-          "maps_url": "https://www.google.com/maps/place/Aur%C3%A9lia+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c748d1dddf124b:0x943daf5453161ee6!8m2!3d-3.7622056!4d-38.5168579!16s%2Fg%2F11bzwp2_3d!19sChIJSxLf3dFIxwcR5h4WU1SvPZQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Depilação Feminina & Unha, Cleene Maia",
-          "phone": "+5585985638656",
-          "website": "http://bit.ly/me-chame-agora-cm",
-          "address": "Rua Frei Caneca, 489 - Jardim das Oliveiras, Fortaleza - CE, 60820-000, Brasil ",
-          "category": "Depilação",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74fc9b64d3a59:0x44af43e5f7a35c42",
-          "maps_url": "https://www.google.com/maps/place/Depila%C3%A7%C3%A3o+Feminina+%26+Unha,+Cleene+Maia/data=!4m7!3m6!1s0x7c74fc9b64d3a59:0x44af43e5f7a35c42!8m2!3d-3.7866014!4d-38.5055047!16s%2Fg%2F11jwcszs7g!19sChIJWTpNtslPxwcRQlyj9-VDr0Q?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "esmalteria e depilação, espaço Luzia Torres",
-          "phone": "+5585985856404",
-          "website": "https://www.instagram.com/unha_luziatorres/",
-          "address": "Rua cedro Condomínio 01 Bloco 07 Apartamento 01 Cidade jardim 01 - Pref. José Walter, Fortaleza - CE, Brasil ",
-          "category": "Manicure",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74b931452d6cf:0x78a91f32510d71dc",
-          "maps_url": "https://www.google.com/maps/place/esmalteria+e+depila%C3%A7%C3%A3o,+espa%C3%A7o+Luzia+Torres/data=!4m7!3m6!1s0x7c74b931452d6cf:0x78a91f32510d71dc!8m2!3d-3.8255446!4d-38.5509455!16s%2Fg%2F11pdmjb11p!19sChIJz9ZSFJNLxwcR3HENUTIfqXg?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c74be8382edc19:0x2264851b340ece0d",
+          "maps_url": "https://www.google.com/maps/place/Santa+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74be8382edc19:0x2264851b340ece0d!8m2!3d-3.710425!4d-38.5909605!16s%2Fg%2F11l24g6bn6!19sChIJGdwuOOhLxwcRDc4ONBuFZCI?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
           "name": "Vialaser Depilação a Laser - North Shopping Fortaleza",
@@ -104043,26 +103799,268 @@
           "maps_url": "https://www.google.com/maps/place/Vialaser+Depila%C3%A7%C3%A3o+a+Laser+-+North+Shopping+Fortaleza/data=!4m7!3m6!1s0x7c7490567bce9c3:0x9da8fa423dbf00d7!8m2!3d-3.7350579!4d-38.5660305!16s%2Fg%2F11rwjcn4x9!19sChIJw-m8ZwVJxwcR1wC_PUL6qJ0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         },
         {
-          "name": "Studio Andreza Santos beauty - Designer de sobrancelhas,Depilação,Estética facial e corporal",
-          "phone": "+5585992787940",
-          "website": "https://online.maapp.com.br/Studioandrezasantosbeauty",
-          "address": "Av. Pres. Castelo Branco, 5903 - Barra do Ceará, Fortaleza - CE, 60312-060, Brasil ",
-          "category": "Depilação",
-          "rating": "5,0",
-          "reviews": "",
-          "place_id": "0x7c74b541c7f0ca9:0xd8359fe900e459dd",
-          "maps_url": "https://www.google.com/maps/place/Studio+Andreza+Santos+beauty+-+Designer+de+sobrancelhas,Depila%C3%A7%C3%A3o,Est%C3%A9tica+facial+e+corporal/data=!4m7!3m6!1s0x7c74b541c7f0ca9:0xd8359fe900e459dd!8m2!3d-3.7023207!4d-38.5831358!16s%2Fg%2F11nntnpqvx!19sChIJqQx_HFRLxwcR3VnkAOmfNdg?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
-        },
-        {
-          "name": "Estética (massoterapia) e pilates em Fortaleza - BELLA ESTETIC",
-          "phone": "+5585998538991",
-          "website": "https://www.instagram.com/bellaesteticc/",
-          "address": "R. Rocha Lima, 337 - Aldeota, Fortaleza - CE, 60135-000, Brasil ",
+          "name": "Espaço de Estética e Depilação - Samia Caroline",
+          "phone": "+5585991271414",
+          "website": "https://www.instagram.com/samiacarolineestetica?igsh=MTJxc2o3ajB2NDVkMQ==&utm_source=qr",
+          "address": "R. Rio Araguaia, 705 - Jardim Iracema, Fortaleza - CE, 60340-000, Brasil ",
           "category": "Esteticista",
           "rating": "4,9",
           "reviews": "",
-          "place_id": "0x7c748f93d930c4b:0xbfa169872f1c49f5",
-          "maps_url": "https://www.google.com/maps/place/Est%C3%A9tica+%28massoterapia%29+e+pilates+em+Fortaleza+-+BELLA+ESTETIC/data=!4m7!3m6!1s0x7c748f93d930c4b:0xbfa169872f1c49f5!8m2!3d-3.7363347!4d-38.522369!16s%2Fg%2F11cltw0xwf!19sChIJSwyTPflIxwcR9UkcL4dpob8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+          "place_id": "0x7c74b115ad3d93f:0x693c6a4df48c0b8b",
+          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7o+de+Est%C3%A9tica+e+Depila%C3%A7%C3%A3o+-+Samia+Caroline/data=!4m7!3m6!1s0x7c74b115ad3d93f:0x693c6a4df48c0b8b!8m2!3d-3.7224282!4d-38.5816669!16s%2Fg%2F11w9qmx_1x!19sChIJP9nTWhFLxwcRiwuM9E1qPGk?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "YESlaser Centro - Depilação a laser e estética",
+          "phone": "+5585984608409",
+          "website": "https://yeslaserbrasil.com/",
+          "address": "R. Barão do Rio Branco, 1224 - Centro, Fortaleza - CE, 60025-060, Brasil ",
+          "category": "Centro de saúde e beleza",
+          "rating": "3,9",
+          "reviews": "",
+          "place_id": "0x7c7493260a1d823:0xd14ebe03fb95ec44",
+          "maps_url": "https://www.google.com/maps/place/YESlaser+Centro+-+Depila%C3%A7%C3%A3o+a+laser+e+est%C3%A9tica/data=!4m7!3m6!1s0x7c7493260a1d823:0xd14ebe03fb95ec44!8m2!3d-3.7290225!4d-38.5291432!16s%2Fg%2F11r70syft_!19sChIJI9ihYDJJxwcRROyV-wO-TtE?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Ciclos Depil Sul (Unidade Lago Jacarey, Cambeba)",
+          "phone": "+5585982039099",
+          "website": "",
+          "address": "Av. Pedro Lazar, 633 - Lj 04 - Cambeba, Fortaleza - CE, 60822-170, Brasil ",
+          "category": "Serviço de depilação a laser",
+          "rating": "4,3",
+          "reviews": "",
+          "place_id": "0x7c74f5f37246fd3:0x409a19d333de692f",
+          "maps_url": "https://www.google.com/maps/place/Ciclos+Depil+Sul+%28Unidade+Lago+Jacarey,+Cambeba%29/data=!4m7!3m6!1s0x7c74f5f37246fd3:0x409a19d333de692f!8m2!3d-3.8016628!4d-38.488498!16s%2Fg%2F11rcmzkmt6!19sChIJ028kN19PxwcRL2neM9MZmkA?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Ana Paula Sírio Studio - Depilação, Sobrancelhas e Limpeza de Pele.",
+          "phone": "+5585999697751",
+          "website": "https://linktr.ee/anadepildesign",
+          "address": "Av. Bulevar I, 502 A - Jangurussu, Fortaleza - CE, 60866-280, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,9",
+          "reviews": "",
+          "place_id": "0x7c751bb28638853:0x7f0ee5df0ff2e9cd",
+          "maps_url": "https://www.google.com/maps/place/Ana+Paula+S%C3%ADrio+Studio+-+Depila%C3%A7%C3%A3o,+Sobrancelhas+e+Limpeza+de+Pele./data=!4m7!3m6!1s0x7c751bb28638853:0x7f0ee5df0ff2e9cd!8m2!3d-3.8334997!4d-38.5230136!16s%2Fg%2F11lkzgl314!19sChIJU4hjKLtRxwcRzenyD9_lDn8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "DioEstética Cambeba Fortaleza",
+          "phone": "+5585991511149",
+          "website": "https://cambeba.dioestetica.com.br/",
+          "address": "Av. Washington Soares, 6180 - Lj 05 - Cambeba, Fortaleza - CE, 60822-142, Brasil ",
+          "category": "Serviço de depilação a laser",
+          "rating": "4,6",
+          "reviews": "",
+          "place_id": "0x7c7452d3ed8eb4d:0x273c81fb4411c77d",
+          "maps_url": "https://www.google.com/maps/place/DioEst%C3%A9tica+Cambeba+Fortaleza/data=!4m7!3m6!1s0x7c7452d3ed8eb4d:0x273c81fb4411c77d!8m2!3d-3.8131597!4d-38.4803094!16s%2Fg%2F11j8l86zvh!19sChIJTevYPi1FxwcRfccRRPuBPCc?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Renata Carloto Depilação",
+          "phone": "+5585991261916",
+          "website": "https://www.instagram.com/renatacarlotodepilacao?igsh=bjFqOHZ2bnM4bjNl",
+          "address": "R. Maria Júlia, 1959 - Parque São Vicente, Fortaleza - CE, 60731-734, Brasil ",
+          "category": "Serviço de depilação a cera",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c74d9229fd58cb:0x890ec1ccbdc3c449",
+          "maps_url": "https://www.google.com/maps/place/Renata+Carloto+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74d9229fd58cb:0x890ec1ccbdc3c449!8m2!3d-3.8025987!4d-38.6035035!16s%2Fg%2F11ylkvdh1l!19sChIJy1j9KZJNxwcRScTDvczBDok?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Mauricelia Gaspar depiladora e design de sobrancelha",
+          "phone": "+5585987108023",
+          "website": "",
+          "address": "R. da Assunção, 78 - Centro, Fortaleza - CE, 60712-020, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c74931aac52b45:0xfd8b150326a24e08",
+          "maps_url": "https://www.google.com/maps/place/Mauricelia+Gaspar+depiladora+e+design+de+sobrancelha/data=!4m7!3m6!1s0x7c74931aac52b45:0xfd8b150326a24e08!8m2!3d-3.7308138!4d-38.5274829!16s%2Fg%2F11h0cn6pk3!19sChIJRSvFqjFJxwcRCE6iJgMVi_0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Fiolaser SPA Fortaleza - Shopping Del Paseo",
+          "phone": "+5585998695083",
+          "website": "https://fiolaser.com.br/",
+          "address": "Av. Santos Dumont, 3131 - Aldeota, Fortaleza - CE, 60150-165, Brasil ",
+          "category": "Serviço de depilação a laser",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c749dc6fd5ac0b:0x523ba65cfd2b471c",
+          "maps_url": "https://www.google.com/maps/place/Fiolaser+SPA+Fortaleza+-+Shopping+Del+Paseo/data=!4m7!3m6!1s0x7c749dc6fd5ac0b:0x523ba65cfd2b471c!8m2!3d-3.7360995!4d-38.4969547!16s%2Fg%2F11qg09b_dd!19sChIJC6zVb9xJxwcRHEcr_VymO1I?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "OROlaser Reserva",
+          "phone": "+5585988112423",
+          "website": "http://www.orolaser.com.br/",
+          "address": "Reserva Open Mall, Av. Washington Soares, 3000, Fortaleza - CE, 60810-350, Brasil ",
+          "category": "Serviço de depilação a laser",
+          "rating": "4,7",
+          "reviews": "",
+          "place_id": "0x7c7457c1684b1cb:0xe342cff768db8d62",
+          "maps_url": "https://www.google.com/maps/place/OROlaser+Reserva/data=!4m7!3m6!1s0x7c7457c1684b1cb:0xe342cff768db8d62!8m2!3d-3.78361!4d-38.4819533!16s%2Fg%2F11j4trjxlm!19sChIJy7GEFnxFxwcRYo3baPfPQuM?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "OROlaser Via Sul",
+          "phone": "+5585988819369",
+          "website": "https://orolaser.com.br/",
+          "address": "Via Sul Shopping, Av. Washington Soares, 4335 - Sapiranga-Coité, Fortaleza - CE, 60833-005, Brasil ",
+          "category": "Esteticista",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x7c7455ddead26bb:0x6e4411d2e233580a",
+          "maps_url": "https://www.google.com/maps/place/OROlaser+Via+Sul/data=!4m7!3m6!1s0x7c7455ddead26bb:0x6e4411d2e233580a!8m2!3d-3.7946075!4d-38.4795714!16s%2Fg%2F11p9p03h3k!19sChIJuyat3l1FxwcRClgz4tIRRG4?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Espaçolaser",
+          "phone": "+5585982242131",
+          "website": "https://www.espacolaser.com.br/",
+          "address": "Av. Bezerra de Menezes, 2450 - Presidente Kennedy, Fortaleza - CE, 60325-002, Brasil ",
+          "category": "Serviço de depilação a laser",
+          "rating": "4,1",
+          "reviews": "",
+          "place_id": "0x7c749703e6e46c7:0x9fbd98120087eaf9",
+          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7olaser/data=!4m7!3m6!1s0x7c749703e6e46c7:0x9fbd98120087eaf9!8m2!3d-3.7354182!4d-38.5662289!16s%2Fg%2F11fmjqx2br!19sChIJx0ZuPnBJxwcR-eqHABKYvZ8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Espaçolaser",
+          "phone": "+5585982032143",
+          "website": "https://www.espacolaser.com.br/",
+          "address": "Av. Lineu Machado, 419 - Jóquei Clube, Fortaleza - CE, 60520-101, Brasil ",
+          "category": "Serviço de depilação a laser",
+          "rating": "4,4",
+          "reviews": "",
+          "place_id": "0x7c74db69fa32f47:0xafd3a7aa4622f7f1",
+          "maps_url": "https://www.google.com/maps/place/Espa%C3%A7olaser/data=!4m7!3m6!1s0x7c74db69fa32f47:0xafd3a7aa4622f7f1!8m2!3d-3.764514!4d-38.5749624!16s%2Fg%2F11hzfnkpqt!19sChIJRy-jn7ZNxwcR8fciRqqn068?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Gleuba Xavier Depilação",
+          "phone": "+5585989244303",
+          "website": "",
+          "address": "R. Chico França, 730 - Messejana, Fortaleza - CE, 60871-100, Brasil ",
+          "category": "Serviço de depilação a cera",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c74f0f953bfda7:0x7d98d98053195655",
+          "maps_url": "https://www.google.com/maps/place/Gleuba+Xavier+Depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74f0f953bfda7:0x7d98d98053195655!8m2!3d-3.8346774!4d-38.4969643!16s%2Fg%2F11l20l3fxg!19sChIJp_07lQ9PxwcRVVYZU4DZmH0?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Depilação Beautys",
+          "phone": "+5585987443544",
+          "website": "https://www.instagram.com/epilacaobeautys_?igsh=MWJ5dHE0cWRlNjY1bQ==&utm_source=qr",
+          "address": "Av. Luciano Carneiro, 2365 - apt 104 - Vila União, Fortaleza - CE, 60410-691, Brasil ",
+          "category": "Depilação",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c74f169266858f:0xacbbec665cabf4ee",
+          "maps_url": "https://www.google.com/maps/place/Depila%C3%A7%C3%A3o+Beautys/data=!4m7!3m6!1s0x7c74f169266858f:0xacbbec665cabf4ee!8m2!3d-3.7689455!4d-38.5377877!16s%2Fg%2F11zjvjjkd7!19sChIJj4VmkhZPxwcR7vSrXGbsu6w?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Fabiane Pereira depilação",
+          "phone": "+5585988315692",
+          "website": "",
+          "address": "R. Albano Amaral, 994 - Manoel Sátiro, Fortaleza - CE, 60713-200, Brasil ",
+          "category": "Serviço de depilação a cera",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c74d87ac119eff:0x2cf3354920f63324",
+          "maps_url": "https://www.google.com/maps/place/Fabiane+Pereira+depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74d87ac119eff:0x2cf3354920f63324!8m2!3d-3.7977075!4d-38.5834504!16s%2Fg%2F11s7tw5lzf!19sChIJ_54RrIdNxwcRJDP2IEk18yw?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Kelly Freitas Estética depilação",
+          "phone": "+5585997392283",
+          "website": "",
+          "address": "Rua Creuza Roque, 303 - Manoel Sátiro, Fortaleza - CE, 60713-330, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x7c74df1d7d26f47:0x9f80388821315dba",
+          "maps_url": "https://www.google.com/maps/place/Kelly+Freitas+Est%C3%A9tica+depila%C3%A7%C3%A3o/data=!4m7!3m6!1s0x7c74df1d7d26f47:0x9f80388821315dba!8m2!3d-3.8011186!4d-38.577665!16s%2Fg%2F11jrhrcnvz!19sChIJR2_S1_FNxwcRul0xIYg4gJ8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Elânia Depilação e Design de Sobrancelhas",
+          "phone": "+5585989636857",
+          "website": "",
+          "address": "Av. João Pessoa, 3980 - Damas, Fortaleza - CE, 60425-810, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c749b2373ed6cb:0xb9279c8d91e240d6",
+          "maps_url": "https://www.google.com/maps/place/El%C3%A2nia+Depila%C3%A7%C3%A3o+e+Design+de+Sobrancelhas/data=!4m7!3m6!1s0x7c749b2373ed6cb:0xb9279c8d91e240d6!8m2!3d-3.7487669!4d-38.5464164!16s%2Fg%2F11g4df_lz7!19sChIJy9Y-N7JJxwcR1kDikY2cJ7k?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Karolina Barbosa estética (limpeza de pele, Depilação, design de sobrancelhas, banho de lua, Parquelandia Fortaleza )",
+          "phone": "+5585981027840",
+          "website": "https://canva.link/2j3i3jqh2u0n9m6",
+          "address": "R. Nelson Machado, 637 - Parquelândia, Fortaleza - CE, 60455-515, Brasil ",
+          "category": "Esteticista",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c74b3d8d8f02a1:0x1b2bbfd1b4b8fd31",
+          "maps_url": "https://www.google.com/maps/place/Karolina+Barbosa+est%C3%A9tica+%28limpeza+de+pele,+Depila%C3%A7%C3%A3o,+design+de+sobrancelhas,+banho+de+lua,+Parquelandia+Fortaleza+%29/data=!4m7!3m6!1s0x7c74b3d8d8f02a1:0x1b2bbfd1b4b8fd31!8m2!3d-3.7436668!4d-38.5600127!16s%2Fg%2F11vkjb1899!19sChIJoQKPjT1LxwcRMf24tNG_Kxs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Depilação Ruth Maraponga",
+          "phone": "+5585999996092",
+          "website": "",
+          "address": "R. Júlio Alcídes, 362 - Maraponga, Fortaleza - CE, 60710-680, Brasil ",
+          "category": "Salão de Beleza",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c74f07bf7a60c5:0x4f516eeec1415d60",
+          "maps_url": "https://www.google.com/maps/place/Depila%C3%A7%C3%A3o+Ruth+Maraponga/data=!4m7!3m6!1s0x7c74f07bf7a60c5:0x4f516eeec1415d60!8m2!3d-3.7890601!4d-38.563198!16s%2Fg%2F11h53x5b7z!19sChIJxWB6vwdPxwcRYF1Bwe5uUU8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Depilação/epilacao.Leila Ferreira Studio",
+          "phone": "+5585984330045",
+          "website": "https://www.instagram.com/leilaferreirastudio?igsh=azBucnJkeXNwNTk=",
+          "address": "R. Seixos, 91 - Barra do Ceará, Fortaleza - CE, 60332-560, Brasil ",
+          "category": "Serviço de depilação a cera",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c73500f70b5663:0x62ea2da1bcdbfed6",
+          "maps_url": "https://www.google.com/maps/place/Depila%C3%A7%C3%A3o%2Fepilacao.Leila+Ferreira+Studio/data=!4m7!3m6!1s0x7c73500f70b5663:0x62ea2da1bcdbfed6!8m2!3d-3.6975569!4d-38.5783581!16s%2Fg%2F11p0zcg8tc!19sChIJY1YL9wA1xwcR1v7bvKEt6mI?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Amanda Rodrigues Conceito - Depilação e Sobrancelhas",
+          "phone": "+5585986044310",
+          "website": "https://l.instagram.com/?u=https%3A%2F%2Flinktr.ee%2Famandarodriguesconceito%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAaelTT366pin2ctu3G8SmZJ_LQ3O5Q8zjzqDQBEdjWQWPDyALVWRlnsSesv-vw_aem_6495PqkH3mszksthC6it6w&e=AT1PU6yL0RlrAFmJ9-Ir-t3WJEJF6fR21IqLIH4XLAn7uwHCo6o9_l__C2YqMTy55GFSrdnnnF4vtC6vx0OZzIYipMpjMcsArWasHy4eFdRvEJuOvXAT6g",
+          "address": "Rua do Manzuá, 124 - Vicente Pinzón, Fortaleza - CE, 60181-180, Brasil ",
+          "category": "Serviço de depilação a cera",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c747ea68cabe27:0x644014bb2a1bffc5",
+          "maps_url": "https://www.google.com/maps/place/Amanda+Rodrigues+Conceito+-+Depila%C3%A7%C3%A3o+e+Sobrancelhas/data=!4m7!3m6!1s0x7c747ea68cabe27:0x644014bb2a1bffc5!8m2!3d-3.7277534!4d-38.473997!16s%2Fg%2F11mcm9d1gy!19sChIJJ77KaOpHxwcRxf8bKrsUQGQ?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Meiry Depiladora",
+          "phone": "",
+          "website": "",
+          "address": "R. Recanto da Saudade, 1183 - Paupina, Fortaleza - CE, 60873-840, Brasil ",
+          "category": "Depilação",
+          "rating": "4,8",
+          "reviews": "",
+          "place_id": "0x7c751eb1e5dc8d5:0x2f3b69889d54c2ed",
+          "maps_url": "https://www.google.com/maps/place/Meiry+Depiladora/data=!4m7!3m6!1s0x7c751eb1e5dc8d5:0x2f3b69889d54c2ed!8m2!3d-3.86887!4d-38.4932756!16s%2Fg%2F11f5_k926z!19sChIJ1chdHutRxwcR7cJUnYhpOy8?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Studio de beleza e epilação Cleia Lopes",
+          "phone": "+5585991506436",
+          "website": "",
+          "address": "R. Miguel Gurgel, 210 - Messejana, Fortaleza - CE, 60871-790, Brasil ",
+          "category": "Serviço de depilação a cera",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c74fe174bc0e1d:0x5fb31f522e8614d3",
+          "maps_url": "https://www.google.com/maps/place/Studio+de+beleza+e+epila%C3%A7%C3%A3o+Cleia+Lopes/data=!4m7!3m6!1s0x7c74fe174bc0e1d:0x5fb31f522e8614d3!8m2!3d-3.8394094!4d-38.4823247!16s%2Fg%2F11msvbmtv9!19sChIJHQ68dOFPxwcR0xSGLlIfs18?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
+        },
+        {
+          "name": "Depilação Leninha Pascoal",
+          "phone": "+5585986090546",
+          "website": "",
+          "address": "R. Sao Vicente de Paulo, 120 - Quintino Cunha, Fortaleza - CE, 60353-180, Brasil ",
+          "category": "Depilação",
+          "rating": "5,0",
+          "reviews": "",
+          "place_id": "0x7c74bf2e28beb4f:0xceff63c529bcea5",
+          "maps_url": "https://www.google.com/maps/place/Depila%C3%A7%C3%A3o+Leninha+Pascoal/data=!4m7!3m6!1s0x7c74bf2e28beb4f:0xceff63c529bcea5!8m2!3d-3.7248329!4d-38.6030641!16s%2Fg%2F11s41cnsxc!19sChIJT-uL4vJLxwcRpc6bUjz27ww?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MTAwNi4wIJJjKgBIAVAD&rclk=1"
         }
       ]
     }
