@@ -21337,6 +21337,165 @@
       "new_count": 0,
       "new_usernames": [],
       "finished_at": "2026-10-10T18:43:26.345Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SP",
+        "cidade": "boituva",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "boompinksalao",
+          "profile_url": "https://www.instagram.com/boompinksalao/",
+          "name": "Salão de Beleza | Boituva",
+          "bio": "Salão de Beleza | Boituva (@boompinksalao) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "boituva",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "fioafioprofessional",
+          "profile_url": "https://www.instagram.com/fioafioprofessional/",
+          "name": "Fio a Fio Professional | Salão de Beleza | Boituva/SP ...",
+          "bio": "Fio a Fio Professional | Salão de Beleza | Boituva/SP ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "boituva",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studioranielecavalcante",
+          "profile_url": "https://www.instagram.com/studioranielecavalcante/",
+          "name": "Studio Raniele Cavalcante • Salão de Beleza Boituva ...",
+          "bio": "Studio Raniele Cavalcante • Salão de Beleza Boituva ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "boituva",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "mariabonitaboituva",
+          "profile_url": "https://www.instagram.com/mariabonitaboituva/",
+          "name": "Maria Bonita • Salão de Beleza",
+          "bio": "Maria Bonita • Salão de Beleza (@mariabonitaboituva) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "boituva",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiopinkboituva",
+          "profile_url": "https://www.instagram.com/studiopinkboituva/",
+          "name": "Studio Pink - Salão de beleza e Estética (@studiopinkboituva ...",
+          "bio": "Studio Pink - Salão de beleza e Estética (@studiopinkboituva ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "boituva",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "belezaecia._",
+          "profile_url": "https://www.instagram.com/belezaecia._/",
+          "name": "Beleza & Cia",
+          "bio": "Beleza & Cia (@belezaecia._) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "boituva",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "espacodabelezaaeliane",
+          "profile_url": "https://www.instagram.com/espacodabelezaaeliane/",
+          "name": "Espaço da beleza • Boituva",
+          "bio": "Espaço da beleza • Boituva (@espacodabelezaaeliane) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "boituva",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 7,
+      "new_count": 7,
+      "new_usernames": [
+        "boompinksalao",
+        "fioafioprofessional",
+        "studioranielecavalcante",
+        "mariabonitaboituva",
+        "studiopinkboituva",
+        "belezaecia._",
+        "espacodabelezaaeliane"
+      ],
+      "finished_at": "2026-10-10T22:36:14.234Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "CE",
+        "cidade": "caucaia",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-10T22:38:05.250Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "MG",
+        "cidade": "araxa",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-10T22:39:58.674Z"
     }
   ]
 }
