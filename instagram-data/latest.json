@@ -21051,6 +21051,101 @@
       "new_count": 0,
       "new_usernames": [],
       "finished_at": "2026-10-10T07:16:22.374Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "RS",
+        "cidade": "alegrete",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "salao.scenario",
+          "profile_url": "https://www.instagram.com/salao.scenario/",
+          "name": "Salão de Beleza Scenário | ALEGRETE RS",
+          "bio": "Salão de Beleza Scenário | ALEGRETE RS (@salao.scenario) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "alegrete",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "rennovare_alegrete",
+          "profile_url": "https://www.instagram.com/rennovare_alegrete/",
+          "name": "CENTRO DE EMBELEZAMENTO",
+          "bio": "CENTRO DE EMBELEZAMENTO (@rennovare_alegrete) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "alegrete",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "manicureepedicurealegrete",
+          "profile_url": "https://www.instagram.com/manicureepedicurealegrete/",
+          "name": "salão de beleza|Manicure |Pedicure| Alegrete ...",
+          "bio": "salão de beleza|Manicure |Pedicure| Alegrete ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "alegrete",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 3,
+      "new_count": 3,
+      "new_usernames": [
+        "salao.scenario",
+        "rennovare_alegrete",
+        "manicureepedicurealegrete"
+      ],
+      "finished_at": "2026-10-10T13:46:55.301Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "SP",
+        "cidade": "braganca paulista",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-10T13:48:59.495Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "RJ",
+        "cidade": "volta redonda",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-10T13:51:02.394Z"
     }
   ]
 }
