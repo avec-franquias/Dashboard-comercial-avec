@@ -21146,6 +21146,197 @@
       "new_count": 0,
       "new_usernames": [],
       "finished_at": "2026-10-10T13:51:02.394Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "MT",
+        "cidade": "confresa",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [
+        {
+          "username": "daianesalaoconfresa",
+          "profile_url": "https://www.instagram.com/daianesalaoconfresa/",
+          "name": "Espaço da Beleza • Confresa",
+          "bio": "Espaço da Beleza • Confresa (@daianesalaoconfresa) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "confresa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "salaodebeleza.confresa",
+          "profile_url": "https://www.instagram.com/salaodebeleza.confresa/",
+          "name": "Anuzia Cabeleireira | Confresa MT (@salaodebeleza.confresa ...",
+          "bio": "Anuzia Cabeleireira | Confresa MT (@salaodebeleza.confresa ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "confresa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studiovip_cfs",
+          "profile_url": "https://www.instagram.com/studiovip_cfs/",
+          "name": "STUDIO-VIP /Salão de beleza/ Confresa-MT",
+          "bio": "STUDIO-VIP /Salão de beleza/ Confresa-MT (@studiovip_cfs) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "confresa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "la.bellee_studio",
+          "profile_url": "https://www.instagram.com/la.bellee_studio/",
+          "name": "La Belle Studio - Confresa MT",
+          "bio": "La Belle Studio - Confresa MT (@la.bellee_studio) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "confresa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "aldenealvesconfresamt",
+          "profile_url": "https://www.instagram.com/aldenealvesconfresamt/",
+          "name": "ALDENE ALVES&#92;Estetica e Beleza confresa MT ...",
+          "bio": "ALDENE ALVES&#92;Estetica e Beleza confresa MT ... - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "confresa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "esmalteriaconfresa",
+          "profile_url": "https://www.instagram.com/esmalteriaconfresa/",
+          "name": "Esmalteria Confresa",
+          "bio": "Esmalteria Confresa (@esmalteriaconfresa) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "confresa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "esteticasimonereisconfresa",
+          "profile_url": "https://www.instagram.com/esteticasimonereisconfresa/",
+          "name": "Simone Reis",
+          "bio": "Simone Reis (@esteticasimonereisconfresa) • Instagram photos and videos",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "confresa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "studio.glamour01",
+          "profile_url": "https://www.instagram.com/studio.glamour01/",
+          "name": "Studio Glamour | Confresa-MT",
+          "bio": "Studio Glamour | Confresa-MT (@studio.glamour01) - Instagram",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "confresa",
+          "last_post": "",
+          "source": "duckduckgo"
+        },
+        {
+          "username": "fratelli_sfredo",
+          "profile_url": "https://www.instagram.com/fratelli_sfredo/",
+          "name": "Espaço Fratelli Sfredo | Salão de beleza| Estética (@fratelli_sfredo ...",
+          "bio": "Espaço Fratelli Sfredo | Salão de beleza| Estética (@fratelli_sfredo ...",
+          "followers": null,
+          "type": "Não identificado",
+          "whatsapp": "",
+          "phone": "",
+          "email": "",
+          "website": "",
+          "city": "confresa",
+          "last_post": "",
+          "source": "duckduckgo"
+        }
+      ],
+      "total": 9,
+      "new_count": 9,
+      "new_usernames": [
+        "daianesalaoconfresa",
+        "salaodebeleza.confresa",
+        "studiovip_cfs",
+        "la.bellee_studio",
+        "aldenealvesconfresamt",
+        "esmalteriaconfresa",
+        "esteticasimonereisconfresa",
+        "studio.glamour01",
+        "fratelli_sfredo"
+      ],
+      "finished_at": "2026-10-10T18:39:53.704Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "MT",
+        "cidade": "sinop",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-10T18:41:40.943Z"
+    },
+    {
+      "query": {
+        "nicho": "Salão de beleza",
+        "uf": "MG",
+        "cidade": "ponte nova",
+        "bairro": "",
+        "palavra_chave": "",
+        "limite": 100
+      },
+      "results": [],
+      "total": 0,
+      "new_count": 0,
+      "new_usernames": [],
+      "finished_at": "2026-10-10T18:43:26.345Z"
     }
   ]
 }
